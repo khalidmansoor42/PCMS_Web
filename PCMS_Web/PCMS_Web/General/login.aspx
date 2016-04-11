@@ -31,17 +31,18 @@
   <div class="login-logo">
     <a href="../../index2.html"><b>PCMS</b> Login</a>
   </div>
+    <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsg_alert">Wrong Username or Password</div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="../../index2.html" method="post">
+    <form runat="server">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" runat="server" id="userEmail">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" runat="server" id="userPassword">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -54,7 +55,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <asp:Button class="btn btn-primary btn-block btn-flat" id="signIn" runat="server" OnClick="signinBtn_Click" Text="Sign In"/>
         </div>
         <!-- /.col -->
       </div>

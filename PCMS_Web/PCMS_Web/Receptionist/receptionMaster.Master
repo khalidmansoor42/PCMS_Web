@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="doctorMaster.master.cs" Inherits="PCMS_Web.Doctor.doctorMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="receptionMaster.master.cs" Inherits="PCMS_Web.Receptionist.receptionMaster" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -276,7 +277,7 @@
                             <i class="fa fa-user"></i> <span>Patient Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="Patient/RegisterPatient"><i class="fa fa-user-plus"></i> New Patient</a></li>
+                            <li><a href="registerPatients.aspx"><i class="fa fa-user-plus"></i> New Patient</a></li>
                             <li><a href="Patient/OldPatient"><i class="fa fa-users"></i> Old Patient</a></li>
                             <li><a href="Patient/SearchPatient"><i class="fa fa-search"></i> Search Patients</a></li>
                             <li><a href="https://web.skype.com"><i class="fa fa-skype"></i> Call Skype</a></li>

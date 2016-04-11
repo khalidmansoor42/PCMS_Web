@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="doctorMaster.master.cs" Inherits="PCMS_Web.Doctor.doctorMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adminMaster.master.cs" Inherits="PCMS_Web.Admin.adminMaster" %>
 
 <!DOCTYPE html>
 <html>

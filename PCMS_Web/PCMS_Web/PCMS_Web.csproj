@@ -177,6 +177,8 @@
     <Content Include="previousASP.php" />
     <Content Include="README.md" />
     <Content Include="Doctor\doctorMaster.Master" />
+    <Content Include="Receptionist\receptionMaster.Master" />
+    <Content Include="Admin\adminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="Admin\dashboard.aspx" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -1000,10 +1003,26 @@
     <Content Include="plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Receptionist\registerPatients.aspx" />
+    <Content Include="Receptionist\dashboard.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\adminMaster.Master.cs">
+      <DependentUpon>adminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\adminMaster.Master.designer.cs">
+      <DependentUpon>adminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1026,10 +1045,29 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist\receptionMaster.Master.cs">
+      <DependentUpon>receptionMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\receptionMaster.Master.designer.cs">
+      <DependentUpon>receptionMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\registerPatients.aspx.cs">
+      <DependentUpon>registerPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\registerPatients.aspx.designer.cs">
+      <DependentUpon>registerPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
-    <Folder Include="Receptionist\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <PropertyGroup>
