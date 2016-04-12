@@ -278,9 +278,9 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="registerPatients.aspx"><i class="fa fa-user-plus"></i> New Patient</a></li>
-                            <li><a href="Patient/OldPatient"><i class="fa fa-users"></i> Old Patient</a></li>
-                            <li><a href="Patient/SearchPatient"><i class="fa fa-search"></i> Search Patients</a></li>
-                            <li><a href="https://web.skype.com"><i class="fa fa-skype"></i> Call Skype</a></li>
+                            <li><a href="oldPatients.aspx"><i class="fa fa-users"></i> Old Patient</a></li>
+                            <li><a href="searchPatients.aspx"><i class="fa fa-search"></i> Search Patients</a></li>
+                            <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> Call Skype</a></li>
                         </ul>
                     </li>
                 </ul>
