@@ -1006,6 +1006,8 @@
     <Content Include="Receptionist\registerPatients.aspx" />
     <Content Include="Receptionist\dashboard.aspx" />
     <Content Include="Receptionist\searchPatients.aspx" />
+    <Content Include="Receptionist\assignDoctor.aspx" />
+    <Content Include="Receptionist\oldPatients.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1073,6 +1075,20 @@
     </Compile>
     <Compile Include="Receptionist\searchPatients.aspx.designer.cs">
       <DependentUpon>searchPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\assignDoctor.aspx.cs">
+      <DependentUpon>assignDoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\assignDoctor.aspx.designer.cs">
+      <DependentUpon>assignDoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
