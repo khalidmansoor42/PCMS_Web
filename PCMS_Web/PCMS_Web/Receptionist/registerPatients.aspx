@@ -14,6 +14,15 @@
                 <div class="row">
                     <h4 class="col-sm-4 control-label">Personal Details</h4>
                 </div>
+                    <br />
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                      <label class="col-sm-4 control-label">Full Name</label>
+                      <div class="col-sm-8">
+                        <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server"></asp:TextBox>
+                      </div>
+                    </div>                   
+                </div>
                   <br />
                 <div class="row">
                     <div class="form-group col-sm-6">
@@ -81,14 +90,35 @@
 
                         <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
+                                <input runat="server" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+                                <input runat="server"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
                             </label>
                         </div>
                     </div>                              
                 </div>
+                  <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="col-sm-4 control-label">Marital Status</label>
+                      <div class="col-sm-8">
+                          <asp:DropDownList ID="maritalStatus_dd" runat="server" CssClass="form-control">
+                              <asp:ListItem>Single</asp:ListItem>
+                              <asp:ListItem>Married</asp:ListItem>
+                              <asp:ListItem>Divorced</asp:ListItem>
+                          </asp:DropDownList>
+                        </div>
+                    </div>
+
+                      <div class="form-group col-sm-6">
+                        <label class="col-sm-4 control-label">Occupation</label>
+                      <div class="col-sm-8">
+                          <asp:DropDownList ID="occupationStatus_dd" CssClass="form-control" runat="server" DataSourceID="OccupationDataSource" DataTextField="occupation" DataValueField="occupation_id"></asp:DropDownList>
+                          <asp:SqlDataSource runat="server" ID="OccupationDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT * FROM [occupation]"></asp:SqlDataSource>
+                      </div>
+                    </div>
+                </div>
+
                 <div class="row">
                   <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">City</label>
@@ -111,6 +141,29 @@
                       </div>
                     </div>
                 </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">Education</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList CssClass="form-control" ID="patientEducation_dd" runat="server">
+                                <asp:ListItem>Middle Pass</asp:ListItem>
+                                <asp:ListItem>Matric</asp:ListItem>
+                                <asp:ListItem>Intermediate</asp:ListItem>
+                                <asp:ListItem>Bachelors</asp:ListItem>
+                                <asp:ListItem>Masters</asp:ListItem>
+                                <asp:ListItem>PHD</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label"></label>
+                        <div class="col-sm-8">
+                           
+                        </div>
+                    </div>
+                </div>
                   <hr />
                 <div class="row">
                     <h4 class="col-sm-4 control-label">Attendant Details</h4>
@@ -129,7 +182,7 @@
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Phone Number</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="attMobile" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -147,10 +200,10 @@
                       <label class="col-sm-4 control-label">Attendant Reliability</label>
                         <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="reliableRadio" value="option1"> Reliable
+                                <input runat="server" type="radio" name="inlineRadioOption" id="reliableRadio" value="option1"> Reliable
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="unreliableRadio" value="option2"> Unreliable
+                                <input runat="server" type="radio" name="inlineRadioOption" id="unreliableRadio" value="option2"> Unreliable
                             </label>
                         </div>
                     </div>
