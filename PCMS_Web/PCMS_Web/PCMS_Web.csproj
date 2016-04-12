@@ -1005,6 +1005,7 @@
     <Content Include="plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Receptionist\registerPatients.aspx" />
     <Content Include="Receptionist\dashboard.aspx" />
+    <Content Include="Receptionist\searchPatients.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1065,6 +1066,13 @@
     </Compile>
     <Compile Include="Receptionist\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\searchPatients.aspx.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\searchPatients.aspx.designer.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
