@@ -117,49 +117,34 @@
                       <label class="col-sm-4 control-label">Patient ID</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="patientId_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="patientId_txt" ReadOnly CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Full Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fullName_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fullName_txt" ReadOnly CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                 </div>
 
-            <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Gender</label>
-
-                      <div class="col-sm-8">
-                        <asp:TextBox ID="gender_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                         <label class="col-sm-4 control-label">Mobile Number</label>
-
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="mobileNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
+           
 
                 <div class="row">
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Receipt Number</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="receiptNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="receiptNumber_txt" ReadOnly CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Age</label>
+                         <label class="col-sm-4 control-label">Visit Number</label>
 
-                      <div class="col-sm-8">
-                        <asp:TextBox ID="age_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="visitNumber_txt" ReadOnly CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
                     </div>
                 </div>
 
@@ -168,32 +153,26 @@
                       <label class="col-sm-4 control-label">Token Number</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="tokenNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="tokenNumber_txt" disabled  CssClass="form-control"  runat="server" required></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
-                         <label class="col-sm-4 control-label">Visit Number</label>
-
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="visitNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>  
-
-            <div class="row">
-                <div class="form-group col-sm-6">
                     <label class="col-sm-4 control-label">Assign Doctor</label>
 
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="assignDoctor_dd" CssClass="form-control" runat="server" DataSourceID="AssignDoctorDataSource" DataTextField="doctor_name" DataValueField="doctor_id"></asp:DropDownList>
-                            <asp:SqlDataSource runat="server" ID="AssignDoctorDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT [doctor_id], [doctor_name] FROM [doctor_registeration]"></asp:SqlDataSource>
+                            <asp:DropDownList ID="assignDoctor_dd" CssClass="form-control" runat="server" DataSourceID="AssignDoctorDataSource" DataTextField="full_name" DataValueField="employee_id"></asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="AssignDoctorDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT [full_name], [employee_id] FROM [user_registeration] where user_type='Doctor'"></asp:SqlDataSource>
                     </div>
+                </div> 
                 </div>  
+
+            <div class="row">
+                 
                 <div class="form-group col-sm-6">
                          <label class="col-sm-4 control-label">Total Amount</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="totalAmount_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="totalAmount_txt"  CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
             </div>    
@@ -203,7 +182,7 @@
         <div class="box-footer">
             <asp:Button ID="updateInvoice_btn" runat="server" Text="Update" CssClass="btn btn-info pull-right"/>
             <asp:Button ID="deleteInvoice_btn" runat="server" Text="Delete" CssClass="btn btn-danger pull-right" style="margin-right:10px"/>
-            <asp:Button ID="printInvoice_btn" runat="server" Text="Print" CssClass="btn btn-default pull-right" style="margin-right:10px"/>
+            <asp:Button ID="printInvoice_btn" runat="server" Text="Print" CssClass="btn btn-default pull-right" style="margin-right:10px" OnClick="printInvoice_btn_Click"/>
         </div>
             </div>
         </div>

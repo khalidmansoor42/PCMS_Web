@@ -29,14 +29,14 @@
                       <label class="col-sm-4 control-label">Full Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fullName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fullName" CssClass="form-control" runat="server" required></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Father Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fatherName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fatherName" CssClass="form-control" runat="server" required></asp:TextBox>
                       </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                          <label class="col-sm-4 control-label">Mobile Number</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="mobileNumber" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="mobileNumber" CssClass="form-control" runat="server" required></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                       <label class="col-sm-4 control-label">Address</label>
 
                       <div class="col-sm-8">
-                        <textarea id="TextArea1" rows="2" cols="20" runat="server" class="form-control"></textarea>
+                        <textarea id="TextArea1" rows="2" cols="20" runat="server" class="form-control" required></textarea>
                       </div>
                     </div>
                 </div>
@@ -79,10 +79,11 @@
                       <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
-                            <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
-                          </div>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" onkeypress="calculate_DOB();" runat="server"></asp:TextBox>
+
+                            </div>
                           <div class="col-sm-6">
-                            <input type="date" id="dateOfBorth" runat="server" class="form-control"/>
+                            <input type="date" id="dateOfBorth" runat="server" class="form-control"  required/>
                           </div>
                     </div>
                     <div class="form-group col-sm-6">
@@ -90,7 +91,7 @@
 
                         <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
+                                <input runat="server" type="radio" checked name="inlineRadioOptions" id="inlineRadio1" value="option1"> Male
                             </label>
                             <label class="radio-inline">
                                 <input runat="server"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
@@ -200,7 +201,7 @@
                       <label class="col-sm-4 control-label">Attendant Reliability</label>
                         <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOption" id="reliableRadio" value="option1"> Reliable
+                                <input runat="server" type="radio" checked name="inlineRadioOption" id="reliableRadio" value="option1"> Reliable
                             </label>
                             <label class="radio-inline">
                                 <input runat="server" type="radio" name="inlineRadioOption" id="unreliableRadio" value="option2"> Unreliable
@@ -222,4 +223,10 @@
           </div>
         </div>
     </div>
+    <script>
+        function calculate_DOB()
+        {
+            
+        }
+    </script>
 </asp:Content>

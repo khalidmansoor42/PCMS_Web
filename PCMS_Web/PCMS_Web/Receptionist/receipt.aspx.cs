@@ -23,10 +23,11 @@ namespace PCMS_Web.Receptionist
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
 
 
-        string receiptid = Request.QueryString["id"];
+
+            string receiptid = (string)(Session["reciept"]);
+
         string user_query = "SELECT p.full_name,p.patient_reg,r.Date,r.token_no,r.Receipt_id,r.total,r.Receipt_id,r.visit_no,u.full_name as DocName FROM receipt r inner join patient_registeration p on r.patient_reg = p.patient_reg inner join user_registeration u on r.employee_id=u.employee_id where r.Receipt_id =" + receiptid;
         SqlConnection con = new SqlConnection(constring);
         SqlCommand cmd = new SqlCommand();

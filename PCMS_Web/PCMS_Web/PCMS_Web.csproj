@@ -180,6 +180,10 @@
     <Content Include="previousASP.php" />
     <Content Include="README.md" />
     <Content Include="Doctor\doctorMaster.Master" />
+    <Content Include="Receptionist\changePassword.aspx" />
+    <Content Include="Receptionist\duplicateInvoice.aspx" />
+    <Content Include="Receptionist\oldPatients.aspx" />
+    <Content Include="Receptionist\receipt.aspx" />
     <Content Include="Receptionist\receptionMaster.Master" />
     <Content Include="Admin\adminMaster.Master" />
     <None Include="Web.Debug.config">
@@ -1010,7 +1014,6 @@
     <Content Include="Receptionist\dashboard.aspx" />
     <Content Include="Receptionist\searchPatients.aspx" />
     <Content Include="Receptionist\assignDoctor.aspx" />
-    <Content Include="Receptionist\oldPatients.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1043,6 +1046,9 @@
     <Compile Include="Doctor\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindAge.cs" />
+    <Compile Include="FindVisit.cs" />
+    <Compile Include="findvisitnumber.cs" />
     <Compile Include="General\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1052,6 +1058,34 @@
     </Compile>
     <Compile Include="maxValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\receipt.aspx.cs">
+      <DependentUpon>receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\receipt.aspx.designer.cs">
+      <DependentUpon>receipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\receptionMaster.Master.cs">
       <DependentUpon>receptionMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1086,13 +1120,6 @@
     </Compile>
     <Compile Include="Receptionist\assignDoctor.aspx.designer.cs">
       <DependentUpon>assignDoctor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

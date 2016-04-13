@@ -85,24 +85,6 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox fullName_txt;
         
         /// <summary>
-        /// gender_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gender_txt;
-        
-        /// <summary>
-        /// mobileNumber_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mobileNumber_txt;
-        
-        /// <summary>
         /// receiptNumber_txt control.
         /// </summary>
         /// <remarks>
@@ -112,13 +94,13 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox receiptNumber_txt;
         
         /// <summary>
-        /// age_txt control.
+        /// visitNumber_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox age_txt;
+        protected global::System.Web.UI.WebControls.TextBox visitNumber_txt;
         
         /// <summary>
         /// tokenNumber_txt control.
@@ -128,15 +110,6 @@ namespace PCMS_Web.Receptionist {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tokenNumber_txt;
-        
-        /// <summary>
-        /// visitNumber_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox visitNumber_txt;
         
         /// <summary>
         /// assignDoctor_dd control.

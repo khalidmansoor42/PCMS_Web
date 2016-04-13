@@ -64,7 +64,8 @@ namespace PCMS_Web.Receptionist
                         SelectCommand.Parameters.Add(new SqlParameter("@fee", fee.Text));
                         myReader = SelectCommand.ExecuteReader();
                         myConn.Close();
-                        Response.Redirect("../Receptionist/receipt.aspx?id=" + reciept);
+                        Session["reciept"] = reciept;
+                        Response.Redirect("../Receptionist/receipt.aspx");
                     }
                     catch (Exception ex)
                     {

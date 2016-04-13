@@ -67,7 +67,8 @@ namespace PCMS_Web.Receptionist
             myConn.Open();
             myReader = SelectCommand.ExecuteReader();
             myConn.Close();
-            Response.Redirect("../Receptionist/receipt.aspx?id=" + reciept);
+            Session["reciept"] = reciept;
+            Response.Redirect("../Receptionist/receipt.aspx");
 
         }
     }
