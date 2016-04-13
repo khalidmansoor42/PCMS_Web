@@ -10,7 +10,7 @@
 namespace PCMS_Web.Receptionist {
     
     
-    public partial class WebForm6 {
+    public partial class duplicateInvoice {
         
         /// <summary>
         /// searchPatient_txt control.
@@ -29,6 +29,15 @@ namespace PCMS_Web.Receptionist {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button searchPatient_btn;
+        
+        /// <summary>
+        /// dateTime_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateTime_txt;
         
         /// <summary>
         /// GridView1 control.

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace PCMS_Web.Receptionist
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class duplicateInvoice : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dateTime_txt.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
         protected void searchPatient_btn_Click(object sender, EventArgs e)
         {
@@ -25,6 +25,9 @@ namespace PCMS_Web.Receptionist
             }
         }
 
-      
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            patientId_txt.Text=
+        }
     }
 }
