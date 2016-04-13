@@ -13,6 +13,15 @@ namespace PCMS_Web.Receptionist {
     public partial class WebForm1 {
         
         /// <summary>
+        /// patientId_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox patientId_txt;
+        
+        /// <summary>
         /// fullName control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,51 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateOfBorth;
         
         /// <summary>
+        /// inlineRadio1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton inlineRadio1;
+        
+        /// <summary>
+        /// inlineRadio2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton inlineRadio2;
+        
+        /// <summary>
+        /// maritalStatus_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList maritalStatus_dd;
+        
+        /// <summary>
+        /// occupationStatus_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList occupationStatus_dd;
+        
+        /// <summary>
+        /// OccupationDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource OccupationDataSource;
+        
+        /// <summary>
         /// city_dd control.
         /// </summary>
         /// <remarks>
@@ -121,6 +175,15 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.SqlDataSource doctorDataSource;
         
         /// <summary>
+        /// patientEducation_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList patientEducation_dd;
+        
+        /// <summary>
         /// attendantFullName control.
         /// </summary>
         /// <remarks>
@@ -130,13 +193,13 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox attendantFullName;
         
         /// <summary>
-        /// TextBox2 control.
+        /// attMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox attMobile;
         
         /// <summary>
         /// attendantRelation_dd control.
@@ -155,6 +218,24 @@ namespace PCMS_Web.Receptionist {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource attendantDataSource;
+        
+        /// <summary>
+        /// reliableRadio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton reliableRadio;
+        
+        /// <summary>
+        /// unreliableRadio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton unreliableRadio;
         
         /// <summary>
         /// updateBtn control.
