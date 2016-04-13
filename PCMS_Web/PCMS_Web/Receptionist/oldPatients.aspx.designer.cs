@@ -13,15 +13,6 @@ namespace PCMS_Web.Receptionist {
     public partial class WebForm5 {
         
         /// <summary>
-        /// errortxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox errortxt;
-        
-        /// <summary>
         /// searchPatient_txt control.
         /// </summary>
         /// <remarks>

@@ -4,7 +4,7 @@
         
     <div class="col-sm-12">
         <div id="divStatus" clientidmode="static" class="alert alert-info">
-            <asp:TextBox ID="errortxt" runat="server"></asp:TextBox>
+
         </div>        
         <div class="box box-info">
             <div class="box-header with-border">
@@ -31,10 +31,6 @@
                             <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address"></asp:BoundField>
                             <asp:BoundField DataField="mob" HeaderText="Mobile Number" SortExpression="mob"></asp:BoundField>
                             <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email"></asp:BoundField>
-                            <asp:BoundField DataField="attendant_name" HeaderText="Attendant Name" SortExpression="attendant_name"></asp:BoundField>
-                            <asp:BoundField DataField="attendant_mob" HeaderText="Attendant Mobile" SortExpression="attendant_mob"></asp:BoundField>
-                            <asp:BoundField DataField="dob" HeaderText="Date Of Birth" SortExpression="dob"></asp:BoundField>
-                            <asp:BoundField DataField="education" HeaderText="Education" SortExpression="education"></asp:BoundField>
                         </Columns>
                         <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 

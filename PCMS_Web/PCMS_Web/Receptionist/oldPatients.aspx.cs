@@ -73,14 +73,12 @@ namespace PCMS_Web.Receptionist
                 }
                 else
                 {
-                    errortxt.Text = "Fill Required Fields";
 
                     // MetroMessageBox.Show(this, "\n" + "Fill Required Fields", ":/", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                errortxt.Text = "Patient Already Exists";
                 //MetroMessageBox.Show(this, "\n" + "Patient Already Exists", ":/", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
             }
         }
