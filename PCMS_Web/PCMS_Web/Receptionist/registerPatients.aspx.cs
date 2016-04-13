@@ -70,8 +70,9 @@ namespace PCMS_Web.Receptionist
 
                 myReader1 = SelectCommand1.ExecuteReader();               
                 con.Close();
+                Response.Redirect("../Receptionist/assignDoctor.aspx?id="+patientId_txt.Text);
 
-               
+
             }
             catch (Exception ex)
             {
