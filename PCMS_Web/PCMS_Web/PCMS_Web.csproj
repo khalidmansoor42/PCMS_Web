@@ -153,6 +153,7 @@
     <Content Include="build\less\variables.less" />
     <Content Include="changelog" />
     <Content Include="composer.json" />
+    <Content Include="General\forgotPassword.aspx" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
@@ -1011,6 +1012,8 @@
     <Content Include="Receptionist\assignDoctor.aspx" />
     <Content Include="Receptionist\oldPatients.aspx" />
     <Content Include="Receptionist\receipt.aspx" />
+    <Content Include="Receptionist\duplicateInvoice.aspx" />
+    <Content Include="Receptionist\changePassword.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1046,6 +1049,13 @@
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
     <Compile Include="findvisitnumber.cs" />
+    <Compile Include="General\forgotPassword.aspx.cs">
+      <DependentUpon>forgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\forgotPassword.aspx.designer.cs">
+      <DependentUpon>forgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="General\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1103,6 +1113,20 @@
     </Compile>
     <Compile Include="Receptionist\receipt.aspx.designer.cs">
       <DependentUpon>receipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
