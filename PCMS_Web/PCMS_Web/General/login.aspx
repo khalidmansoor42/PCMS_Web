@@ -19,6 +19,8 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 
+    <!--Script for Jquery fadeout-->  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -29,9 +31,14 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>PCMS</b> Login</a>
+    <a href="#"><b>PCMS</b> Login</a>
   </div>
     <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsg_alert">Wrong Username or Password</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#errorMsg_alert').delay(2000).fadeOut();
+        });
+    </script>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
@@ -68,7 +75,7 @@
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
+    <a href="forgotPassword.aspx">I forgot my password</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
 
   </div>

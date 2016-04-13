@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>PCMS | Forgot Password</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  <!--Script for Jquery fadeout-->  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,16 +31,25 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>PCMS</b> Forgot Password</a>
+    <a href="#"><b>PCMS</b> Forgot Password</a>
   </div>
-    <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsg_alert">Wrong Email Entered!</div>
+    <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsg_alert"></div>
+    <div class="alert alert-success" role="alert" runat="server" visible="false" id="successMsg_alert"></div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#errorMsg_alert').delay(3000).fadeOut();
+        });
+        $(document).ready(function () {
+            $('#successMsg_alert').delay(3000).fadeOut();
+        });
+    </script>
   <!-- /.login-logo -->
   <div class="login-box-body">
 
     <form runat="server">
         <label>Enter email id that you entered during registration</label>
       <div class="form-group has-feedback" style="margin-top:10px">
-        <input type="email" class="form-control" placeholder="Email" runat="server" id="userEmail">
+        <input type="email" class="form-control" placeholder="Email" runat="server" id="userEmail_txt"/>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="row">
@@ -47,7 +58,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-            <asp:Button class="btn btn-primary btn-block btn-flat" id="signIn" runat="server" Text="Submit"/>
+            <asp:Button class="btn btn-primary btn-block btn-flat" id="changePassword_btn" runat="server" OnClientClick="return runEffect();" Text="Submit" OnClick="changePassword_Click"/>
         </div>
         <!-- /.col -->
       </div>

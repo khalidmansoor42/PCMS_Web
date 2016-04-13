@@ -151,6 +151,7 @@
     <Content Include="build\less\variables.less" />
     <Content Include="changelog" />
     <Content Include="composer.json" />
+    <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
@@ -1042,6 +1043,13 @@
     </Compile>
     <Compile Include="Doctor\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="General\destroySession.aspx.cs">
+      <DependentUpon>destroySession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\destroySession.aspx.designer.cs">
+      <DependentUpon>destroySession.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\forgotPassword.aspx.cs">
       <DependentUpon>forgotPassword.aspx</DependentUpon>

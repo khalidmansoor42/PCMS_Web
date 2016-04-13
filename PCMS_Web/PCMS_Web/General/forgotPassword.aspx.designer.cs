@@ -22,21 +22,30 @@ namespace PCMS_Web.General {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMsg_alert;
         
         /// <summary>
-        /// userEmail control.
+        /// successMsg_alert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl userEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successMsg_alert;
         
         /// <summary>
-        /// signIn control.
+        /// userEmail_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button signIn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl userEmail_txt;
+        
+        /// <summary>
+        /// changePassword_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button changePassword_btn;
     }
 }
