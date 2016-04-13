@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<form runat="server">
     <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -68,26 +69,30 @@
         <!-- Left col -->
         <section class="col-lg-7">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
                       <h3 class="box-title">Start treatment</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" runat="server">
                         <div class="box-body">
-                            <div class="list-group">
-                              <a href="#" class="list-group-item active">
-                                Cras justo odio
-                              </a>
-                              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                              <a href="#" class="list-group-item">Morbi leo risus</a>
-                              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                              <a href="#" class="list-group-item">Vestibulum at eros</a>
+                            <div class="row">
+                                <div class="list-group col-sm-10 col-sm-offset-1">
+                                    <asp:HyperLink ID="complaintAndProblem_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-info-circle" style="margin-right: 15px"></i> Complaint And Problem <label class="small pull-right"">Step 1</label></asp:HyperLink>
+                                    <asp:HyperLink ID="history_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-history" style="margin-right: 15px"></i> History <label class="small pull-right">Step 2</label></asp:HyperLink>
+                                    <asp:HyperLink ID="diagnosis_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-search" style="margin-right: 15px"></i> Diagnosis <label class="small pull-right">Step 3</label></asp:HyperLink>
+                                    <asp:HyperLink ID="mentalStateExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-stethoscope" style="margin-right: 15px"></i> Mental State Examination <label class="small pull-right">Step 4</label></asp:HyperLink>
+                                    <asp:HyperLink ID="generalPhysicalExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-male" style="margin-right: 18px"></i> General Physical Examination <label class="small pull-right">Step 5</label></asp:HyperLink>
+                                    <asp:HyperLink ID="systematicExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-bar-chart" style="margin-right: 11px"></i> Systematic Examination <label class="small pull-right">Step 6</label></asp:HyperLink>
+                                    <asp:HyperLink ID="psychometricEvaluation_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-file-text" style="margin-right: 15px"></i> Psychometric Evaluation <label class="small pull-right">Step 7</label></asp:HyperLink>
+                                    <asp:HyperLink ID="Investigation_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-user-secret" style="margin-right: 15px"></i> Investigation <label class="small pull-right">Step 8</label></asp:HyperLink>
+                                    <asp:HyperLink ID="medication_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-medkit" style="margin-right: 15px"></i> Medication <label class="small pull-right">Step 9</label></asp:HyperLink>
+                                    <asp:HyperLink ID="counselling_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-comments-o" style="margin-right: 15px"></i> Counselling <label class="small pull-right">Step 10</label></asp:HyperLink>
+                                    <asp:HyperLink ID="addPicture_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-picture-o" style="margin-right: 15px"></i> Add Picture <label class="small pull-right">Step 11</label></asp:HyperLink>
+                                </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -103,7 +108,7 @@
                 Patient List
               </h3>
             </div>
-            <form runat="server">
+            
                 <div class="box-body">
                     <div class="table-responsive">
                             <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="city_id" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True">
@@ -134,10 +139,11 @@
 
                     </div>
                 </div>
-            </form>
+            
         </div>
           <!-- Calendar -->
 
         </section>
           </div>
+    </form>
 </asp:Content>
