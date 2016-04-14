@@ -273,7 +273,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="treeview">
+                    <li class="treeview active">
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Patient Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -283,6 +283,9 @@
                             <li><a href="searchPatients.aspx"><i class="fa fa-search"></i> Search Patients</a></li>
                             <li><a href="duplicateInvoice.aspx"><i class="fa fa-copy"></i> Duplicate Invoice</a></li>
                         </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
                     </li>
                 </ul>
                 <!-- /.sidebar -->

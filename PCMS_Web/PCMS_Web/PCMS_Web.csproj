@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include=".jshintrc" />
     <Content Include="Admin\changePassword.aspx" />
+    <Content Include="Admin\userRegistration.aspx" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -1040,6 +1041,13 @@
     </Compile>
     <Compile Include="Admin\changePassword.aspx.designer.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\userRegistration.aspx.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\userRegistration.aspx.designer.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>

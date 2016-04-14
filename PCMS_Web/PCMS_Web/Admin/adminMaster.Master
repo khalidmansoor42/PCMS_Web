@@ -273,15 +273,39 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
+                        <a href="dashboard.aspx"><i class="fa fa-home"></i> <span>Home</span></a>
+                    </li>
+                    <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-user"></i> <span>Patient Management</span> <i class="fa fa-angle-left pull-right"></i>
+                            <i class="fa fa-user"></i> <span>User Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="Patient/RegisterPatient"><i class="fa fa-user-plus"></i> New Patient</a></li>
-                            <li><a href="Patient/OldPatient"><i class="fa fa-users"></i> Old Patient</a></li>
-                            <li><a href="Patient/SearchPatient"><i class="fa fa-search"></i> Search Patients</a></li>
-                            <li><a href="https://web.skype.com"><i class="fa fa-skype"></i> Call Skype</a></li>
+                            <li><a href="userRegistration.aspx"><i class="fa fa-user-plus"></i> New User</a></li>
+                            <li><a href="#"><i class="fa fa-search"></i> Search User</a></li>
+                            <li><a href="#"><i class="fa fa-users"></i> Active/Inactive User</a></li>
+                            <li><a href="userRegistration.aspx"><i class="fa fa-user-md"></i> New Doctor</a></li>
                         </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Record Management</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-building"></i> Add City</a></li>
+                            <li><a href="#"><i class="fa fa-medkit"></i> Add Medicine</a></li>
+                            <li><a href="#"><i class="fa fa-heartbeat"></i> Add Disease</a></li>
+                            <li><a href="#"><i class="fa fa-hospital-o"></i> Clinic Name</a></li>
+                            <li><a href="#"><i class="fa fa-text-width"></i> Restricted Values</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-search"></i> <span>Search Patients</span></a>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-database"></i> <span>Database Backup</span></a>
                     </li>
                 </ul>
                 <!-- /.sidebar -->
