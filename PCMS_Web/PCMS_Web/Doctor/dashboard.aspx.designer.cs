@@ -112,6 +112,24 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.HyperLink addPicture_btn;
         
         /// <summary>
+        /// dateToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dateToday;
+        
+        /// <summary>
+        /// employeeId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox employeeId;
+        
+        /// <summary>
         /// patientTokenGrid control.
         /// </summary>
         /// <remarks>

@@ -49,7 +49,7 @@ namespace PCMS_Web.Receptionist
                     try
                     {
                         SqlConnection myConn = new SqlConnection(constring);
-                        String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name)values(@patient_reg, @date, @visit, @Refdoc, @userName);  insert into receipt (token_no,patient_reg,employee_id,total,Date,visit_no,receiptdate )values (@token, @patient_reg, @Refdoc, @fee, @date, @visit, @date)  ;";
+                        String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name,noti)values(@patient_reg, @date, @visit, @Refdoc, @userName,@noti);  insert into receipt (token_no,patient_reg,employee_id,total,Date,visit_no,receiptdate )values (@token, @patient_reg, @Refdoc, @fee, @date, @visit, @date)  ;";
                         SqlCommand SelectCommand = new SqlCommand(query, myConn);
                         SqlDataReader myReader;
                         myConn.Open();
@@ -60,6 +60,7 @@ namespace PCMS_Web.Receptionist
                         SelectCommand.Parameters.Add(new SqlParameter("@Refdoc", assignDoctor_dd.SelectedValue));
                         SelectCommand.Parameters.Add(new SqlParameter("@date", DateTime.Today));
                         SelectCommand.Parameters.Add(new SqlParameter("@userName","muaz"));
+                        SelectCommand.Parameters.Add(new SqlParameter("@noti", 1));
                         SelectCommand.Parameters.Add(new SqlParameter("@visit", Convert.ToInt32(visit)));
                         SelectCommand.Parameters.Add(new SqlParameter("@fee", fee.Text));
                         myReader = SelectCommand.ExecuteReader();

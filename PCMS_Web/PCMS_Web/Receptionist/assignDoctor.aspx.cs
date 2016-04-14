@@ -53,7 +53,7 @@ namespace PCMS_Web.Receptionist
             int token = max.max("select max(token_no) from receipt where Date = '" + DateTime.Today.ToString("yyyy-MM-dd") + "';") + 1;
             int reciept = max.max("select max(Receipt_id) from receipt") + 1;
             SqlConnection myConn = new SqlConnection(constring);
-            String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name)values(@PatientId,@date,@VisitNo,@DoctorAssign,@user_name);insert into receipt(token_no, patient_reg, employee_id, total, Date, visit_no, receiptdate)values(@tokenNo, @PatientId, @DoctorAssign, @fee, @date, @VisitNo, @reciptNo)";
+            String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name,noti)values(@PatientId,@date,@VisitNo,@DoctorAssign,@user_name,@noti);insert into receipt(token_no, patient_reg, employee_id, total, Date, visit_no, receiptdate)values(@tokenNo, @PatientId, @DoctorAssign, @fee, @date, @VisitNo, @reciptNo)";
             SqlCommand SelectCommand = new SqlCommand(query, myConn);
             SqlDataReader myReader;
             SelectCommand.Parameters.Add(new SqlParameter("@PatientId", Convert.ToInt32(Request.QueryString["id"])));
@@ -62,6 +62,7 @@ namespace PCMS_Web.Receptionist
             SelectCommand.Parameters.Add(new SqlParameter("@DoctorAssign", assignDoctor_dd.SelectedValue));
             SelectCommand.Parameters.Add(new SqlParameter("@user_name", "muaz@yahoo.com"));
             SelectCommand.Parameters.Add(new SqlParameter("@tokenNo", token));
+            SelectCommand.Parameters.Add(new SqlParameter("@noti", 1));
             SelectCommand.Parameters.Add(new SqlParameter("@fee", Convert.ToInt32(totalFee_txt.Text)));
             SelectCommand.Parameters.Add(new SqlParameter("@reciptNo", reciept));
             myConn.Open();

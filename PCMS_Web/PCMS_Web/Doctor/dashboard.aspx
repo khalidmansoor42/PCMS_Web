@@ -1,12 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<form runat="server">
+     
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+-->    
+       <form runat="server">
     <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3 id="patient_waiting">0</h3>
 
               <p>Patients Waiting</p>
             </div>
@@ -21,7 +25,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53</h3>
+              <h3 id="PatientsCheckedToday">0</h3>
 
               <p>Patients Checked Today</p>
             </div>
@@ -36,7 +40,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3 id="PatientRegister">0</h3>
 
               <p>Patients Registered Today</p>
             </div>
@@ -108,15 +112,20 @@
                 Patient List
               </h3>
             </div>
-            
-                <div class="box-body">
-                    <div class="table-responsive">
-                            <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="city_id" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True">
+              <asp:TextBox ID="dateToday" hidden runat="server"></asp:TextBox>
+              <asp:TextBox ID="employeeId" hidden runat="server"></asp:TextBox>
+        
+                <div class="box-body" id="muaz">
+                    <div class="table-responsive" id="arslan">
+                            <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True">
                               <Columns>
-                                  <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-                                  <asp:BoundField DataField="city_id" HeaderText="city_id" ReadOnly="True" SortExpression="city_id"></asp:BoundField>
-                                  <asp:BoundField DataField="city_name" HeaderText="city_name" SortExpression="city_name"></asp:BoundField>
+                                  <asp:CommandField ShowSelectButton="True" />
+                                  <asp:BoundField DataField="full_name" HeaderText="full_name" SortExpression="full_name"></asp:BoundField>
+                                  <asp:BoundField DataField="patient_reg" HeaderText="patient_reg" SortExpression="patient_reg" ReadOnly="True"></asp:BoundField>
+                                  <asp:BoundField DataField="token_no" HeaderText="token_no" SortExpression="token_no"></asp:BoundField>
+
                               </Columns>
+
                   <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 
                   <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White"></HeaderStyle>
@@ -135,15 +144,24 @@
 
                   <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
               </asp:GridView>
-                          <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT * FROM [city]"></asp:SqlDataSource>
+                        <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT p.full_name, p.patient_reg, r.token_no FROM patient_registeration AS p INNER JOIN visit AS v ON p.patient_reg = v.patient_reg INNER JOIN receipt AS r ON p.patient_reg = r.patient_reg AND v.patient_reg = r.patient_reg AND v.employee_id = r.employee_id WHERE (v.visit_date = @Param1) AND (v.checks = '0') AND (v.employee_id = @Param2)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="dateToday" Name="Param1" PropertyName="Text" />
+                                <asp:ControlParameter ControlID="employeeId" Name="Param2" PropertyName="Text" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
 
                     </div>
                 </div>
             
         </div>
-          <!-- Calendar -->
+              <!-- Calendar -->
 
         </section>
           </div>
     </form>
+  <!--  <script src="http://code.jquery.com/jquery-latest.min.js"type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>-->
+     
+
 </asp:Content>

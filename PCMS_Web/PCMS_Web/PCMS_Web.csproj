@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".jshintrc" />
+    <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -154,6 +155,7 @@
     <Content Include="changelog" />
     <Content Include="composer.json" />
     <Content Include="General\forgotPassword.aspx" />
+    <Content Include="js\jquery.toaster.js" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
