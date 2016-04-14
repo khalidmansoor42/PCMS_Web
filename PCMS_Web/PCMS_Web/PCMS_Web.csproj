@@ -154,6 +154,7 @@
     <Content Include="composer.json" />
     <Content Include="Doctor\history.aspx" />
     <Content Include="Doctor\changePassword.aspx" />
+    <Content Include="Doctor\problemListAndComplaint.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="LICENSE" />
@@ -1067,6 +1068,13 @@
     </Compile>
     <Compile Include="Doctor\changePassword.aspx.designer.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\problemListAndComplaint.aspx.cs">
+      <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\problemListAndComplaint.aspx.designer.cs">
+      <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>

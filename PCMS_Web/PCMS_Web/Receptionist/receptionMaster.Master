@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PCMS | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
+    <link rel="icon" href="../dist/img/website_logo.png" type="image/png">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -281,7 +282,6 @@
                             <li><a href="oldPatients.aspx"><i class="fa fa-users"></i> Old Patient</a></li>
                             <li><a href="searchPatients.aspx"><i class="fa fa-search"></i> Search Patients</a></li>
                             <li><a href="duplicateInvoice.aspx"><i class="fa fa-copy"></i> Duplicate Invoice</a></li>
-                            <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> Call Skype</a></li>
                         </ul>
                     </li>
                 </ul>
