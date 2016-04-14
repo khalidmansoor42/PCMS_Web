@@ -12,7 +12,7 @@
               <div class="box-body">
 
                 <div class="row">
-                    <h4 class="col-sm-4 control-label">Personal Details</h4>
+                    <h4 class="col-sm-4 control-label" style="display:block; text-align:left;">Personal Details</h4>
                 </div>
                     <br />
                 <div class="row">
@@ -166,7 +166,7 @@
                 </div>
                   <hr />
                 <div class="row">
-                    <h4 class="col-sm-4 control-label">Attendant Details</h4>
+                    <h4 class="col-sm-4 control-label" style="display:block; text-align:left;">Attendant Details</h4>
                 </div>
                   
                   <br />

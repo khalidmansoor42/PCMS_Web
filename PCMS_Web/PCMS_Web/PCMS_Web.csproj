@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".jshintrc" />
+    <Content Include="Admin\changePassword.aspx" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -151,6 +152,8 @@
     <Content Include="build\less\variables.less" />
     <Content Include="changelog" />
     <Content Include="composer.json" />
+    <Content Include="Doctor\history.aspx" />
+    <Content Include="Doctor\changePassword.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="LICENSE" />
@@ -1030,6 +1033,13 @@
     <Compile Include="Admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1043,6 +1053,20 @@
     </Compile>
     <Compile Include="Doctor\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\history.aspx.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\history.aspx.designer.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>
