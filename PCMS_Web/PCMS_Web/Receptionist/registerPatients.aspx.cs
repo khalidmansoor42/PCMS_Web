@@ -14,10 +14,14 @@ namespace PCMS_Web.Receptionist
         Random rnd = new Random();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["username"] == null)
-            //{
-            //    Response.Redirect("../General/login.aspx");
-            //}
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "staff")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
             // creates a number between 1 and 12
             int month = rnd.Next(1, 100);
             patientId_txt.Text = Convert.ToString(month)+DateTime.Today.ToString("yyMM");

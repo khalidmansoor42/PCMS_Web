@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PCMS_Web.Receptionist {
+namespace PCMS_Web.Admin {
     
     
-    public partial class receptionMaster {
+    public partial class WebForm2 {
         
         /// <summary>
-        /// docNameTop_lbl control.
+        /// currentPassword_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label docNameTop_lbl;
+        protected global::System.Web.UI.WebControls.TextBox currentPassword_txt;
         
         /// <summary>
-        /// docName_lbl control.
+        /// newPassword_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label docName_lbl;
+        protected global::System.Web.UI.WebControls.TextBox newPassword_txt;
         
         /// <summary>
-        /// userType_lbl control.
+        /// confirmPass_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userType_lbl;
+        protected global::System.Web.UI.WebControls.TextBox confirmPass_txt;
         
         /// <summary>
-        /// docNameMain_lbl control.
+        /// changePassword_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label docNameMain_lbl;
-        
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button changePassword_btn;
     }
 }

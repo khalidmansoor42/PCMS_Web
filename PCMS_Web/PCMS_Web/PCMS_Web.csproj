@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".jshintrc" />
+    <Content Include="Admin\changePassword.aspx" />
+    <Content Include="Admin\userRegistration.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
@@ -154,6 +156,10 @@
     <Content Include="build\less\variables.less" />
     <Content Include="changelog" />
     <Content Include="composer.json" />
+    <Content Include="Doctor\history.aspx" />
+    <Content Include="Doctor\changePassword.aspx" />
+    <Content Include="Doctor\problemListAndComplaint.aspx" />
+    <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="js\jquery.toaster.js" />
     <Content Include="LICENSE" />
@@ -1034,6 +1040,20 @@
     <Compile Include="Admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\userRegistration.aspx.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\userRegistration.aspx.designer.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1048,11 +1068,29 @@
     <Compile Include="Doctor\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FindAge.cs" />
-    <Compile Include="FindVisit.cs" />
-    <Compile Include="findvisitnumber.cs" />
-    <Compile Include="General\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Doctor\history.aspx.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\history.aspx.designer.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\problemListAndComplaint.aspx.cs">
+      <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\problemListAndComplaint.aspx.designer.cs">
+      <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="General\destroySession.aspx.cs">
+      <DependentUpon>destroySession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="General\login.aspx.designer.cs">
@@ -1122,6 +1160,27 @@
     </Compile>
     <Compile Include="Receptionist\assignDoctor.aspx.designer.cs">
       <DependentUpon>assignDoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PCMS_Web.Admin
+namespace PCMS_Web.Doctor
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,7 +15,7 @@ namespace PCMS_Web.Admin
             {
                 Response.Redirect("../General/destroySession.aspx");
             }
-            else if (Session["userType"].ToString() != "admin")
+            else if (Session["userType"].ToString() != "doctor")
             {
                 Response.Redirect("../General/destroySession.aspx");
             }

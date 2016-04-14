@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PCMS | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
+    <link rel="icon" href="../dist/img/website_logo.png" type="image/png">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -200,28 +201,28 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user-md fa-1x"></i>
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs"><asp:Label ID="docNameTop_lbl" runat="server" Text=""></asp:Label></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
                                     <i class="fa fa-user-md fa-5x"></i>
                                     <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        <asp:Label ID="docName_lbl" runat="server" Text=""></asp:Label>
+                                        <small>User type : <asp:Label ID="userType_lbl" runat="server" Text=""></asp:Label></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
+                                            <a href="changePassword.aspx">Change Password</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
+                                            <a href="duplicateInvoice.aspx">Duplicate Invoice</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
+                                            <a href="#">Login History</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -232,7 +233,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="../General/destroySession.aspx" runat="server" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="../General/destroySession.aspx" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -255,7 +256,7 @@
                         <img src="../dist/img/doctor_avatar.png" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p><asp:Label ID="docNameMain_lbl" runat="server" Text=""></asp:Label></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -274,7 +275,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="treeview">
+                    <li class="treeview active">
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Patient Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -283,8 +284,10 @@
                             <li><a href="oldPatients.aspx"><i class="fa fa-users"></i> Old Patient</a></li>
                             <li><a href="searchPatients.aspx"><i class="fa fa-search"></i> Search Patients</a></li>
                             <li><a href="duplicateInvoice.aspx"><i class="fa fa-copy"></i> Duplicate Invoice</a></li>
-                            <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> Call Skype</a></li>
                         </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
                     </li>
                 </ul>
                 <!-- /.sidebar -->

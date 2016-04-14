@@ -11,9 +11,10 @@ namespace PCMS_Web.General
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userId"] = "";
-            Session["userName"] = "";
-            Session["fullName"] = "";
+            Session["userId"] = null;
+            Session["userName"] = null;
+            Session["fullName"] = null;
+            Session["userType"] = null;
             Response.Redirect("login.aspx");
         }
     }

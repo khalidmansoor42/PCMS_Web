@@ -16,7 +16,14 @@ namespace PCMS_Web.Receptionist
         string visit = "0";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "staff")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
         }
 
         protected void searchPatient_btn_Click(object sender, EventArgs e)

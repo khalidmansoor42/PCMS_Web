@@ -35,6 +35,7 @@ namespace PCMS_Web.General
                     Session["userId"] = dr["employee_id"];
                     Session["userName"] = dr["user_name"];
                     Session["fullName"] = dr["full_name"];
+                    Session["userType"] = dr["user_type"];
                     userType = dr["user_type"].ToString();
 
                     if(userType == "doctor")
