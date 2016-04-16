@@ -1089,13 +1089,21 @@
     <Compile Include="Doctor\problemListAndComplaint.aspx.designer.cs">
       <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindAge.cs" />
+    <Compile Include="FindVisit.cs" />
+    <Compile Include="findvisitnumber.cs" />
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="General\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="getInformation.cs" />
     <Compile Include="maxValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptionist\changePassword.aspx.cs">
@@ -1160,27 +1168,6 @@
     </Compile>
     <Compile Include="Receptionist\assignDoctor.aspx.designer.cs">
       <DependentUpon>assignDoctor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
-      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
-      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\changePassword.aspx.cs">
-      <DependentUpon>changePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
-      <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

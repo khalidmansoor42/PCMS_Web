@@ -14,8 +14,15 @@ namespace PCMS_Web.Receptionist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_name"] = "muaz@yahoo.com";
-            
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "staff")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+
         }
 
         [WebMethod(EnableSession = true)]

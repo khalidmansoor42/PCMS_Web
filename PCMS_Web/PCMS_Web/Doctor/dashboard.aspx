@@ -84,7 +84,7 @@
                             <div class="row">
                                 <div class="list-group col-sm-10 col-sm-offset-1">
                                     <asp:HyperLink ID="complaintAndProblem_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-info-circle" style="margin-right: 15px"></i> Complaint And Problem <label class="small pull-right"">Step 1</label></asp:HyperLink>
-                                    <asp:HyperLink ID="history_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-history" style="margin-right: 15px"></i> History <label class="small pull-right">Step 2</label></asp:HyperLink>
+                                    <asp:HyperLink ID="history_btn" runat="server" CssClass="list-group-item" href="history.aspx"><i class="fa fa-history" style="margin-right: 15px" ></i> History <label class="small pull-right">Step 2</label></asp:HyperLink>
                                     <asp:HyperLink ID="diagnosis_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-search" style="margin-right: 15px"></i> Diagnosis <label class="small pull-right">Step 3</label></asp:HyperLink>
                                     <asp:HyperLink ID="mentalStateExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-stethoscope" style="margin-right: 15px"></i> Mental State Examination <label class="small pull-right">Step 4</label></asp:HyperLink>
                                     <asp:HyperLink ID="generalPhysicalExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-male" style="margin-right: 18px"></i> General Physical Examination <label class="small pull-right">Step 5</label></asp:HyperLink>
@@ -117,37 +117,40 @@
         
                 <div class="box-body" id="muaz">
                     <div class="table-responsive" id="arslan">
-                            <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True">
-                              <Columns>
-                                  <asp:CommandField ShowSelectButton="True" />
-                                  <asp:BoundField DataField="full_name" HeaderText="full_name" SortExpression="full_name"></asp:BoundField>
-                                  <asp:BoundField DataField="patient_reg" HeaderText="patient_reg" SortExpression="patient_reg" ReadOnly="True"></asp:BoundField>
-                                  <asp:BoundField DataField="token_no" HeaderText="token_no" SortExpression="token_no"></asp:BoundField>
+                        <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="patientTokenGrid_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField ShowSelectButton="True"></asp:CommandField>
+                                <asp:BoundField DataField="token_no" HeaderText="Token No." SortExpression="token_no"></asp:BoundField>
 
-                              </Columns>
+                                <asp:BoundField DataField="patient_reg" HeaderText="Patient ID" SortExpression="patient_reg" ReadOnly="True"></asp:BoundField>
+                                <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name"></asp:BoundField>
 
-                  <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
+                                <asp:ButtonField Text="Button"></asp:ButtonField>
+                            </Columns>
 
-                  <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White"></HeaderStyle>
+                            <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 
-                  <PagerStyle HorizontalAlign="Left" BackColor="White" ForeColor="#000066"></PagerStyle>
+                            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White"></HeaderStyle>
 
-                  <RowStyle ForeColor="#000066"></RowStyle>
+                            <PagerStyle HorizontalAlign="Left" BackColor="White" ForeColor="#000066"></PagerStyle>
 
-                  <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+                            <RowStyle ForeColor="#000066"></RowStyle>
 
-                  <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
+                            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
 
-                  <SortedAscendingHeaderStyle BackColor="#007DBB"></SortedAscendingHeaderStyle>
+                            <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
 
-                  <SortedDescendingCellStyle BackColor="#CAC9C9"></SortedDescendingCellStyle>
+                            <SortedAscendingHeaderStyle BackColor="#007DBB"></SortedAscendingHeaderStyle>
 
-                  <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
-              </asp:GridView>
-                        <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT p.full_name, p.patient_reg, r.token_no FROM patient_registeration AS p INNER JOIN visit AS v ON p.patient_reg = v.patient_reg INNER JOIN receipt AS r ON p.patient_reg = r.patient_reg AND v.patient_reg = r.patient_reg AND v.employee_id = r.employee_id WHERE (v.visit_date = @Param1) AND (v.checks = '0') AND (v.employee_id = @Param2)">
+                            <SortedDescendingCellStyle BackColor="#CAC9C9"></SortedDescendingCellStyle>
+
+                            <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
+                        </asp:GridView>
+                        <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT p.full_name, p.patient_reg, r.token_no FROM patient_registeration AS p INNER JOIN visit AS v ON p.patient_reg = v.patient_reg INNER JOIN receipt AS r ON p.patient_reg = r.patient_reg AND v.patient_reg = r.patient_reg AND v.employee_id = r.employee_id WHERE (v.visit_date = @Param1) AND (v.checks = '0') AND (v.employee_id = @Param2) AND (r.Date = @Param3)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="dateToday" Name="Param1" PropertyName="Text" />
                                 <asp:ControlParameter ControlID="employeeId" Name="Param2" PropertyName="Text" />
+                                <asp:ControlParameter ControlID="dateToday" PropertyName="Text" Name="Param3"></asp:ControlParameter>
                             </SelectParameters>
                         </asp:SqlDataSource>
 

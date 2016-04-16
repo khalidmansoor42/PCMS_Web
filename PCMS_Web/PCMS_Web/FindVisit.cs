@@ -10,8 +10,6 @@ namespace PCMS_Web
     {
         void govisit()
         {
-            
-
         }
     }
 }

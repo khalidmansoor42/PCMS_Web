@@ -79,11 +79,11 @@
                       <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
-                            <asp:TextBox ID="TextBox1" CssClass="form-control" onkeypress="calculate_DOB();" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control" onkeyup="calculate_DOB();" runat="server"></asp:TextBox>
 
                             </div>
                           <div class="col-sm-6">
-                            <input type="date" id="dateOfBorth" runat="server" class="form-control"  required/>
+                            <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>
                           </div>
                     </div>
                     <div class="form-group col-sm-6">
@@ -223,10 +223,36 @@
           </div>
         </div>
     </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
     <script>
+        $(document).ready(function () {
+            $("#dateOfBorth").val('02/22/2014 00:00:00');
+        });
+        
         function calculate_DOB()
         {
-            
+            var obj = {};
+            obj.age = $.trim($("[id*=TextBox1]").val());
+            $.ajax({
+                    type: "POST",
+                    url: "registerPatients.aspx/ServerSideMethod",
+                    data: JSON.stringify(obj),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) {
+                        var msg = r.d;
+                       
+                        document.getElementById("date").value = msg
+                        alert(msg);
+                        //document.getElementById('dateOfBorth').value = r.d;;
+
+
+                         }
+
+                })
+                return false;
         }
     </script>
+
 </asp:Content>

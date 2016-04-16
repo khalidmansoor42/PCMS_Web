@@ -6,6 +6,7 @@
         <div class="col-md-12">
             <form id="form1" runat="server">
                             <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click1" />
 <script type="text/javascript">
             function doPrint() {
                 var prtContent = document.getElementById('<%= ReportViewer1.ClientID %>');
@@ -22,7 +23,7 @@
 </body>
 
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowPrintButton="True">
+                <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt"  style="direction: ltr">
                     <LocalReport ReportPath="Reports\Receipt.rdlc">
                     </LocalReport>
                 </rsweb:ReportViewer>

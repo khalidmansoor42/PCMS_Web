@@ -17,12 +17,19 @@ namespace PCMS_Web.Doctor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userId"] = "233";
-            employeeId.Text = (string)(Session["userId"]); 
-            dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");     
-            
-            
-                   
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "doctor")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+
+            }
+            employeeId.Text = Session["userId"].ToString();
+            dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");
+
+
         }
         [WebMethod(EnableSession = true)]
         public static string notification()
@@ -197,6 +204,17 @@ namespace PCMS_Web.Doctor
             }
 
             return PatientRegisterToday;
-        }  
+        }
+
+        protected void checked_Link_Click(object sender, EventArgs e)
+        {
+            //patientTokenGrid
+        }
+
+        protected void patientTokenGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["PatientId"] = patientTokenGrid.SelectedRow.Cells[2].Text;
+
+        }
     }
 }

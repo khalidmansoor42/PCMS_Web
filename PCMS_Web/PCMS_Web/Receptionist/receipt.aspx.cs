@@ -18,15 +18,23 @@ namespace PCMS_Web.Receptionist
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "staff")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
 
+            this.ReportViewer1.ShowPrintButton = true;
 
 
-            string receiptid = (string)(Session["reciept"]);
+            string receiptid = Session["reciept"].ToString(); ;
 
         string user_query = "SELECT p.full_name,p.patient_reg,r.Date,r.token_no,r.Receipt_id,r.total,r.Receipt_id,r.visit_no,u.full_name as DocName FROM receipt r inner join patient_registeration p on r.patient_reg = p.patient_reg inner join user_registeration u on r.employee_id=u.employee_id where r.Receipt_id =" + receiptid;
         SqlConnection con = new SqlConnection(constring);
@@ -62,6 +70,11 @@ namespace PCMS_Web.Receptionist
 
         protected void Button2_Click(object sender, EventArgs e)
         {           
+        }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }

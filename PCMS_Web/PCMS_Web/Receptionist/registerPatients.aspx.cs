@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,7 +23,7 @@ namespace PCMS_Web.Receptionist
             {
                 Response.Redirect("../General/destroySession.aspx");
             }
-            // creates a number between 1 and 12
+            //// creates a number between 1 and 12
             int month = rnd.Next(1, 100);
             patientId_txt.Text = Convert.ToString(month)+DateTime.Today.ToString("yyMM");
         }
@@ -85,5 +86,16 @@ namespace PCMS_Web.Receptionist
             }
 
         }
-    }
+        [WebMethod(EnableSession = true)]
+        public static string ServerSideMethod(string age)
+        {
+                string date = DateTime.Today.ToString("yyyy-MM-dd");
+                string[] words = date.Split('-');
+                string dateofbirth = Convert.ToString(Convert.ToInt32(Convert.ToString(words[0])) - Convert.ToInt32(age));
+                words[0] = dateofbirth;
+            
+            return words[0] + "-" + words[1]+"-"+words[2];
+                //string.Join("-", words);            
+        }
+        }
 }

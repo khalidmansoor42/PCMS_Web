@@ -41,62 +41,36 @@
                                                 <asp:TextBox ID="patientName" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
                                           </div>
                                         </div>
+                                        <div class="form-group col-sm-6">
+                                          <label class="col-sm-4 control-label">Age</label>
+
+                                          <div class="col-sm-8">
+                                                <asp:TextBox ID="ageTxt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
+                                          </div>
+                                        </div>
                                     </div>
                               </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <h4 class="col-sm-4 control-label" style="display:block; text-align:left;">Orientation Mood Affect</h4>
-                </div>
-                    <br />
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Oriented to person place and time</label>
-                      <div class="col-sm-8">
-                            <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="personOrientationYes_radio" value="option1"> Yes
-                            </label>
-                            <label class="radio-inline">
-                                <input runat="server"  type="radio" name="inlineRadioOptions" id="personOrientationNo_radio" value="option2"> No
-                            </label>
-                      </div>
-                    </div>                   
-                </div>
-                  <br />
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Mood Affect</label>
-
-                      <div class="col-sm-8">
-                        <textarea class="form-control" cols="20" rows="2" id="moodAffect_area" runat="server"></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Other</label>
-
-                      <div class="col-sm-8">
-                        <textarea class="form-control" cols="20" rows="2" id="other_area" runat="server"></textarea>
-                      </div>
-                    </div>
-                </div>
+           
+                
 
                   <hr />
                 <div class="row">
                     <h4 class="col-sm-4 control-label" style="display:block; text-align:left;">Medical History</h4>
                 </div>
                 <br />
-
                   <div class="row">
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Diabetes</label>
                       <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="diabetesYes_radio" value="option1"> Yes
+                                <input runat="server" type="radio" onclick="enabletxtDiabetes();"  name="inlineRadioOptions3" id="diabetesYes_radio" value="option1"> Yes
                             </label>
                             <label class="radio-inline">
-                                <input runat="server"  type="radio" name="inlineRadioOptions" id="diabetesNo_radio" value="option2"> No
+                                <input runat="server"  type="radio" checked  onclick="disableDiabetes();" name="inlineRadioOptions3" id="diabetesNo_radio" value="option2"> No
                             </label>
                       </div>
                     </div>                   
@@ -104,7 +78,7 @@
                   <br />
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Control</label>
+                      <label class="col-sm-4 control-label" id="diabtesControl_leb">Control</label>
 
                       <div class="col-sm-8">
                           <asp:DropDownList ID="diabetesControl_dd" runat="server" CssClass="form-control">
@@ -115,8 +89,7 @@
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Duration</label>
-
+                      <label class="col-sm-4 control-label"id="diabtesDuration_leb">Duration</label>
                       <div class="col-sm-8">
                             <asp:DropDownList ID="diabetesDuration_dd" runat="server" CssClass="form-control">
                                 <asp:ListItem>1 day</asp:ListItem>
@@ -211,15 +184,15 @@
                       <label class="col-sm-4 control-label">Insulin</label>
                       <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="insulinYes_radio" value="option1"> Yes
+                                <input runat="server" type="radio"  name="inlineRadioOptions2" onclick="enabletxt();"  id="insulinYes_radio" value="option1"> Yes
                             </label>
                             <label class="radio-inline">
-                                <input runat="server"  type="radio" name="inlineRadioOptions" id="insulinNo_radio" value="option2"> No
+                                <input runat="server"  type="radio" checked name="inlineRadioOptions2" onclick="disable();"  id="insulinNo_radio" value="option2"> No
                             </label>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
-                        <label class="col-sm-4 control-label">Dosage</label>
+                        <label class="col-sm-4 control-label" id="dosage_leb">Dosage</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="insulinDosage_txt" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
@@ -227,15 +200,15 @@
                                        
                 </div>
 
-                <div class="row">
+                <div class="row">Dosage
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Hypertension</label>
                       <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="Radio1" value="option1"> Yes
+                                <input runat="server" type="radio" name="inlineRadioOptions1" onclick="enabletxtHyper();" id="Hypertensionyes" value="option1"> Yes
                             </label>
                             <label class="radio-inline">
-                                <input runat="server"  type="radio" name="inlineRadioOptions" id="Radio2" value="option2"> No
+                                <input runat="server"  type="radio" checked name="inlineRadioOptions1" onclick="disableHyper();" id="HypertensionNo" value="option2"> No
                             </label>
                       </div>
                     </div>
@@ -244,7 +217,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Control</label>
+                      <label class="col-sm-4 control-label" id="hyperCon_leb">Control</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="hypertensionControl_dd" runat="server" CssClass="form-control">
                               <asp:ListItem>Good</asp:ListItem>
@@ -252,12 +225,11 @@
                               <asp:ListItem>Worse</asp:ListItem>
                           </asp:DropDownList>
                         </div>
-                    </div>
-
+                    </div> 
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Duration</label>
+                      <label class="col-sm-4 control-label"id="hyperdur_leb">Duration</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                            <asp:DropDownList ID="Hypertension_duration" runat="server" CssClass="form-control">
                                 <asp:ListItem>1 day</asp:ListItem>
                                 <asp:ListItem>2 days</asp:ListItem>
                                 <asp:ListItem>3 days</asp:ListItem>
@@ -346,7 +318,7 @@
                     <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Other Illness</label>
                           <div class="col-sm-8">
-                                <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="OtherIllness_txt" CssClass="form-control" runat="server"></asp:TextBox>
                           </div>
                     </div>
                 </div>
@@ -354,12 +326,64 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                  <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px"/>
-                  <asp:Button ID="saveBtn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" style="margin-left:5px"/>
+                  <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px" OnClick="updateBtn_Click"/>
+                  <asp:Button ID="saveBtn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" style="margin-left:5px" OnClick="saveBtn_Click1"/>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if (document.getElementById('HypertensionNo').checked) {
+                alert("");
+            } else {
+                alert("mds");
+            }
+
+        });
+        function disable() {           
+            document.getElementById('<%= this.insulinDosage_txt.ClientID %>').style.display = 'none';
+            document.getElementById('dosage_leb').style.display = 'none';
+            }
+        function enabletxt()
+        {
+            document.getElementById('dosage_leb').style.display = 'block';
+            document.getElementById('<%= this.insulinDosage_txt.ClientID %>').style.display = 'block';
+        }
+
+        function disableDiabetes()
+        {           
+            document.getElementById('<%= this.diabetesControl_dd.ClientID %>').style.display = 'none';
+            document.getElementById('<%= this.diabetesDuration_dd.ClientID %>').style.display = 'none';
+              document.getElementById('diabtesControl_leb').style.display = 'none';
+            document.getElementById('diabtesDuration_leb').style.display = 'none';
+        }
+        function enabletxtDiabetes()
+        {
+            document.getElementById('<%= this.diabetesControl_dd.ClientID %>').style.display = 'block';
+            document.getElementById('<%= this.diabetesDuration_dd.ClientID %>').style.display = 'block';
+            document.getElementById('diabtesControl_leb').style.display = 'block';
+            document.getElementById('diabtesDuration_leb').style.display = 'block';
+        }
+
+        function disableHyper()
+        {           
+            document.getElementById('<%= this.Hypertension_duration.ClientID %>').style.display = 'none';
+            document.getElementById('<%= this.hypertensionControl_dd.ClientID %>').style.display = 'none';
+            document.getElementById('hyperCon_leb').style.display = 'none';
+            document.getElementById('hyperdur_leb').style.display = 'none';
+        }
+        function enabletxtHyper()
+        {
+            document.getElementById('<%= this.Hypertension_duration.ClientID %>').style.display = 'block';
+            document.getElementById('<%= this.hypertensionControl_dd.ClientID %>').style.display = 'block';
+            document.getElementById('hyperCon_leb').style.display = 'block';
+            document.getElementById('hyperdur_leb').style.display = 'block';  
+        }
+
+    </script>
 </asp:Content>

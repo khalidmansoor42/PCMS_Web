@@ -17,6 +17,14 @@ namespace PCMS_Web.Receptionist
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "staff")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
             string patientId= Request.QueryString["id"];
             string user_query = "select * from patient_registeration where patient_reg ='" + patientId+"'";
             SqlConnection con = new SqlConnection(constring);
