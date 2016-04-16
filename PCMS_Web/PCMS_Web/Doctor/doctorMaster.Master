@@ -219,7 +219,7 @@
                                             <a href="#">Undo Patient</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Login History</a>
+                                            <a href="loginHistory.aspx">Login History</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -227,7 +227,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="myProfile.aspx" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="../General/destroySession.aspx" class="btn btn-default btn-flat">Sign out</a>
@@ -275,12 +275,30 @@
                     <li class="treeview">
                         <a href="dashboard.aspx"><i class="fa fa-home"></i> Home</a>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Checkup Steps</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="problemListAndComplaint.aspx"><i class="fa fa-info-circle"></i> Complaint And Problem</a></li>
+                            <li><a href="#"><i class="fa fa-history"></i> History</a></li>
+                            <li><a href="#"><i class="fa fa-search"></i> Diagnosis</a></li>
+                            <li><a href="#"><i class="fa fa-stethoscope"></i> Mental State Examination</a></li>
+                            <li><a href="#"><i class="fa fa-male"></i> General Physical Examination</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart"></i> Systematic Examination</a></li>
+                            <li><a href="#"><i class="fa fa-file-text"></i> Psychometric Evaluation</a></li>
+                            <li><a href="#"><i class="fa fa-user-secret"></i> Investigation</a></li>
+                            <li><a href="#"><i class="fa fa-medkit"></i> Medication</a></li>
+                            <li><a href="#"><i class="fa fa-comments-o"></i> Counselling</a></li>
+                            <li><a href="#"><i class="fa fa-picture-o"></i> Add Picture</a></li>
+                        </ul>
+                    </li>
                     <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> Call Skype</a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
                     </li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-search"></i> <span>Search Patients</span></a>
+                        <a href="searchPatients.aspx"><i class="fa fa-search"></i> <span>Search Patients</span></a>
                     </li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-database"></i> <span>Database Backup</span></a>

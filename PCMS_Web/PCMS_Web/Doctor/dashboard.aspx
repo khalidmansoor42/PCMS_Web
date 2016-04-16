@@ -79,7 +79,7 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="list-group col-sm-10 col-sm-offset-1">
-                                    <asp:HyperLink ID="complaintAndProblem_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-info-circle" style="margin-right: 15px"></i> Complaint And Problem <label class="small pull-right"">Step 1</label></asp:HyperLink>
+                                    <asp:HyperLink ID="complaintAndProblem_btn" runat="server" CssClass="list-group-item" href="problemListAndComplaint.aspx"><i class="fa fa-info-circle" style="margin-right: 15px"></i> Complaint And Problem <label class="small pull-right"">Step 1</label></asp:HyperLink>
                                     <asp:HyperLink ID="history_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-history" style="margin-right: 15px"></i> History <label class="small pull-right">Step 2</label></asp:HyperLink>
                                     <asp:HyperLink ID="diagnosis_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-search" style="margin-right: 15px"></i> Diagnosis <label class="small pull-right">Step 3</label></asp:HyperLink>
                                     <asp:HyperLink ID="mentalStateExamination_btn" runat="server" CssClass="list-group-item" href="#"><i class="fa fa-stethoscope" style="margin-right: 15px"></i> Mental State Examination <label class="small pull-right">Step 4</label></asp:HyperLink>

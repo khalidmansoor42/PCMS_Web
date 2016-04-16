@@ -219,7 +219,7 @@
                                             <a href="#">Text Field Restricted Record</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Login History</a>
+                                            <a href="loginHistory.aspx">Login History</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -227,7 +227,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="myProfile.aspx" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="../General/destroySession.aspx" class="btn btn-default btn-flat">Sign out</a>
@@ -281,7 +281,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="userRegistration.aspx"><i class="fa fa-user-plus"></i> New User</a></li>
-                            <li><a href="#"><i class="fa fa-search"></i> Search User</a></li>
+                            <li><a href="searchUsers.aspx"><i class="fa fa-search"></i> Search User</a></li>
                             <li><a href="#"><i class="fa fa-users"></i> Active/Inactive User</a></li>
                             <li><a href="userRegistration.aspx"><i class="fa fa-user-md"></i> New Doctor</a></li>
                         </ul>
@@ -302,7 +302,7 @@
                         <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
                     </li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-search"></i> <span>Search Patients</span></a>
+                        <a href="searchPatients.aspx"><i class="fa fa-search"></i> <span>Search Patients</span></a>
                     </li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-database"></i> <span>Database Backup</span></a>

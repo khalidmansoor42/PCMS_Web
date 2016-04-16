@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -60,6 +63,10 @@
     <Content Include=".jshintrc" />
     <Content Include="Admin\changePassword.aspx" />
     <Content Include="Admin\userRegistration.aspx" />
+    <Content Include="Admin\searchPatients.aspx" />
+    <Content Include="Admin\loginHistory.aspx" />
+    <Content Include="Admin\myProfile.aspx" />
+    <Content Include="Admin\searchUsers.aspx" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -156,6 +163,9 @@
     <Content Include="Doctor\history.aspx" />
     <Content Include="Doctor\changePassword.aspx" />
     <Content Include="Doctor\problemListAndComplaint.aspx" />
+    <Content Include="Doctor\searchPatients.aspx" />
+    <Content Include="Doctor\loginHistory.aspx" />
+    <Content Include="Doctor\myProfile.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="LICENSE" />
@@ -186,6 +196,7 @@
     <Content Include="Doctor\doctorMaster.Master" />
     <Content Include="Receptionist\receptionMaster.Master" />
     <Content Include="Admin\adminMaster.Master" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1017,6 +1028,8 @@
     <Content Include="Receptionist\oldPatients.aspx" />
     <Content Include="Receptionist\duplicateInvoice.aspx" />
     <Content Include="Receptionist\changePassword.aspx" />
+    <Content Include="Receptionist\loginHistory.aspx" />
+    <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -1048,6 +1061,34 @@
     </Compile>
     <Compile Include="Admin\userRegistration.aspx.designer.cs">
       <DependentUpon>userRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\searchPatients.aspx.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\searchPatients.aspx.designer.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\loginHistory.aspx.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\loginHistory.aspx.designer.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\myProfile.aspx.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\myProfile.aspx.designer.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\searchUsers.aspx.cs">
+      <DependentUpon>searchUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\searchUsers.aspx.designer.cs">
+      <DependentUpon>searchUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>
@@ -1083,6 +1124,27 @@
     </Compile>
     <Compile Include="Doctor\problemListAndComplaint.aspx.designer.cs">
       <DependentUpon>problemListAndComplaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\searchPatients.aspx.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\searchPatients.aspx.designer.cs">
+      <DependentUpon>searchPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\loginHistory.aspx.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\loginHistory.aspx.designer.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\myProfile.aspx.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\myProfile.aspx.designer.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>
@@ -1161,6 +1223,20 @@
     </Compile>
     <Compile Include="Receptionist\changePassword.aspx.designer.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\loginHistory.aspx.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\loginHistory.aspx.designer.cs">
+      <DependentUpon>loginHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\myProfile.aspx.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\myProfile.aspx.designer.cs">
+      <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

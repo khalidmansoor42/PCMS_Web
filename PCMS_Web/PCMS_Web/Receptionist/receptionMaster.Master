@@ -220,7 +220,7 @@
                                             <a href="duplicateInvoice.aspx">Duplicate Invoice</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Login History</a>
+                                            <a href="loginHistory.aspx">Login History</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -228,7 +228,8 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a class="btn btn-default btn-flat" href="myProfile.aspx">Profile</a>
+                                        
                                     </div>
                                     <div class="pull-right">
                                         <a href="../General/destroySession.aspx" class="btn btn-default btn-flat">Sign out</a>
@@ -273,6 +274,9 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-home"></i> <span>Home</span></a>
+                    </li>
                     <li class="treeview active">
                         <a href="#">
                             <i class="fa fa-user"></i> <span>Patient Management</span> <i class="fa fa-angle-left pull-right"></i>
@@ -525,6 +529,5 @@
     <script src="../dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../dist/js/demo.js"></script>
-    
 </body>
 </html>

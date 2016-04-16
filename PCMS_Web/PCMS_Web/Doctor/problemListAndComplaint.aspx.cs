@@ -16,31 +16,6 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "doctor")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else
-            {
-                Session["patient_reg"] = 1;
-                id = Session["patient_reg"].ToString();
-
-                if (!Page.IsPostBack)
-                {
-                    SetInitialRow();
-                    GetHistory();
-
-                }
-            }
-        }
-
         private ArrayList GetDummyData()
         {
 
@@ -217,28 +192,69 @@ namespace PCMS_Web.Doctor
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "doctor")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else
+            {
+                Session["patient_reg"] = 1;
+                if (Session["patient_reg"] != null)
+                {
+                    id = Session["patient_reg"].ToString();
+
+                    if (!Page.IsPostBack)
+                    {
+                        SetInitialRow();
+                        GetHistory();
+
+                    }
+                }
+            }
+        }
+
         public void GetHistory()
         {
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand("Select (select disease_name from diseases where disease_id = p.diseases_id) as Disease,convert(date,p.diagnose_date) as diagnose_date from problem_list_and_diagnoses p  where patient_reg='" + id + "' and inactive_date is NULL", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            for (int z = 0; z < ds.Tables[0].Rows.Count; z++)
+            try
             {
-                DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
-                ddl.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("Select (select disease_name from diseases where disease_id = p.diseases_id) as Disease,convert(date,p.diagnose_date) as diagnose_date from problem_list_and_diagnoses p  where patient_reg='" + id + "' and inactive_date is NULL", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
 
-                TextBox box2 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
-                date = Convert.ToString(ds.Tables[0].Rows[z]["diagnose_date"]);
-                DateTime tempDate = DateTime.Parse(date);
-                box2.Text = tempDate.ToString("dd-MM-yyyy");
-
-
-
+                //DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                //dataGridView1.Rows.Add(row);
 
 
+                for (int z = 0; z < ds.Tables[0].Rows.Count; z++)
+                {
+                    DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
+                    ddl.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
+
+                    TextBox box2 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
+                    date = Convert.ToString(ds.Tables[0].Rows[z]["diagnose_date"]);
+                    DateTime tempDate = DateTime.Parse(date);
+                    box2.Text = tempDate.ToString("dd-MM-yyyy");
+
+
+
+                    AddNewRowToGrid();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
 
             }
 
@@ -246,83 +262,106 @@ namespace PCMS_Web.Doctor
 
         protected void InActiveButton_Click(object sender, EventArgs e)
         {
-            string query = "Update problem_list_and_diagnoses set inactive_date='" + date + "' where patient_reg='" + id + "'";
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = query;
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            Button lb = (Button)sender;
-            GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
-            int rowID = gvRow.RowIndex;
-            if (ViewState["CurrentTable"] != null)
+            try
             {
+                string query = "Update problem_list_and_diagnoses set inactive_date='" + date + "' where patient_reg='" + id + "'";
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = query;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-                DataTable dt = (DataTable)ViewState["CurrentTable"];
-                if (dt.Rows.Count > 1)
+                Button lb = (Button)sender;
+                GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+                int rowID = gvRow.RowIndex;
+                if (ViewState["CurrentTable"] != null)
                 {
-                    if (gvRow.RowIndex < dt.Rows.Count - 1)
+
+                    DataTable dt = (DataTable)ViewState["CurrentTable"];
+                    if (dt.Rows.Count > 1)
                     {
-                        //Remove the Selected Row data and reset row number  
-                        dt.Rows.Remove(dt.Rows[rowID]);
-                        ResetRowID(dt);
+                        if (gvRow.RowIndex < dt.Rows.Count - 1)
+                        {
+                            //Remove the Selected Row data and reset row number  
+                            dt.Rows.Remove(dt.Rows[rowID]);
+                            ResetRowID(dt);
+                        }
                     }
+
+                    //Store the current data in ViewState for future reference  
+                    ViewState["CurrentTable"] = dt;
+
+                    //Re bind the GridView for the updated data  
+                    Gridview1.DataSource = dt;
+                    Gridview1.DataBind();
                 }
 
-                //Store the current data in ViewState for future reference  
-                ViewState["CurrentTable"] = dt;
-
-                //Re bind the GridView for the updated data  
-                Gridview1.DataSource = dt;
-                Gridview1.DataBind();
+                //Set Previous Data on Postbacks  
+                SetPreviousData();
             }
-
-            //Set Previous Data on Postbacks  
-            SetPreviousData();
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
         }
 
         protected void add_Problem(object sender, EventArgs e)
         {
-
-            string query = "insert into problem_list_and_diagnoses(patient_reg,diseases_id,diagnose_date) values(@id,@diseaseId,@date)";
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = query;
-            string temp = "";
-            int count = Gridview1.Rows.Count;
-            for (int z = 0; z < count; z++)
+            try
             {
-                DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
-                TextBox sinceDate_txt = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
-                int validation = -1;
-                validation = Convert.ToInt32(ddl.SelectedValue);
-                if (sinceDate_txt.Text != "" && validation > 0)
+
+                string temp = "";
+                int count = Gridview1.Rows.Count;
+                for (int z = 0; z < count; z++)
                 {
-                    temp = ddl.SelectedValue;
+                    string query = "insert into problem_list_and_diagnoses(patient_reg,diseases_id,diagnose_date) values(@id,@diseaseId,@date)";
+                    SqlConnection con = new SqlConnection(constring);
+                    SqlCommand cmd = new SqlCommand(query, con);
 
-                    DateTime testDate = DateTime.Parse(sinceDate_txt.Text);
-                    date = testDate.ToString("yyyy-MM-dd");
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@diseaseId", temp);
-                    cmd.Parameters.AddWithValue("@date", date);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
+                    TextBox sinceDate_txt = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
+                    int validation = -1;
+                    validation = Convert.ToInt32(ddl.SelectedValue);
+                    if (sinceDate_txt.Text != "" && validation > 0)
+                    {
+
+                        temp = ddl.SelectedValue;
+
+                        DateTime testDate = DateTime.Parse(sinceDate_txt.Text);
+                        date = testDate.ToString("yyyy-MM-dd");
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@diseaseId", temp);
+                        cmd.Parameters.AddWithValue("@date", date);
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    else
+                    {
+
+                        alert_fail.Visible = true;
+                        error.Text = "Error! cells should not be empty";
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                    }
+
+
                 }
-                else
-                {
 
-                    alert_fail.Visible = true;
-                    error.Text = "Error! cells should not be empty";
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-                }
-
-
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
             }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+
 
 
         }
