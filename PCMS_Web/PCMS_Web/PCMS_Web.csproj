@@ -294,8 +294,6 @@
     <Content Include="documentation\style.css" />
     <Content Include="General\login.aspx" />
     <Content Include="Gruntfile.js" />
-    <Content Include="index.html" />
-    <Content Include="index2.html" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="plugins\bootstrap-slider\slider.css" />
     <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
