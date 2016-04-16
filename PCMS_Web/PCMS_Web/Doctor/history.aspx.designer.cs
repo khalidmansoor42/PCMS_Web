@@ -40,40 +40,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox patientName;
         
         /// <summary>
-        /// personOrientationYes_radio control.
+        /// ageTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton personOrientationYes_radio;
-        
-        /// <summary>
-        /// personOrientationNo_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton personOrientationNo_radio;
-        
-        /// <summary>
-        /// moodAffect_area control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea moodAffect_area;
-        
-        /// <summary>
-        /// other_area control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea other_area;
+        protected global::System.Web.UI.WebControls.TextBox ageTxt;
         
         /// <summary>
         /// diabetesYes_radio control.
@@ -157,22 +130,22 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox insulinDosage_txt;
         
         /// <summary>
-        /// Radio1 control.
+        /// Hypertensionyes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Hypertensionyes;
         
         /// <summary>
-        /// Radio2 control.
+        /// HypertensionNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton HypertensionNo;
         
         /// <summary>
         /// hypertensionControl_dd control.
@@ -184,13 +157,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList hypertensionControl_dd;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// Hypertension_duration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList Hypertension_duration;
         
         /// <summary>
         /// cardiac_txt control.
@@ -229,13 +202,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox cancer_txt;
         
         /// <summary>
-        /// TextBox1 control.
+        /// OtherIllness_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox OtherIllness_txt;
         
         /// <summary>
         /// updateBtn control.

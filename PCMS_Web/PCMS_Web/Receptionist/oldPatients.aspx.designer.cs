@@ -76,40 +76,13 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox fullName_txt;
         
         /// <summary>
-        /// fatherName_txt control.
+        /// fee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fatherName_txt;
-        
-        /// <summary>
-        /// age_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox age_txt;
-        
-        /// <summary>
-        /// gender_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gender_txt;
-        
-        /// <summary>
-        /// mobileNumber_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mobileNumber_txt;
+        protected global::System.Web.UI.WebControls.TextBox fee;
         
         /// <summary>
         /// assignDoctor_dd control.

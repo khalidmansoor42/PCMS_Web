@@ -58,13 +58,13 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox mobileNumber_txt;
         
         /// <summary>
-        /// tokenNumber_txt control.
+        /// totalFee_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tokenNumber_txt;
+        protected global::System.Web.UI.WebControls.TextBox totalFee_txt;
         
         /// <summary>
         /// assignDoctor_dd control.
