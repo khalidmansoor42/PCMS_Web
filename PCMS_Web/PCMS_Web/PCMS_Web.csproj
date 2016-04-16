@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,7 @@
       <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,6 +69,7 @@
     <Content Include="Admin\loginHistory.aspx" />
     <Content Include="Admin\myProfile.aspx" />
     <Content Include="Admin\searchUsers.aspx" />
+    <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -168,6 +171,7 @@
     <Content Include="Doctor\myProfile.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPassword.aspx" />
+    <Content Include="js\jquery.toaster.js" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
@@ -194,6 +198,10 @@
     <Content Include="previousASP.php" />
     <Content Include="README.md" />
     <Content Include="Doctor\doctorMaster.Master" />
+    <Content Include="Receptionist\changePassword.aspx" />
+    <Content Include="Receptionist\duplicateInvoice.aspx" />
+    <Content Include="Receptionist\oldPatients.aspx" />
+    <Content Include="Receptionist\receipt.aspx" />
     <Content Include="Receptionist\receptionMaster.Master" />
     <Content Include="Admin\adminMaster.Master" />
     <Content Include="packages.config" />
@@ -1148,16 +1156,6 @@
       <DependentUpon>destroySession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="General\destroySession.aspx.designer.cs">
-      <DependentUpon>destroySession.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="General\forgotPassword.aspx.cs">
-      <DependentUpon>forgotPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="General\forgotPassword.aspx.designer.cs">
-      <DependentUpon>forgotPassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="General\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,7 +1163,37 @@
     <Compile Include="General\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="getInformation.cs" />
+    <Compile Include="maxValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
+      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
+      <DependentUpon>oldPatients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\receipt.aspx.cs">
+      <DependentUpon>receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\receipt.aspx.designer.cs">
+      <DependentUpon>receipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Receptionist\receptionMaster.Master.cs">
       <DependentUpon>receptionMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1237,8 +1265,10 @@
       <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Reports\" />
+    <EmbeddedResource Include="Reports\Receipt.rdlc" />
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

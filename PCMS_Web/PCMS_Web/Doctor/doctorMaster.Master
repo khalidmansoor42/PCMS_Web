@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PCMS | Dashboard</title>
+    
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -25,6 +26,7 @@
     <!-- Morris chart -->
     <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
+    
     <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <!-- Date Picker -->
     <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
@@ -37,7 +39,9 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
+        <![endif]-->
+    
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -75,22 +79,21 @@
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
+                        <li class="dropdown notifications-menu"  >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
+                                <span class="label label-warning" id="notification" >0</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">You have 10 notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
+                                        <li id ="noti">
+                                            
                                         </li>
-                                        <li>
+                                        
+                                        <!--<li>
                                             <a href="#">
                                                 <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
                                                 page and may cause design problems
@@ -110,7 +113,7 @@
                                             <a href="#">
                                                 <i class="fa fa-user text-red"></i> You changed your username
                                             </a>
-                                        </li>
+                                        </li>-->
                                     </ul>
                                 </li>
                                 <li class="footer"><a href="#">View all</a></li>
@@ -505,16 +508,19 @@
     <!-- jQuery 2.2.0 -->
     
     <script src="../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
     <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);
     </script>
+
     <!-- Bootstrap 3.3.5 -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
     <script src="../plugins/morris/morris.min.js"></script>
     <!-- Sparkline -->
     <script src="../plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -537,9 +543,110 @@
     <!-- AdminLTE App -->
     <script src="../dist/js/app.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="../dist/js/pages/dashboard.js"></script>
+
     <!-- AdminLTE for demo purposes -->
-    <script src="../dist/js/demo.js"></script>
-    
+    <script src="../dist/js/demo.js"></script>   
+
+
+    <script src="../js/jquery.toaster.js">
+        
+    </script>
+      <script type ="text/javascript">
+          $(document).ready(function () {
+              setInterval(function () {
+                  var obj = {};
+
+                // $.toaster({ priority: 'success', title: 'Title', message: 'Your message here' });
+                  //$.toaster({ priority: 'info', title: 'Title', message: 'Your message here' });
+                  //$.toaster({ priority: 'warning', title: 'Title', message: 'Your message here' });
+                  //$.toaster({ priority: 'danger', title: 'Title', message: 'Your message here' });
+
+                  $.ajax({
+                      type: "POST",
+                      url: "dashboard.aspx/patientList",
+                      data: JSON.stringify(obj),
+                      contentType: "application/json; charset=utf-8",
+                      dataType: "json",
+                      success: function (r) {
+                          var msg = r.d;
+                          var res = msg.split("+");
+                          $("#noti").empty();
+                          $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[1] + "</a>");
+                          $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[2] + "</a>");
+
+                      }
+                  })
+
+                  return false;
+              }, 5000);
+
+              setInterval(function () {
+                  var obj = {};
+                  $.ajax({
+
+                      type: "POST",
+                      url: "dashboard.aspx/notification",
+                      data: JSON.stringify(obj),
+                      contentType: "application/json; charset=utf-8",
+                      dataType: "json",
+                      
+                      success: function (r) {
+                          var msg = r.d;
+                          if (msg != "") {
+
+                              $.toaster({ priority: 'info', title: 'New Token has Issue', message: msg });
+                              var url = 'dashboard.aspx';
+                              $('#muaz').load(url + ' #arslan');
+                              play_beep();
+                              if ('<%= Session["notiSession"] %>' == "") 
+                              {   '<%=Session["notiSession"]="1"%>'
+                                  $("#notification").empty();
+                                  $("#notification").append(1);
+                              }                           
+                              else 
+                              {
+                                  var userName ='<%= Session["notiSession"] %>' ;
+                                 userName++;
+                                  '<%=Session["notiSession"]="'+userName+'"%>'
+                                  $("#notification").empty();
+                                  $("#notification").append(userName);
+
+                              }                         }
+                          }
+                  })
+                  return false;
+              }, 5000);
+              function play_beep() {
+                  var snd = new Audio("../beep/Electronic_Chime-KevanGC-495939803.wav");
+                  snd.play();
+                  return false;
+              }
+          });
+          
+     </script>
+ <script type ="text/javascript">
+          $(document).ready(function () {
+              setInterval(function () {
+                  var obj = {};
+                  $.ajax({
+                      type: "POST",
+                      url: "dashboard.aspx/ServerSideMethod",
+                      data: JSON.stringify(obj),
+                      contentType: "application/json; charset=utf-8",
+                      dataType: "json",
+                      success: function (r) {
+                          var msg = r.d;
+                          var res = msg.split("+");
+                          document.getElementById("patient_waiting").innerHTML = res[0];
+                          document.getElementById("PatientsCheckedToday").innerHTML = res[1];
+                          document.getElementById("PatientRegister").innerHTML = res[2];
+
+                      }
+                  })
+                  return false;
+              }, 5000);           
+              
+         });
+     </script>
 </body>
 </html>

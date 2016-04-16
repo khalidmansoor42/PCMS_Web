@@ -3,6 +3,9 @@
     <form runat="server">
         
     <div class="col-sm-12">
+        <div id="divStatus" clientidmode="static" class="alert alert-info">
+
+        </div>        
         <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Old Patients</h3>
@@ -19,7 +22,7 @@
 
             <div class="table-responsive">
                 <div class="col-sm-12">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="PatientDataSource" DataKeyNames="patient_reg" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="PatientDataSource" DataKeyNames="patient_reg" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="patient_reg" HeaderText="ID" SortExpression="patient_reg" ReadOnly="True"></asp:BoundField>
@@ -28,10 +31,6 @@
                             <asp:BoundField DataField="address" HeaderText="Address" SortExpression="address"></asp:BoundField>
                             <asp:BoundField DataField="mob" HeaderText="Mobile Number" SortExpression="mob"></asp:BoundField>
                             <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email"></asp:BoundField>
-                            <asp:BoundField DataField="attendant_name" HeaderText="Attendant Name" SortExpression="attendant_name"></asp:BoundField>
-                            <asp:BoundField DataField="attendant_mob" HeaderText="Attendant Mobile" SortExpression="attendant_mob"></asp:BoundField>
-                            <asp:BoundField DataField="dob" HeaderText="Date Of Birth" SortExpression="dob"></asp:BoundField>
-                            <asp:BoundField DataField="education" HeaderText="Education" SortExpression="education"></asp:BoundField>
                         </Columns>
                         <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 
@@ -124,49 +123,21 @@
                         <asp:TextBox ID="fullName_txt" CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Father Name</label>
-
-                      <div class="col-sm-8">
-                        <asp:TextBox ID="fatherName_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Age</label>
-
-                      <div class="col-sm-8">
-                        <asp:TextBox ID="age_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Gender</label>
-
-                      <div class="col-sm-8">
-                        <asp:TextBox ID="gender_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                      </div>
-                    </div>
-                    <div class="form-group col-sm-6">
-                         <label class="col-sm-4 control-label">Mobile Number</label>
+                </div>            
+            <div class="row">
+                 <div class="form-group col-sm-6">
+                         <label class="col-sm-4 control-label">Fee</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="mobileNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="fee" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                </div>  
-            
-            <div class="row">
                 <div class="form-group col-sm-6">
                     <label class="col-sm-4 control-label">Assign Doctor</label>
 
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="assignDoctor_dd" CssClass="form-control" runat="server" DataSourceID="AssignDoctorDataSource" DataTextField="doctor_name" DataValueField="doctor_id"></asp:DropDownList>
-                            <asp:SqlDataSource runat="server" ID="AssignDoctorDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT [doctor_id], [doctor_name] FROM [doctor_registeration]"></asp:SqlDataSource>
+                            <asp:DropDownList ID="assignDoctor_dd" CssClass="form-control" runat="server" DataSourceID="AssignDoctorDataSource" DataTextField="full_name" DataValueField="employee_id"></asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="AssignDoctorDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT employee_id, full_name FROM user_registeration WHERE (user_type = 'Doctor')"></asp:SqlDataSource>
                     </div>
                 </div>  
             </div>    
@@ -174,7 +145,7 @@
             </div>
             
         <div class="box-footer">
-            <asp:Button ID="printReceipt_btn" runat="server" Text="Print" CssClass="btn btn-info pull-right"/>
+            <asp:Button ID="printReceipt_btn" runat="server" Text="Print" CssClass="btn btn-info pull-right" OnClick="printReceipt_btn_Click"/>
         </div>
             </div>
         </div>
