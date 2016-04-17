@@ -39,17 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
@@ -70,6 +67,9 @@
     <Content Include="Admin\myProfile.aspx" />
     <Content Include="Admin\searchUsers.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\PCMS_Web.dll" />
+    <Content Include="bin\PCMS_Web.pdb" />
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\css\bootstrap.min.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
@@ -173,6 +173,9 @@
     <Content Include="General\forgotPassword.aspx" />
     <Content Include="js\jquery.toaster.js" />
     <Content Include="LICENSE" />
+    <Content Include="obj\Debug\PCMS_Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\PCMS_Web.dll" />
+    <Content Include="obj\Debug\PCMS_Web.pdb" />
     <Content Include="package.json" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
     <Content Include="plugins\ckeditor\LICENSE.md" />
@@ -205,6 +208,11 @@
     <Content Include="Receptionist\receptionMaster.Master" />
     <Content Include="Admin\adminMaster.Master" />
     <Content Include="packages.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\RdlCompile.cache" />
+    <Content Include="obj\Debug\RdlCompile.compiled" />
+    <None Include="bin\PCMS_Web.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1031,9 +1039,6 @@
     <Content Include="Receptionist\dashboard.aspx" />
     <Content Include="Receptionist\searchPatients.aspx" />
     <Content Include="Receptionist\assignDoctor.aspx" />
-    <Content Include="Receptionist\oldPatients.aspx" />
-    <Content Include="Receptionist\duplicateInvoice.aspx" />
-    <Content Include="Receptionist\changePassword.aspx" />
     <Content Include="Receptionist\loginHistory.aspx" />
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="starter.html" />
@@ -1152,6 +1157,9 @@
     <Compile Include="Doctor\myProfile.aspx.designer.cs">
       <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindAge.cs" />
+    <Compile Include="FindVisit.cs" />
+    <Compile Include="findvisitnumber.cs" />
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1165,6 +1173,9 @@
     </Compile>
     <Compile Include="getInformation.cs" />
     <Compile Include="maxValue.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptionist\changePassword.aspx.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
@@ -1229,27 +1240,6 @@
     <Compile Include="Receptionist\assignDoctor.aspx.designer.cs">
       <DependentUpon>assignDoctor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
-      <DependentUpon>oldPatients.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\duplicateInvoice.aspx.cs">
-      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\duplicateInvoice.aspx.designer.cs">
-      <DependentUpon>duplicateInvoice.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\changePassword.aspx.cs">
-      <DependentUpon>changePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\changePassword.aspx.designer.cs">
-      <DependentUpon>changePassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Receptionist\loginHistory.aspx.cs">
       <DependentUpon>loginHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1265,7 +1255,9 @@
       <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />

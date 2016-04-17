@@ -1,5 +1,4 @@
-﻿using Microsoft.Reporting.WebForms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -7,11 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.Reporting.WebForms;
 
 namespace PCMS_Web.Receptionist
 {
     public partial class WebForm6 : System.Web.UI.Page
     {
+        
         ReportParameter[] parameters = new ReportParameter[18];
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string mob = "";
@@ -20,6 +21,7 @@ namespace PCMS_Web.Receptionist
         {
             if (Session["userType"] == null)
             {
+                
                 Response.Redirect("../General/destroySession.aspx");
             }
             else if (Session["userType"].ToString() != "staff")

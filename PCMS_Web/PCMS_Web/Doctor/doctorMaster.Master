@@ -303,9 +303,6 @@
                     <li class="treeview">
                         <a href="searchPatients.aspx"><i class="fa fa-search"></i> <span>Search Patients</span></a>
                     </li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-database"></i> <span>Database Backup</span></a>
-                    </li>
                 </ul>
                 <!-- /.sidebar -->
         </aside>
