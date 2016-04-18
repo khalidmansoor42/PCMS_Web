@@ -32,7 +32,7 @@
                              </h3>
                             </div>
                     
-	    	        <div class="table-responsive">
+	    	        <div class="table-responsive" style="min-height:500px">
                         <div class="col-sm-12">
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                         <asp:GridView ID="Gridview1" CssClass="table" runat="server" ShowFooter="True" AutoGenerateColumns="False" OnRowCreated="Gridview1_RowCreated">

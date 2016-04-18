@@ -16,6 +16,23 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Session["patient_reg"] = 2;
+            if (Session["patient_reg"] != null)
+            {
+                id = Session["patient_reg"].ToString();
+
+                if (!Page.IsPostBack)
+                {
+                    SetInitialRow();
+                    GetHistory();
+
+                }
+            }
+        }
+
         private ArrayList GetDummyData()
         {
 
@@ -192,32 +209,6 @@ namespace PCMS_Web.Doctor
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "doctor")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else
-            {
-                Session["patient_reg"] = 1;
-                if (Session["patient_reg"] != null)
-                {
-                    id = Session["patient_reg"].ToString();
-
-                    if (!Page.IsPostBack)
-                    {
-                        SetInitialRow();
-                        GetHistory();
-
-                    }
-                }
-            }
-        }
 
         public void GetHistory()
         {
@@ -313,6 +304,31 @@ namespace PCMS_Web.Doctor
         {
             try
             {
+                int row = 0;
+                int count = Gridview1.Rows.Count;
+                for (int z = 0; z < count; z++)
+                {
+                    row++;
+                }
+
+                if (count == row)
+                {
+                    insert();
+                }
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+
+            }
+        }
+
+        protected void insert()
+        {
+            try
+            {
 
                 string temp = "";
                 int count = Gridview1.Rows.Count;
@@ -344,9 +360,7 @@ namespace PCMS_Web.Doctor
                     else
                     {
 
-                        alert_fail.Visible = true;
-                        error.Text = "Error! cells should not be empty";
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+
                     }
 
 
