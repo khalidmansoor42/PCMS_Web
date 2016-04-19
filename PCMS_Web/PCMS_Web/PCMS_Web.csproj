@@ -65,12 +65,16 @@
   <ItemGroup>
     <Content Include=".jshintrc" />
     <Content Include="Admin\changePassword.aspx" />
-    <Content Include="Admin\userRegistration.aspx" />
+    <Content Include="Admin\addCity.aspx" />
     <Content Include="Admin\searchPatients.aspx" />
     <Content Include="Admin\loginHistory.aspx" />
     <Content Include="Admin\myProfile.aspx" />
     <Content Include="Admin\searchUsers.aspx" />
     <Content Include="Admin\doctorRegistration.aspx" />
+    <Content Include="Admin\addDisease.aspx" />
+    <Content Include="Admin\addMedicine.aspx" />
+    <Content Include="Admin\attendantRelation.aspx" />
+    <Content Include="Admin\addComplaint.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\PCMS_Web.dll" />
@@ -1074,12 +1078,12 @@
     <Compile Include="Admin\changePassword.aspx.designer.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\userRegistration.aspx.cs">
-      <DependentUpon>userRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\addCity.aspx.cs">
+      <DependentUpon>addCity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\userRegistration.aspx.designer.cs">
-      <DependentUpon>userRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\addCity.aspx.designer.cs">
+      <DependentUpon>addCity.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\searchPatients.aspx.cs">
       <DependentUpon>searchPatients.aspx</DependentUpon>
@@ -1115,6 +1119,34 @@
     </Compile>
     <Compile Include="Admin\doctorRegistration.aspx.designer.cs">
       <DependentUpon>doctorRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addDisease.aspx.cs">
+      <DependentUpon>addDisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addDisease.aspx.designer.cs">
+      <DependentUpon>addDisease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addMedicine.aspx.cs">
+      <DependentUpon>addMedicine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addMedicine.aspx.designer.cs">
+      <DependentUpon>addMedicine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\attendantRelation.aspx.cs">
+      <DependentUpon>attendantRelation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\attendantRelation.aspx.designer.cs">
+      <DependentUpon>attendantRelation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addComplaint.aspx.cs">
+      <DependentUpon>addComplaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addComplaint.aspx.designer.cs">
+      <DependentUpon>addComplaint.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>

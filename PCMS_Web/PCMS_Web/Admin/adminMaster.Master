@@ -291,11 +291,11 @@
                             <i class="fa fa-user"></i> <span>Record Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-building"></i> Add City</a></li>
-                            <li><a href="#"><i class="fa fa-medkit"></i> Add Medicine</a></li>
-                            <li><a href="#"><i class="fa fa-heartbeat"></i> Add Disease</a></li>
-                            <li><a href="#"><i class="fa fa-hospital-o"></i> Clinic Name</a></li>
-                            <li><a href="#"><i class="fa fa-text-width"></i> Restricted Values</a></li>
+                            <li><a href="addCity.aspx"><i class="fa fa-building"></i> Add City</a></li>
+                            <li><a href="addMedicine.aspx"><i class="fa fa-medkit"></i> Add Medicine</a></li>
+                            <li><a href="addDisease.aspx"><i class="fa fa-heartbeat"></i> Add Disease</a></li>
+                            <li><a href="attendantRelation.aspx"><i class="fa fa-users"></i> Add Attendant Relation</a></li>
+                            <li><a href="addComplaint.aspx"><i class="fa fa-info-circle"></i> Add Complaint Name</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
