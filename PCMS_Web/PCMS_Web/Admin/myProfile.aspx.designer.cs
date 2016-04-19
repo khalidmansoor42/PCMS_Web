@@ -13,6 +13,15 @@ namespace PCMS_Web.Admin {
     public partial class WebForm6 {
         
         /// <summary>
+        /// Msg_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Msg_alert;
+        
+        /// <summary>
         /// userImage_img control.
         /// </summary>
         /// <remarks>

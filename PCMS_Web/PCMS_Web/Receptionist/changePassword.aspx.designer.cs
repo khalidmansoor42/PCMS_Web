@@ -13,33 +13,6 @@ namespace PCMS_Web.Receptionist {
     public partial class WebForm7 {
         
         /// <summary>
-        /// currentPassword_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox currentPassword_txt;
-        
-        /// <summary>
-        /// newPassword_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newPassword_txt;
-        
-        /// <summary>
-        /// confirmPass_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirmPass_txt;
-        
-        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

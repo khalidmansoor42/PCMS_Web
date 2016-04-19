@@ -29,14 +29,14 @@
                       <label class="col-sm-4 control-label">Full Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fullName_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fullName_txt" Required="true" CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Father Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fatherName_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fatherName_txt" Required="true" CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
                       <label class="col-sm-4 control-label">Email</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="email_txt" CssClass="form-control" runat="server" placeholder="user@example.com"></asp:TextBox>
+                        <asp:TextBox ID="email_txt" TextMode="Email" Required="true" CssClass="form-control" runat="server" placeholder="user@example.com"></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                          <label class="col-sm-4 control-label">Mobile Number</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="mobileNumber_txt" CssClass="form-control" runat="server" placeholder="0300-1234567"></asp:TextBox>
+                            <asp:TextBox ID="mobileNumber_txt" Required="true" CssClass="form-control" runat="server" placeholder="0300-1234567"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                       <label class="col-sm-4 control-label">Address</label>
 
                       <div class="col-sm-8">
-                        <textarea id="address_area" rows="2" cols="20" runat="server" class="form-control"></textarea>
+                        <textarea id="address_area" Required="true" rows="2" cols="20" runat="server" class="form-control"></textarea>
                       </div>
                     </div>
                 </div>
@@ -79,10 +79,13 @@
                       <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
-                            <asp:TextBox ID="age_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" Required="true" CssClass="form-control" runat="server"></asp:TextBox>
                           </div>
-                          <div class="col-sm-6">
-                            <input type="date" id="dateOfBirth_dp" runat="server" class="form-control"/>
+                         <div class="col-sm-6">
+                              <asp:DropDownList ID="ageCal" runat="server">
+                                  <asp:ListItem>Year</asp:ListItem>
+                                  <asp:ListItem>Month</asp:ListItem>
+                              </asp:DropDownList>
                           </div>
                     </div>
                     <div class="form-group col-sm-6">
@@ -90,7 +93,7 @@
 
                         <div class="col-sm-8">
                             <label class="radio-inline">
-                                <input runat="server" type="radio" name="inlineRadioOptions" id="male_radio" value="option1"> Male
+                                <input runat="server" type="radio" checked name="inlineRadioOptions" id="male_radio" value="option1"> Male
                             </label>
                             <label class="radio-inline">
                                 <input runat="server"  type="radio" name="inlineRadioOptions" id="female_radio" value="option2"> Female
@@ -131,35 +134,18 @@
                         </div>
                     </div>
                 
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">User Name</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="userName_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-sm-6">
+                   <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Password</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="password_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Confirm Password</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="confirmPassword_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="password_txt" Required="true" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>
-
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                  <asp:Button ID="update_btn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px"/>
-                  <asp:Button ID="save_btn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" style="margin-left:5px"/>
+                  <asp:Button ID="update_btn"  runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px"/>
+                  <asp:Button ID="save_btn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" style="margin-left:5px" OnClick="save_btn_Click"/>
                   <asp:Button ID="clear_btn" runat="server" Text="Clear" CssClass="btn btn-danger pull-right" style="margin-left:5px"/>
                   <asp:Button ID="search_btn" runat="server" Text="Search" CssClass="btn btn-default pull-right" style="margin-left:5px"/>
               </div>

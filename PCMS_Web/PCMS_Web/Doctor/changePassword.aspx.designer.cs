@@ -31,21 +31,12 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox newPassword_txt;
         
         /// <summary>
-        /// confirmPass_txt control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirmPass_txt;
-        
-        /// <summary>
-        /// changePassword_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button changePassword_btn;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

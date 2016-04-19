@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/adminMaster.Master" AutoEventWireup="true" CodeBehind="myProfile.aspx.cs" Inherits="PCMS_Web.Admin.WebForm6" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">    
+   <div class="alert alert-success" role="alert" runat="server" visible="false" id="Msg_alert">Record has been updated</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Msg_alert').delay(2000).fadeOut();
+        });
+    </script>
+     <form runat="server">    
         <div class="col-sm-12">
             <div class="box box-info">
                 <div class="box-header with-border">
@@ -57,7 +63,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <asp:Button ID="updateProfile_btn" runat="server" Text="Update Profile" CssClass="btn btn-info pull-right"/>
+                    <asp:Button ID="updateProfile_btn" runat="server" Text="Update Profile" CssClass="btn btn-info pull-right" OnClick="updateProfile_btn_Click"/>
                 </div>
             </div>
         </div>

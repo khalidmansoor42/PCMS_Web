@@ -6,3 +6,14 @@ C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.dll
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.pdb
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cache
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.compiled
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll.config
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.pdb
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.WebForms.xml
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cache
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.compiled
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.dll
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.pdb

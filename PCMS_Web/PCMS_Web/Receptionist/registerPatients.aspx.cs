@@ -79,7 +79,7 @@ namespace PCMS_Web.Receptionist
                 {
                     SelectCommand1.Parameters.Add(new SqlParameter("@gender", Convert.ToInt32(0)));
                 };
-                SelectCommand1.Parameters.Add(new SqlParameter("@address", "dfsdfsd"));
+                SelectCommand1.Parameters.Add(new SqlParameter("@address", TextArea1.Value));
                 SelectCommand1.Parameters.Add(new SqlParameter("@cityid", Convert.ToInt32(city_dd.SelectedValue)));
                 SelectCommand1.Parameters.Add(new SqlParameter("@mobile", mobileNumber.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@email", email.Text));

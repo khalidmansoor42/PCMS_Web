@@ -76,22 +76,22 @@ namespace PCMS_Web.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea address_area;
         
         /// <summary>
-        /// age_txt control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox age_txt;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// dateOfBirth_dp control.
+        /// ageCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateOfBirth_dp;
+        protected global::System.Web.UI.WebControls.DropDownList ageCal;
         
         /// <summary>
         /// male_radio control.
@@ -139,15 +139,6 @@ namespace PCMS_Web.Admin {
         protected global::System.Web.UI.WebControls.DropDownList userType_dd;
         
         /// <summary>
-        /// userName_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox userName_txt;
-        
-        /// <summary>
         /// password_txt control.
         /// </summary>
         /// <remarks>
@@ -155,15 +146,6 @@ namespace PCMS_Web.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password_txt;
-        
-        /// <summary>
-        /// confirmPassword_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox confirmPassword_txt;
         
         /// <summary>
         /// update_btn control.

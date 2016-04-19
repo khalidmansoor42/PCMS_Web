@@ -13,19 +13,19 @@
                     <div class="row">
                         <label class="col-sm-2 col-sm-offset-3 control-label">Current Password</label>
                         <div class="col-sm-4">
-                            <asp:TextBox ID="currentPassword_txt" TextMode="password" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="currentPassword_txt" TextMode="password" runat="server" CssClass="form-control"Required="true"></asp:TextBox>
                         </div>
                     </div><br />
                     <div class="row">
                         <label class="col-sm-2 col-sm-offset-3 control-label">New Password</label>
                         <div class="col-sm-4">
-                            <asp:TextBox ID="newPassword_txt" TextMode="password" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="newPassword_txt" TextMode="password" runat="server" CssClass="form-control"Required="true"></asp:TextBox>
                         </div>
                     </div><br />
                     <div class="row">
                         <label class="col-sm-2 col-sm-offset-3 control-label">Confirm New Password</label>
                         <div class="col-sm-4">
-                            <asp:TextBox ID="confirmPass_txt" TextMode="password" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="confirmPass_txt" TextMode="password" runat="server" CssClass="form-control"Required="true"></asp:TextBox>
                         </div>
                     </div><br />
                 </div>
