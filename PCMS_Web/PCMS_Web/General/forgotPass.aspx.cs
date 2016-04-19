@@ -4,30 +4,24 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
-using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace PCMS_Web.General
 {
-    public partial class changePassword : System.Web.UI.Page
+    public partial class forgotPass : System.Web.UI.Page
     {
         string fullName = "", userName = "", userType = "", password = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "refresh", "window.setTimeout('window.location.reload(true);',120000);", true);
             }
         }
 
-        protected void changePassword_Click(object sender, EventArgs e)
-        {
-            checkUser();
-        }
-
-        public void checkUser()
+        protected void changePassword_btn_Click(object sender, EventArgs e)
         {
             string passQuery = "select * from user_registeration where email ='" + userEmail_txt.Value + "'";
             string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
@@ -38,7 +32,7 @@ namespace PCMS_Web.General
             con.Open();
 
             SqlDataReader dr = cmd.ExecuteReader();
-                //for insert remove data reader and replace cmd.executenonquery()
+            //for insert remove data reader and replace cmd.executenonquery()
             if (dr.Read())
             {
                 if (dr.HasRows)

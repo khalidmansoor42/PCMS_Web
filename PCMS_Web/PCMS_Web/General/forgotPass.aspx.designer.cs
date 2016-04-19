@@ -10,7 +10,7 @@
 namespace PCMS_Web.General {
     
     
-    public partial class changePassword {
+    public partial class forgotPass {
         
         /// <summary>
         /// errorMsg_alert control.

@@ -179,7 +179,7 @@
     <Content Include="Doctor\loginHistory.aspx" />
     <Content Include="Doctor\myProfile.aspx" />
     <Content Include="General\destroySession.aspx" />
-    <Content Include="General\forgotPassword.aspx" />
+    <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
     <Content Include="js\jquery.toaster.js" />
     <Content Include="LICENSE" />
@@ -1210,6 +1210,13 @@
     <Compile Include="General\destroySession.aspx.cs">
       <DependentUpon>destroySession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\forgotPass.aspx.cs">
+      <DependentUpon>forgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="General\forgotPass.aspx.designer.cs">
+      <DependentUpon>forgotPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="General\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
