@@ -276,7 +276,7 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
-                        <a href="dashboard.aspx"><i class="fa fa-home"></i> Home</a>
+                        <a href="dashboard.aspx"><i class="fa fa-home"></i> <span>Home</span></a>
                     </li>
                     <li class="treeview">
                         <a href="#">
@@ -296,15 +296,12 @@
                             <li><a href="#"><i class="fa fa-picture-o"></i> Add Picture</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> Call Skype</a></li>
+                    <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> <span>Call Skype</span></a></li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
                     </li>
                     <li class="treeview">
                         <a href="searchPatients.aspx"><i class="fa fa-search"></i> <span>Search Patients</span></a>
-                    </li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-database"></i> <span>Database Backup</span></a>
                     </li>
                 </ul>
                 <!-- /.sidebar -->
