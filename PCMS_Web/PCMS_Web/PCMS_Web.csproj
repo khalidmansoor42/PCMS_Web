@@ -217,6 +217,8 @@
     <Content Include="obj\Debug\RdlCompile.compiled" />
     <None Include="bin\PCMS_Web.dll.config" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\psycure.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
