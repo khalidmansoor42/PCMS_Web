@@ -194,16 +194,6 @@ namespace PCMS_Web.Doctor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "doctor")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else
-            {
                 Session["patient_reg"] = 1;
                 if (Session["patient_reg"] != null)
                 {
@@ -216,7 +206,6 @@ namespace PCMS_Web.Doctor
 
                     }
                 }
-            }
         }
 
         public void GetHistory()

@@ -94,6 +94,15 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateOfBorth;
         
         /// <summary>
+        /// ageCal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ageCal;
+        
+        /// <summary>
         /// inlineRadio1 control.
         /// </summary>
         /// <remarks>

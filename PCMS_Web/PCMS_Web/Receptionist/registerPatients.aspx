@@ -80,10 +80,13 @@
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
                             <asp:TextBox ID="TextBox1" CssClass="form-control" onkeyup="calculate_DOB();" runat="server"></asp:TextBox>
-
                             </div>
                           <div class="col-sm-6">
-                            <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>
+ <!--                           <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>-->
+                              <asp:DropDownList ID="ageCal" runat="server">
+                                  <asp:ListItem>Year</asp:ListItem>
+                                  <asp:ListItem>Month</asp:ListItem>
+                              </asp:DropDownList>
                           </div>
                     </div>
                     <div class="form-group col-sm-6">

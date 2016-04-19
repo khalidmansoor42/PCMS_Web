@@ -11,13 +11,10 @@ namespace PCMS_Web.Doctor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
+            Image1.ImageUrl = "../images/muaz.jpg";
+            if (Session["userName"] != null && !IsPostBack)
             {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "doctor")
-            {
-                Response.Redirect("../General/destroySession.aspx");
+                 //pasthistory();
             }
         }
     }

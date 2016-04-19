@@ -9,7 +9,8 @@
                 <div class="box-body">
                     <div class="col-sm-4">
                         <asp:Image ID="userImage_img" runat="server" />
-                        <asp:FileUpload ID="pictureUpload" runat="server" />
+                        <asp:FileUpload ID="pictureUpload" alt="Sample Photo" runat="server" />
+                        <asp:Image ID="Image1" runat="server" />
                     </div>
                     <div class="col-sm-8">
                         <div class="row">

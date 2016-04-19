@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="myProfile.aspx.cs" Inherits="PCMS_Web.Receptionist.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="alert alert-success" role="alert" runat="server" visible="false" id="Msg_alert">Record has been updated</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Msg_alert').delay(2000).fadeOut();
+        });
+    </script>
     <form runat="server">    
         <div class="col-sm-12">
             <div class="box box-info">
@@ -10,6 +16,7 @@
                     <div class="col-sm-4">
                         <asp:Image ID="userImage_img" runat="server" />
                         <asp:FileUpload ID="pictureUpload" runat="server" />
+                        <asp:Image ID="Image1" alt="Smiley face" runat="server" />
                     </div>
                     <div class="col-sm-8">
                         <div class="row">
@@ -27,7 +34,10 @@
                         <div class="row">
                             <label class="col-sm-4 control-label control-label">Gender</label>
                             <div class="col-sm-8">
-                                <asp:TextBox ID="gender_dd" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:DropDownList ID="gender_dd" runat="server">
+                                    <asp:ListItem>Male</asp:ListItem>
+                                    <asp:ListItem>Female</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div><br />
                         <div class="row">
@@ -57,7 +67,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <asp:Button ID="updateProfile_btn" runat="server" Text="Update Profile" CssClass="btn btn-info pull-right"/>
+                    <asp:Button ID="updateProfile_btn" runat="server" Text="Update Profile" CssClass="btn btn-info pull-right" OnClick="updateProfile_btn_Click"/>
                 </div>
             </div>
         </div>

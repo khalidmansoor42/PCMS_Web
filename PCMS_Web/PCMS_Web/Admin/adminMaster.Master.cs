@@ -11,12 +11,16 @@ namespace PCMS_Web.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"].ToString() != "admin" || Session["userType"] == null)
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "admin")
             {
                 Response.Redirect("../General/destroySession.aspx");
             }
             else
-            {
+            { 
                 docName_lbl.Text = Session["fullName"].ToString();
                 docNameTop_lbl.Text = Session["fullName"].ToString();
                 userType_lbl.Text = Session["userType"].ToString();
