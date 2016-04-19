@@ -19,15 +19,7 @@ namespace PCMS_Web.Receptionist
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "staff")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

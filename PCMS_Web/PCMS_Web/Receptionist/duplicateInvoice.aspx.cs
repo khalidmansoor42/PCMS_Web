@@ -11,14 +11,6 @@ namespace PCMS_Web.Receptionist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "staff")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
             dateTime_txt.Text = DateTime.Now.ToString("yyyy-MM-dd");
             totalAmount_txt.Text = "1000";
         }

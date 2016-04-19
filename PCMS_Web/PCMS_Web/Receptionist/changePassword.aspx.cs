@@ -14,15 +14,7 @@ namespace PCMS_Web.Receptionist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "staff")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-
+            
         }
 
         [WebMethod(EnableSession = true)]
@@ -34,7 +26,6 @@ namespace PCMS_Web.Receptionist
                 try
                 {
                     string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
-
                     string id;
                     string userName = System.Web.HttpContext.Current.Session["user_name"].ToString();
                     string user_query = "Select password from user_registeration where user_name='" + userName + "'";
@@ -49,8 +40,7 @@ namespace PCMS_Web.Receptionist
                         id = dr["password"].ToString();
                         if (id == name)
                         {
-                            ret = passwordchange(age); ;
-                            
+                            ret = passwordchange(age); ;                         
                         }
                         else
                         {

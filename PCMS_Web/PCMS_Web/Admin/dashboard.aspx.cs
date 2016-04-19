@@ -11,14 +11,7 @@ namespace PCMS_Web.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "admin")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
+            
         }
     }
 }

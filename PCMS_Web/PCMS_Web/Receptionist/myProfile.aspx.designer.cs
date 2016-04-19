@@ -13,6 +13,15 @@ namespace PCMS_Web.Receptionist {
     public partial class WebForm9 {
         
         /// <summary>
+        /// Msg_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Msg_alert;
+        
+        /// <summary>
         /// userImage_img control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace PCMS_Web.Receptionist {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload pictureUpload;
+        
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// fullName_txt control.
@@ -55,7 +73,7 @@ namespace PCMS_Web.Receptionist {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gender_dd;
+        protected global::System.Web.UI.WebControls.DropDownList gender_dd;
         
         /// <summary>
         /// mobile_txt control.
@@ -94,12 +112,12 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea address_area;
         
         /// <summary>
-        /// changePassword_btn control.
+        /// updateProfile_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button changePassword_btn;
+        protected global::System.Web.UI.WebControls.Button updateProfile_btn;
     }
 }

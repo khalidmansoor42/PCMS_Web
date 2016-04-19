@@ -11,14 +11,7 @@ namespace PCMS_Web.Doctor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "doctor")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
+            
         }
     }
 }
