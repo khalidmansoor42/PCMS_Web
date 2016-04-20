@@ -67,7 +67,7 @@ namespace PCMS_Web.Receptionist
                 SqlCommand SelectCommand1 = new SqlCommand(query, con);
                 SqlDataReader myReader1;
                 con.Open();
-                SelectCommand1.Parameters.Add(new SqlParameter("@patient_reg", Convert.ToInt32(patientId_txt.Text)));
+                SelectCommand1.Parameters.Add(new SqlParameter("@patient_reg", patientId_txt.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@cnic", cnic.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@name", fullName.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@fatherName", fatherName.Text));

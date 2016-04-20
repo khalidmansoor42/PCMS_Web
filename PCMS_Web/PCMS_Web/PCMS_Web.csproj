@@ -178,6 +178,7 @@
     <Content Include="Doctor\searchPatients.aspx" />
     <Content Include="Doctor\loginHistory.aspx" />
     <Content Include="Doctor\myProfile.aspx" />
+    <Content Include="Doctor\systematicMedication.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1203,6 +1204,13 @@
     </Compile>
     <Compile Include="Doctor\myProfile.aspx.designer.cs">
       <DependentUpon>myProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\systematicMedication.aspx.cs">
+      <DependentUpon>systematicMedication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\systematicMedication.aspx.designer.cs">
+      <DependentUpon>systematicMedication.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />

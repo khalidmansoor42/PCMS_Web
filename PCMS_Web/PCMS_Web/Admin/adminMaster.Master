@@ -216,7 +216,7 @@
                                             <a href="changePassword.aspx">Change Password</a>
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Text Field Restricted Record</a>
+                                            <a href="#"></a>
                                         </div>
                                         <div class="col-xs-4 text-center">
                                             <a href="loginHistory.aspx">Login History</a>
