@@ -44,7 +44,10 @@
       <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Tech Agentx Shared\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -215,7 +218,6 @@
     <Content Include="Receptionist\changePassword.aspx" />
     <Content Include="Receptionist\duplicateInvoice.aspx" />
     <Content Include="Receptionist\oldPatients.aspx" />
-    <Content Include="Receptionist\receipt.aspx" />
     <Content Include="Receptionist\receptionMaster.Master" />
     <Content Include="Admin\adminMaster.Master" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -223,7 +225,10 @@
     <Content Include="obj\Debug\RdlCompile.cache" />
     <Content Include="obj\Debug\RdlCompile.compiled" />
     <None Include="bin\PCMS_Web.dll.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\psycure.pubxml" />
     <None Include="Web.Debug.config">
@@ -1055,7 +1060,9 @@
     <Content Include="Receptionist\loginHistory.aspx" />
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="starter.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\adminMaster.Master.cs">
@@ -1260,13 +1267,6 @@
     <Compile Include="Receptionist\oldPatients.aspx.designer.cs">
       <DependentUpon>oldPatients.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\receipt.aspx.cs">
-      <DependentUpon>receipt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\receipt.aspx.designer.cs">
-      <DependentUpon>receipt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Receptionist\receptionMaster.Master.cs">
       <DependentUpon>receptionMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1322,7 +1322,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
