@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="forgotPassword.aspx.cs" Inherits="PCMS_Web.General.changePassword" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="forgotPass.aspx.cs" Inherits="PCMS_Web.General.forgotPass" %>
 
 <!DOCTYPE html>
 <html>
@@ -58,7 +58,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-            <asp:Button class="btn btn-primary btn-block btn-flat" id="changePassword_btn" runat="server" OnClientClick="return runEffect();" Text="Submit" OnClick="changePassword_Click"/>
+            <asp:Button CssClass="btn btn-primary btn-block btn-flat" ID="changePassword_btn" runat="server" Text="Submit" OnClick="changePassword_btn_Click" />
         </div>
         <!-- /.col -->
       </div>
