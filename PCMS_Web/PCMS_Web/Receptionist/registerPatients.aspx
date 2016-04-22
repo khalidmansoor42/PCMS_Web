@@ -83,7 +83,7 @@
                             </div>
                           <div class="col-sm-6">
  <!--                           <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>-->
-                              <asp:DropDownList ID="ageCal" runat="server">
+                              <asp:DropDownList ID="ageCal" runat="server" CssClass="form-control">
                                   <asp:ListItem>Year</asp:ListItem>
                                   <asp:ListItem>Month</asp:ListItem>
                               </asp:DropDownList>

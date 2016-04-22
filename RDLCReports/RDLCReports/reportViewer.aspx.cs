@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PCMS_Web.Admin
+namespace RDLCReports
 {
-    public partial class WebForm8 : System.Web.UI.Page
+    public partial class reportViewer : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -72,7 +72,7 @@
     <Content Include="Admin\loginHistory.aspx" />
     <Content Include="Admin\myProfile.aspx" />
     <Content Include="Admin\searchUsers.aspx" />
-    <Content Include="Admin\doctorRegistration.aspx" />
+    <Content Include="Admin\userRegistration.aspx" />
     <Content Include="Admin\addDisease.aspx" />
     <Content Include="Admin\addMedicine.aspx" />
     <Content Include="Admin\attendantRelation.aspx" />
@@ -180,6 +180,7 @@
     <Content Include="Doctor\searchPatients.aspx" />
     <Content Include="Doctor\loginHistory.aspx" />
     <Content Include="Doctor\myProfile.aspx" />
+    <Content Include="Doctor\systematicMedication.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -223,7 +224,10 @@
     <Content Include="obj\Debug\RdlCompile.cache" />
     <Content Include="obj\Debug\RdlCompile.compiled" />
     <None Include="bin\PCMS_Web.dll.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\psycure.pubxml" />
     <None Include="Web.Debug.config">
@@ -1056,7 +1060,9 @@
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="Receptionist\invoice.aspx" />
     <Content Include="starter.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\adminMaster.Master.cs">
@@ -1115,12 +1121,12 @@
     <Compile Include="Admin\searchUsers.aspx.designer.cs">
       <DependentUpon>searchUsers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\doctorRegistration.aspx.cs">
-      <DependentUpon>doctorRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\userRegistration.aspx.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\doctorRegistration.aspx.designer.cs">
-      <DependentUpon>doctorRegistration.aspx</DependentUpon>
+    <Compile Include="Admin\userRegistration.aspx.designer.cs">
+      <DependentUpon>userRegistration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\addDisease.aspx.cs">
       <DependentUpon>addDisease.aspx</DependentUpon>
@@ -1205,6 +1211,13 @@
     </Compile>
     <Compile Include="Doctor\myProfile.aspx.designer.cs">
       <DependentUpon>myProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\systematicMedication.aspx.cs">
+      <DependentUpon>systematicMedication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\systematicMedication.aspx.designer.cs">
+      <DependentUpon>systematicMedication.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
@@ -1316,7 +1329,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

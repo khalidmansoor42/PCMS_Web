@@ -1,7 +1,8 @@
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll.config
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\PCMS_Web.pdb
-C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cache
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.compiled
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.dll
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.pdb
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cache

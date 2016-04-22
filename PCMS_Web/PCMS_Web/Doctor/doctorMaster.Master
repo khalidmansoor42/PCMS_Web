@@ -284,14 +284,14 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="problemListAndComplaint.aspx"><i class="fa fa-info-circle"></i> Complaint And Problem</a></li>
-                            <li><a href="#"><i class="fa fa-history"></i> History</a></li>
+                            <li><a href="history.aspx"><i class="fa fa-history"></i> History</a></li>
                             <li><a href="#"><i class="fa fa-search"></i> Diagnosis</a></li>
                             <li><a href="#"><i class="fa fa-stethoscope"></i> Mental State Examination</a></li>
                             <li><a href="#"><i class="fa fa-male"></i> General Physical Examination</a></li>
                             <li><a href="#"><i class="fa fa-bar-chart"></i> Systematic Examination</a></li>
                             <li><a href="#"><i class="fa fa-file-text"></i> Psychometric Evaluation</a></li>
                             <li><a href="#"><i class="fa fa-user-secret"></i> Investigation</a></li>
-                            <li><a href="#"><i class="fa fa-medkit"></i> Medication</a></li>
+                            <li><a href="systematicMedication.aspx"><i class="fa fa-medkit"></i> Medication</a></li>
                             <li><a href="#"><i class="fa fa-comments-o"></i> Counselling</a></li>
                             <li><a href="#"><i class="fa fa-picture-o"></i> Add Picture</a></li>
                         </ul>
