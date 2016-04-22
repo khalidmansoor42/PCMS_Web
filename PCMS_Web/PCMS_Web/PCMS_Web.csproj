@@ -1058,7 +1058,7 @@
     <Content Include="Receptionist\assignDoctor.aspx" />
     <Content Include="Receptionist\loginHistory.aspx" />
     <Content Include="Receptionist\myProfile.aspx" />
-    <Content Include="Receptionist\invoice.aspx" />
+    <Content Include="Receptionist\PatientInvoice.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1316,12 +1316,12 @@
     <Compile Include="Receptionist\myProfile.aspx.designer.cs">
       <DependentUpon>myProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\invoice.aspx.cs">
-      <DependentUpon>invoice.aspx</DependentUpon>
+    <Compile Include="Receptionist\PatientInvoice.aspx.cs">
+      <DependentUpon>PatientInvoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Receptionist\invoice.aspx.designer.cs">
-      <DependentUpon>invoice.aspx</DependentUpon>
+    <Compile Include="Receptionist\PatientInvoice.aspx.designer.cs">
+      <DependentUpon>PatientInvoice.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

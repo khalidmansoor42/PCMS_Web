@@ -17,9 +17,9 @@
                     <br />
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Full Name</label>
+                      <label class="col-sm-4 control-label">Patient ID</label>
                       <div class="col-sm-8">
-                        <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server" ></asp:TextBox>
                       </div>
                     </div>                   
                 </div>
@@ -29,14 +29,14 @@
                       <label class="col-sm-4 control-label">Full Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fullName" CssClass="form-control" runat="server" required></asp:TextBox>
+                        <asp:TextBox ID="fullName" CssClass="form-control" runat="server" Pattern="[A-Za-z][A-Z a-z]*" Title="enter only characters"  Required=""></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Father Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fatherName" CssClass="form-control" runat="server" required></asp:TextBox>
+                        <asp:TextBox ID="fatherName" CssClass="form-control" runat="server" Pattern="[A-Za-z][A-Z a-z]*" Title="enter only characters"  Required=""></asp:TextBox>
                       </div>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
                       <label class="col-sm-4 control-label">Email</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="email" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="email" CssClass="form-control" Type="email" runat="server"  Title="Enter valid email"  ></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                          <label class="col-sm-4 control-label">Mobile Number</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="mobileNumber" CssClass="form-control" runat="server" required></asp:TextBox>
+                            <asp:TextBox ID="mobileNumber" CssClass="form-control" runat="server" Title="Enter valid mobile number" placeholder="xxxx-xxxxxxx" Pattern="\d\d\d\d-\d\d\d\d\d\d\d" Required></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -63,14 +63,14 @@
                       <label class="col-sm-4 control-label">CNIC</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="cnic" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="cnic" CssClass="form-control" runat="server" Title="Enter valid cnic number" placeholder="xxxxx-xxxxxxx-x" Pattern="\d\d\d\d\d-\d\d\d\d\d\d\d-\d"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Address</label>
 
                       <div class="col-sm-8">
-                        <textarea id="TextArea1" rows="2" cols="20" runat="server" class="form-control" required></textarea>
+                        <textarea id="TextArea1" rows="2" cols="20" runat="server" Title="Enter Address" class="form-control" required></textarea>
                       </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                       <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
-                            <asp:TextBox ID="TextBox1" CssClass="form-control" onkeyup="calculate_DOB();" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control"  runat="server" Title="Enter only digit" placeholder="xxx" Pattern="\d\d\d" ></asp:TextBox>
                             </div>
                           <div class="col-sm-6">
  <!--                           <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>-->
@@ -133,22 +133,9 @@
                         <div class="col-sm-2">
                             <a href="#" class="button"><i class="fa fa-plus fa-1x"></i></a>
                       </div>
-                    </div>
+                    </div>  
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Referring Doctor</label>
-                      <div class="col-sm-6">
-                        <asp:DropDownList ID="referingDoctor_dd" CssClass="form-control" runat="server" DataSourceID="doctorDataSource" DataTextField="doctor_name" DataValueField="doctor_id"></asp:DropDownList>
-                            <asp:SqlDataSource runat="server" ID="doctorDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT [doctor_id], [doctor_name] FROM [doctor_registeration]"></asp:SqlDataSource>
-                        </div>
-                          <div class="col-sm-2">
-                        <a href="#" class="button"><i class="fa fa-plus fa-1x"></i></a>
-                      </div>
-                    </div>
-                </div>
-
-                  <div class="row">
-                    <div class="col-sm-6">
-                        <label class="col-sm-4 control-label">Education</label>
+                      <label class="col-sm-4 control-label">Education</label>
                         <div class="col-sm-8">
                             <asp:DropDownList CssClass="form-control" ID="patientEducation_dd" runat="server">
                                 <asp:ListItem>Middle Pass</asp:ListItem>
@@ -158,15 +145,8 @@
                                 <asp:ListItem>Masters</asp:ListItem>
                                 <asp:ListItem>PHD</asp:ListItem>
                             </asp:DropDownList>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <label class="col-sm-4 control-label"></label>
-                        <div class="col-sm-8">
-                           
-                        </div>
-                    </div>
+                        </div>                        
+                    </div>                  
                 </div>
                   <hr />
                 <div class="row">
@@ -179,14 +159,14 @@
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Full Name</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="attendantFullName" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="attendantFullName" Pattern="[A-Za-z][A-Z a-z]*" Title="enter only characters" CssClass="form-control" runat="server" ></asp:TextBox>
                         </div>
                     </div>
                 
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Phone Number</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="attMobile" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="attMobile" CssClass="form-control" Placeholder="xxxx-xxxxxxx" Pattern="\d\d\d\d-\d\d\d\d\d\d\d"  runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>

@@ -28,25 +28,11 @@ namespace PCMS_Web.Receptionist
 
             if (ageYear == "Year")
             {
-                if (age.Contains('.'))
-                {
-                    String[] substrings = age.Split('.');
-                    string date = DateTime.Today.ToString("yyyy-MM-dd");
-                    string[] words = date.Split('-');
-                    string dateofbirth = Convert.ToString(Convert.ToInt32(Convert.ToString(words[0])) - Convert.ToInt32(substrings[0]));
-                    words[0] = dateofbirth;                    
-                    words[1]= Convert.ToString((Convert.ToInt32(words[1]) + Convert.ToInt32(substrings[1])));
-                    dob = words[0] + "-" + words[1] + "-" + words[2];
-                }
-                else
-                {
                     string date = DateTime.Today.ToString("yyyy-MM-dd");
                     string[] words = date.Split('-');
                     string dateofbirth = Convert.ToString(Convert.ToInt32(Convert.ToString(words[0])) - Convert.ToInt32(age));
                     words[0] = dateofbirth;
                     dob= words[0] + "-" + words[1] + "-" + words[2];
-                }
-
             }
             else if(ageYear == "Month")
             {
@@ -87,7 +73,7 @@ namespace PCMS_Web.Receptionist
                 SelectCommand1.Parameters.Add(new SqlParameter("@attRelationId", Convert.ToInt32(attendantRelation_dd.SelectedValue)));
                 SelectCommand1.Parameters.Add(new SqlParameter("@attmob", attMobile.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@DOB", dob));
-                SelectCommand1.Parameters.Add(new SqlParameter("@referDoctorID", Convert.ToInt32(referingDoctor_dd.SelectedValue)));
+                SelectCommand1.Parameters.Add(new SqlParameter("@referDoctorID", Convert.ToInt32(1)));
                 SelectCommand1.Parameters.Add(new SqlParameter("@MaritalStatus", maritalStatus_dd.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@education", patientEducation_dd.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@regDate", DateTime.Now.ToString("yyyy-MM-dd")));
