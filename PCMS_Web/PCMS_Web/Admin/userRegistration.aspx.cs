@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace PCMS_Web.Admin
 {
-    public partial class WebForm8 : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         Random rnd = new Random();
         protected void Page_Load(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace PCMS_Web.Admin
                 SqlConnection con = new SqlConnection(constring);
 
 
-                String query = "INSERT INTO user_registeration(employee_id, full_name, father_name, sex, address, mob, cnic, dob, email, city_id, date_registeration, user_type, password, active)VALUES (@EmpId, @name, @fatherName, @gender,@address,@mobile,@cnic,@DOB,@email, @cityid,@regDate,@usertype,@pass,@active); ";
+                String query = "INSERT INTO user_registeration(employee_id, full_name, father_name, sex, address, mob, cnic, dob, email, city_id, date_registeration, user_type, password, active)VALUES (@EmpId, @name, @fatherName, @gender,@address,@mobile,@cnic,@DOB,@email, @cityid,@regDate,@usertype,@pass,@active); "; 
                 SqlCommand SelectCommand1 = new SqlCommand(query, con);
                 SqlDataReader myReader1;
                 con.Open();

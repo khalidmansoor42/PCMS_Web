@@ -166,24 +166,6 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.SqlDataSource cityDataSource;
         
         /// <summary>
-        /// referingDoctor_dd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList referingDoctor_dd;
-        
-        /// <summary>
-        /// doctorDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource doctorDataSource;
-        
-        /// <summary>
         /// patientEducation_dd control.
         /// </summary>
         /// <remarks>

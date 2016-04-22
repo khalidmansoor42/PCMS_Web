@@ -69,7 +69,7 @@ namespace PCMS_Web.Receptionist
             myReader = SelectCommand.ExecuteReader();
             myConn.Close();
             Session["reciept"] = reciept;
-            Response.Redirect("../Receptionist/receipt.aspx");
+            Response.Redirect("../Receptionist/PatientInvoice.aspx");
 
         }
     }

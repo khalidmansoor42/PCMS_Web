@@ -10,7 +10,7 @@
 namespace PCMS_Web.Admin {
     
     
-    public partial class WebForm3 {
+    public partial class WebForm8 {
         
         /// <summary>
         /// employeeId_txt control.

@@ -27,7 +27,7 @@ namespace PCMS_Web.Receptionist
                 {
                     string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
                     string id;
-                    string userName = System.Web.HttpContext.Current.Session["user_name"].ToString();
+                    string userName = System.Web.HttpContext.Current.Session["userName"].ToString();
                     string user_query = "Select password from user_registeration where user_name='" + userName + "'";
                     SqlConnection con = new SqlConnection(constring);
                     SqlCommand cmd = new SqlCommand();
@@ -68,7 +68,7 @@ namespace PCMS_Web.Receptionist
                 String quray = "update user_registeration set password=@1 where user_name=@2   ;";
                 SqlCommand SelectCommand = new SqlCommand(quray, myConn);
                 SqlDataReader myReader;
-                string userName = System.Web.HttpContext.Current.Session["user_name"].ToString();
+                string userName = System.Web.HttpContext.Current.Session["userName"].ToString();
                 SelectCommand.Parameters.Add(new SqlParameter("@1", newpass));
                 SelectCommand.Parameters.Add(new SqlParameter("@2", userName));
                 myConn.Open();

@@ -11,7 +11,6 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3 id="patient_waiting">0</h3>
-
               <p>Patients Waiting</p>
             </div>
             <div class="icon">
@@ -125,9 +124,12 @@
 
                                 <asp:BoundField DataField="patient_reg" HeaderText="Patient ID" SortExpression="patient_reg" ReadOnly="True"></asp:BoundField>
                                 <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name"></asp:BoundField>
-
-                                <asp:ButtonField Text="Button"></asp:ButtonField>
-                              </Columns>
+                                  <asp:TemplateField HeaderText="Check Out">
+                                    <ItemTemplate>
+                                   <asp:LinkButton runat="server" ID="lnkView" OnClick="lnkView_Click">Check Out</asp:LinkButton>
+                                     </ItemTemplate>
+                                   </asp:TemplateField>
+                             </Columns>
 
                   <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/adminMaster.Master" AutoEventWireup="true" CodeBehind="userRegistration.aspx.cs" Inherits="PCMS_Web.Admin.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/adminMaster.Master" AutoEventWireup="true" CodeBehind="userRegistration.aspx.cs" Inherits="PCMS_Web.Admin.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+<div class="row">
         <div class="col-md-12">
             <div class="box box-info">
             <div class="box-header with-border">
@@ -82,7 +82,7 @@
                             <asp:TextBox ID="TextBox1" Required="true" CssClass="form-control" runat="server"></asp:TextBox>
                           </div>
                          <div class="col-sm-6">
-                              <asp:DropDownList ID="ageCal" runat="server">
+                              <asp:DropDownList ID="ageCal" runat="server" CssClass="form-control">
                                   <asp:ListItem>Year</asp:ListItem>
                                   <asp:ListItem>Month</asp:ListItem>
                               </asp:DropDownList>
@@ -154,4 +154,5 @@
           </div>
         </div>
     </div>
+
 </asp:Content>
