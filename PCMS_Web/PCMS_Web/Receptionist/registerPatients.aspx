@@ -17,7 +17,7 @@
                     <br />
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label">Full Name</label>
+                      <label class="col-sm-4 control-label">Patient ID</label>
                       <div class="col-sm-8">
                         <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server"></asp:TextBox>
                       </div>

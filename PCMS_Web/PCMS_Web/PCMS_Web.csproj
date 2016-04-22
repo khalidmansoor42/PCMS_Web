@@ -182,6 +182,8 @@
     <Content Include="Doctor\loginHistory.aspx" />
     <Content Include="Doctor\myProfile.aspx" />
     <Content Include="Doctor\systematicMedication.aspx" />
+    <Content Include="Doctor\formulation.aspx" />
+    <Content Include="Doctor\generalPhysicalExamination.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1218,6 +1220,20 @@
     </Compile>
     <Compile Include="Doctor\systematicMedication.aspx.designer.cs">
       <DependentUpon>systematicMedication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\formulation.aspx.cs">
+      <DependentUpon>formulation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\formulation.aspx.designer.cs">
+      <DependentUpon>formulation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\generalPhysicalExamination.aspx.cs">
+      <DependentUpon>generalPhysicalExamination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\generalPhysicalExamination.aspx.designer.cs">
+      <DependentUpon>generalPhysicalExamination.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />

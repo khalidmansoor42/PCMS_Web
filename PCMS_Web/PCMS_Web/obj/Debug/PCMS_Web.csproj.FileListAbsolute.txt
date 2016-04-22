@@ -5,3 +5,4 @@ C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cac
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.compiled
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.dll
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.pdb
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache
