@@ -54,8 +54,6 @@
                     </div>
                 </div>
 
-           
-                
 
                   <hr />
                 <div class="row">

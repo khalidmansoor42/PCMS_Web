@@ -43,9 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.DynamicData" />
@@ -183,6 +184,9 @@
     <Content Include="Doctor\systematicMedication.aspx" />
     <Content Include="Doctor\formulation.aspx" />
     <Content Include="Doctor\generalPhysicalExamination.aspx" />
+    <Content Include="Doctor\systematicExamination.aspx" />
+    <Content Include="Doctor\investigation.aspx" />
+    <Content Include="Doctor\addPicture.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1235,6 +1239,27 @@
     <Compile Include="Doctor\generalPhysicalExamination.aspx.designer.cs">
       <DependentUpon>generalPhysicalExamination.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\systematicExamination.aspx.cs">
+      <DependentUpon>systematicExamination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\systematicExamination.aspx.designer.cs">
+      <DependentUpon>systematicExamination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\investigation.aspx.cs">
+      <DependentUpon>investigation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\investigation.aspx.designer.cs">
+      <DependentUpon>investigation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\addPicture.aspx.cs">
+      <DependentUpon>addPicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\addPicture.aspx.designer.cs">
+      <DependentUpon>addPicture.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
     <Compile Include="findvisitnumber.cs" />
@@ -1341,10 +1366,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dist\Files\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

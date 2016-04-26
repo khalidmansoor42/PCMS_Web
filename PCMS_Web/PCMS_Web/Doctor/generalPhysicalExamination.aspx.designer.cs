@@ -13,6 +13,87 @@ namespace PCMS_Web.Doctor {
     public partial class WebForm10 {
         
         /// <summary>
+        /// heightComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox heightComments_txt;
+        
+        /// <summary>
+        /// weightComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox weightComments_txt;
+        
+        /// <summary>
+        /// pulseComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pulseComments_txt;
+        
+        /// <summary>
+        /// skinEruption_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox skinEruption_txt;
+        
+        /// <summary>
+        /// lyingComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lyingComments_txt;
+        
+        /// <summary>
+        /// sittingComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sittingComments_txt;
+        
+        /// <summary>
+        /// standingComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox standingComments_txt;
+        
+        /// <summary>
+        /// temperatureComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox temperatureComments_txt;
+        
+        /// <summary>
+        /// dehydrationComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dehydrationComments_txt;
+        
+        /// <summary>
         /// pallorYes_radio control.
         /// </summary>
         /// <remarks>
@@ -65,6 +146,60 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox jaundiceComment_txt;
+        
+        /// <summary>
+        /// oedemaYes_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton oedemaYes_radio;
+        
+        /// <summary>
+        /// oedemaNo_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton oedemaNo_radio;
+        
+        /// <summary>
+        /// oedemaComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oedemaComments_txt;
+        
+        /// <summary>
+        /// kylonychiaYes_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton kylonychiaYes_radio;
+        
+        /// <summary>
+        /// kylonchiaNo_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton kylonchiaNo_radio;
+        
+        /// <summary>
+        /// kylonchiaComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox kylonchiaComments_txt;
         
         /// <summary>
         /// thyroidYes_radio control.
@@ -121,60 +256,6 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox clubbingComments_txt;
         
         /// <summary>
-        /// pulseYes_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton pulseYes_radio;
-        
-        /// <summary>
-        /// pulseNo_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton pulseNo_radio;
-        
-        /// <summary>
-        /// pulseComments_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pulseComments_txt;
-        
-        /// <summary>
-        /// bpYes_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton bpYes_radio;
-        
-        /// <summary>
-        /// bpNo_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton bpNo_radio;
-        
-        /// <summary>
-        /// bpComments_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bpComments_txt;
-        
-        /// <summary>
         /// repirationYes_radio control.
         /// </summary>
         /// <remarks>
@@ -229,13 +310,31 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox lymphComments_txt;
         
         /// <summary>
-        /// Button1 control.
+        /// jvpComments_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox jvpComments_txt;
+        
+        /// <summary>
+        /// jvp_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList jvp_dd;
+        
+        /// <summary>
+        /// update_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button update_btn;
         
         /// <summary>
         /// submit_btn control.

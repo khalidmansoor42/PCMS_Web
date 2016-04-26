@@ -8,6 +8,7 @@
                 </div>
                 <div class="box-body">
                     <div class="row">
+                        <br />
                         <label class="col-sm-2 col-sm-offset-2 control-label">Formulations</label>
                         <div class="col-sm-5">
                             <textarea id="formulation_area" cols="20" rows="5" class="form-control"></textarea>

@@ -3,7 +3,7 @@
     <form runat="server">
         
     <div class="col-sm-12">
-        <div id="divStatus" clientidmode="static" class="alert alert-info">
+        <div id="divStatus" clientidmode="static" hidden class="alert alert-info">
 
         </div>        
         <div class="box box-info">

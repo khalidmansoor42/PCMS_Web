@@ -281,7 +281,7 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-home"></i> <span>Home</span></a>
+                        <a href="dashboard.aspx"><i class="fa fa-home"></i> <span>Home</span></a>
                     </li>
                     <li class="treeview active">
                         <a href="#">
