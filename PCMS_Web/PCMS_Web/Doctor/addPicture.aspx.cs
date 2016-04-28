@@ -16,32 +16,8 @@ namespace PCMS_Web.Doctor
         string id = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            if (Session["patient_reg"] != null)
-            {
-                id = Session["patient_reg"].ToString();
-                if (!IsPostBack)
-                {
-                    this.BindGrid();
-                }
-            }
-        }
-
-        private void BindGrid()
-        {
-
-            using (SqlConnection con = new SqlConnection(constring))
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "SELECT id, FileName,FilePath FROM UploadedFiles where id='" + id + "'";
-                    cmd.Connection = con;
-                    con.Open();
-                    GridView1.DataSource = cmd.ExecuteReader();
-                    GridView1.DataBind();
-                    con.Close();
-                }
-            }
+            Session["PatientId"] = 1;
+            int id = Convert.ToInt32(Session["PatientId"].ToString());
         }
 
 
