@@ -13,6 +13,24 @@ namespace PCMS_Web.Receptionist {
     public partial class WebForm5 {
         
         /// <summary>
+        /// errorMsg_alert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMsg_alert;
+        
+        /// <summary>
+        /// error_lb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label error_lb;
+        
+        /// <summary>
         /// searchPatient_txt control.
         /// </summary>
         /// <remarks>

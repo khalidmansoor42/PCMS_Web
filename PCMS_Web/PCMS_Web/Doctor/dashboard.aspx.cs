@@ -77,7 +77,7 @@ namespace PCMS_Web.Doctor
         {
             string totalWaitingPatient = "0";
             string employeeid = System.Web.HttpContext.Current.Session["userId"].ToString();
-            string user_query = "select count(patient_reg) as totalPatient from visit where checks='0' and visit_date='" + DateTime.Today.ToString("yyyy-MM-dd") + "' and employee_id='" + 233 + "'";
+            string user_query = "select count(patient_reg) as totalPatient from visit where checks='0' and visit_date='" + DateTime.Today.ToString("yyyy-MM-dd") + "' and employee_id='" + employeeid + "'";
             SqlConnection con = new SqlConnection(constring);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -99,7 +99,7 @@ namespace PCMS_Web.Doctor
         {
             string totalPatientChecks = "0";
             string employeeid = System.Web.HttpContext.Current.Session["userId"].ToString();
-            string user_query = "select count(patient_reg) as totalPatient from visit where checks='1' and visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' and employee_id='" + 233 + "'";
+            string user_query = "select count(patient_reg) as totalPatient from visit where checks='1' and visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "' and employee_id='" + employeeid + "'";
             SqlConnection con = new SqlConnection(constring);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
@@ -214,7 +214,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection myConn = new SqlConnection(constring);
-                string query = "UPDATE visit SET visit.checks='1' where patient_reg=@1 AND visit_date=@2 and visit.visit_no=(select visit_no from receipt where receipt.token_no=@3 and receipt.receiptdate=@2)";
+                string query = "UPDATE visit SET visit.checks='1' where patient_reg=@1 AND visit_date=@2 and visit.visit_no=(select visit_no from receipt where receipt.token_no=@3 and receipt.Date=@2)";
                 SqlCommand SelectCommand = new SqlCommand(query, myConn);
                 SqlDataReader myReader;
                 SelectCommand.Parameters.Add(new SqlParameter("@1", patient_reg));

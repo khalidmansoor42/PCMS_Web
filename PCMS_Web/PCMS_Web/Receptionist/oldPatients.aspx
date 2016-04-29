@@ -3,9 +3,14 @@
     <form runat="server">
         
     <div class="col-sm-12">
-        <div id="divStatus" clientidmode="static" hidden class="alert alert-info">
-
-        </div>        
+         <div class="alert alert-danger" role="alert" runat="server" visible="false" id="errorMsg_alert">
+             <asp:Label ID="error_lb" runat="server" Text="Label" ></asp:Label>
+         </div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+             $(document).ready(function () {
+                    $('#errorMsg_alert').delay(2000).fadeOut();
+                });
+         </script>      
         <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Old Patients</h3>
@@ -113,14 +118,14 @@
                       <label class="col-sm-4 control-label">Patient ID</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="patientId_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="patientId_txt" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Full Name</label>
 
                       <div class="col-sm-8">
-                        <asp:TextBox ID="fullName_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="fullName_txt"  Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                       </div>
                     </div>
                 </div>            
@@ -129,7 +134,7 @@
                          <label class="col-sm-4 control-label">Fee</label>
 
                         <div class="col-sm-8">
-                            <asp:TextBox ID="fee" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="fee" CssClass="form-control" Required="" Title="Enter valid number"  Pattern="^[0-9]{1,10}$"  runat="server"></asp:TextBox>
                         </div>
                     </div>
                 <div class="form-group col-sm-6">
