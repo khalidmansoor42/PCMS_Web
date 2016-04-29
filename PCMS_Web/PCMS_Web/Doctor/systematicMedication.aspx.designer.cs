@@ -49,13 +49,40 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.Label error;
         
         /// <summary>
-        /// Div1 control.
+        /// patientId_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.WebControls.TextBox patientId_txt;
+        
+        /// <summary>
+        /// visitNumber_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox visitNumber_txt;
+        
+        /// <summary>
+        /// patientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox patientName;
+        
+        /// <summary>
+        /// ageTxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ageTxt;
         
         /// <summary>
         /// Gridview1 control.

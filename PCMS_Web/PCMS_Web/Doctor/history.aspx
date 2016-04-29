@@ -198,7 +198,7 @@
                                        
                 </div>
 
-                <div class="row">Dosage
+                <div class="row">
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Hypertension</label>
                       <div class="col-sm-8">

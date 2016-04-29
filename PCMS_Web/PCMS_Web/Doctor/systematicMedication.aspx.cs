@@ -30,9 +30,9 @@ namespace PCMS_Web.Doctor
                 {
 
                     Session["MyArr"] = "";
+
                     SetInitialRow();
                     GetHistory();
-
 
                 }
             }
@@ -49,8 +49,6 @@ namespace PCMS_Web.Doctor
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
-                //DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                //dataGridView1.Rows.Add(row);
 
 
                 for (int z = 0; z < ds.Tables[0].Rows.Count; z++)
@@ -58,8 +56,11 @@ namespace PCMS_Web.Doctor
                     DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
                     ddl.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["Medicine"]);
                     string text = Convert.ToString(ds.Tables[0].Rows[z]["directions"]);
-                    Session["MyArr"] = Session["MyArr"] + text + ",";
-                    string[] split = Session["MyArr"].ToString().Split(',');
+
+
+                    Session["MyArr"] = Session["MyArr"].ToString() + text + "@";
+                    string[] split = Session["MyArr"].ToString().Split('@');
+
 
                     TextBox tb1 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("morning_txt");
                     tb1.Text = Convert.ToString(ds.Tables[0].Rows[z]["morning"]);
@@ -76,7 +77,16 @@ namespace PCMS_Web.Doctor
 
 
 
-                    Gridview1.Rows[z].Cells[5].Text = split[z];
+                    if (z == 0)
+                    {
+                        Gridview1.Rows[z].Cells[5].Text = split[z];
+                    }
+                    else
+                    {
+                        string check = split[z + 1];
+                        Gridview1.Rows[z].Cells[5].Text = check;
+
+                    }
                     DropDownList ddl3 = (DropDownList)Gridview1.Rows[z].Cells[6].FindControl("DropDownList3");
                     ddl3.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["durations"]);
                     int dropDownValue = Convert.ToInt32(ddl3.SelectedValue);
@@ -107,7 +117,7 @@ namespace PCMS_Web.Doctor
 
 
 
-                    AddNewRowToGrid();
+                    AddNewRowToGrid(false);
 
 
                 }
@@ -271,10 +281,7 @@ namespace PCMS_Web.Doctor
                 TextBox tb3 = (TextBox)Gridview1.Rows[0].Cells[4].FindControl("evening_txt");
                 TextBox tb4 = (TextBox)Gridview1.Rows[0].Cells[7].FindControl("durationPeriod_txt");
                 HtmlTextArea ddl2 = (HtmlTextArea)Gridview1.Rows[0].Cells[5].FindControl("transliterateTextarea");
-                tb1.Text = "0";
-                tb2.Text = "0";
-                tb3.Text = "0";
-                tb4.Text = "0";
+
                 DropDownList ddl3 = (DropDownList)Gridview1.Rows[0].Cells[6].FindControl("DropDownList3");
 
 
@@ -305,13 +312,13 @@ namespace PCMS_Web.Doctor
 
                 if (count == 1)
                 {
-                    AddNewRowToGrid();
+                    AddNewRowToGrid(true);
                 }
                 else if (count > 1)
                 {
                     if (Gridview1.Rows[count - 1].Cells[5].Text != "")
                     {
-                        AddNewRowToGrid();
+                        AddNewRowToGrid(true);
                     }
                 }
                 else
@@ -324,7 +331,7 @@ namespace PCMS_Web.Doctor
                     SqlConnection con = new SqlConnection(constring);
                     SqlCommand cmd = new SqlCommand(query, con);
 
-                    string[] split = Session["MyArr"].ToString().Split(',');
+                    string[] split = Session["MyArr"].ToString().Split('@');
                     DropDownList ddl1 = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
                     TextBox tb1 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("morning_txt");
 
@@ -408,14 +415,17 @@ namespace PCMS_Web.Doctor
             }
         }
 
-        private void AddNewRowToGrid()
+        private void AddNewRowToGrid(bool checkRow)
         {
             try
             {
-                string text = Request.Form["temp"];
-                int row = Gridview1.Rows.Count;
+                if (checkRow == true)
+                {
+                    string text = Request.Form["temp"];
+                    int row = Gridview1.Rows.Count;
 
-                Session["MyArr"] = Session["MyArr"].ToString() + text + ",";
+                    Session["MyArr"] = Session["MyArr"].ToString() + text + "@";
+                }
 
                 ///list.Insert(row,text);
                 ///
@@ -561,7 +571,7 @@ namespace PCMS_Web.Doctor
 
                             if (i < dt.Rows.Count - 1)
                             {
-                                string[] split = Session["MyArr"].ToString().Split(',');
+                                string[] split = Session["MyArr"].ToString().Split('@');
                                 tb1.Text = dt.Rows[i]["Column2"].ToString();
                                 tb2.Text = dt.Rows[i]["Column3"].ToString();
                                 tb3.Text = dt.Rows[i]["Column4"].ToString();
@@ -615,7 +625,7 @@ namespace PCMS_Web.Doctor
         {
 
 
-            AddNewRowToGrid();
+            AddNewRowToGrid(true);
 
         }
 
