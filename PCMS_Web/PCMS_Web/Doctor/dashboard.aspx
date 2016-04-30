@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
+﻿<%@ Page Title="" Language="C#"  EnableEventValidation="false" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -117,7 +117,7 @@
             
                 <div class="box-body" id="muaz">
                     <div class="table-responsive" id="arslan">
-                        <asp:GridView ID="patientTokenGrid" CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="patientTokenGrid_SelectedIndexChanged">
+                        <asp:GridView ID="patientTokenGrid"   CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="patientTokenGrid_SelectedIndexChanged">
                               <Columns>
                                   <asp:CommandField ShowSelectButton="True"></asp:CommandField>
                                 <asp:BoundField DataField="token_no" HeaderText="Token No." SortExpression="token_no"></asp:BoundField>
@@ -159,15 +159,23 @@
 
                     </div>
                 </div>
-            
         </div>
           <!-- Calendar -->
 
         </section>
           </div>
     </form>
+    <script>
+        function grid() {
+            var rowscount = $("#<%=patientTokenGrid.ClientID %> tr").length;
+            if (rowscount) {
+
+            } else {
+                window.location = "dashboard.aspx";
+            }
+
+        }
+    </script>
   <!--  <script src="http://code.jquery.com/jquery-latest.min.js"type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>-->
-     
-
 </asp:Content>
