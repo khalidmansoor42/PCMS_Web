@@ -621,7 +621,7 @@
                   snd.play();
                   return false;
               }
-          });          
+          });
      </script>
  <script type ="text/javascript">
           $(document).ready(function () {
@@ -642,7 +642,7 @@
                       }
                   })
                   return false;
-              }, 5000);                         
+              }, 5000);           
          });
      </script>
 </body>

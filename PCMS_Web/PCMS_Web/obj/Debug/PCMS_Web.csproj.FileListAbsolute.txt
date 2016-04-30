@@ -31,3 +31,15 @@ C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\Microsoft.Visual
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\Microsoft.MSXML.dll
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\EnvDTE.xml
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\EnvDTE80.xml
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.Design.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.SqlServer.Types.dll
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Interaction.dll
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Extensibility.dll
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Interaction.xml
+C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Extensibility.xml
