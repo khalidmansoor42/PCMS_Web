@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -149,7 +149,7 @@
 
                   <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
               </asp:GridView>
-                        <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT p.full_name, p.patient_reg, r.token_no FROM patient_registeration AS p INNER JOIN visit AS v ON p.patient_reg = v.patient_reg INNER JOIN receipt AS r ON p.patient_reg = r.patient_reg AND v.patient_reg = r.patient_reg AND v.employee_id = r.employee_id WHERE (v.visit_date = @Param1) AND (v.checks = '0') AND (v.employee_id = @Param2) AND (r.Date = @Param3)">
+                        <asp:SqlDataSource runat="server" ID="PatientTokenDataSource" ConnectionString='<%$ ConnectionStrings:doctorConnectionString %>' SelectCommand="SELECT p.full_name, p.patient_reg, r.token_no FROM patient_registeration AS p INNER JOIN visit AS v ON p.patient_reg = v.patient_reg INNER JOIN receipt AS r ON p.patient_reg = r.patient_reg AND v.patient_reg = r.patient_reg AND v.employee_id = r.employee_id and v.visit_no = r.visit_no WHERE (v.visit_date = @Param1) AND (v.checks = '0') AND (v.employee_id = @Param2) AND (r.Date = @Param3)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="dateToday" Name="Param1" PropertyName="Text" />
                                 <asp:ControlParameter ControlID="employeeId" Name="Param2" PropertyName="Text" />

@@ -594,7 +594,7 @@
 
                               $.toaster({ priority: 'info', title: 'New Token has Issue', message: msg });
                               var url = 'dashboard.aspx';
-                              $('#muaz').load(url + ' #arslan');
+                              $('#muaz').load(url + ' #muaz');
                               play_beep();
                               if ('<%= Session["notiSession"] %>' == "") 
                               {   '<%=Session["notiSession"]="1"%>'
