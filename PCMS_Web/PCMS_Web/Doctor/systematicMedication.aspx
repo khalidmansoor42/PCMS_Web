@@ -60,7 +60,7 @@
        <div class="col-sm-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Investigation</h3>
+                  <h3 class="box-title">Systematic Medication</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">

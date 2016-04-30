@@ -229,6 +229,17 @@
     <Content Include="obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\RdlCompile.cache" />
     <Content Include="obj\Debug\RdlCompile.compiled" />
+    <Content Include="AppData\visitReportDataSet.xsc">
+      <DependentUpon>visitReportDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="AppData\visitReportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>visitReportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="AppData\visitReportDataSet.xss">
+      <DependentUpon>visitReportDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="bin\PCMS_Web.dll.config" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -1161,6 +1172,11 @@
     </Compile>
     <Compile Include="Admin\addComplaint.aspx.designer.cs">
       <DependentUpon>addComplaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\visitReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>visitReportDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Doctor\doctorMaster.Master.cs">
       <DependentUpon>doctorMaster.Master</DependentUpon>
