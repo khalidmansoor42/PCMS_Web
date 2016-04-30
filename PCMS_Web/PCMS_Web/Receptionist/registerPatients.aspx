@@ -79,7 +79,7 @@
                       <div class="form-group col-sm-6">
                           <label class="col-sm-4 control-label">Age</label>
                             <div class="col-sm-2">
-                            <asp:TextBox ID="TextBox1" CssClass="form-control"  runat="server" Title="Enter only digit" placeholder="xxx" Pattern="\d\d\d" ></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" CssClass="form-control"  runat="server" Title="Enter only digit" placeholder="xxx"  ></asp:TextBox>
                             </div>
                           <div class="col-sm-6">
  <!--                           <input type="date" id="dateOfBorth" runat="server"  class="form-control"  required/>-->

@@ -58,11 +58,7 @@
                             </div>
                             
                         </div>
-                        <hr/>
-                        <div class="row">
-                            <h4 class="col-sm-4 control-label">Token Details</h4>
-                        </div>
-                  
+                        <hr/>                                         
                         <br />
 
                         <div class="row">
@@ -70,7 +66,7 @@
                                  <label class="col-sm-4 control-label">Total Fee</label>
 
                                 <div class="col-sm-8">
-                                    <asp:TextBox ID="totalFee_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="totalFee_txt" Required="" Title="Enter only number"  Pattern="^[0-9]{1,10}$"  CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">
@@ -82,17 +78,7 @@
                                       </asp:SqlDataSource>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                              <label class="col-sm-4 control-label">Receipt Number</label>
-
-                              <div class="col-sm-8">
-                                <asp:TextBox ID="receiptNumber_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                              </div>
-                            </div>
-                        </div>
+                        </div>                        
 
                     </div>
 

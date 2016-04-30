@@ -85,15 +85,6 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.SqlDataSource AssignDoctorDataSource;
         
         /// <summary>
-        /// receiptNumber_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox receiptNumber_txt;
-        
-        /// <summary>
         /// printReceipt_btn control.
         /// </summary>
         /// <remarks>
