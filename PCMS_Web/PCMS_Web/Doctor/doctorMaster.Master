@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="doctorMaster.master.cs" Inherits="PCMS_Web.Doctor.doctorMaster" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -591,11 +590,13 @@
                       success: function (r) {
                           var msg = r.d;
                           if (msg != "") {
-
                               $.toaster({ priority: 'info', title: 'New Token has Issue', message: msg });
                               var url = 'dashboard.aspx';
                               $('#muaz').load(url + ' #arslan');
+                              $('#muaz').load(url + ' #arslan');
                               play_beep();
+                              grid();
+                              Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () { myFunction(); });
                               if ('<%= Session["notiSession"] %>' == "") 
                               {   '<%=Session["notiSession"]="1"%>'
                                   $("#notification").empty();
@@ -609,7 +610,8 @@
                                   $("#notification").empty();
                                   $("#notification").append(userName);
 
-                              }                         }
+                              }
+                          }
                           }
                   })
                   return false;
@@ -619,8 +621,7 @@
                   snd.play();
                   return false;
               }
-          });
-          
+          });          
      </script>
  <script type ="text/javascript">
           $(document).ready(function () {
@@ -638,12 +639,10 @@
                           document.getElementById("patient_waiting").innerHTML = res[0];
                           document.getElementById("PatientsCheckedToday").innerHTML = res[1];
                           document.getElementById("PatientRegister").innerHTML = res[2];
-
                       }
                   })
                   return false;
-              }, 5000);           
-              
+              }, 5000);                         
          });
      </script>
 </body>

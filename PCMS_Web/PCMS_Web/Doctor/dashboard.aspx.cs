@@ -14,11 +14,13 @@ namespace PCMS_Web.Doctor
     public partial class WebForm1 : System.Web.UI.Page
     {
         static string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
-
         protected void Page_Load(object sender, EventArgs e)
         {
                 employeeId.Text = Session["userId"].ToString();
-                dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");         
+                dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");
+                 patientTokenGrid.DataBind();
+
+
         }
         [WebMethod(EnableSession = true)]
         public static string notification()
@@ -47,6 +49,7 @@ namespace PCMS_Web.Doctor
                 }
             }
             con.Close();
+            
             return PatientRegisterToday;
         }
         public static void updatenoti(string id,string visit)
@@ -71,8 +74,9 @@ namespace PCMS_Web.Doctor
         [WebMethod(EnableSession = true)]
         public static string ServerSideMethod()
         {
-            return totalWaitingPatient() +"+"+ PatientChecks()+"+"+PatientRegister();
+            return totalWaitingPatient() + "+" + PatientChecks() + "+" + PatientRegister();
         }
+         
         public static string totalWaitingPatient()
         {
             string totalWaitingPatient = "0";
@@ -201,9 +205,8 @@ namespace PCMS_Web.Doctor
         }
 
         protected void patientTokenGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
             Session["PatientId"] = patientTokenGrid.SelectedRow.Cells[2].Text;
-
         }
         protected void lnkView_Click(object sender, EventArgs e)
         {
