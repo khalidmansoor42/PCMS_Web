@@ -1104,6 +1104,7 @@
     <Content Include="Receptionist\loginHistory.aspx" />
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="Receptionist\PatientInvoice.aspx" />
+    <Content Include="Receptionist\prescription.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1408,12 +1409,21 @@
     <Compile Include="Receptionist\PatientInvoice.aspx.designer.cs">
       <DependentUpon>PatientInvoice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Receptionist\prescription.aspx.cs">
+      <DependentUpon>prescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\prescription.aspx.designer.cs">
+      <DependentUpon>prescription.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\Files\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\percription1.rdlc" />
+    <EmbeddedResource Include="Reports\prescription.rdlc" />
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
   </ItemGroup>
   <ItemGroup>
