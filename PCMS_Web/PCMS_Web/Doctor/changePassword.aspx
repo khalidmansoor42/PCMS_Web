@@ -22,7 +22,7 @@
                     <div class="row">
                         <label class="col-sm-2 col-sm-offset-3 control-label">Confirm New Password</label>
                         <div class="col-sm-4">
-                            <asp:TextBox ID="confirmPass_txt" runat="server" CssClass="form-control"Required="true"></asp:TextBox>
+                            <asp:TextBox ID="confirmPass_txt" runat="server" CssClass="form-control" Required="true"></asp:TextBox>
                         </div>
                     </div><br />
                 </div>

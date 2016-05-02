@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCMS_Web.Class;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,13 +20,21 @@ namespace PCMS_Web.Doctor
         List<String> wordList = new List<String>();
         int count_tb = 0;
         string id = "";
+        getInformation info = new getInformation();
+        string[] patientInfo = new string[4];
+        maxValue obj1 = new maxValue();
+        int maxvisit = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            if (Session["patient_reg"] != null)
+            if (Session["PatientId"] != null)
             {
-                id = Session["patient_reg"].ToString();
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                patientId_txt.Text = Session["PatientId"].ToString();
+                visitNumber_txt.Text = patientInfo[2];
+                patientName.Text = patientInfo[0];
+                ageTxt.Text = patientInfo[3];
+                id = Session["PatientId"].ToString();
                 if (!Page.IsPostBack)
                 {
 

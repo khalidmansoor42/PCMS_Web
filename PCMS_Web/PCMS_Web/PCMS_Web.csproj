@@ -1104,6 +1104,7 @@
     <Content Include="Receptionist\loginHistory.aspx" />
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="Receptionist\PatientInvoice.aspx" />
+    <Content Include="Receptionist\scheduleAppointment.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1407,6 +1408,13 @@
     </Compile>
     <Compile Include="Receptionist\PatientInvoice.aspx.designer.cs">
       <DependentUpon>PatientInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\scheduleAppointment.aspx.cs">
+      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\scheduleAppointment.aspx.designer.cs">
+      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

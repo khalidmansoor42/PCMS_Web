@@ -9,10 +9,6 @@ C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.cspro
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.csprojResolveAssemblyReference.cache
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.dll
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\obj\Debug\PCMS_Web.pdb
-C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\SqlServerTypes\x64\msvcr100.dll
-C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
-C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\SqlServerTypes\x86\msvcr100.dll
-C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll.config
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\PCMS_Web.dll
 C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\bin\PCMS_Web.pdb
@@ -43,3 +39,5 @@ C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.De
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Extensibility.dll
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Interaction.xml
 C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\bin\Microsoft.Windows.Design.Extensibility.xml
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.cache
+C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\obj\Debug\RdlCompile.compiled
