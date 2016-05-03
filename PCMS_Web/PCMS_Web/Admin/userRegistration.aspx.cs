@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace PCMS_Web.Admin
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class userRegistration : System.Web.UI.Page
     {
         Random rnd = new Random();
         protected void Page_Load(object sender, EventArgs e)

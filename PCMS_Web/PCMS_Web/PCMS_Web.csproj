@@ -106,6 +106,7 @@
     <Content Include="Admin\addMedicine.aspx" />
     <Content Include="Admin\attendantRelation.aspx" />
     <Content Include="Admin\addComplaint.aspx" />
+    <Content Include="Admin\addDiagnosesCode.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\PCMS_Web.dll" />
@@ -1106,6 +1107,7 @@
     <Content Include="Receptionist\PatientInvoice.aspx" />
     <Content Include="Receptionist\prescription.aspx" />
     <Content Include="Receptionist\scheduleAppointment.aspx" />
+    <Content Include="Receptionist\addPicture.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1202,6 +1204,13 @@
     </Compile>
     <Compile Include="Admin\addComplaint.aspx.designer.cs">
       <DependentUpon>addComplaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addDiagnosesCode.aspx.cs">
+      <DependentUpon>addDiagnosesCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addDiagnosesCode.aspx.designer.cs">
+      <DependentUpon>addDiagnosesCode.aspx</DependentUpon>
     </Compile>
     <Compile Include="AppData\visitReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1423,6 +1432,13 @@
     </Compile>
     <Compile Include="Receptionist\scheduleAppointment.aspx.designer.cs">
       <DependentUpon>scheduleAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\addPicture.aspx.cs">
+      <DependentUpon>addPicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\addPicture.aspx.designer.cs">
+      <DependentUpon>addPicture.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -45,6 +45,20 @@
                };
         </script>
 
+        <script type = "text/javascript">
+            function Radio_Click() {
+                var radio1 = document.getElementById("<%=directions_check.ClientID %>");
+               var textBox = document.getElementById("<%=directions_txt.ClientID %>");
+               textBox.disabled = !radio1.checked;
+               textBox.focus();
+
+               var checkBox1 = document.getElementById("<%=directions_check.ClientID %>");
+                var dropDown = document.getElementById("<%=DropDownList2.ClientID %>");
+               dropDown.disabled = !checkBox1.checked;
+               dropDown.focus();
+           }
+</script>
+
     </head>
 
     <form id="form1" runat="server">
@@ -239,6 +253,20 @@
                         </div>
                         <br />
                         </div>
+                    <div>
+                            <asp:Label ID="Label1" runat="server" Text="دوبارہ تشریف لائیں "></asp:Label>
+                            <asp:DropDownList ID="DropDownList2" runat="server">
+                                <asp:ListItem Value="-1">Select</asp:ListItem>
+                                 <asp:ListItem Value="1">دن بعد</asp:ListItem>
+                                 <asp:ListItem Value="2">ہفتہ بعد</asp:ListItem>
+                                 <asp:ListItem Value="3">مہینہ بعد</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:TextBox ID="directions_txt" runat="server"></asp:TextBox>
+                            
+                            <asp:CheckBox ID="directions_check" runat="server" onclick = "Radio_Click()" />
+                        </div>
+                        <br /><br /><br />
+
                         <div class="pull-right">
                             <asp:Button ID="Submit_btn" runat="server" Text="Save" Style="margin-left: 2px" type="submit" class="btn btn-primary" OnClick="add_Problem" />
                         </div>
