@@ -11,21 +11,21 @@ namespace PCMS_Web.Receptionist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userType"] == null)
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else if (Session["userType"].ToString() != "staff")
-            {
-                Response.Redirect("../General/destroySession.aspx");
-            }
-            else
-            {
-                docName_lbl.Text = Session["fullName"].ToString();
-                docNameTop_lbl.Text = Session["fullName"].ToString();
-                userType_lbl.Text = Session["userType"].ToString();
-                docNameMain_lbl.Text = Session["fullName"].ToString();
-            }
+            //if (Session["userType"] == null)
+            //{
+            //    Response.Redirect("../General/destroySession.aspx");
+            //}
+            //else if (Session["userType"].ToString() != "staff")
+            //{
+            //    Response.Redirect("../General/destroySession.aspx");
+            //}
+            //else
+            //{
+            //    docName_lbl.Text = Session["fullName"].ToString();
+            //    docNameTop_lbl.Text = Session["fullName"].ToString();
+            //    userType_lbl.Text = Session["userType"].ToString();
+            //    docNameMain_lbl.Text = Session["fullName"].ToString();
+            //}
         }
     }
 }

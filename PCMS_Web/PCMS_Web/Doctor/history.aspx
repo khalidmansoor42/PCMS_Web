@@ -68,7 +68,7 @@
                                 <input runat="server" type="radio" onclick="enabletxtDiabetes();"  name="inlineRadioOptions3" id="diabetesYes_radio" value="option1"> Yes
                             </label>
                             <label class="radio-inline">
-                                <input runat="server"  type="radio" checked  onclick="disableDiabetes();" name="inlineRadioOptions3" id="diabetesNo_radio" value="option2"> No
+                                <input runat="server"  type="radio" checked  onclick="disableDiabetes();"  name="inlineRadioOptions3" id="diabetesNo_radio" value="option2"> No
                             </label>
                       </div>
                     </div>                   
@@ -76,10 +76,10 @@
                   <br />
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label" id="diabtesControl_leb">Control</label>
+                      <label class="col-sm-4 control-label" runat="server" ID="diabtesControl_leb" >Control</label>
 
                       <div class="col-sm-8">
-                          <asp:DropDownList ID="diabetesControl_dd" runat="server" CssClass="form-control">
+                          <asp:DropDownList ID="diabetesControl_dd" runat="server"  CssClass ="form-control" >
                               <asp:ListItem>Good</asp:ListItem>
                               <asp:ListItem>Fair</asp:ListItem>
                               <asp:ListItem>Worse</asp:ListItem>
@@ -87,7 +87,7 @@
                       </div>
                     </div>
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label"id="diabtesDuration_leb">Duration</label>
+                      <label class="col-sm-4 control-label" runat="server" ID="diabtesDuration_leb" >Duration</label>
                       <div class="col-sm-8">
                             <asp:DropDownList ID="diabetesDuration_dd" runat="server" CssClass="form-control">
                                 <asp:ListItem>1 day</asp:ListItem>
@@ -215,7 +215,7 @@
 
                 <div class="row">
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label" id="hyperCon_leb">Control</label>
+                      <label class="col-sm-4 control-label" runat="server" ID="hyperCon_leb">Control</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="hypertensionControl_dd" runat="server" CssClass="form-control">
                               <asp:ListItem>Good</asp:ListItem>
@@ -225,7 +225,7 @@
                         </div>
                     </div> 
                     <div class="form-group col-sm-6">
-                      <label class="col-sm-4 control-label"id="hyperdur_leb">Duration</label>
+                      <label class="col-sm-4 control-label" ID="hyperdur_leb" runat="server">Duration</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="Hypertension_duration" runat="server" CssClass="form-control">
                                 <asp:ListItem>1 day</asp:ListItem>
@@ -336,12 +336,25 @@
 
     <script>
         $(document).ready(function () {
-            if (document.getElementById('HypertensionNo').checked) {
-                alert("");
-            } else {
-                alert("mds");
+            var DNR = document.getElementById('<%=diabetesNo_radio.ClientID %>').checked;
+            var ins = document.getElementById('<%=insulinNo_radio.ClientID %>').checked;
+
+            var HypertensionNo = document.getElementById('<%=HypertensionNo.ClientID %>').checked;
+            
+            if (ins == true) {
+                disable();
+
+            }
+            if (HypertensionNo == true) {
+                disableHyper();
+
             }
 
+            if(DNR == true)
+            {
+                disableDiabetes();
+            }
+           
         });
         function disable() {           
             document.getElementById('<%= this.insulinDosage_txt.ClientID %>').style.display = 'none';
@@ -357,30 +370,34 @@
         {           
             document.getElementById('<%= this.diabetesControl_dd.ClientID %>').style.display = 'none';
             document.getElementById('<%= this.diabetesDuration_dd.ClientID %>').style.display = 'none';
-              document.getElementById('diabtesControl_leb').style.display = 'none';
-            document.getElementById('diabtesDuration_leb').style.display = 'none';
+            document.getElementById('<%= this.diabtesControl_leb.ClientID %>').style.display = 'none';
+            document.getElementById('<%= this.diabtesDuration_leb.ClientID %>').style.display = 'none';
+
         }
         function enabletxtDiabetes()
         {
             document.getElementById('<%= this.diabetesControl_dd.ClientID %>').style.display = 'block';
-            document.getElementById('<%= this.diabetesDuration_dd.ClientID %>').style.display = 'block';
-            document.getElementById('diabtesControl_leb').style.display = 'block';
-            document.getElementById('diabtesDuration_leb').style.display = 'block';
+            document.getElementById('<%= this.diabetesDuration_dd.ClientID %>').style.display = 'block';            
+            document.getElementById('<%= this.diabtesControl_leb.ClientID %>').style.display = 'block';
+            document.getElementById('<%= this.diabtesDuration_leb.ClientID %>').style.display = 'block';
         }
 
         function disableHyper()
         {           
             document.getElementById('<%= this.Hypertension_duration.ClientID %>').style.display = 'none';
             document.getElementById('<%= this.hypertensionControl_dd.ClientID %>').style.display = 'none';
-            document.getElementById('hyperCon_leb').style.display = 'none';
-            document.getElementById('hyperdur_leb').style.display = 'none';
+
+            document.getElementById('<%= this.hyperCon_leb.ClientID %>').style.display = 'none';
+            document.getElementById('<%= this.hyperdur_leb.ClientID %>').style.display = 'none';
+            
         }
         function enabletxtHyper()
         {
             document.getElementById('<%= this.Hypertension_duration.ClientID %>').style.display = 'block';
-            document.getElementById('<%= this.hypertensionControl_dd.ClientID %>').style.display = 'block';
-            document.getElementById('hyperCon_leb').style.display = 'block';
-            document.getElementById('hyperdur_leb').style.display = 'block';  
+            document.getElementById('<%= this.hypertensionControl_dd.ClientID %>').style.display = 'block';           
+            
+            document.getElementById('<%= this.hyperCon_leb.ClientID %>').style.display = 'block';
+            document.getElementById('<%= this.hyperdur_leb.ClientID %>').style.display = 'block';
         }
 
     </script>

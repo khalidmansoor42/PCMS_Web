@@ -19,11 +19,13 @@ namespace PCMS_Web.Doctor
         maxValue obj1 = new maxValue();
         int maxvisit =0;
         protected void Page_Load(object sender, EventArgs e)
-        {    
+        {
             if (Session["PatientId"]!=null && !IsPostBack)
             {
+
                 patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
                 patientId_txt.Text = Session["PatientId"].ToString();
+
                 visitNumber_txt.Text = patientInfo[2];
                 patientName.Text = patientInfo[0];
                 ageTxt.Text = patientInfo[3];
@@ -32,6 +34,7 @@ namespace PCMS_Web.Doctor
         }
         void pasthistory()
         {
+
             maxvisit = obj1.max("Select max(visit_no) from general_history where patient_reg='" + patientId_txt.Text + "';");
             if (maxvisit == Convert.ToInt32(visitNumber_txt.Text))
             {
@@ -63,6 +66,7 @@ namespace PCMS_Web.Doctor
                         if (dr["diabetes"].ToString() == "1")
                         {
                             diabetesYes_radio.Checked = true;
+                            diabetesNo_radio.Checked = false;
                             diabetesDuration_dd.Text = dr["diabetes_duration"].ToString();
                             diabetesControl_dd.Text = dr["diabetes_control"].ToString();
                             hbAic_dd.Text = dr["hbaic"].ToString();
@@ -70,11 +74,19 @@ namespace PCMS_Web.Doctor
                             if (dr["insulin"].ToString() == "1")
                             {
                                 insulinYes_radio.Checked = true;
+                                insulinNo_radio.Checked = false;
                                 insulinDosage_txt.Text = dr["insulin_dosage"].ToString();
                             }
                             else
                             {
                                 insulinYes_radio.Checked = false;
+                                insulinNo_radio.Checked = true;
+
+                                diabtesControl_leb.Visible = false;
+                                diabetesControl_dd.Visible = false;
+                                diabetesDuration_dd.Visible = false;
+                                diabtesDuration_leb.Visible = false;
+
                                 insulinDosage_txt.Text = "";
                             }
                         }
@@ -85,16 +97,21 @@ namespace PCMS_Web.Doctor
                             hbAic_dd.Text = "";
                             diabetesFbs_txt.Text = "";
                             diabetesYes_radio.Checked = false;
+                            diabetesNo_radio.Checked = true;
+
                         }
                         if (dr["hypertention"].ToString() == "1")
                         {
                             Hypertensionyes.Checked = true;
+                            HypertensionNo.Checked = true;
                             hypertensionControl_dd.Text = dr["hypertention_duration"].ToString();
                             Hypertension_duration.Text = dr["hypertention_control"].ToString();
                         }
                         else
                         {
                             Hypertensionyes.Checked = false;
+                            HypertensionNo.Checked = true;
+
                             hypertensionControl_dd.Text = "";
                             Hypertension_duration.Text = "";
                         }

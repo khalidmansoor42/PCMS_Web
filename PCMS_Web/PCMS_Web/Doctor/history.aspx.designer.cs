@@ -67,6 +67,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton diabetesNo_radio;
         
         /// <summary>
+        /// diabtesControl_leb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl diabtesControl_leb;
+        
+        /// <summary>
         /// diabetesControl_dd control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList diabetesControl_dd;
+        
+        /// <summary>
+        /// diabtesDuration_leb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl diabtesDuration_leb;
         
         /// <summary>
         /// diabetesDuration_dd control.
@@ -148,6 +166,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton HypertensionNo;
         
         /// <summary>
+        /// hyperCon_leb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hyperCon_leb;
+        
+        /// <summary>
         /// hypertensionControl_dd control.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList hypertensionControl_dd;
+        
+        /// <summary>
+        /// hyperdur_leb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hyperdur_leb;
         
         /// <summary>
         /// Hypertension_duration control.
