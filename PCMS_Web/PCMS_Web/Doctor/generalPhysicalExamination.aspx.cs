@@ -15,18 +15,96 @@ namespace PCMS_Web.Doctor
         string id = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["PatientId"] = 1;
-            if (Session["PatientId"] != null)
+            Session["patient_reg"] = 1;
+            if (Session["patient_reg"] != null)
             {
-                id = Session["PatientId"].ToString();
+                id = Session["patient_reg"].ToString();
                 if (!Page.IsPostBack)
                 {
                     GetHistory();
+                    disableTextBoxes();
 
                 }
             }
         }
 
+        public void disableTextBoxes()
+        {
+            try
+            {
+                if (oedemaNo_radio.Checked == true)
+                {
+                    oedemaComments_txt.Enabled = false;
+                }
+                else
+                {
+                    oedemaComments_txt.Enabled = true;
+                }
+
+                if (pallorNo_radio.Checked == true)
+                {
+                    pallorComment_txt.Enabled = false;
+                }
+                else
+                {
+                    pallorComment_txt.Enabled = true;
+                }
+                if (jaundiceNo_radio.Checked == true)
+                {
+                    jaundiceComment_txt.Enabled = false;
+                }
+                else
+                {
+                    jaundiceComment_txt.Enabled = true;
+                }
+                if (kylonchiaNo_radio.Checked == true)
+                {
+                    kylonchiaComments_txt.Enabled = false;
+                }
+                else
+                {
+                    kylonchiaComments_txt.Enabled = true;
+                }
+                if (thyroidNo_radio.Checked == true)
+                {
+                    thyroidComments_txt.Enabled = false;
+                }
+                else
+                {
+                    thyroidComments_txt.Enabled = true;
+                }
+                if (clubbingNo_radio.Checked == true)
+                {
+                    clubbingComments_txt.Enabled = false;
+                }
+                else
+                {
+                    clubbingComments_txt.Enabled = true;
+                }
+                if (respirationNo_radio.Checked == true)
+                {
+                    respirationComments_txt.Enabled = false;
+                }
+                else
+                {
+                    respirationComments_txt.Enabled = true;
+                }
+                if (lymphNo_radio.Checked == true)
+                {
+                    lymphComments_txt.Enabled = false;
+                }
+                else
+                {
+                    lymphComments_txt.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
         public void GetHistory()
         {
             try

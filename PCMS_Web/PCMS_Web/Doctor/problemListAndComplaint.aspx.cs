@@ -16,6 +16,23 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Session["patient_reg"] = 1;
+            if (Session["patient_reg"] != null)
+            {
+                id = Session["patient_reg"].ToString();
+
+                if (!Page.IsPostBack)
+                {
+                    SetInitialRow();
+                    GetHistory();
+
+                }
+            }
+        }
+
         private ArrayList GetDummyData()
         {
 
@@ -192,21 +209,6 @@ namespace PCMS_Web.Doctor
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-                Session["patient_reg"] = 1;
-                if (Session["patient_reg"] != null)
-                {
-                    id = Session["patient_reg"].ToString();
-
-                    if (!Page.IsPostBack)
-                    {
-                        SetInitialRow();
-                        GetHistory();
-
-                    }
-                }
-        }
 
         public void GetHistory()
         {
@@ -230,7 +232,7 @@ namespace PCMS_Web.Doctor
                     TextBox box2 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
                     date = Convert.ToString(ds.Tables[0].Rows[z]["diagnose_date"]);
                     DateTime tempDate = DateTime.Parse(date);
-                    box2.Text = tempDate.ToString("dd-MM-yyyy");
+                    box2.Text = tempDate.ToString("MM/dd/yyyy");
 
 
 
@@ -253,7 +255,12 @@ namespace PCMS_Web.Doctor
         {
             try
             {
-                string query = "Update problem_list_and_diagnoses set inactive_date='" + date + "' where patient_reg='" + id + "'";
+                Button lb = (Button)sender;
+                GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+                int rowID = gvRow.RowIndex;
+                DropDownList ddl = (DropDownList)Gridview1.Rows[rowID].Cells[1].FindControl("DropDownList1");
+
+                string query = "Update problem_list_and_diagnoses set inactive_date='" + date + "' where patient_reg='" + id + "' and  diseases_id='" + ddl.SelectedValue.ToString() + "'";
                 SqlConnection con = new SqlConnection(constring);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
@@ -262,9 +269,7 @@ namespace PCMS_Web.Doctor
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Button lb = (Button)sender;
-                GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
-                int rowID = gvRow.RowIndex;
+
                 if (ViewState["CurrentTable"] != null)
                 {
 
@@ -302,14 +307,39 @@ namespace PCMS_Web.Doctor
         {
             try
             {
+                int row = 0;
+                int count = Gridview1.Rows.Count;
+                for (int z = 0; z < count; z++)
+                {
+                    row++;
+                }
+
+                if (count == row)
+                {
+                    insert();
+                }
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+
+            }
+        }
+
+        protected void insert()
+        {
+            try
+            {
 
                 string temp = "";
                 int count = Gridview1.Rows.Count;
                 for (int z = 0; z < count; z++)
                 {
-                    string query = "insert into problem_list_and_diagnoses(patient_reg,diseases_id,diagnose_date) values(@id,@diseaseId,@date)";
+
                     SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand(query, con);
+                    SqlCommand cmd = new SqlCommand("InsertProblem", con);
 
                     DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
                     TextBox sinceDate_txt = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
@@ -322,27 +352,36 @@ namespace PCMS_Web.Doctor
 
                         DateTime testDate = DateTime.Parse(sinceDate_txt.Text);
                         date = testDate.ToString("yyyy-MM-dd");
-                        cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@diseaseId", temp);
-                        cmd.Parameters.AddWithValue("@date", date);
                         cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@patient_reg", id);
+                        cmd.Parameters.AddWithValue("@disease_id", temp);
+                        cmd.Parameters.AddWithValue("@diagnose_date", date);
+                        cmd.Parameters.AddWithValue("@inactive_date", DBNull.Value);
                         con.Open();
-                        cmd.ExecuteNonQuery();
+                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                        if (success)
+                        {
+                            alert_success.Visible = true;
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                        }
+                        else
+                        {
+
+                        }
+
                         con.Close();
+
+
                     }
                     else
                     {
-
-                        alert_fail.Visible = true;
-                        error.Text = "Error! cells should not be empty";
-                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
                     }
 
 
                 }
 
-                alert_success.Visible = true;
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                SetPreviousData();
             }
             catch (Exception ex)
             {

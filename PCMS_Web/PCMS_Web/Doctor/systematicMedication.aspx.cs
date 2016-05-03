@@ -19,13 +19,16 @@ namespace PCMS_Web.Doctor
         List<String> wordList = new List<String>();
         int count_tb = 0;
         string id = "";
-
+        int visit_no = 0;
+        string tempVisit = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["patient_reg"] = 1;
+            Session["visit_no"] = 0;
             if (Session["patient_reg"] != null)
             {
                 id = Session["patient_reg"].ToString();
+                tempVisit = Session["visit_no"].ToString();
                 if (!Page.IsPostBack)
                 {
 
@@ -33,6 +36,8 @@ namespace PCMS_Web.Doctor
 
                     SetInitialRow();
                     GetHistory();
+                    directions_txt.Enabled = false;
+                    DropDownList2.Enabled = false;
 
                 }
             }
@@ -44,8 +49,24 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("Select (select med_name from medicine where med_id = s.med_id) as Medicine, s.morning,s.afternoon,s.night,s.quantity,s.directions,s.durations from systemic_medications s where patient_reg='" + id + "'", con);
+                SqlCommand cmd1 = new SqlCommand("select max(visit_no) as visit_no from systematicMedication where patient_reg='" + id + "'", con);
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd1.ExecuteReader();
+                if (dr.Read())
+                {
+                    if (dr["visit_no"].ToString() != "")
+                    {
+                        visit_no = Convert.ToInt32(dr["visit_no"].ToString());
+                    }
+
+                    tempVisit = dr["visit_no"].ToString();
+                    Session["visit_no"] = tempVisit;
+                }
+                con.Close();
+                SqlCommand cmd = new SqlCommand("Select (select med_name from medicine where med_id = s.med_id) as Medicine, s.morning,s.afternoon,s.night,s.quantity,s.directions,s.durations from systematicMedication s where visit_no='" + tempVisit + "'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
+
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
@@ -308,11 +329,37 @@ namespace PCMS_Web.Doctor
 
                 string med_id = "";
                 int result = 0;
+                visit_no = Convert.ToInt32(tempVisit);
+                visit_no = visit_no + 1;
                 int count = Gridview1.Rows.Count;
+                int initialRow = count - 1;
+
+                if (directions_check.Checked == true)
+                {
+                    int ddlvalue = Convert.ToInt32(DropDownList2.SelectedValue);
+                    if (ddlvalue > 0)
+                    {
+                        SqlConnection con = new SqlConnection(constring);
+                        SqlCommand cmd = new SqlCommand("update visit set durationDDl=@duarationDDL , durationTxt=@durationTxt where patient_reg='" + id + "' and visit_no='" + visit_no + "'", con);
+                        cmd.Parameters.AddWithValue("@duarationDDL", DropDownList2.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("@durationTxt", directions_txt.Text);
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+
+                }
+                else
+                {
+                }
 
                 if (count == 1)
                 {
-                    AddNewRowToGrid(true);
+                    if (Gridview1.Rows[count - 1].Cells[1].Text != "Select")
+                    {
+                        AddNewRowToGrid(true);
+                    }
                 }
                 else if (count > 1)
                 {
@@ -327,9 +374,9 @@ namespace PCMS_Web.Doctor
                 for (int z = 0; z < count; z++)
                 {
 
-                    string query = "insert into systemic_medications(patient_reg,visit_no,med_id,quantity,morning,afternoon,night,directions,durations) values(@id,@VisitNo,@MedId,@Quantity,@Morning,@AfterNoon,@night,@Direction,@Duration)";
+                    //string query = "insert into systemic_medications(patient_reg,visit_no,med_id,quantity,morning,afternoon,night,directions,durations) values(@id,@VisitNo,@MedId,@Quantity,@Morning,@AfterNoon,@night,@Direction,@Duration)";
                     SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand(query, con);
+                    SqlCommand cmd = new SqlCommand("InsertSystematicmedication", con);
 
                     string[] split = Session["MyArr"].ToString().Split('@');
                     DropDownList ddl1 = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
@@ -379,31 +426,39 @@ namespace PCMS_Web.Doctor
                         {
                         }
 
-                        cmd.Parameters.AddWithValue("@id", id);
-                        cmd.Parameters.AddWithValue("@VisitNo", 1);
-                        cmd.Parameters.AddWithValue("@MedId", med_id);
-                        cmd.Parameters.AddWithValue("@Quantity", result);
-                        cmd.Parameters.AddWithValue("@Morning", tb1.Text);
-                        cmd.Parameters.AddWithValue("@AfterNoon", tb2.Text);
-                        cmd.Parameters.AddWithValue("@night", tb3.Text);
-                        cmd.Parameters.AddWithValue("@Direction", text);
-                        cmd.Parameters.AddWithValue("@Duration", ddl3.SelectedItem.ToString());
                         cmd.Connection = con;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@patient_reg", id);
+                        cmd.Parameters.AddWithValue("@visit_no", visit_no);
+                        cmd.Parameters.AddWithValue("@med_id", med_id);
+                        cmd.Parameters.AddWithValue("@quantity", result);
+                        cmd.Parameters.AddWithValue("@morning", tb1.Text);
+                        cmd.Parameters.AddWithValue("@afternoon", tb2.Text);
+                        cmd.Parameters.AddWithValue("@night", tb3.Text);
+                        cmd.Parameters.AddWithValue("@directions", text);
+                        cmd.Parameters.AddWithValue("@durations", ddl3.SelectedItem.ToString());
+
                         con.Open();
-                        cmd.ExecuteNonQuery();
+                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                        if (success)
+                        {
+                            alert_success.Visible = true;
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                        }
+                        else
+                        {
+
+                        }
                         con.Close();
                     }
                     else
                     {
-
-
                     }
 
 
                 }
 
-                alert_success.Visible = true;
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+
 
             }
             catch (Exception ex)

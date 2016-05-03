@@ -86,6 +86,7 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
+            
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
