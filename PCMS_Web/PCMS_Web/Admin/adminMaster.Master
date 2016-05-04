@@ -297,6 +297,7 @@
                             <li><a href="attendantRelation.aspx"><i class="fa fa-users"></i> Add Attendant Relation</a></li>
                             <li><a href="addComplaint.aspx"><i class="fa fa-info-circle"></i> Add Complaint Name</a></li>
                             <li><a href="addDiagnosesCode.aspx"><i class="fa fa-question-circle"></i> Add Diagnoses Code</a></li>
+                            <li><a href="addDiagnosesDiseases.aspx"><i class="fa fa-question-circle"></i> Add Diagnoses Diseases</a></li>0
                         </ul>
                     </li>
                     <li class="treeview">

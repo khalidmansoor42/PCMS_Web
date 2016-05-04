@@ -107,6 +107,7 @@
     <Content Include="Admin\attendantRelation.aspx" />
     <Content Include="Admin\addComplaint.aspx" />
     <Content Include="Admin\addDiagnosesCode.aspx" />
+    <Content Include="Admin\addDiagnosesDiseases.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\PCMS_Web.dll" />
@@ -218,6 +219,7 @@
     <Content Include="Doctor\addPicture.aspx" />
     <Content Include="Doctor\prescription.aspx" />
     <Content Include="Doctor\undoPatient.aspx" />
+    <Content Include="Doctor\diagnoses.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1214,6 +1216,13 @@
     <Compile Include="Admin\addDiagnosesCode.aspx.designer.cs">
       <DependentUpon>addDiagnosesCode.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\addDiagnosesDiseases.aspx.cs">
+      <DependentUpon>addDiagnosesDiseases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addDiagnosesDiseases.aspx.designer.cs">
+      <DependentUpon>addDiagnosesDiseases.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AppData\visitReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1330,6 +1339,13 @@
     </Compile>
     <Compile Include="Doctor\undoPatient.aspx.designer.cs">
       <DependentUpon>undoPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\diagnoses.aspx.cs">
+      <DependentUpon>diagnoses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\diagnoses.aspx.designer.cs">
+      <DependentUpon>diagnoses.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />

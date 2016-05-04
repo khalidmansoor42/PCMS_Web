@@ -4,27 +4,34 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-        <div class="col-md-12">
-        <asp:TextBox ID="patient" class="col-md-3 form-control"  runat="server"></asp:TextBox>
-        <asp:DropDownList ID="DropDownList1" class="col-md-3 form-control" runat="server" DataSourceID="visitDetail" DataTextField="visit_no" DataValueField="visit_no"></asp:DropDownList>
-        <asp:ObjectDataSource ID="visitDetail" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.visitTableAdapter">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
-            </SelectParameters>
-        </asp:ObjectDataSource>
-        <asp:Button ID="Button1" CssClass="col-md-3 btn btn-pinterest" runat="server" Text="Show Report" OnClick="Button1_Click" />
+    <form runat="server" class="form-inline">
+        <div class="col-sm-12">
+            <div class="form-group col-sm-6">
+                <label class="col-sm-3 control-label" >Patient Id:</label>
+                <asp:TextBox ID="patient" class="col-sm-9 form-control"  runat="server" Enabled="false"></asp:TextBox>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="col-sm-3 control-label" >Visit Number:</label>
+                <asp:DropDownList ID="DropDownList1" class="col-sm-4 form-control" runat="server" DataSourceID="visitDetail" DataTextField="visit_no" DataValueField="visit_no"></asp:DropDownList>
+                <asp:ObjectDataSource ID="visitDetail" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.visitTableAdapter">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+                <asp:Button ID="Button1" CssClass="col-sm-3 btn btn-primary pull-right" runat="server" Text="Show Report" OnClick="Button1_Click" />
+            </div>            
+
         </div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <rsweb:ReportViewer  ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Height="800px" Width="800px">
-            <LocalReport ReportPath="Reports\prescription.rdlc">
-                 <DataSources>
-                    <rsweb:ReportDataSource DataSourceId="ObjectDataSource3" Name="DataSet1" />
-                    <rsweb:ReportDataSource DataSourceId="history" Name="gerneralHistory" />
-                    <rsweb:ReportDataSource DataSourceId="medication" Name="medication" />
-                 </DataSources>
-            </LocalReport>
-        </rsweb:ReportViewer>
+          <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Height="800px" Width="800px">
+              <LocalReport ReportPath="Reports\prescription.rdlc">
+                  <DataSources>
+                      <rsweb:ReportDataSource Name="DataSet1" DataSourceId="ObjectDataSource3"></rsweb:ReportDataSource>
+                      <rsweb:ReportDataSource Name="gerneralHistory" DataSourceId="history"></rsweb:ReportDataSource>
+                      <rsweb:ReportDataSource Name="medication" DataSourceId="medication"></rsweb:ReportDataSource>
+                  </DataSources>
+              </LocalReport>
+          </rsweb:ReportViewer>
         <asp:ObjectDataSource ID="history" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.general_history1TableAdapter">
             <InsertParameters>
                 <asp:Parameter Name="diabetes" Type="Byte"></asp:Parameter>

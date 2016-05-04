@@ -293,7 +293,10 @@
                         </ul>
                     </li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="prescription.aspx"><i class="fa fa-file-text-o"></i> Prescription</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <!-- /.sidebar -->

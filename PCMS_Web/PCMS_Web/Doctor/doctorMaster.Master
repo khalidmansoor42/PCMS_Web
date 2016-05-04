@@ -284,7 +284,7 @@
                         <ul class="treeview-menu">
                             <li><a href="problemListAndComplaint.aspx"><i class="fa fa-info-circle"></i> Complaint And Problem</a></li>
                             <li><a href="history.aspx"><i class="fa fa-history"></i> History</a></li>
-                            <li><a href="#"><i class="fa fa-search"></i> Diagnosis</a></li>
+                            <li><a href="diagnoses.aspx"><i class="fa fa-search"></i> Diagnosis</a></li>
                             <li><a href="#"><i class="fa fa-stethoscope"></i> Mental State Examination</a></li>
                             <li><a href="generalPhysicalExamination.aspx"><i class="fa fa-male"></i> General Physical Examination</a></li>
                             <li><a href="systematicExamination.aspx"><i class="fa fa-bar-chart"></i> Systematic Examination</a></li>
@@ -298,7 +298,10 @@
                     </li>
                     <li><a href="https://web.skype.com" target="_blank"><i class="fa fa-skype"></i> <span>Call Skype</span></a></li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span></a>
+                        <a href="#"><i class="fa fa-bar-chart"></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="prescription.aspx"><i class="fa fa-file-text-o"></i> Prescription</a></li>
+                        </ul>
                     </li>
                     <li class="treeview">
                         <a href="searchPatients.aspx"><i class="fa fa-search"></i> <span>Search Patients</span></a>
