@@ -1296,7 +1296,7 @@ Fields!night.Value &gt;0, Fields!night.Value
         <Top>1.77444in</Top>
         <Left>0.22792in</Left>
         <Height>0.75in</Height>
-        <Width>5.85819in</Width>
+        <Width>5.85816in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -1460,7 +1460,7 @@ Fields!night.Value &gt;0, Fields!night.Value
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>visitReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\AppData\visitReportDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\AppData\visitReportDataSet.xsd</rd:SchemaPath>
         <rd:TableName>medication</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

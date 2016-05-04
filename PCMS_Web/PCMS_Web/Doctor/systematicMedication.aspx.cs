@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCMS_Web.Class;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,13 +22,23 @@ namespace PCMS_Web.Doctor
         string id = "";
         int visit_no = 0;
         string tempVisit = "";
+        getInformation info = new getInformation();
+        string[] patientInfo = new string[4];
+        maxValue obj1 = new maxValue();
+        int maxvisit = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            Session["visit_no"] = 0;
-            if (Session["patient_reg"] != null)
+            
+            if (Session["PatientId"] != null)
             {
-                id = Session["patient_reg"].ToString();
+                id = Session["PatientId"].ToString();
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                patientId_txt.Text = Session["PatientId"].ToString();
+
+                visitNumber_txt.Text = patientInfo[2];
+                patientName.Text = patientInfo[0];
+                ageTxt.Text = patientInfo[3];
+                Session["visit_no"] = patientInfo[2];
                 tempVisit = Session["visit_no"].ToString();
                 if (!Page.IsPostBack)
                 {
@@ -330,7 +341,7 @@ namespace PCMS_Web.Doctor
                 string med_id = "";
                 int result = 0;
                 visit_no = Convert.ToInt32(tempVisit);
-                visit_no = visit_no + 1;
+                visit_no = visit_no;
                 int count = Gridview1.Rows.Count;
                 int initialRow = count - 1;
 

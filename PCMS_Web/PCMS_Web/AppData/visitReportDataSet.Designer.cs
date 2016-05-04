@@ -2761,11 +2761,10 @@ WHERE        (problem_list_and_diagnoses.patient_reg = @Param1) AND (problem_lis
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        medicine.med_name, systemic_medications.patient_reg, systemic_medications.visit_no, systemic_medications.med_id, systemic_medications.quantity, systemic_medications.morning, 
-                         systemic_medications.afternoon, systemic_medications.night, systemic_medications.directions, systemic_medications.durations
-FROM            systemic_medications INNER JOIN
-                         medicine ON systemic_medications.med_id = medicine.med_id
-WHERE        (systemic_medications.patient_reg = @Param1) AND (systemic_medications.visit_no = @Param2)";
+            this._commandCollection[0].CommandText = @"SELECT        medicine.med_name, systematicMedication.*
+FROM            systematicMedication INNER JOIN
+                         medicine ON systematicMedication.med_id = medicine.med_id
+WHERE        (systematicMedication.patient_reg = @Param1) AND (systematicMedication.visit_no = @Param2)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patient_reg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param2", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "visit_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2979,11 +2978,9 @@ WHERE        (systemic_medications.patient_reg = @Param1) AND (systemic_medicati
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        diabetes, insulin, hypertention, cardiac, respiratory, rinal, cancer, other_illness
-FROM            general_history
-WHERE        (visit_no IN
-                             (SELECT        MAX(visit_no) AS Expr1
-                                FROM            general_history AS general_history_1)) AND (patient_reg = @Param1)";
+            this._commandCollection[0].CommandText = "SELECT        TOP (1) diabetes, insulin, hypertention, cardiac, respiratory, rina" +
+                "l, cancer, other_illness\r\nFROM            general_history\r\nWHERE        (patient" +
+                "_reg = @Param1)\r\nORDER BY visit_no DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patient_reg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

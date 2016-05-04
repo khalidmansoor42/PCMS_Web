@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCMS_Web.Class;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,14 +17,22 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
+        getInformation info = new getInformation();
+        string[] patientInfo = new string[4];
+        maxValue obj1 = new maxValue();
+        int maxvisit = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            if (Session["patient_reg"] != null)
+            if (Session["PatientId"]!= null)
             {
-                id = Session["patient_reg"].ToString();
-
+                
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                id = Session["PatientId"].ToString();
+                patientId_txt.Text = Session["PatientId"].ToString();
+                visitNumber_txt.Text = patientInfo[2];
+                patientName.Text = patientInfo[0];
+                ageTxt.Text = patientInfo[3];
                 if (!Page.IsPostBack)
                 {
                     SetInitialRow();
@@ -215,7 +224,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("Select (select disease_name from diseases where disease_id = p.diseases_id) as Disease,convert(date,p.diagnose_date) as diagnose_date from problem_list_and_diagnoses p  where patient_reg='" + id + "' and inactive_date is NULL", con);
+                SqlCommand cmd = new SqlCommand("Select (select disease_name from diseases where disease_id = p.diseases_id) as Disease,convert(date,p.diagnose_date) as diagnose_date from problem_list_and_diagnoses p  where patient_reg='" + id + "' and inactive_date='1111-01-01'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -357,7 +366,7 @@ namespace PCMS_Web.Doctor
                         cmd.Parameters.AddWithValue("@patient_reg", id);
                         cmd.Parameters.AddWithValue("@disease_id", temp);
                         cmd.Parameters.AddWithValue("@diagnose_date", date);
-                        cmd.Parameters.AddWithValue("@inactive_date", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@inactive_date", "1111-01-01");
                         con.Open();
                         bool success = Convert.ToBoolean(cmd.ExecuteScalar());
                         if (success)

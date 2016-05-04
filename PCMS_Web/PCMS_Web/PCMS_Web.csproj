@@ -216,6 +216,8 @@
     <Content Include="Doctor\systematicExamination.aspx" />
     <Content Include="Doctor\investigation.aspx" />
     <Content Include="Doctor\addPicture.aspx" />
+    <Content Include="Doctor\prescription.aspx" />
+    <Content Include="Doctor\undoPatient.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1314,6 +1316,20 @@
     </Compile>
     <Compile Include="Doctor\addPicture.aspx.designer.cs">
       <DependentUpon>addPicture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\prescription.aspx.cs">
+      <DependentUpon>prescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\prescription.aspx.designer.cs">
+      <DependentUpon>prescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\undoPatient.aspx.cs">
+      <DependentUpon>undoPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\undoPatient.aspx.designer.cs">
+      <DependentUpon>undoPatient.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
