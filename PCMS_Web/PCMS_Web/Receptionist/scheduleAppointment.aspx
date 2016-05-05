@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="scheduleAppointment.aspx.cs" Inherits="PCMS_Web.Receptionist.WebForm10" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="scheduleAppointment.aspx.cs" Inherits="PCMS_Web.Receptionist.scheduleAppointment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-md-12">

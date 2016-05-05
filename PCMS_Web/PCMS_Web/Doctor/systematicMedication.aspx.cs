@@ -28,7 +28,6 @@ namespace PCMS_Web.Doctor
         int maxvisit = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (Session["PatientId"] != null)
             {
                 id = Session["PatientId"].ToString();

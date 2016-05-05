@@ -10,7 +10,8 @@
 namespace PCMS_Web.Receptionist {
     
     
-    public partial class WebForm10 {
+    public partial class scheduleAppointment
+    {
         
         /// <summary>
         /// patientId_txt control.

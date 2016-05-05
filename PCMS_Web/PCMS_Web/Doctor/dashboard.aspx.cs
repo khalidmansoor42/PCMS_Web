@@ -16,7 +16,7 @@ namespace PCMS_Web.Doctor
         static string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-                employeeId.Text = Session["userId"].ToString();
+                 employeeId.Text = Session["userId"].ToString();
                 dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");
                  patientTokenGrid.DataBind();
 

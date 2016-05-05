@@ -14,7 +14,7 @@ namespace PCMS_Web.Doctor
             if (!IsPostBack)
             {
                 ReportViewer1.ShowReportBody = false;
-                patient.Text = Session["PatientId"].ToString();
+                patient.Text = "561604";//Session["PatientId"].ToString();
             }
         }
 

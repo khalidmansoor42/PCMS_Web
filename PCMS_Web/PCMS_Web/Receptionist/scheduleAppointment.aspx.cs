@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PCMS_Web.Receptionist
 {
-    public partial class WebForm10 : System.Web.UI.Page
+    public partial class scheduleAppointment : System.Web.UI.Page
     {
        
     }
