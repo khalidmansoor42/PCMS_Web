@@ -13,8 +13,15 @@ namespace PCMS_Web.Doctor
         {
             if (!IsPostBack)
             {
-                ReportViewer1.ShowReportBody = false;
-                patient.Text = "561604";//Session["PatientId"].ToString();
+                if (Session["PatientId"] != null)
+                {
+                    ReportViewer1.ShowReportBody = false;
+                    patient.Text = Session["PatientId"].ToString();
+                }
+                else
+                {
+                    Response.Redirect("dashboard.aspx");
+                }
             }
         }
 

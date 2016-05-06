@@ -20,8 +20,15 @@ namespace PCMS_Web.Receptionist
         {
             if (!IsPostBack)
             {
-                ReportViewer1.ShowReportBody = false;
-                patient.Text = "941604";
+                if (Session["PatientId"] != null)
+                {
+                    ReportViewer1.ShowReportBody = false;
+                    patient.Text = Session["PatientId"].ToString();
+                }
+                else
+                {
+                    Response.Redirect("dashboard.aspx");
+                }
             }
         }
     }
