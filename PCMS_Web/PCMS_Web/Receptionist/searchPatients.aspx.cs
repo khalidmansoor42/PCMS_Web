@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +10,7 @@ namespace PCMS_Web.Receptionist
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -25,5 +27,7 @@ namespace PCMS_Web.Receptionist
                 GridView1.DataSourceID = "PatientSearchDataSource";
             }
         }
+
+       
     }
 }

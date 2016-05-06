@@ -220,6 +220,7 @@
     <Content Include="Doctor\prescription.aspx" />
     <Content Include="Doctor\undoPatient.aspx" />
     <Content Include="Doctor\diagnoses.aspx" />
+    <Content Include="Doctor\visitReport.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1347,6 +1348,13 @@
     <Compile Include="Doctor\diagnoses.aspx.designer.cs">
       <DependentUpon>diagnoses.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\visitReport.aspx.cs">
+      <DependentUpon>visitReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\visitReport.aspx.designer.cs">
+      <DependentUpon>visitReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
     <Compile Include="findvisitnumber.cs" />
@@ -1475,9 +1483,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\Files\" />
+    <Folder Include="dist\patientImage\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\fullVisitReport.rdlc" />
     <EmbeddedResource Include="Reports\percription1.rdlc" />
     <EmbeddedResource Include="Reports\prescription.rdlc" />
     <EmbeddedResource Include="Reports\Receipt.rdlc" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -22,19 +23,38 @@ namespace PCMS_Web.Receptionist
 
         protected void saveBtn_Click(object sender, EventArgs e)
         {
+            string path = "";
+
+            foreach (HttpPostedFile postedFile in FileUpload1.PostedFiles)
+            {
+
+                string filename = Path.GetFileName(postedFile.FileName);
+                if (filename != "")
+                { 
+                    string contentType = postedFile.ContentType;
+
+                    path = "../dist/patientImage/" + Path.GetFileName(filename);
+
+                    string fName = Context.Server.MapPath("../dist/patientImage/" + postedFile.FileName);
+
+                    postedFile.SaveAs(fName);
+               }
+                   
+            }
+
             string ageYear = ageCal.Text;
-            string dob="";
+            string dob = "";
             string age = TextBox1.Text;
 
             if (ageYear == "Year")
             {
-                    string date = DateTime.Today.ToString("yyyy-MM-dd");
-                    string[] words = date.Split('-');
-                    string dateofbirth = Convert.ToString(Convert.ToInt32(Convert.ToString(words[0])) - Convert.ToInt32(age));
-                    words[0] = dateofbirth;
-                    dob= words[0] + "-" + words[1] + "-" + words[2];
+                string date = DateTime.Today.ToString("yyyy-MM-dd");
+                string[] words = date.Split('-');
+                string dateofbirth = Convert.ToString(Convert.ToInt32(Convert.ToString(words[0])) - Convert.ToInt32(age));
+                words[0] = dateofbirth;
+                dob = words[0] + "-" + words[1] + "-" + words[2];
             }
-            else if(ageYear == "Month")
+            else if (ageYear == "Month")
             {
                 string date = DateTime.Today.ToString("yyyy-MM-dd");
                 string[] words = date.Split('-');
@@ -47,7 +67,7 @@ namespace PCMS_Web.Receptionist
             {
                 string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(constring);
-                String query = "INSERT INTO patient_registeration(patient_reg,cnic,full_name,father_name,sex,address,city_id,mob,email,attendant_name,relation_id,attendant_mob,dob,ref_doctor_id,martial_status,education,occupation_id,source,regDate)VALUES(@patient_reg,@cnic,@name,@fatherName,@gender,@address,@cityid,@mobile,@email,@attName,@attRelationId,@attmob,@DOB,@referDoctorID,@MaritalStatus,@education,@occupation_id,@source,@regDate); ";
+                String query = "INSERT INTO patient_registeration(patient_reg,cnic,full_name,father_name,sex,address,city_id,mob,email,attendant_name,relation_id,attendant_mob,dob,ref_doctor_id,martial_status,education,occupation_id,source,regDate,path)VALUES(@patient_reg,@cnic,@name,@fatherName,@gender,@address,@cityid,@mobile,@email,@attName,@attRelationId,@attmob,@DOB,@referDoctorID,@MaritalStatus,@education,@occupation_id,@source,@regDate,@path); ";
                 //String query = "INSERT INTO patient_registeration(patient_reg,cnic,full_name,father_name,sex,address,city_id,mob,email,attendant_name,relation_id,attendant_mob,dob,ref_doctor_id,martial_status,education,occupation_id,source)VALUES('3','"+ cnic.Text +"','"+ fullName.Text +"','+ fatherName.Text + ','1',' + TextArea1 + ',' + city_dd.SelectedValue + ',' + mobileNumber.Text + ',' + email.Text + ','+ attendantFullName.Text +',' + attendantRelation_dd.Text + ',' + attMobile.Text + ','+ dateOfBorth.Value.ToString() + ',' + referingDoctor_dd.SelectedValue + ','+ maritalStatus_dd.Text + ',' + patientEducation_dd.Text + ',' + occupationStatus_dd.SelectedValue + ','1'); ";
 
                 SqlCommand SelectCommand1 = new SqlCommand(query, con);
@@ -78,6 +98,7 @@ namespace PCMS_Web.Receptionist
                 SelectCommand1.Parameters.Add(new SqlParameter("@education", patientEducation_dd.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@regDate", DateTime.Now.ToString("yyyy-MM-dd")));
                 SelectCommand1.Parameters.Add(new SqlParameter("@occupation_id", Convert.ToInt32(occupationStatus_dd.SelectedValue)));
+                SelectCommand1.Parameters.Add(new SqlParameter("@path",path));
                 if (reliableRadio.Checked == true)
                 {
                     SelectCommand1.Parameters.Add(new SqlParameter("@source", Convert.ToInt32(1)));

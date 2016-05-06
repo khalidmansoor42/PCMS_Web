@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -228,11 +229,31 @@ namespace PCMS_Web.Doctor
                 myConn.Open();
                 myReader = SelectCommand.ExecuteReader();
                 myConn.Close();
+                Session.Remove("PatientId");
                 Response.Redirect("~/Doctor/dashboard.aspx");
 
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        protected void patientTokenGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+               if (Session["PatientId"] != null)
+                {
+                    int quantity = int.Parse(e.Row.Cells[2].Text);
+
+                    foreach (TableCell cell in e.Row.Cells)
+                    {
+                        if (quantity == Convert.ToInt32(Session["PatientId"].ToString()))
+                        {
+                            cell.BackColor = Color.Blue;
+                        }
+                    }
+                }
             }
         }
     }

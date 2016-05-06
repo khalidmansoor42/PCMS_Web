@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace PCMS_Web.Doctor
 {
-    public partial class WebForm14 : System.Web.UI.Page
+    public partial class WebForm17 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                Session["PatientId"] ="321605";
                 if (Session["PatientId"] != null)
                 {
                     ReportViewer1.ShowReportBody = false;

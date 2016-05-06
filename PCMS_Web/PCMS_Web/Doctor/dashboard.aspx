@@ -117,7 +117,7 @@
             
                 <div class="box-body" id="muaz">
                     <div class="table-responsive" id="arslan">
-                        <asp:GridView ID="patientTokenGrid"   CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="patientTokenGrid_SelectedIndexChanged">
+                        <asp:GridView ID="patientTokenGrid"   CssClass="table" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="PatientTokenDataSource" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="patientTokenGrid_SelectedIndexChanged" OnRowDataBound="patientTokenGrid_RowDataBound">
                               <Columns>
                                   <asp:CommandField ShowSelectButton="True"></asp:CommandField>
                                 <asp:BoundField DataField="token_no" HeaderText="Token No." SortExpression="token_no"></asp:BoundField>
@@ -139,7 +139,7 @@
 
                   <RowStyle ForeColor="#000066"></RowStyle>
 
-                  <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+                  <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
 
                   <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
 

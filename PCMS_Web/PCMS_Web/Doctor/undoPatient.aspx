@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="undoPatient.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm15" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-        <asp:TextBox ID="emp" runat="server"></asp:TextBox>
-        <asp:TextBox ID="date" runat="server"></asp:TextBox>
+        <asp:TextBox ID="emp" runat="server" Hidden></asp:TextBox>
+        <asp:TextBox ID="date" runat="server" Hidden></asp:TextBox>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="patient_reg" DataSourceID="undo">
         <Columns>
-            <asp:BoundField DataField="full_name" HeaderText="full_name" SortExpression="full_name"></asp:BoundField>
-            <asp:BoundField DataField="patient_reg" HeaderText="patient_reg" ReadOnly="True" SortExpression="patient_reg"></asp:BoundField>
-            <asp:BoundField DataField="token_no" HeaderText="token_no" SortExpression="token_no"></asp:BoundField>
+            <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name"></asp:BoundField>
+            <asp:BoundField DataField="patient_reg" HeaderText="Patient_reg" ReadOnly="True" SortExpression="patient_reg"></asp:BoundField>
+            <asp:BoundField DataField="token_no" HeaderText="Token No." SortExpression="token_no"></asp:BoundField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkView_Click">LinkButton</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lnkView_Click">Uncheck</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

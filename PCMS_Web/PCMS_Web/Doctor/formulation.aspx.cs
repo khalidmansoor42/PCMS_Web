@@ -20,7 +20,6 @@ namespace PCMS_Web.Doctor
         int maxvisit = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["PatientId"] = 1;
             if (Session["PatientId"] != null)
             {
                 patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");

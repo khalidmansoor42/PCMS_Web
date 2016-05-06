@@ -390,7 +390,7 @@ namespace PCMS_Web.Doctor
 
                 }
 
-                SetPreviousData();
+
             }
             catch (Exception ex)
             {

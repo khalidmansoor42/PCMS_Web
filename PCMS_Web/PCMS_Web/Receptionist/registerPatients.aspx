@@ -21,7 +21,11 @@
                       <div class="col-sm-8">
                         <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server" ></asp:TextBox>
                       </div>
-                    </div>                   
+                    </div> 
+                    <div class="form-group col-sm-6">
+                   <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="true" CssClass="btn btn-primary"/>
+                    </div>
+                      </div>                  
                 </div>
                   <br />
                 <div class="row">
@@ -190,9 +194,9 @@
                                 <input runat="server" type="radio" name="inlineRadioOption" id="unreliableRadio" value="option2"> Unreliable
                             </label>
                         </div>
-                    </div>
+                    </div>                           
                 </div>
-
+                  
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
