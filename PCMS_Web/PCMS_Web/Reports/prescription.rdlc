@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.88542in</Width>
+              <Width>1.96801in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.71875in</Width>
+              <Width>1.93602in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -26,7 +26,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Disease Name</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -56,7 +60,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Diagnose Date</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -91,7 +99,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!disease_name.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -121,7 +132,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!diagnose_date.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -162,14 +176,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.86333in</Top>
-        <Left>0.22792in</Left>
+        <Top>1.86333in</Top>
+        <Left>1.10292in</Left>
         <Height>0.5in</Height>
-        <Width>3.60417in</Width>
+        <Width>3.90403in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <FontFamily>Calibri</FontFamily>
         </Style>
       </Tablix>
       <Textbox Name="Textbox8">
@@ -181,6 +196,7 @@
               <TextRun>
                 <Value>Complaint</Value>
                 <Style>
+                  <FontFamily>Calibri</FontFamily>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -190,10 +206,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.52306in</Top>
-        <Left>0.22792in</Left>
+        <Top>1.52306in</Top>
+        <Left>1.10292in</Left>
         <Height>0.27083in</Height>
-        <Width>1.55208in</Width>
+        <Width>1.125in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -214,6 +230,7 @@
               <TextRun>
                 <Value>History</Value>
                 <Style>
+                  <FontFamily>Calibri</FontFamily>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -223,10 +240,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>1.39111in</Top>
-        <Left>0.22792in</Left>
+        <Top>2.51611in</Top>
+        <Left>1.10292in</Left>
         <Height>0.27083in</Height>
-        <Width>1.55208in</Width>
+        <Width>1.125in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -256,10 +273,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>2.61285in</Top>
-        <Left>5.31403in</Left>
+        <Top>3.80638in</Top>
+        <Left>6.39112in</Left>
         <Height>0.40625in</Height>
-        <Width>0.77208in</Width>
+        <Width>0.61583in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -310,7 +327,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Medicine Name</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -340,7 +361,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>صبح</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -372,7 +397,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>دوپہر</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -404,7 +433,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>رات</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -436,7 +469,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ہدایات</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -497,8 +534,12 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>durations</Value>
-                              <Style />
+                              <Value>Duration</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -533,7 +574,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!med_name.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -565,7 +609,10 @@
                               <Value>=Switch(    
 Fields!morning.Value &gt;0, Fields!morning.Value
 )</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -597,7 +644,10 @@ Fields!morning.Value &gt;0, Fields!morning.Value
                               <Value>=Switch(    
 Fields!afternoon.Value &gt;0, Fields!afternoon.Value
 )</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -629,7 +679,10 @@ Fields!afternoon.Value &gt;0, Fields!afternoon.Value
                               <Value>=Switch(    
 Fields!night.Value &gt;0, Fields!night.Value
 )</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -659,7 +712,10 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!directions.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -689,7 +745,10 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!quantity.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -719,7 +778,10 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!durations.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -765,8 +827,8 @@ Fields!night.Value &gt;0, Fields!night.Value
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>medication</DataSetName>
-        <Top>3.08854in</Top>
-        <Left>0.22792in</Left>
+        <Top>4.28854in</Top>
+        <Left>1.10292in</Left>
         <Height>0.5in</Height>
         <Width>5.90403in</Width>
         <ZIndex>4</ZIndex>
@@ -780,22 +842,22 @@ Fields!night.Value &gt;0, Fields!night.Value
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.97636in</Width>
+              <Width>0.984in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -812,7 +874,11 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>Diabetes</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -842,7 +908,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=IIf(Fields!diabetes.Value = "1","Yes","No")</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -872,7 +940,11 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>Insulin</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -902,7 +974,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=IIf(Fields!insulin.Value = "1","Yes","No")</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -931,8 +1005,12 @@ Fields!night.Value &gt;0, Fields!night.Value
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Rinal</Value>
-                              <Style />
+                              <Value>Renal</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -962,7 +1040,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!rinal.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -996,8 +1076,12 @@ Fields!night.Value &gt;0, Fields!night.Value
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Hypertention</Value>
-                              <Style />
+                              <Value>Hypertension</Value>
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1027,7 +1111,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=IIf(Fields!hypertention.Value = "1","Yes","No")</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1057,7 +1143,11 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>Cardiac</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1087,7 +1177,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cardiac.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1117,7 +1209,11 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>Cancer</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1147,7 +1243,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!cancer.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1182,7 +1280,11 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>Other Illness</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>Calibri</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1212,7 +1314,9 @@ Fields!night.Value &gt;0, Fields!night.Value
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!other_illness.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>11pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1293,15 +1397,16 @@ Fields!night.Value &gt;0, Fields!night.Value
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>gerneralHistory</DataSetName>
-        <Top>1.77444in</Top>
-        <Left>0.22792in</Left>
+        <Top>2.87444in</Top>
+        <Left>1.10292in</Left>
         <Height>0.75in</Height>
-        <Width>5.85816in</Width>
+        <Width>5.904in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <FontFamily>Calibri</FontFamily>
         </Style>
       </Tablix>
       <Textbox Name="Textbox1">
@@ -1312,7 +1417,10 @@ Fields!night.Value &gt;0, Fields!night.Value
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!durationTxt.Value, "medication")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1321,8 +1429,8 @@ Fields!night.Value &gt;0, Fields!night.Value
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.85292in</Top>
-        <Left>3.8425in</Left>
+        <Top>5.10292in</Top>
+        <Left>4.7175in</Left>
         <Height>0.25in</Height>
         <Width>0.57292in</Width>
         <ZIndex>6</ZIndex>
@@ -1344,7 +1452,10 @@ Fields!night.Value &gt;0, Fields!night.Value
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!durationDDl.Value, "medication")</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1353,8 +1464,8 @@ Fields!night.Value &gt;0, Fields!night.Value
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.85292in</Top>
-        <Left>3.20014in</Left>
+        <Top>5.10292in</Top>
+        <Left>4.07514in</Left>
         <Height>0.25in</Height>
         <Width>0.57292in</Width>
         <ZIndex>7</ZIndex>
@@ -1376,17 +1487,20 @@ Fields!night.Value &gt;0, Fields!night.Value
             <TextRuns>
               <TextRun>
                 <Value>دوبارہ تشریف لائے</Value>
-                <Style />
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>3.85292in</Top>
-        <Left>2.18064in</Left>
+        <Top>5.10292in</Top>
+        <Left>2.87856in</Left>
         <Height>0.25in</Height>
-        <Width>0.95131in</Width>
+        <Width>1.12839in</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -1398,12 +1512,261 @@ Fields!night.Value &gt;0, Fields!night.Value
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox11">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Patient Name:</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>0.86681in</Top>
+        <Left>0.47792in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox16">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Visit Number:</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>0.54736in</Top>
+        <Left>0.47792in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Patient ID:</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox11</rd:DefaultName>
+        <Top>0.24181in</Top>
+        <Left>0.47792in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="ExecutionTime">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Globals!ExecutionTime</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>ExecutionTime</rd:DefaultName>
+        <Top>0.24181in</Top>
+        <Left>6.155in</Left>
+        <Height>0.25in</Height>
+        <Width>1.60195in</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="visit_no">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!visit_no.Value, "medication")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>visit_no</rd:DefaultName>
+        <Top>0.54736in</Top>
+        <Left>1.54736in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="patient_reg">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Sum(Fields!patient_reg.Value, "medication")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>patient_reg</rd:DefaultName>
+        <Top>0.24181in</Top>
+        <Left>1.54736in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>14</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="full_name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!full_name.Value, "medication")</Value>
+                <Style>
+                  <FontFamily>Calibri</FontFamily>
+                  <FontSize>11pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>full_name</rd:DefaultName>
+        <Top>0.86681in</Top>
+        <Left>1.54736in</Left>
+        <Height>0.25in</Height>
+        <Width>2.53473in</Width>
+        <ZIndex>15</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>1.37723in</Top>
+        <Height>0in</Height>
+        <Width>8.27in</Width>
+        <ZIndex>16</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>4.19791in</Height>
+    <Height>11.69in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>8.27in</Width>
   <Page>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
@@ -1559,10 +1922,18 @@ Fields!night.Value &gt;0, Fields!night.Value
           <DataField>durationDDl</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="full_name">
+          <DataField>full_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Expr1">
+          <DataField>Expr1</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>visitReportDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\MuazAhmad\Source\Repos\PCMS_Web2\PCMS_Web\PCMS_Web\AppData\visitReportDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Khalid\Source\Repos\PCMS_Web\PCMS_Web\PCMS_Web\AppData\visitReportDataSet.xsd</rd:SchemaPath>
         <rd:TableName>medication</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -81,34 +81,37 @@
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                         <asp:GridView ID="Gridview1" CssClass="table" runat="server" ShowFooter="True" AutoGenerateColumns="False" OnRowCreated="Gridview1_RowCreated">
                             <Columns>
-                                <asp:BoundField DataField="RowNumber" HeaderText="Row Number" />
-                                <asp:TemplateField HeaderText="Problem">
+                                <asp:BoundField DataField="RowNumber" HeaderText="Row Number" ItemStyle-HorizontalAlign="Center">
+                                    <HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+
+                                </asp:BoundField>
+                                <asp:TemplateField HeaderText="Problem" ItemStyle-HorizontalAlign="Center" >
                                     <ItemTemplate>
-                                        <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="true">
+                                        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AppendDataBoundItems="true">
                                             <asp:ListItem Value="-1">Select</asp:ListItem>
                                         </asp:DropDownList>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Since">
+                                <asp:TemplateField HeaderText="Since" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                                         <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TextBox2" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="InActive">
+                                <asp:TemplateField HeaderText="InActive" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
-                                        <asp:Button ID="InActive" runat="server" Text="InActive" OnClick="InActiveButton_Click" />
+                                        <asp:Button ID="InActive" runat="server" CssClass="btn btn-danger" Text="Inactive" OnClick="InActiveButton_Click" />
                                     </ItemTemplate>
 
                                     <FooterStyle HorizontalAlign="Right" />
                                     <FooterTemplate>
-                                        <asp:Button ID="ButtonAdd" runat="server" Text="Add New Row" OnClick="ButtonAdd_Click" />
+                                        <asp:Button ID="ButtonAdd" runat="server" CssClass="btn btn-info" Text="Add New Row" OnClick="ButtonAdd_Click" />
                                     </FooterTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField>
+                                <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Remove</asp:LinkButton>
                                     </ItemTemplate>

@@ -1,4 +1,5 @@
 ﻿using AjaxControlToolkit;
+using PCMS_Web.Class;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,20 +18,26 @@ namespace PCMS_Web.Doctor
         string id = "";
         string tempVisit = "";
         int visit_no = 0;
+        getInformation info = new getInformation();
+        string[] patientInfo = new string[4];
+        maxValue obj1 = new maxValue();
+        int maxvisit = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            Session["visit_no"] = 0;
-            if (Session["patient_reg"] != null)
+            if (Session["PatientId"] != null)
             {
-                tempVisit = Session["visit_no"].ToString();
-                id = Session["patient_reg"].ToString();
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                id = Session["PatientId"].ToString();
+                patientId_txt.Text = Session["PatientId"].ToString();
+                patientName.Text = patientInfo[0];
+                ageTxt.Text = patientInfo[3];
+                tempVisit = visitNumber_txt.Text;
                 if (!Page.IsPostBack)
                 {
-
                     SetInitialRow();
                     GetHistory();
                 }
+                visitNumber_txt.Text = patientInfo[2];
             }
         }
 
@@ -53,7 +60,6 @@ namespace PCMS_Web.Doctor
                     }
 
                     tempVisit = dr["visit_no"].ToString();
-                    Session["visit_no"] = tempVisit;
                 }
                 else
                 {
@@ -330,6 +336,8 @@ namespace PCMS_Web.Doctor
                 LinkButton lb = (LinkButton)sender;
                 GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
                 int rowID = gvRow.RowIndex;
+                ComboBox cb1 = (ComboBox)GridView1.Rows[rowID].Cells[1].FindControl("ComboBox2");
+                int result;
                 if (ViewState["CurrentTable"] != null)
                 {
 
@@ -338,7 +346,19 @@ namespace PCMS_Web.Doctor
                     {
                         if (gvRow.RowIndex < dt.Rows.Count - 1)
                         {
-                            //Remove the Selected Row data and reset row number  
+                            //Remove the Selected Row data and reset row number
+                            try
+                            {
+                                using (SqlConnection con = new SqlConnection(constring))
+                                {
+                                    con.Open();
+                                    SqlCommand cmd = new SqlCommand("delete from patientDiagnosis where diseaseCode='" + cb1.SelectedValue + "' and patient_reg='" + id + "'", con);
+                                    result = cmd.ExecuteNonQuery();
+                                    con.Close();
+                                }
+                            }
+                            catch (Exception ex)
+                            { }
                             dt.Rows.Remove(dt.Rows[rowID]);
                             ResetRowID(dt);
                         }
@@ -355,7 +375,7 @@ namespace PCMS_Web.Doctor
                 //Set Previous Data on Postbacks  
                 SetPreviousData();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 alert_fail.Visible = true;
                 error.Text = "Error! " + ex.ToString();
@@ -415,7 +435,6 @@ namespace PCMS_Web.Doctor
             try
             {
                 visit_no = Convert.ToInt32(tempVisit);
-                visit_no = visit_no + 1;
                 int count = GridView1.Rows.Count;
 
                 for (int z = 0; z < count; z++)

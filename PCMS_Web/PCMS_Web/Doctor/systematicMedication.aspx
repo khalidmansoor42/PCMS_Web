@@ -138,7 +138,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="true">
+                                            <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" AppendDataBoundItems="true">
 
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
 
@@ -152,7 +152,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:TextBox ID="morning_txt" runat="server" Text="0"> </asp:TextBox>
+                                            <asp:TextBox ID="morning_txt" CssClass="form-control" runat="server" Text="0"> </asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true" ErrorMessage="Required" ControlToValidate="morning_txt" ForeColor="Red"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="morning_txt" ForeColor="Red" ValidationExpression="\d+" Display="Static" EnableClientScript="true" ErrorMessage="numbers only" runat="server" />
                                         </ItemTemplate>
@@ -163,7 +163,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:TextBox ID="aterNoon_txt" runat="server" Text="0"></asp:TextBox>
+                                            <asp:TextBox ID="aterNoon_txt" CssClass="form-control" runat="server" Text="0"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true" ErrorMessage="Required" ControlToValidate="aterNoon_txt" ForeColor="Red"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="aterNoon_txt" ForeColor="Red" ValidationExpression="\d+" Display="Static" EnableClientScript="true" ErrorMessage="numbers only" runat="server" />
                                         </ItemTemplate>
@@ -174,7 +174,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:TextBox ID="evening_txt" runat="server" Text="0"></asp:TextBox>
+                                            <asp:TextBox ID="evening_txt" CssClass="form-control" runat="server" Text="0"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true" ErrorMessage="Required" ControlToValidate="evening_txt" ForeColor="Red"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="evening_txt" ForeColor="Red" ValidationExpression="\d+" Display="Static" EnableClientScript="true" ErrorMessage="numbers only" runat="server" />
                                         </ItemTemplate>
@@ -185,7 +185,7 @@
                                     <asp:TemplateField HeaderText="Direction">
 
                                         <ItemTemplate>
-                                            <textarea id="transliterateTextarea" name="temp" style="width: 150px; height: 25px"></textarea>
+                                            <textarea id="transliterateTextarea" name="temp" style="width: 150px"></textarea>
 
 
                                         </ItemTemplate>
@@ -197,7 +197,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:DropDownList ID="DropDownList3" runat="server" AppendDataBoundItems="true">
+                                            <asp:DropDownList ID="DropDownList3" CssClass="form-control" runat="server" AppendDataBoundItems="true">
 
                                                 <asp:ListItem Value="-1">Select</asp:ListItem>
 
@@ -210,7 +210,7 @@
 
                                         <ItemTemplate>
 
-                                            <asp:TextBox ID="durationPeriod_txt" runat="server" Text="0"></asp:TextBox>
+                                            <asp:TextBox ID="durationPeriod_txt" CssClass="form-control" runat="server" Text="0"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true" ErrorMessage="Required" ControlToValidate="durationPeriod_txt" ForeColor="Red"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="durationPeriod_txt" ForeColor="Red" ValidationExpression="\d+" Display="Static" EnableClientScript="true" ErrorMessage="numbers only" runat="server" />
                                         </ItemTemplate>

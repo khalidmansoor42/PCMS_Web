@@ -9,13 +9,13 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-2">
+                    <div class="col-sm-4">
                         <asp:DropDownList ID="cityDDl" runat="server" CssClass="form-control" AppendDataBoundItems="true" DataSourceID="CityDataSource" DataTextField="city_name" DataValueField="city_name">
                             <asp:ListItem Value="%">All</asp:ListItem>
                         </asp:DropDownList>
                         <asp:SqlDataSource ID="CityDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:PCMS_ConnectionString %>" SelectCommand="SELECT * FROM [city]"></asp:SqlDataSource>
                     </div>
-                    <div class="col-sm-4 col-sm-offset-6">
+                    <div class="col-sm-4">
                         <asp:TextBox ID="searchPatient_txt" runat="server" CssClass="form-control" placeholder="Enter Patient Name Here"></asp:TextBox>
                     </div>
                     <div class="col-sm-2">

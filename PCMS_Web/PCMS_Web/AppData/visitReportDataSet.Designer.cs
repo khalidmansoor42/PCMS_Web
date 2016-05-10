@@ -824,6 +824,10 @@ namespace PCMS_Web.AppData {
             
             private global::System.Data.DataColumn columndurationDDl;
             
+            private global::System.Data.DataColumn columnfull_name;
+            
+            private global::System.Data.DataColumn columnExpr1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public medicationDataTable() {
@@ -955,6 +959,22 @@ namespace PCMS_Web.AppData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn full_nameColumn {
+                get {
+                    return this.columnfull_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Expr1Column {
+                get {
+                    return this.columnExpr1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -990,7 +1010,7 @@ namespace PCMS_Web.AppData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public medicationRow AddmedicationRow(string med_name, int patient_reg, int visit_no, int med_id, int quantity, byte morning, byte afternoon, byte night, string directions, string durations, string durationTxt, string durationDDl) {
+            public medicationRow AddmedicationRow(string med_name, int patient_reg, int visit_no, int med_id, int quantity, byte morning, byte afternoon, byte night, string directions, string durations, string durationTxt, string durationDDl, string full_name, int Expr1) {
                 medicationRow rowmedicationRow = ((medicationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         med_name,
@@ -1004,10 +1024,19 @@ namespace PCMS_Web.AppData {
                         directions,
                         durations,
                         durationTxt,
-                        durationDDl};
+                        durationDDl,
+                        full_name,
+                        Expr1};
                 rowmedicationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowmedicationRow);
                 return rowmedicationRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public medicationRow FindByExpr1(int Expr1) {
+                return ((medicationRow)(this.Rows.Find(new object[] {
+                            Expr1})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1039,6 +1068,8 @@ namespace PCMS_Web.AppData {
                 this.columndurations = base.Columns["durations"];
                 this.columndurationTxt = base.Columns["durationTxt"];
                 this.columndurationDDl = base.Columns["durationDDl"];
+                this.columnfull_name = base.Columns["full_name"];
+                this.columnExpr1 = base.Columns["Expr1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1068,11 +1099,20 @@ namespace PCMS_Web.AppData {
                 base.Columns.Add(this.columndurationTxt);
                 this.columndurationDDl = new global::System.Data.DataColumn("durationDDl", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndurationDDl);
+                this.columnfull_name = new global::System.Data.DataColumn("full_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfull_name);
+                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExpr1);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnExpr1}, true));
                 this.columnmed_name.MaxLength = 255;
                 this.columndirections.MaxLength = 100;
                 this.columndurations.MaxLength = 100;
                 this.columndurationTxt.MaxLength = 50;
                 this.columndurationDDl.MaxLength = 50;
+                this.columnfull_name.MaxLength = 50;
+                this.columnExpr1.AllowDBNull = false;
+                this.columnExpr1.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3972,6 +4012,33 @@ namespace PCMS_Web.AppData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string full_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablemedication.full_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'full_name\' in table \'medication\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemedication.full_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Expr1 {
+                get {
+                    return ((int)(this[this.tablemedication.Expr1Column]));
+                }
+                set {
+                    this[this.tablemedication.Expr1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ismed_nameNull() {
                 return this.IsNull(this.tablemedication.med_nameColumn);
             }
@@ -4112,6 +4179,18 @@ namespace PCMS_Web.AppData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdurationDDlNull() {
                 this[this.tablemedication.durationDDlColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfull_nameNull() {
+                return this.IsNull(this.tablemedication.full_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfull_nameNull() {
+                this[this.tablemedication.full_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6667,6 +6746,8 @@ WHERE        (problem_list_and_diagnoses.patient_reg = @Param1) AND (problem_lis
             tableMapping.ColumnMappings.Add("durations", "durations");
             tableMapping.ColumnMappings.Add("durationTxt", "durationTxt");
             tableMapping.ColumnMappings.Add("durationDDl", "durationDDl");
+            tableMapping.ColumnMappings.Add("full_name", "full_name");
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6683,7 +6764,14 @@ WHERE        (problem_list_and_diagnoses.patient_reg = @Param1) AND (problem_lis
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT medicine.med_name, systematicMedication.patient_reg, systematicMedication.visit_no, systematicMedication.med_id, systematicMedication.quantity, systematicMedication.morning, systematicMedication.afternoon, systematicMedication.night, systematicMedication.directions, systematicMedication.durations, visit.durationTxt, visit.durationDDl FROM systematicMedication INNER JOIN medicine ON systematicMedication.med_id = medicine.med_id INNER JOIN visit ON systematicMedication.patient_reg = visit.patient_reg AND systematicMedication.visit_no = visit.visit_no WHERE (systematicMedication.patient_reg = @Param1) AND (systematicMedication.visit_no = @Param2)";
+            this._commandCollection[0].CommandText = @"SELECT        medicine.med_name, systematicMedication.patient_reg, systematicMedication.visit_no, systematicMedication.med_id, systematicMedication.quantity, systematicMedication.morning, 
+                         systematicMedication.afternoon, systematicMedication.night, systematicMedication.directions, systematicMedication.durations, visit.durationTxt, visit.durationDDl, patient_registeration.full_name, 
+                         patient_registeration.patient_reg AS Expr1
+FROM            systematicMedication INNER JOIN
+                         medicine ON systematicMedication.med_id = medicine.med_id INNER JOIN
+                         visit ON systematicMedication.patient_reg = visit.patient_reg AND systematicMedication.visit_no = visit.visit_no INNER JOIN
+                         patient_registeration ON visit.patient_reg = patient_registeration.patient_reg
+WHERE        (systematicMedication.patient_reg = @Param1) AND (systematicMedication.visit_no = @Param2)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patient_reg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Param2", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "visit_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

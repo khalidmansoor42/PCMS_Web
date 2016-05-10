@@ -17,11 +17,20 @@ namespace PCMS_Web.Doctor
         static string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-                 employeeId.Text = Session["userId"].ToString();
+            if (Session["userType"] == null)
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else if (Session["userType"].ToString() != "doctor")
+            {
+                Response.Redirect("../General/destroySession.aspx");
+            }
+            else
+            {
+                employeeId.Text = Session["userId"].ToString();
                 dateToday.Text = DateTime.Today.ToString("yyyy-MM-dd");
-                 patientTokenGrid.DataBind();
-
-
+                patientTokenGrid.DataBind();
+            }
         }
         [WebMethod(EnableSession = true)]
         public static string notification()
@@ -190,12 +199,10 @@ namespace PCMS_Web.Doctor
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-
                 token = dr["token_no"].ToString();
                 patient_reg = dr["patient_reg"].ToString();
                 name = dr["full_name"].ToString();
                 PatientRegisterToday = PatientRegisterToday + "+Token#=" + token.PadRight(21) + " ID=" + patient_reg.PadRight(21) + " Name=" + name;
-
             }
 
             return PatientRegisterToday;
@@ -207,7 +214,7 @@ namespace PCMS_Web.Doctor
         }
 
         protected void patientTokenGrid_SelectedIndexChanged(object sender, EventArgs e)
-        {   
+        {
             Session["PatientId"] = patientTokenGrid.SelectedRow.Cells[2].Text;
         }
         protected void lnkView_Click(object sender, EventArgs e)
