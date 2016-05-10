@@ -37,55 +37,70 @@ namespace PCMS_Web.Doctor
         }
         public void GetHistory()
         {
-            try
+            maxvisit = obj1.max("Select max(visit_no) from systematicExamination where id='" + patientId_txt.Text + "';");
+            if (maxvisit == Convert.ToInt32(visitNumber_txt.Text))
             {
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,nervousSystem ,urogenitalSystem FROM systematicExamination where id='" + id + "'", con);
-                cmd.Connection = con;
-                SqlDataReader dr;
-                con.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    meningialIrritationComments_txt.Text = dr["meningialIrritation"].ToString();
-                    cranialNervesComment_txt.Text = dr["carnivalNervers"].ToString();
-                    sensorySystem_area.InnerText = dr["sensorySystem"].ToString();
-                    motorSystem_area.InnerText = dr["motorSystem"].ToString();
-                    superficialReflexesComments_txt.Text = dr["superficialReflexes"].ToString();
-                    deepReflexComments_txt.Text = dr["deepReflexes"].ToString();
-                    cerebellarFunctions_area.InnerText = dr["cerebellarFunctions"].ToString();
-                    fundoscopy_area.InnerText = dr["fundoscopy"].ToString();
-                    cardiovascularSystem_area.InnerText = dr["cardioVascularSystem"].ToString();
-                    respiratorySystem_area.InnerText = dr["respiratorySystem"].ToString();
-                    gastrointestinalSystem_area.InnerText = dr["gastroIntestinalSystem"].ToString();
-                    nervousSystem_area.InnerText = dr["nervousSystem"].ToString();
-                    urogenitalSystem_area.InnerText = dr["urogenitalSystem"].ToString();
-
-                }
-                else
-                {
-                    meningialIrritationComments_txt.Text = "";
-                    cranialNervesComment_txt.Text = "";
-                    sensorySystem_area.InnerText = "";
-                    motorSystem_area.InnerText = "";
-                    superficialReflexesComments_txt.Text = "";
-                    deepReflexComments_txt.Text = "";
-                    cerebellarFunctions_area.InnerText = "";
-                    fundoscopy_area.InnerText = "";
-                    cardiovascularSystem_area.InnerText = "";
-                    respiratorySystem_area.InnerText = "";
-                    gastrointestinalSystem_area.InnerText = "";
-                    nervousSystem_area.InnerText = "";
-                    urogenitalSystem_area.InnerText = "";
-                }
-
-                con.Close();
+                submit_btn.Visible = false;
+                update_btn.Visible = true;
             }
-            catch (Exception ex)
+            else
             {
-                alert_fail.Visible = true;
-                error.Text = "Error! " + ex.ToString();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                update_btn.Visible = false;
+                submit_btn.Visible = true;
+            }
+
+            if (maxvisit > 0)
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection(constring);
+                    SqlCommand cmd = new SqlCommand("SELECT meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,nervousSystem ,urogenitalSystem FROM systematicExamination where id='" + id + "' and visit_no='"+ maxvisit + "'", con);
+                    cmd.Connection = con;
+                    SqlDataReader dr;
+                    con.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        meningialIrritationComments_txt.Text = dr["meningialIrritation"].ToString();
+                        cranialNervesComment_txt.Text = dr["carnivalNervers"].ToString();
+                        sensorySystem_area.InnerText = dr["sensorySystem"].ToString();
+                        motorSystem_area.InnerText = dr["motorSystem"].ToString();
+                        superficialReflexesComments_txt.Text = dr["superficialReflexes"].ToString();
+                        deepReflexComments_txt.Text = dr["deepReflexes"].ToString();
+                        cerebellarFunctions_area.InnerText = dr["cerebellarFunctions"].ToString();
+                        fundoscopy_area.InnerText = dr["fundoscopy"].ToString();
+                        cardiovascularSystem_area.InnerText = dr["cardioVascularSystem"].ToString();
+                        respiratorySystem_area.InnerText = dr["respiratorySystem"].ToString();
+                        gastrointestinalSystem_area.InnerText = dr["gastroIntestinalSystem"].ToString();
+                        nervousSystem_area.InnerText = dr["nervousSystem"].ToString();
+                        urogenitalSystem_area.InnerText = dr["urogenitalSystem"].ToString();
+
+                    }
+                    else
+                    {
+                        meningialIrritationComments_txt.Text = "";
+                        cranialNervesComment_txt.Text = "";
+                        sensorySystem_area.InnerText = "";
+                        motorSystem_area.InnerText = "";
+                        superficialReflexesComments_txt.Text = "";
+                        deepReflexComments_txt.Text = "";
+                        cerebellarFunctions_area.InnerText = "";
+                        fundoscopy_area.InnerText = "";
+                        cardiovascularSystem_area.InnerText = "";
+                        respiratorySystem_area.InnerText = "";
+                        gastrointestinalSystem_area.InnerText = "";
+                        nervousSystem_area.InnerText = "";
+                        urogenitalSystem_area.InnerText = "";
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    alert_fail.Visible = true;
+                    error.Text = "Error! " + ex.ToString();
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                }
             }
         }
 
@@ -94,7 +109,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("Update systematicExamination Set meningialIrritation= @meningialIrritation ,carnivalNervers= @carnivalNervers,sensorySystem=@sensorySystem,motorSystem=@motorSystem  ,superficialReflexes=@superficialReflexes  ,deepReflexes=@deepReflexes  ,cerebellarFunctions=@cerebellarFunctions  ,fundoscopy=@fundoscopy  ,cardioVascularSystem=@cardioVascularSystem ,respiratorySystem=@respiratorySystem  ,gastroIntestinalSystem=@gastroIntestinalSystem  ,nervousSystem=@nervousSystem  ,urogenitalSystem =@urogenitalSystem where id='" + id + "' and visit_no=1", con);
+                SqlCommand cmd = new SqlCommand("Update systematicExamination Set meningialIrritation= @meningialIrritation ,carnivalNervers= @carnivalNervers,sensorySystem=@sensorySystem,motorSystem=@motorSystem  ,superficialReflexes=@superficialReflexes  ,deepReflexes=@deepReflexes  ,cerebellarFunctions=@cerebellarFunctions  ,fundoscopy=@fundoscopy  ,cardioVascularSystem=@cardioVascularSystem ,respiratorySystem=@respiratorySystem  ,gastroIntestinalSystem=@gastroIntestinalSystem  ,nervousSystem=@nervousSystem  ,urogenitalSystem =@urogenitalSystem where id='" + id + "' and visit_no='"+visitNumber_txt.Text+"'", con);
 
                 cmd.Parameters.AddWithValue("@meningialIrritation", meningialIrritationComments_txt.Text);
                 cmd.Parameters.AddWithValue("@carnivalNervers", cranialNervesComment_txt.Text);
@@ -131,7 +146,7 @@ namespace PCMS_Web.Doctor
                 SqlConnection con = new SqlConnection(constring);
                 SqlCommand cmd = new SqlCommand("insert into systematicExamination(id,visit_no, meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,nervousSystem ,urogenitalSystem ) values(@id,@visit_no, @meningialIrritation,@carnivalNervers,@sensorySystem,@motorSystem ,@superficialReflexes ,@deepReflexes ,@cerebellarFunctions ,@fundoscopy ,@cardioVascularSystem ,@respiratorySystem ,@gastroIntestinalSystem ,@nervousSystem ,@urogenitalSystem  )", con);
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@visit_no", 1);
+                cmd.Parameters.AddWithValue("@visit_no", visitNumber_txt.Text);
                 cmd.Parameters.AddWithValue("@meningialIrritation", meningialIrritationComments_txt.Text);
                 cmd.Parameters.AddWithValue("@carnivalNervers", cranialNervesComment_txt.Text);
                 cmd.Parameters.AddWithValue("@sensorySystem", sensorySystem_area.InnerText);

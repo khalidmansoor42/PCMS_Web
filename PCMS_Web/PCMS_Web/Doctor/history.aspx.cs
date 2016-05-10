@@ -103,7 +103,7 @@ namespace PCMS_Web.Doctor
                         if (dr["hypertention"].ToString() == "1")
                         {
                             Hypertensionyes.Checked = true;
-                            HypertensionNo.Checked = true;
+                            HypertensionNo.Checked = false;
                             hypertensionControl_dd.Text = dr["hypertention_duration"].ToString();
                             Hypertension_duration.Text = dr["hypertention_control"].ToString();
                         }

@@ -376,9 +376,7 @@ namespace PCMS_Web.Doctor
                         }
                         else
                         {
-
                         }
-
                         con.Close();
 
 

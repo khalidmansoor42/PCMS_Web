@@ -19,43 +19,49 @@ namespace PCMS_Web.Doctor
         [WebMethod(EnableSession = true)]
         public static string ServerSideMethod(string name, string age, string conpass)
         {
-            if (age == conpass)
+            if (age !=""|| conpass != "" || name!="")
             {
-                string ret = "";
-                try
+                if (age == conpass)
                 {
-                    string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
-                    string id;
-                    string userName = System.Web.HttpContext.Current.Session["userName"].ToString();
-                    string user_query = "Select password from user_registeration where user_name='" + userName + "'";
-                    SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = user_query;
-                    con.Open();
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
+                    string ret = "";
+                    try
                     {
-                        id = dr["password"].ToString();
-                        if (id == name)
+                        string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
+                        string id;
+                        string userName = System.Web.HttpContext.Current.Session["userName"].ToString();
+                        string user_query = "Select password from user_registeration where user_name='" + userName + "'";
+                        SqlConnection con = new SqlConnection(constring);
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandText = user_query;
+                        con.Open();
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
                         {
-                            ret = passwordchange(age); ;
-                        }
-                        else
-                        {
-                            ret = "Previous Password Did Not Match+Error";
+                            id = dr["password"].ToString();
+                            if (id == name)
+                            {
+                                ret = passwordchange(age); ;
+                            }
+                            else
+                            {
+                                ret = "Previous Password Did Not Match+Error";
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        ret = ex.Message + "+Error";
+                    }
+                    return ret;
                 }
-                catch (Exception ex)
+                else
                 {
-                    ret = ex.Message + "+Error";
+                    return "Your New Passwords Do Not Match+Error";
                 }
-                return ret;
-            }
-            else
+            }else
             {
-                return "Your New Passwords Do Not Match+Error";
+                return "Please Fill all field+Error";
             }
         }
         public static string passwordchange(string newpass)
