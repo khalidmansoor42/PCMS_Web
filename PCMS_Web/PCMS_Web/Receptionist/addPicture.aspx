@@ -17,7 +17,7 @@
         <div class="col-sm-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">General Physical Examination</h3>
+                    <h3 class="box-title">Upload Reports and Pictures</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">

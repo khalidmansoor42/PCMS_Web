@@ -114,6 +114,7 @@
                               <asp:ListItem>Single</asp:ListItem>
                               <asp:ListItem>Married</asp:ListItem>
                               <asp:ListItem>Divorced</asp:ListItem>
+                              <asp:ListItem>Widow</asp:ListItem>
                           </asp:DropDownList>
                         </div>
                     </div>
@@ -196,8 +197,7 @@
                         </div>
                     </div>                           
                 </div>
-                  
-              </div>
+
               <!-- /.box-body -->
               <div class="box-footer">
                   <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px"/>
@@ -207,9 +207,9 @@
               </div>
               <!-- /.box-footer -->
             </form>
+                </div>
           </div>
         </div>
-    </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
 
     <script>

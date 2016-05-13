@@ -14,66 +14,70 @@
         };
     </script>
    </head>
-    <form runat="server">  
-        <div class="alert alert-success alert-dismissible" role="alert" runat="server" visible="false" id="alert_success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <p>Added Successfully!</p>
-      </div>
-      <div class="alert alert-danger alert-dismissible" role="alert" runat="server" visible="false" id="alert_fail">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <asp:Label runat="server" ID="error"></asp:Label>
-      </div>  
-        <div class="col-sm-12">
+    <div class="row">
+        <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Systematic Examination</h3>
+                    <h3 class="box-title">Systematic Examination</h3>
                 </div>
-                <div class="box-body">
-                    <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <div class="panel panel-primary">
-                              <div class="panel-heading">Patient Information</div>
-                              <div class="panel-body">
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                          <label class="col-sm-4 control-label">Patient ID</label>
-
-                                          <div class="col-sm-8">
-                                                <asp:TextBox ID="patientId_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                                          </div>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                          <label class="col-sm-4 control-label">Visit Number</label>
-
-                                          <div class="col-sm-8">
-                                                <asp:TextBox ID="visitNumber_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                                          </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-6">
-                                          <label class="col-sm-4 control-label">Patient Name</label>
-
-                                          <div class="col-sm-8">
-                                                <asp:TextBox ID="patientName" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                                          </div>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                          <label class="col-sm-4 control-label">Age</label>
-
-                                          <div class="col-sm-8">
-                                                <asp:TextBox ID="ageTxt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                                          </div>
-                                        </div>
-                                    </div>
-                              </div>
-                        </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form runat="server">
+                    <div class="alert alert-success alert-dismissible" role="alert" runat="server" visible="false" id="alert_success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <p>Problem Added Successfully!</p>
                     </div>
-                </div>
+                    <div class="alert alert-danger alert-dismissible" role="alert" runat="server" visible="false" id="alert_fail">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <asp:Label runat="server" ID="error"></asp:Label>
+                    </div>
+                    <div class="box-body">
+
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Patient Information</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label">Patient ID</label>
+
+                                                <div class="col-sm-8">
+                                                    <asp:TextBox ID="patientId_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label">Visit Number</label>
+
+                                                <div class="col-sm-8">
+                                                    <asp:TextBox ID="visitNumber_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label">Patient Name</label>
+
+                                                <div class="col-sm-8">
+                                                    <asp:TextBox ID="patientName" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label class="col-sm-4 control-label">Age</label>
+
+                                                <div class="col-sm-8">
+                                                    <asp:TextBox ID="ageTxt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                  <hr />
+                        <hr />
                     <h4>CNS</h4><br/>
 
                     <div class="row">
@@ -194,7 +198,8 @@
                     <asp:Button ID="update_btn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:10px" OnClick="update_btn_Click"/>
                     <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" OnClick="submit_btn_Click"/>
                 </div>
+                    </form>
             </div>
         </div>
-    </form>
+        </div>
 </asp:Content>

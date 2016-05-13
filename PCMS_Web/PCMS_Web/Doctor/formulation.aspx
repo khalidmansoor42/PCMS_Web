@@ -83,14 +83,25 @@
                     </div><br />
                     <div class="row">
                         <label class="col-sm-2 col-sm-offset-2 control-label">Management Plans</label>
-                        <div class="col-sm-5">
-                            <textarea id="managementSkills_area" cols="20" rows="5" class="form-control" runat="server"></textarea>
+                        <div class="col-sm-8">
+                            <label class="checkbox-inline">
+                                <asp:CheckBox ID="medication_cb" runat="server" /> Medication
+                            </label>
+                            <label class="checkbox-inline">
+                              <asp:CheckBox ID="investigation_cb" runat="server" /> Investigation
+                            </label>
+                            <label class="checkbox-inline">
+                              <asp:CheckBox ID="counseliing_cb" runat="server" /> Counselling
+                            </label>
+                            <label class="checkbox-inline">
+                              <asp:CheckBox ID="direction_cb" runat="server" /> Direction
+                            </label>
                         </div>
                     </div><br />
                 </div>
                 <div class="box-footer">
-                    <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-info pull-right" OnClick="addFormulation"/>
-                    <asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-info pull-right" OnClick="update_Click" />
+                    <%--<asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-info pull-right" OnClick="addFormulation"/>--%>
+                    <%--<asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-info pull-right" OnClick="update_Click" />--%>
 
                 </div>
             </div>

@@ -85,30 +85,39 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea formulation_area;
         
         /// <summary>
-        /// managementSkills_area control.
+        /// medication_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea managementSkills_area;
+        protected global::System.Web.UI.WebControls.CheckBox medication_cb;
         
         /// <summary>
-        /// submit_btn control.
+        /// investigation_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submit_btn;
+        protected global::System.Web.UI.WebControls.CheckBox investigation_cb;
         
         /// <summary>
-        /// update control.
+        /// counseliing_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button update;
+        protected global::System.Web.UI.WebControls.CheckBox counseliing_cb;
+        
+        /// <summary>
+        /// direction_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox direction_cb;
     }
 }

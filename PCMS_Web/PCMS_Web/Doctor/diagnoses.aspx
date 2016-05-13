@@ -27,7 +27,7 @@
 
         <div id="Div1" class="panel-body" runat="server" style="background-color: white">
             <div class="box-header">
-                <h3 class="box-title">Problem List and Complaints
+                <h3 class="box-title">Diagnosis
                 </h3>
             </div>
 <br />
