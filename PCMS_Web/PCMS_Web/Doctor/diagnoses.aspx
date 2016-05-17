@@ -133,8 +133,8 @@
                     <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
                 </asp:GridView>
             </div>
-            <div class="pull-right">
-                <asp:Button ID="Submit_btn" runat="server" Text="Save" Style="margin-left: 2px" type="submit" class="btn btn-primary" OnClick="add_Problem" />
+            <div class="box-footer">
+                <asp:Button ID="Submit_btn" runat="server" Text="Save" Style="margin-left: 2px" type="submit" class="btn btn-primary pull-right" OnClick="add_Problem" />
             </div>
         </div>
 
