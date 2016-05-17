@@ -17,17 +17,18 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
-        getInformation info = new getInformation();
+        // getInformation info = new getInformation();
         string[] patientInfo = new string[4];
-        maxValue obj1 = new maxValue();
+        //maxValue obj1 = new maxValue();
         int maxvisit = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["PatientId"] = id;
             if (Session["PatientId"] != null)
             {
 
-                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                //patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
                 id = Session["PatientId"].ToString();
                 patientId_txt.Text = Session["PatientId"].ToString();
                 visitNumber_txt.Text = patientInfo[2];
@@ -37,8 +38,300 @@ namespace PCMS_Web.Doctor
                 {
                     SetInitialRow();
                     GetHistory();
+                    admissionHistory();
+                    illnessHistory();
+                    drugs();
+                    personalInfo();
+                    family();
 
                 }
+            }
+        }
+
+        public void admissionHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("SELECT admissionType,patientClassification from admissionHistory where patient_reg='" + id + "'", con);
+                cmd.Connection = con;
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    saveBtn.Visible = false;
+                    updateBtn.Visible = true;
+                    if ((Convert.ToInt32(dr["admissionType"].ToString()) == 1))
+                    {
+                        assessment_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 2))
+                    {
+                        treatment_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 3))
+                    {
+                        urgent_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 4))
+                    {
+                        emergency_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 5))
+                    {
+                        care_radio.Checked = true;
+                    }
+                    else
+                    {
+                        treatment_radio.Checked = true;
+                    }
+
+                    if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 1))
+                    {
+                        reception_radio.Checked = false;
+                        judicial_radio.Checked = true;
+
+                    }
+
+                    else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 2))
+                    {
+                        reception_radio.Checked = false;
+                        nonJudicial_radio.Checked = true;
+                    }
+
+                    else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 3))
+                    {
+                        reception_radio.Checked = true;
+                    }
+                    else
+                    {
+                        reception_radio.Checked = true;
+                    }
+
+                }
+                else
+                {
+                    updateBtn.Visible = false;
+                    saveBtn.Visible = true;
+                }
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void illnessHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("SELECT illHistoryText,currentTreatmentText,pastMedHistoryText,pastPsychHistoryText,cureRb,cureText,previousText from illnessHistory where patient_reg='" + id + "'", con);
+                cmd.Connection = con;
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    saveBtn.Visible = false;
+                    updateBtn.Visible = true;
+                    historyOfPresentIllness_area.InnerText = dr["illHistoryText"].ToString();
+                    CurrentDrugTreatment_area.InnerText = dr["currentTreatmentText"].ToString();
+                    pastMedicalHistory_area.InnerText = dr["pastMedHistoryText"].ToString();
+                    pastPsychiatricHistory_area.InnerText = dr["pastPsychHistoryText"].ToString();
+                    courseOfIllness_area.InnerText = dr["cureText"].ToString();
+                    previousAdmission_area.InnerText = dr["previousText"].ToString();
+                    if ((Convert.ToInt32(dr["cureRb"].ToString()) == 1))
+                    {
+                        Radio2.Checked = true;
+                    }
+                    else
+                    {
+                        Radio1.Checked = true;
+                    }
+                }
+                else
+                {
+                    updateBtn.Visible = false;
+                    saveBtn.Visible = true;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void drugs()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("SELECT drugsText,dosageText,durationText,reponseText,reactionText,faithTreatmentText,forensicHistoryText from drugHistory where patient_reg='" + id + "'", con);
+                cmd.Connection = con;
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    saveBtn.Visible = false;
+                    updateBtn.Visible = true;
+                    drugs_area.InnerText = dr["drugsText"].ToString();
+                    dosageOfDrugs_area.InnerText = dr["dosageText"].ToString();
+                    duration_area.InnerText = dr["durationText"].ToString();
+                    responseToTreatment_area.InnerText = dr["reponseText"].ToString();
+                    drugReaction_area.InnerText = dr["reactionText"].ToString();
+                    treatmentByFaithHealer_area.InnerText = dr["faithTreatmentText"].ToString();
+                    forensicHistory_area.InnerText = dr["forensicHistoryText"].ToString();
+                }
+                else
+                {
+                    updateBtn.Visible = false;
+                    saveBtn.Visible = true;
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void personalInfo()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("SELECT prenatalText,perinatalText,postnatalText,milestoneRb,childhoodText,schoolingText,educationRb,occupationText,incomeText,psychoSexualhistoryText,menstrualHistoryText,menoPauseText,maritalStatusDD,genderDD,childrenText,spouseRelationshipText,hobbiesText,characteristicText,behaviorText,attitudeText,relationText,achievementsText,religiousText,aptitudesText,otherText FROM personalDetails where patient_reg='" + id + "'", con);
+                cmd.Connection = con;
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    saveBtn.Visible = false;
+                    updateBtn.Visible = true;
+                    prenatal_txt.Text = dr["prenatalText"].ToString();
+                    perinatal_txt.Text = dr["perinatalText"].ToString();
+                    postnatal_txt.Text = dr["postnatalText"].ToString();
+                    childhood_area.InnerText = dr["childhoodText"].ToString();
+                    startOfSchooling_area.InnerText = dr["schoolingText"].ToString();
+                    workOccupationRecord_area.InnerText = dr["occupationText"].ToString();
+                    monthlyIncome_txt.Text = dr["incomeText"].ToString();
+
+                    pschosexualHistory_area.InnerText = dr["psychoSexualhistoryText"].ToString();
+                    menstrualHistory_area.InnerText = dr["menstrualHistoryText"].ToString();
+                    menopause_area.InnerText = dr["menoPauseText"].ToString();
+                    maritalStatus_dd.SelectedItem.Text = dr["maritalStatusDD"].ToString();
+                    gender_dd.SelectedItem.Text = dr["genderDD"].ToString();
+                    numberOfChildren_txt.Text = dr["childrenText"].ToString();
+                    relationshipOfSpouse_txt.InnerText = dr["spouseRelationshipText"].ToString();
+
+                    hobbies_area.InnerText = dr["hobbiesText"].ToString();
+                    characteristic_area.InnerText = dr["characteristicText"].ToString();
+                    behaviour_area.InnerText = dr["behaviorText"].ToString();
+                    attitude_area.InnerText = dr["attitudeText"].ToString();
+                    relations_area.InnerText = dr["relationText"].ToString();
+                    achievements_area.InnerText = dr["achievementsText"].ToString();
+                    religousMoralValues_area.InnerText = dr["religiousText"].ToString();
+
+                    Aptitudes_area.InnerText = dr["aptitudesText"].ToString();
+                    others_area.InnerText = dr["otherText"].ToString();
+
+                    if ((Convert.ToInt32(dr["milestoneRb"].ToString()) == 1))
+                    {
+                        delayed_radio.Checked = true;
+                    }
+                    else
+                    {
+                        normal_radio.Checked = true;
+                    }
+
+                    if ((Convert.ToInt32(dr["educationRb"].ToString()) == 1))
+                    {
+                        good_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 2))
+                    {
+                        average_radio.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 3))
+                    {
+                        belowAverage_radio.Checked = true;
+                    }
+                    else
+                    {
+                        good_radio.Checked = true;
+                    }
+
+                }
+
+                else
+                {
+                    updateBtn.Visible = false;
+                    saveBtn.Visible = true;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void family()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("SELECT temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText from familyHistory where patient_reg='" + id + "'", con);
+                cmd.Connection = con;
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    saveBtn.Visible = false;
+                    updateBtn.Visible = true;
+                    temperament_dd.SelectedItem.Text = dr["temperamentDD"].ToString();
+                    familyHistory_dd.SelectedItem.Text = dr["familyPsychIllDD"].ToString();
+                    father_area.InnerText = dr["fatherText"].ToString();
+                    mother_area.InnerText = dr["motherText"].ToString();
+                    siblings_area.InnerText = dr["siblingsText"].ToString();
+                    TypeOfFamilyHistory_dd.SelectedItem.Text = dr["illnessTypeDD"].ToString();
+                    historyOfSubstanceAbuse_dd.SelectedItem.Text = dr["abuseHistoryDD"].ToString();
+
+                    type_txt.Text = dr["typeText"].ToString();
+                    duration_txt.Text = dr["durationText"].ToString();
+                    amount_area.InnerText = dr["amountText"].ToString();
+                    modeOfAbuse_area.InnerText = dr["abuseModeText"].ToString();
+                    detoxification_area.InnerText = dr["detoxificationText"].ToString();
+                }
+                else
+                {
+                    updateBtn.Visible = false;
+                    saveBtn.Visible = true;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
             }
         }
 
@@ -471,6 +764,556 @@ namespace PCMS_Web.Doctor
                     row[0] = rowNumber;
                     rowNumber++;
                 }
+            }
+        }
+
+        protected void updateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                updateAdmissionHistory();
+                updateIllnessHistory();
+                updateDrugs();
+                updatePersonalInfo();
+                updateFamily();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        protected void saveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                insertAdmissionHistory();
+                insertIllnessHistory();
+                insertDrugs();
+                insertPersonalInfo();
+                insertFamily();
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void insertAdmissionHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("insert into admissionHistory (patient_reg,admissionType,patientClassification) values(@id,@type,@classification)", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                if (assessment_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 1);
+                }
+
+                else if (treatment_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 2);
+                }
+                else if (urgent_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 3);
+                }
+                else if (emergency_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 4);
+                }
+                else if (care_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 5);
+                }
+                else
+                {
+                }
+                if (judicial_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 1);
+                }
+
+                else if (nonJudicial_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 2);
+                }
+                else if (reception_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 3);
+                }
+                else
+                {
+                    alert_fail.Visible = true;
+                    error.Text = "Error! ";
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                }
+
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void insertIllnessHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("insert into illnessHistory (patient_reg,illHistoryText,currentTreatmentText,pastMedHistoryText,pastPsychHistoryText,cureRb,cureText,previousText) values(@id,@illHistoryText,@currentTreatmentText,@pastMedHistoryText,@pastPsychHistoryText,@cureRb,@cureText,@previousText)", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@illHistoryText", historyOfPresentIllness_area.InnerText);
+                cmd.Parameters.AddWithValue("@currentTreatmentText", CurrentDrugTreatment_area.InnerText);
+                cmd.Parameters.AddWithValue("@pastMedHistoryText", pastMedicalHistory_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@pastPsychHistoryText", pastPsychiatricHistory_area.InnerText);
+                if (Radio1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 0);
+                }
+
+                else
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 1);
+                }
+
+                cmd.Parameters.AddWithValue("@cureText", courseOfIllness_area.InnerText);
+                cmd.Parameters.AddWithValue("@previousText", previousAdmission_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void insertDrugs()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("insert into drugHistory (patient_reg,drugsText,dosageText,durationText,reponseText,reactionText,faithTreatmentText,forensicHistoryText) values(@id,@drugsText,@dosageText,@durationText,@reponseText,@reactionText,@faithTreatmentText,@forensicHistoryText)", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@drugsText", drugs_area.InnerText);
+                cmd.Parameters.AddWithValue("@dosageText", dosageOfDrugs_area.InnerText);
+                cmd.Parameters.AddWithValue("@durationText", duration_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@reponseText", responseToTreatment_area.InnerText);
+                cmd.Parameters.AddWithValue("@reactionText", drugReaction_area.InnerText);
+                cmd.Parameters.AddWithValue("@faithTreatmentText", treatmentByFaithHealer_area.InnerText);
+                cmd.Parameters.AddWithValue("@forensicHistoryText", forensicHistory_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void insertPersonalInfo()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("insert into personalDetails (patient_reg,prenatalText,perinatalText,postnatalText,milestoneRb,childhoodText,schoolingText,educationRb,occupationText,incomeText,psychoSexualhistoryText,menstrualHistoryText,menoPauseText,maritalStatusDD,genderDD,childrenText,spouseRelationshipText,hobbiesText,characteristicText,behaviorText,attitudeText,relationText,achievementsText,religiousText,aptitudesText,otherText) values(@id,@prenatalText,@perinatalText,@postnatalText,@milestoneRb,@childhoodText,@schoolingText,@educationRb,@occupationText,@incomeText,@psychoSexualhistoryText,@menstrualHistoryText,@menoPauseText,@maritalStatusDD,@genderDD,@childrenText,@spouseRelationshipText,@hobbiesText,@characteristicText,@behaviorText,@attitudeText,@relationText,@achievementsText,@religiousText,@aptitudesText,@otherText)", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@prenatalText", prenatal_txt.Text);
+                cmd.Parameters.AddWithValue("@perinatalText", perinatal_txt.Text);
+                cmd.Parameters.AddWithValue("@postnatalText", postnatal_txt.Text);
+                if (normal_radio.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@milestoneRb", 0);
+                }
+                else if (delayed_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
+                }
+                else
+                { }
+
+
+                cmd.Parameters.AddWithValue("@childhoodText", childhood_area.InnerText);
+                cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
+                if (good_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 0);
+                }
+
+                else if (average_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 1);
+                }
+
+                else if (belowAverage_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 2);
+                }
+                else
+                { }
+                cmd.Parameters.AddWithValue("@occupationText", workOccupationRecord_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_txt.Text);
+                cmd.Parameters.AddWithValue("@psychoSexualhistoryText", pschosexualHistory_area.InnerText);
+                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_area.InnerText);
+                cmd.Parameters.AddWithValue("@menoPauseText", menopause_area.InnerText);
+                cmd.Parameters.AddWithValue("@maritalStatusDD", maritalStatus_dd.SelectedItem.Text);
+
+                cmd.Parameters.AddWithValue("@genderDD", gender_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@childrenText", numberOfChildren_txt.Text);
+                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipOfSpouse_txt.InnerText);
+                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@characteristicText", characteristic_area.InnerText);
+                cmd.Parameters.AddWithValue("@behaviorText", behaviour_area.InnerText);
+                cmd.Parameters.AddWithValue("@attitudeText", attitude_area.InnerText);
+                cmd.Parameters.AddWithValue("@relationText", relations_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@achievementsText", achievements_area.InnerText);
+                cmd.Parameters.AddWithValue("@religiousText", religousMoralValues_area.InnerText);
+                cmd.Parameters.AddWithValue("@aptitudesText", Aptitudes_area.InnerText);
+                cmd.Parameters.AddWithValue("@otherText", others_area.InnerText);
+
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void insertFamily()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("insert into familyHistory (patient_reg,temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText) values(@id,@temperamentDD,@familyPsychIllDD,@fatherText,@motherText,@siblingsText,@illnessTypeDD,@abuseHistoryDD,@typeText,@durationText,@amountText,@abuseModeText,@detoxificationText)", con);
+
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@temperamentDD", temperament_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@familyPsychIllDD", familyHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@fatherText", father_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@motherText", mother_area.InnerText);
+                cmd.Parameters.AddWithValue("@siblingsText", siblings_area.InnerText);
+                cmd.Parameters.AddWithValue("@illnessTypeDD", TypeOfFamilyHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@abuseHistoryDD", historyOfSubstanceAbuse_dd.SelectedItem.Text);
+
+                cmd.Parameters.AddWithValue("@typeText", type_txt.Text);
+                cmd.Parameters.AddWithValue("@durationText", duration_txt.Text);
+                cmd.Parameters.AddWithValue("@amountText", amount_area.InnerText);
+                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_area.InnerText);
+                cmd.Parameters.AddWithValue("@detoxificationText", detoxification_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+
+
+        public void updateAdmissionHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("update admissionHistory set admissionType=@type,patientClassification=@classification where patient_reg='" + id + "'", con);
+
+
+                if (assessment_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 1);
+                }
+
+                else if (treatment_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 2);
+                }
+                else if (urgent_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 3);
+                }
+                else if (emergency_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 4);
+                }
+                else if (care_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@type", 5);
+                }
+                else
+                {
+                }
+                if (judicial_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 1);
+                }
+
+                else if (nonJudicial_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 2);
+                }
+                else if (reception_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@classification", 3);
+                }
+                else
+                {
+                    alert_fail.Visible = true;
+                    error.Text = "Error! ";
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                }
+
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void updateIllnessHistory()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("update illnessHistory set illHistoryText=@illHistoryText,currentTreatmentText=@currentTreatmentText,pastMedHistoryText=@pastMedHistoryText,pastPsychHistoryText=@pastPsychHistoryText,cureRb=@cureRb,cureText=@cureText,previousText=@previousText where patient_reg='" + id + "'", con);
+
+
+                cmd.Parameters.AddWithValue("@illHistoryText", historyOfPresentIllness_area.InnerText);
+                cmd.Parameters.AddWithValue("@currentTreatmentText", CurrentDrugTreatment_area.InnerText);
+                cmd.Parameters.AddWithValue("@pastMedHistoryText", pastMedicalHistory_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@pastPsychHistoryText", pastPsychiatricHistory_area.InnerText);
+                if (Radio1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 0);
+                }
+
+                else
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 1);
+                }
+
+                cmd.Parameters.AddWithValue("@cureText", courseOfIllness_area.InnerText);
+                cmd.Parameters.AddWithValue("@previousText", previousAdmission_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void updateDrugs()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("update drugHistory set drugsText=@drugsText,dosageText=@dosageText,durationText=@durationText,reponseText=@reponseText,reactionText=@reactionText,faithTreatmentText= @faithTreatmentText,forensicHistoryText=@forensicHistoryText where patien_reg='" + id + "'", con);
+
+
+                cmd.Parameters.AddWithValue("@drugsText", drugs_area.InnerText);
+                cmd.Parameters.AddWithValue("@dosageText", dosageOfDrugs_area.InnerText);
+                cmd.Parameters.AddWithValue("@durationText", duration_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@reponseText", responseToTreatment_area.InnerText);
+                cmd.Parameters.AddWithValue("@reactionText", drugReaction_area.InnerText);
+                cmd.Parameters.AddWithValue("@faithTreatmentText", treatmentByFaithHealer_area.InnerText);
+                cmd.Parameters.AddWithValue("@forensicHistoryText", forensicHistory_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+        public void updatePersonalInfo()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("update personalDetails set prenatalText= @prenatalText,perinatalText=@perinatalText,postnatalText=@postnatalText,milestoneRb=@milestoneRb,childhoodText=@childhoodText,schoolingText=@schoolingText,educationRb=@educationRb,occupationText=@occupationText,incomeText=@incomeText,psychoSexualhistoryText=@psychoSexualhistoryText,menstrualHistoryText=@menstrualHistoryText,menoPauseText=@menoPauseText,maritalStatusDD=@maritalStatusDD,genderDD=@genderDD,childrenText=@childrenText,spouseRelationshipText=@spouseRelationshipText,hobbiesText=@hobbiesText,characteristicText=@characteristicText,behaviorText=@behaviorText,attitudeText=@attitudeText,relationText=@relationText,achievementsText=@achievementsText,religiousText=@religiousText,aptitudesText=@aptitudesText,otherText=@otherText where patient_reg='" + id + "'", con);
+
+
+                cmd.Parameters.AddWithValue("@prenatalText", prenatal_txt.Text);
+                cmd.Parameters.AddWithValue("@perinatalText", perinatal_txt.Text);
+                cmd.Parameters.AddWithValue("@postnatalText", postnatal_txt.Text);
+                if (normal_radio.Checked)
+                {
+                    cmd.Parameters.AddWithValue("@milestoneRb", 0);
+                }
+                else if (delayed_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
+                }
+                else
+                { }
+
+
+                cmd.Parameters.AddWithValue("@childhoodText", childhood_area.InnerText);
+                cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
+                if (good_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 0);
+                }
+
+                else if (average_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 1);
+                }
+
+                else if (belowAverage_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@educationRb", 2);
+                }
+                else
+                { }
+                cmd.Parameters.AddWithValue("@occupationText", workOccupationRecord_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_txt.Text);
+                cmd.Parameters.AddWithValue("@psychoSexualhistoryText", pschosexualHistory_area.InnerText);
+                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_area.InnerText);
+                cmd.Parameters.AddWithValue("@menoPauseText", menopause_area.InnerText);
+                cmd.Parameters.AddWithValue("@maritalStatusDD", maritalStatus_dd.SelectedItem.Text);
+
+                cmd.Parameters.AddWithValue("@genderDD", gender_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@childrenText", numberOfChildren_txt.Text);
+                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipOfSpouse_txt.InnerText);
+                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@characteristicText", characteristic_area.InnerText);
+                cmd.Parameters.AddWithValue("@behaviorText", behaviour_area.InnerText);
+                cmd.Parameters.AddWithValue("@attitudeText", attitude_area.InnerText);
+                cmd.Parameters.AddWithValue("@relationText", relations_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@achievementsText", achievements_area.InnerText);
+                cmd.Parameters.AddWithValue("@religiousText", religousMoralValues_area.InnerText);
+                cmd.Parameters.AddWithValue("@aptitudesText", Aptitudes_area.InnerText);
+                cmd.Parameters.AddWithValue("@otherText", others_area.InnerText);
+
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+        }
+
+        public void updateFamily()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand("update familyHistory set temperamentDD=@temperamentDD,familyPsychIllDD=@familyPsychIllDD,fatherText=@fatherText,motherText=@motherText,siblingsText=@siblingsText,illnessTypeDD=@illnessTypeDD,abuseHistoryDD,typeText=@typeText,durationText=@durationText,amountText=@amountText,abuseModeText=@abuseModeText,detoxificationText=@detoxificationText where patient_reg='" + id + "'", con);
+
+
+                cmd.Parameters.AddWithValue("@temperamentDD", temperament_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@familyPsychIllDD", familyHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@fatherText", father_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@motherText", mother_area.InnerText);
+                cmd.Parameters.AddWithValue("@siblingsText", siblings_area.InnerText);
+                cmd.Parameters.AddWithValue("@illnessTypeDD", TypeOfFamilyHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@abuseHistoryDD", historyOfSubstanceAbuse_dd.SelectedItem.Text);
+
+                cmd.Parameters.AddWithValue("@typeText", type_txt.Text);
+                cmd.Parameters.AddWithValue("@durationText", duration_txt.Text);
+                cmd.Parameters.AddWithValue("@amountText", amount_area.InnerText);
+                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_area.InnerText);
+                cmd.Parameters.AddWithValue("@detoxificationText", detoxification_area.InnerText);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                alert_success.Visible = true;
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
+            catch (Exception ex)
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
             }
         }
     }
