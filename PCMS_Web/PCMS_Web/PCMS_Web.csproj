@@ -108,6 +108,8 @@
     <Content Include="Admin\addComplaint.aspx" />
     <Content Include="Admin\addDiagnosesCode.aspx" />
     <Content Include="Admin\addDiagnosesDiseases.aspx" />
+    <Content Include="Admin\addPsychometricTest.aspx" />
+    <Content Include="Admin\addCounsellingTherapy.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\PCMS_Web.dll" />
@@ -1225,6 +1227,20 @@
     </Compile>
     <Compile Include="Admin\addDiagnosesDiseases.aspx.designer.cs">
       <DependentUpon>addDiagnosesDiseases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addPsychometricTest.aspx.cs">
+      <DependentUpon>addPsychometricTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addPsychometricTest.aspx.designer.cs">
+      <DependentUpon>addPsychometricTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addCounsellingTherapy.aspx.cs">
+      <DependentUpon>addCounsellingTherapy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addCounsellingTherapy.aspx.designer.cs">
+      <DependentUpon>addCounsellingTherapy.aspx</DependentUpon>
     </Compile>
     <Compile Include="AppData\visitReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
