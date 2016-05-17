@@ -28,39 +28,47 @@
                 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Height="800px" Width="800px" ZoomMode="PageWidth">
                     <LocalReport ReportPath="Reports\prescription.rdlc">
                         <DataSources>
-                            <rsweb:ReportDataSource Name="DataSet1" DataSourceId="ObjectDataSource3"></rsweb:ReportDataSource>
-                            <rsweb:ReportDataSource Name="gerneralHistory" DataSourceId="history"></rsweb:ReportDataSource>
                             <rsweb:ReportDataSource Name="medication" DataSourceId="medication"></rsweb:ReportDataSource>
+                            <rsweb:ReportDataSource Name="investingation" DataSourceId="investigation"></rsweb:ReportDataSource>
+                            <rsweb:ReportDataSource Name="direction" DataSourceId="direction"></rsweb:ReportDataSource>
+                            <rsweb:ReportDataSource Name="PatientDaignoses" DataSourceId="diagnoses"></rsweb:ReportDataSource>
                         </DataSources>
                     </LocalReport>
                 </rsweb:ReportViewer>
-                <asp:ObjectDataSource ID="history" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.general_history1TableAdapter">
-                    <InsertParameters>
-                        <asp:Parameter Name="diabetes" Type="Byte"></asp:Parameter>
-                        <asp:Parameter Name="insulin" Type="Byte"></asp:Parameter>
-                        <asp:Parameter Name="hypertention" Type="Byte"></asp:Parameter>
-                        <asp:Parameter Name="cardiac" Type="String"></asp:Parameter>
-                        <asp:Parameter Name="respiratory" Type="String"></asp:Parameter>
-                        <asp:Parameter Name="rinal" Type="String"></asp:Parameter>
-                        <asp:Parameter Name="cancer" Type="String"></asp:Parameter>
-                        <asp:Parameter Name="other_illness" Type="String"></asp:Parameter>
-                    </InsertParameters>
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:ObjectDataSource ID="medication" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.medicationTableAdapter">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
-                        <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.ProblemListAndComplaintsTableAdapter">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                    </div>
+                    <asp:ObjectDataSource ID="medication" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.pres_medicationTableAdapter">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                            <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="investigation" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.pres_InvestigationTableAdapter">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                            <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="direction" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.visit1TableAdapter">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                            <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:ObjectDataSource>    
+                    <asp:ObjectDataSource ID="diagnoses" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.patientDiagnosisTableAdapter">
+                        <InsertParameters>
+                            <asp:Parameter Name="patient_reg" Type="Int32"></asp:Parameter>
+                            <asp:Parameter Name="visit_no" Type="Int32"></asp:Parameter>
+                            <asp:Parameter Name="diseaseMasterCode" Type="String"></asp:Parameter>
+                            <asp:Parameter Name="diseaseCode" Type="String"></asp:Parameter>
+                            <asp:Parameter Name="diseaseName" Type="String"></asp:Parameter>
+                            <asp:Parameter Name="comments" Type="String"></asp:Parameter>
+                        </InsertParameters>
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                            <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:ObjectDataSource>             
+         
+                </div>
             </div>
         </div>
     </form>

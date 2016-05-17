@@ -5470,13 +5470,25 @@ Fields!night.Value &gt;0, Fields!night.Value
           <DataField>Formulation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="managementPlans">
-          <DataField>managementPlans</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="visit_no">
           <DataField>visit_no</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="medication">
+          <DataField>medication</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="investigation">
+          <DataField>investigation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="counselling">
+          <DataField>counselling</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="direction">
+          <DataField>direction</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

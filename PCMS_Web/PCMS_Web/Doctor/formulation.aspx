@@ -100,8 +100,8 @@
                     </div><br />
                 </div>
                 <div class="box-footer">
-                    <%--<asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-info pull-right" OnClick="addFormulation"/>--%>
-                    <%--<asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-info pull-right" OnClick="update_Click" />--%>
+                    <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-info pull-right" OnClick="addFormulation"/>
+                    <asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-info pull-right" OnClick="update_Click" />
 
                 </div>
             </div>
