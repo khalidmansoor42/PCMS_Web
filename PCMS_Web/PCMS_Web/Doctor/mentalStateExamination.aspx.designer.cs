@@ -274,30 +274,516 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList objective_dd;
         
         /// <summary>
-        /// streamOfThought_dd control.
+        /// povertyOfThought_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList streamOfThought_dd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox povertyOfThought_cb;
         
         /// <summary>
-        /// formOfThoughts_dd control.
+        /// pressureOfThought_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList formOfThoughts_dd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox pressureOfThought_cb;
         
         /// <summary>
-        /// contentOfThoughts_txt control.
+        /// thoughtBlock_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList contentOfThoughts_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox thoughtBlock_cb;
+        
+        /// <summary>
+        /// flightOfIdeas_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox flightOfIdeas_cb;
+        
+        /// <summary>
+        /// clangAssociation_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox clangAssociation_cb;
+        
+        /// <summary>
+        /// looseningOfAssociation_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox looseningOfAssociation_cb;
+        
+        /// <summary>
+        /// knightsMove_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox knightsMove_cb;
+        
+        /// <summary>
+        /// derailment_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox derailment_cb;
+        
+        /// <summary>
+        /// wordSalad_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox wordSalad_cb;
+        
+        /// <summary>
+        /// takingPastThePoint_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox takingPastThePoint_cb;
+        
+        /// <summary>
+        /// tangentiality control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox tangentiality;
+        
+        /// <summary>
+        /// circumstanciality_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox circumstanciality_cb;
+        
+        /// <summary>
+        /// preservation_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox preservation_cb;
+        
+        /// <summary>
+        /// neologism_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox neologism_cb;
+        
+        /// <summary>
+        /// suicidalIdeation_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox suicidalIdeation_cb;
+        
+        /// <summary>
+        /// homicidalIdeation_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox homicidalIdeation_cb;
+        
+        /// <summary>
+        /// hopelessness_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox hopelessness_cb;
+        
+        /// <summary>
+        /// helplessness_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox helplessness_cb;
+        
+        /// <summary>
+        /// worthlessness_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox worthlessness_cb;
+        
+        /// <summary>
+        /// delusions_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList delusions_dd;
+        
+        /// <summary>
+        /// delusions2_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList delusions2_dd;
+        
+        /// <summary>
+        /// delusionsOfReference_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox delusionsOfReference_cb;
+        
+        /// <summary>
+        /// grandioseGuilt_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox grandioseGuilt_cb;
+        
+        /// <summary>
+        /// nihilistic_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox nihilistic_cb;
+        
+        /// <summary>
+        /// hypochondriacal_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox hypochondriacal_cb;
+        
+        /// <summary>
+        /// Religious_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Religious_cb;
+        
+        /// <summary>
+        /// sexual_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox sexual_cb;
+        
+        /// <summary>
+        /// delusionOfControl_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox delusionOfControl_cb;
+        
+        /// <summary>
+        /// thoughtInsertion_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox thoughtInsertion_cb;
+        
+        /// <summary>
+        /// withdrawal_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox withdrawal_cb;
+        
+        /// <summary>
+        /// thoughtBroadcasting_cb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox thoughtBroadcasting_cb;
+        
+        /// <summary>
+        /// obsessiveCompulsivePhenomena_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea obsessiveCompulsivePhenomena_area;
+        
+        /// <summary>
+        /// phobias_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea phobias_area;
+        
+        /// <summary>
+        /// disordersOfPerception_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea disordersOfPerception_area;
+        
+        /// <summary>
+        /// depersonalization_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton depersonalization_radio;
+        
+        /// <summary>
+        /// derealozation_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton derealozation_radio;
+        
+        /// <summary>
+        /// secondPerson_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton secondPerson_radio;
+        
+        /// <summary>
+        /// thirdPerson_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton thirdPerson_radio;
+        
+        /// <summary>
+        /// runningCommentary_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton runningCommentary_radio;
+        
+        /// <summary>
+        /// hallucinations_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList hallucinations_dd;
+        
+        /// <summary>
+        /// illusions_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea illusions_area;
+        
+        /// <summary>
+        /// consciouness_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList consciouness_dd;
+        
+        /// <summary>
+        /// time_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox time_txt;
+        
+        /// <summary>
+        /// place_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox place_txt;
+        
+        /// <summary>
+        /// person_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox person_txt;
+        
+        /// <summary>
+        /// serialSevenTest_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox serialSevenTest_txt;
+        
+        /// <summary>
+        /// serialThreeTest_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox serialThreeTest_txt;
+        
+        /// <summary>
+        /// intelligence_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList intelligence_dd;
+        
+        /// <summary>
+        /// iq_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox iq_txt;
+        
+        /// <summary>
+        /// memory_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList memory_dd;
+        
+        /// <summary>
+        /// judgement_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList judgement_dd;
+        
+        /// <summary>
+        /// generalKnowledge_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea generalKnowledge_area;
+        
+        /// <summary>
+        /// concreteThinking_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea concreteThinking_area;
+        
+        /// <summary>
+        /// abstractThinking_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea abstractThinking_area;
+        
+        /// <summary>
+        /// insight_area control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea insight_area;
+        
+        /// <summary>
+        /// submit_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit_btn;
+        
+        /// <summary>
+        /// update control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button update;
     }
 }

@@ -447,6 +447,7 @@ namespace PCMS_Web.Doctor
                         cmd.Parameters.AddWithValue("@night", tb3.Text);
                         cmd.Parameters.AddWithValue("@directions", text);
                         cmd.Parameters.AddWithValue("@durations", ddl3.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@direction_summary", "NULL");
 
                         con.Open();
                         bool success = Convert.ToBoolean(cmd.ExecuteScalar());

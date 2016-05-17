@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="patientHistory.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm18" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <head runat="server"></head>
     <div class="row">
         <div class="col-md-12">
             <div class="box box-info">
@@ -758,8 +759,8 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" Style="margin-left: 5px" />
-                        <asp:Button ID="saveBtn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" Style="margin-left: 5px" />
+                        <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" Style="margin-left: 5px" OnClick="updateBtn_Click" />
+                        <asp:Button ID="saveBtn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" Style="margin-left: 5px" OnClick="saveBtn_Click" />
                     </div>
                 </form>
             </div>
@@ -775,8 +776,8 @@
 
             setTimeout(function () {
                 document.getElementById("<%=alert_fail.ClientID %>").style.display = "none";
-             }, seconds * 1000);
-         };
+            }, seconds * 1000);
+        };
 
         $('#myTabs a').click(function (e) {
             e.preventDefault()
