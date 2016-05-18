@@ -43,19 +43,20 @@ namespace PCMS_Web.Doctor
             if (maxvisit == Convert.ToInt32(visitNumber_txt.Text))
             {
                 submit_btn.Visible = false;
-                //update.Visible = true;
+                update.Visible = true;
             }
             else
             {
-                //update.Visible = false;
+                update.Visible = false;
                 submit_btn.Visible = true;
             }
             if (maxvisit > 0)
             {
                 try
                 {
+                    string query = "Select * from Formulation where id='" + id + "' and visit_no='" + maxvisit + "'";
                     SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand("Select * from Formulation where id='" + id + "'", con);
+                    SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Connection = con;
                     SqlDataReader dr;
                     con.Open();

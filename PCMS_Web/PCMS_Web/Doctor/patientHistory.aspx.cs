@@ -17,17 +17,15 @@ namespace PCMS_Web.Doctor
         string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         string id = "1";
-        // getInformation info = new getInformation();
+        getInformation info = new getInformation();
         string[] patientInfo = new string[4];
-        //maxValue obj1 = new maxValue();
+        maxValue obj1 = new maxValue();
         int maxvisit = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["PatientId"] = id;
             if (Session["PatientId"] != null)
             {
-
                 //patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
                 id = Session["PatientId"].ToString();
                 patientId_txt.Text = Session["PatientId"].ToString();
@@ -1173,8 +1171,9 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update drugHistory set drugsText=@drugsText,dosageText=@dosageText,durationText=@durationText,reponseText=@reponseText,reactionText=@reactionText,faithTreatmentText= @faithTreatmentText,forensicHistoryText=@forensicHistoryText where patien_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("update drugHistory set drugsText=@drugsText,dosageText=@dosageText,durationText=@durationText,reponseText=@reponseText,reactionText=@reactionText,faithTreatmentText= @faithTreatmentText,forensicHistoryText=@forensicHistoryText where patient_reg=@id", con);
 
+                cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.Parameters.AddWithValue("@drugsText", drugs_area.InnerText);
                 cmd.Parameters.AddWithValue("@dosageText", dosageOfDrugs_area.InnerText);
@@ -1284,7 +1283,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update familyHistory set temperamentDD=@temperamentDD,familyPsychIllDD=@familyPsychIllDD,fatherText=@fatherText,motherText=@motherText,siblingsText=@siblingsText,illnessTypeDD=@illnessTypeDD,abuseHistoryDD,typeText=@typeText,durationText=@durationText,amountText=@amountText,abuseModeText=@abuseModeText,detoxificationText=@detoxificationText where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("update familyHistory set temperamentDD=@temperamentDD,familyPsychIllDD=@familyPsychIllDD,fatherText=@fatherText,motherText=@motherText,siblingsText=@siblingsText,illnessTypeDD=@illnessTypeDD,abuseHistoryDD=@abuseHistoryDD,typeText=@typeText,durationText=@durationText,amountText=@amountText,abuseModeText=@abuseModeText,detoxificationText=@detoxificationText where patient_reg='" + id +"'", con);
 
 
                 cmd.Parameters.AddWithValue("@temperamentDD", temperament_dd.SelectedItem.Text);

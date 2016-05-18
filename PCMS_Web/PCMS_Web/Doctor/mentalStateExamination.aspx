@@ -11,7 +11,7 @@
                 <form runat="server">
                     <div class="alert alert-success alert-dismissible" role="alert" runat="server" visible="false" id="alert_success">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <p>Problem Added Successfully!</p>
+                        <p>Record is Added!</p>
                     </div>
                     <div class="alert alert-danger alert-dismissible" role="alert" runat="server" visible="false" id="alert_fail">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -745,8 +745,8 @@
                 </div>
 
                 <div class="box-footer">
-                    <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-primary pull-right"/>
-                    <asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-primary pull-right"/>
+                    <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" OnClick="submit_btn_Click"/>
+                    <asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-primary pull-right" OnClick="update_Click"/>
 
                 </div>
                     </form>
