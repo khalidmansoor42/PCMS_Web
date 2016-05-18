@@ -108,6 +108,8 @@
     <Content Include="Admin\addComplaint.aspx" />
     <Content Include="Admin\addDiagnosesCode.aspx" />
     <Content Include="Admin\addDiagnosesDiseases.aspx" />
+    <Content Include="Admin\addPsychometricTest.aspx" />
+    <Content Include="Admin\addCounsellingTherapy.aspx" />
     <Content Include="beep\Electronic_Chime-KevanGC-495939803.wav" />
     <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="bin\PCMS_Web.dll" />
@@ -223,6 +225,9 @@
     <Content Include="Doctor\visitReport.aspx" />
     <Content Include="Doctor\patientHistory.aspx" />
     <Content Include="Doctor\mentalStateExamination.aspx" />
+    <Content Include="Doctor\psychometricEvaluation.aspx" />
+    <Content Include="Doctor\counselling.aspx" />
+    <Content Include="Doctor\WebForm22.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1226,6 +1231,20 @@
     <Compile Include="Admin\addDiagnosesDiseases.aspx.designer.cs">
       <DependentUpon>addDiagnosesDiseases.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\addPsychometricTest.aspx.cs">
+      <DependentUpon>addPsychometricTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addPsychometricTest.aspx.designer.cs">
+      <DependentUpon>addPsychometricTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\addCounsellingTherapy.aspx.cs">
+      <DependentUpon>addCounsellingTherapy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\addCounsellingTherapy.aspx.designer.cs">
+      <DependentUpon>addCounsellingTherapy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AppData\visitReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1370,6 +1389,27 @@
     </Compile>
     <Compile Include="Doctor\mentalStateExamination.aspx.designer.cs">
       <DependentUpon>mentalStateExamination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\psychometricEvaluation.aspx.cs">
+      <DependentUpon>psychometricEvaluation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\psychometricEvaluation.aspx.designer.cs">
+      <DependentUpon>psychometricEvaluation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\counselling.aspx.cs">
+      <DependentUpon>counselling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\counselling.aspx.designer.cs">
+      <DependentUpon>counselling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\WebForm22.aspx.cs">
+      <DependentUpon>WebForm22.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\WebForm22.aspx.designer.cs">
+      <DependentUpon>WebForm22.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />

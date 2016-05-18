@@ -288,7 +288,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-user"></i> <span>Record Management</span> <i class="fa fa-angle-left pull-right"></i>
+                            <i class="fa fa-list-ol"></i> <span>Record Management</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="addCity.aspx"><i class="fa fa-building"></i> Add City</a></li>
@@ -297,7 +297,9 @@
                             <li><a href="attendantRelation.aspx"><i class="fa fa-users"></i> Add Attendant Relation</a></li>
                             <li><a href="addComplaint.aspx"><i class="fa fa-info-circle"></i> Add Complaint Name</a></li>
                             <li><a href="addDiagnosesCode.aspx"><i class="fa fa-question-circle"></i> Add Diagnoses Code</a></li>
-                            <li><a href="addDiagnosesDiseases.aspx"><i class="fa fa-question-circle"></i> Add Diagnoses Diseases</a></li>0
+                            <li><a href="addDiagnosesDiseases.aspx"><i class="fa fa-question-circle"></i> Add Diagnoses Diseases</a></li>
+                            <li><a href="addPsychometricTest.aspx"><i class="fa fa-plus"></i> Add Psychometric Tests</a></li>
+                            <li><a href="addCounsellingTherapy.aspx"><i class="fa fa-street-view"></i> Add Counselling Therapy</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
