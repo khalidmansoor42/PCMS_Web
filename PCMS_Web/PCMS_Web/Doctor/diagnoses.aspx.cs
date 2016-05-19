@@ -446,28 +446,25 @@ namespace PCMS_Web.Doctor
                     ComboBox cb2 = (ComboBox)GridView1.Rows[z].Cells[2].FindControl("ComboBox2");
                     TextBox tb1 = (TextBox)GridView1.Rows[z].Cells[3].FindControl("comments_area");
 
-                    if (cb1.SelectedItem != null)
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@patient_reg", Convert.ToInt32(id));
+                    cmd.Parameters.AddWithValue("@visit_no", visit_no);
+                    cmd.Parameters.AddWithValue("@diseaseMasterCode", cb1.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("@diseaseCode", cb2.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@diseaseName", cb2.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("@comments", tb1.Text);
+
+                    con.Open();
+                    bool success = Convert.ToBoolean(cmd.ExecuteScalar());
+                    if (success)
                     {
-                        cmd.Connection = con;
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@patient_reg", Convert.ToInt32(id));
-                        cmd.Parameters.AddWithValue("@visit_no", visit_no);
-                        cmd.Parameters.AddWithValue("@diseaseMasterCode", cb1.SelectedItem.Text);
-                        cmd.Parameters.AddWithValue("@diseaseCode", cb2.SelectedValue.ToString());
-                        cmd.Parameters.AddWithValue("@diseaseName", cb2.SelectedItem.Text);
-                        cmd.Parameters.AddWithValue("@comments", tb1.Text);
+                        alert_success.Visible = true;
+                        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+                    }
+                    else
+                    {
 
-                        con.Open();
-                        bool success = Convert.ToBoolean(cmd.ExecuteScalar());
-                        if (success)
-                        {
-                            alert_success.Visible = true;
-                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-                        }
-                        else
-                        {
-
-                        }
                     }
                     con.Close();
                 }
