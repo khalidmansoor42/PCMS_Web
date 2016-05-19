@@ -1,4 +1,5 @@
 ﻿using AjaxControlToolkit;
+using PCMS_Web.Class;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,17 +18,27 @@ namespace PCMS_Web.Doctor
         string id = "";
         string tempVisit = "";
         int visit_no = 0;
+
+        getInformation info = new getInformation();
+        string[] patientInfo = new string[4];
+        maxValue obj1 = new maxValue();
+        int maxvisit = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["patient_reg"] = 1;
-            Session["visit_no"] = 0;
-            if (Session["patient_reg"] != null)
+            
+            if (Session["PatientId"] != null && !IsPostBack)
             {
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                patientId_txt.Text = Session["PatientId"].ToString();
+
+                visitNumber_txt.Text = patientInfo[2];
+                patientName.Text = patientInfo[0];
+                ageTxt.Text = patientInfo[3];
+                Session["visit_no"] = patientInfo[2];
                 tempVisit = Session["visit_no"].ToString();
-                id = Session["patient_reg"].ToString();
+                id = Session["PatientId"].ToString();
                 if (!Page.IsPostBack)
                 {
-
                     SetInitialRow();
                     GetHistory();
                 }
@@ -40,8 +51,9 @@ namespace PCMS_Web.Doctor
         {
             try
             {
+                string query = "select max(visit_no) as visit_no from counselling where patient_reg='" + id + "'";
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd1 = new SqlCommand("select max(visit_no) as visit_no from counselling where patient_reg='" + id + "'", con);
+                SqlCommand cmd1 = new SqlCommand(query, con);
                 SqlDataReader dr;
                 con.Open();
                 dr = cmd1.ExecuteReader();
@@ -51,9 +63,15 @@ namespace PCMS_Web.Doctor
                     {
                         visit_no = Convert.ToInt32(dr["visit_no"].ToString());
                     }
-
-                    tempVisit = dr["visit_no"].ToString();
-                    Session["visit_no"] = tempVisit;
+                    if (dr["visit_no"].ToString() == "")
+                    {
+                        tempVisit = "0";
+                        Session["visit_no"] = tempVisit;
+                    }else
+                    {
+                        tempVisit = dr["visit_no"].ToString();
+                        Session["visit_no"] = tempVisit;
+                    }
                 }
                 else
                 {
@@ -295,7 +313,8 @@ namespace PCMS_Web.Doctor
                                 using (SqlConnection con = new SqlConnection(constring))
                                 {
                                     con.Open();
-                                    SqlCommand cmd = new SqlCommand("delete from counselling where therapy_advise='" + cb1.SelectedValue + "' and patient_reg='" + id + "'", con);
+                                    string query = "delete from counselling where therapy_advise='" + cb1.SelectedValue + "' and patient_reg='" + patientId_txt.Text + "' and visit_no='"+visitNumber_txt.Text+"'";
+                                    SqlCommand cmd = new SqlCommand(query, con);
                                     result = cmd.ExecuteNonQuery();
                                     con.Close();
                                 }
@@ -377,8 +396,9 @@ namespace PCMS_Web.Doctor
         {
             try
             {
-                visit_no = Convert.ToInt32(tempVisit);
-                visit_no = visit_no + 1;
+                //visit_no = Convert.ToInt32(tempVisit);
+                //visit_no = visit_no + 1;
+                visit_no = Convert.ToInt32(visitNumber_txt.Text);
                 int count = GridView1.Rows.Count;
 
                 for (int z = 0; z < count; z++)
@@ -396,7 +416,7 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@therapy_advise", cb1.SelectedValue);
                     cmd.Parameters.AddWithValue("@suggestion", cb2.Text);
                     cmd.Parameters.AddWithValue("@outcome", tb1.Text);
-                    cmd.Parameters.AddWithValue("@patient_reg", id);
+                    cmd.Parameters.AddWithValue("@patient_reg", Convert.ToInt32(patientId_txt.Text));
                     cmd.Parameters.AddWithValue("@visit_no", visit_no);
 
 
