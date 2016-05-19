@@ -32,6 +32,7 @@
                             <rsweb:ReportDataSource Name="investingation" DataSourceId="investigation"></rsweb:ReportDataSource>
                             <rsweb:ReportDataSource Name="direction" DataSourceId="direction"></rsweb:ReportDataSource>
                             <rsweb:ReportDataSource Name="PatientDaignoses" DataSourceId="diagnoses"></rsweb:ReportDataSource>
+                            <rsweb:ReportDataSource Name="counselling" DataSourceId="conselling"></rsweb:ReportDataSource>
                         </DataSources>
                     </LocalReport>
                 </rsweb:ReportViewer>
@@ -66,7 +67,14 @@
                             <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
                             <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
                         </SelectParameters>
-                    </asp:ObjectDataSource>             
+                    </asp:ObjectDataSource> 
+                    <asp:ObjectDataSource ID="conselling" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.counsellingTableAdapter">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
+                            <asp:ControlParameter ControlID="DropDownList1" PropertyName="SelectedValue" Name="Param2" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:ObjectDataSource>
+                               
          
                 </div>
             </div>
