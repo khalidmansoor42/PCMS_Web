@@ -26,7 +26,7 @@ namespace PCMS_Web.Doctor
         {
             if (Session["PatientId"] != null)
             {
-                //patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
+                patientInfo = info.information("SELECT a.full_name, a.father_name,a.dob, b.visit_no FROM patient_registeration a, visit b  WHERE a.patient_reg = b.patient_reg  AND b.visit_date='" + DateTime.Now.ToString("yyyy-MM-dd") + "'And  a.patient_reg ='" + Session["PatientId"].ToString() + "' And b.patient_reg='" + Session["PatientId"].ToString() + "';");
                 id = Session["PatientId"].ToString();
                 patientId_txt.Text = Session["PatientId"].ToString();
                 visitNumber_txt.Text = patientInfo[2];
@@ -62,6 +62,7 @@ namespace PCMS_Web.Doctor
                     updateBtn.Visible = true;
                     if ((Convert.ToInt32(dr["admissionType"].ToString()) == 1))
                     {
+                        treatment_radio.Checked = false;
                         assessment_radio.Checked = true;
                     }
                     else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 2))
@@ -70,14 +71,17 @@ namespace PCMS_Web.Doctor
                     }
                     else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 3))
                     {
+                        treatment_radio.Checked = false;
                         urgent_radio.Checked = true;
                     }
                     else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 4))
                     {
+                        treatment_radio.Checked = false;
                         emergency_radio.Checked = true;
                     }
                     else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 5))
                     {
+                        treatment_radio.Checked = false;
                         care_radio.Checked = true;
                     }
                     else
@@ -256,16 +260,18 @@ namespace PCMS_Web.Doctor
                         normal_radio.Checked = true;
                     }
 
-                    if ((Convert.ToInt32(dr["educationRb"].ToString()) == 1))
+                    if ((Convert.ToInt32(dr["educationRb"].ToString()) == 0))
                     {
                         good_radio.Checked = true;
                     }
-                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 2))
+                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 1))
                     {
+                        good_radio.Checked = false;
                         average_radio.Checked = true;
                     }
-                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 3))
+                    else if ((Convert.ToInt32(dr["educationRb"].ToString()) == 2))
                     {
+                        good_radio.Checked = false;
                         belowAverage_radio.Checked = true;
                     }
                     else

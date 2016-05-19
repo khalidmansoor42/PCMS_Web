@@ -561,7 +561,7 @@
                                 3rd Person
                             </label>
                             <label class="radio-inline">
-                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="runningCommentary_radio" value="option2">
+                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="runningCommentary_radio" value="option3">
                                 Running Commentary
                             </label>
                         </div>
