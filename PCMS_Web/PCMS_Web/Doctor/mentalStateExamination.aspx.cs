@@ -89,7 +89,7 @@ namespace PCMS_Web.Doctor
 
 
                     psychomotorActivity_dd.SelectedItem.Text = dr["Psychomotor_activity"].ToString();
-                    movements_dd.SelectedItem.Text = dr["Movements"].ToString();
+                    movements_dd.Text = dr["Movements"].ToString();
                     speech_dd.SelectedItem.Text = dr["Speech"].ToString();
                     tone_txt.Text = dr["Tone"].ToString();
                     rate_txt.Text = dr["Rate"].ToString();
@@ -752,7 +752,7 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Thought_broadcasting", 0);
                 }
 
-                cmd.Parameters.AddWithValue("@Obsessive_Compulsive_Phenomena", 0);
+                cmd.Parameters.AddWithValue("@Obsessive_Compulsive_Phenomena", obsessiveCompulsivePhenomena_area.Value);
 
 
                 cmd.Parameters.AddWithValue("@PHOBIAS", phobias_area.Value);
@@ -766,15 +766,15 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Depersonalization", 0);
                 }
 
-                if (depersonalization_radio.Checked == true)
+                if (secondPerson_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 1);
                 }
-                else if (depersonalization_radio.Checked == true)
+                else if (thirdPerson_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 2);
                 }
-                else if (derealozation_radio.Checked == true)
+                else if (runningCommentary_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 3);
                 }
@@ -827,10 +827,6 @@ namespace PCMS_Web.Doctor
                ",PHOBIAS=@PHOBIAS,Disorders_Of_Perception=@Disorders_Of_Perception,Depersonalization=@Depersonalization,Auditory_redio=@Auditory_redio,Auditory=@Auditory,Illusions=@Illusions,Consciousness=@Consciousness,Orientation_time=@Orientation_time,Orientation_duraton=@Orientation_duraton" +
                ",Orientation_person=@Orientation_person,Serial_Seven_Test=@Serial_Seven_Test,Serial_Three_Test=@Serial_Three_Test,Intelligence=@Intelligence,IQ=@IQ,Memory=@Memory,Judgement=@Judgement,General_Knowledge=@General_Knowledge,Concrete_thinking=@Concrete_thinking" +
                ",Abstrac_thinking=@Abstrac_thinking,Insight=@Insight where patient_id='" + id + "'";
-
-
-
-
             try
             {
                 SqlConnection con = new SqlConnection(constring);
@@ -1132,7 +1128,7 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Thought_broadcasting", 0);
                 }
 
-                cmd.Parameters.AddWithValue("@Obsessive_Compulsive_Phenomena", 0);
+                cmd.Parameters.AddWithValue("@Obsessive_Compulsive_Phenomena", obsessiveCompulsivePhenomena_area.Value);
 
 
                 cmd.Parameters.AddWithValue("@PHOBIAS", phobias_area.Value);
@@ -1146,15 +1142,15 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Depersonalization", 0);
                 }
 
-                if (depersonalization_radio.Checked == true)
+                if (secondPerson_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 1);
                 }
-                else if (depersonalization_radio.Checked == true)
+                else if (thirdPerson_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 2);
                 }
-                else if (derealozation_radio.Checked == true)
+                else if (runningCommentary_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Auditory_redio", 3);
                 }
