@@ -434,7 +434,7 @@
                                                     Average
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions7" id="belowAverage_radio" value="option2">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions7" id="belowAverage_radio" value="option3">
                                                     Below Average
                                                 </label>
                                             </div>
@@ -575,7 +575,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-sm-6">
-                                            <label class="col-sm-4">Religous/Moral Values</label>
+                                            <label class="col-sm-4">Religious/Moral Values</label>
                                             <div class="col-sm-8">
                                                 <textarea id="religousMoralValues_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
                                             </div>

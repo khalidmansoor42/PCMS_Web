@@ -153,6 +153,7 @@ namespace PCMS_Web.Doctor
                         pallorComment_txt.Text = dr["pallorTxt"].ToString();
                         if ((Convert.ToInt32(dr["pallorRb"].ToString()) == 1))
                         {
+                            pallorNo_radio.Checked = false;
                             pallorYes_radio.Checked = true;
                         }
                         else
@@ -162,6 +163,7 @@ namespace PCMS_Web.Doctor
                         jaundiceComment_txt.Text = dr["jaundiceTxt"].ToString();
                         if ((Convert.ToInt32(dr["jaundiceRb"].ToString()) == 1))
                         {
+                            jaundiceNo_radio.Checked = false;
                             jaundiceYes_radio.Checked = true;
                         }
                         else
@@ -171,6 +173,7 @@ namespace PCMS_Web.Doctor
                         oedemaComments_txt.Text = dr["oedemaTxt"].ToString();
                         if ((Convert.ToInt32(dr["oedemaRb"].ToString()) == 1))
                         {
+                            oedemaNo_radio.Checked = false;
                             oedemaYes_radio.Checked = true;
                         }
                         else
@@ -180,6 +183,7 @@ namespace PCMS_Web.Doctor
                         kylonchiaComments_txt.Text = dr["kylonychiaTxt"].ToString();
                         if ((Convert.ToInt32(dr["kylonychiaRb"].ToString()) == 1))
                         {
+                            kylonchiaNo_radio.Checked = false;
                             kylonychiaYes_radio.Checked = true;
                         }
                         else
@@ -189,6 +193,7 @@ namespace PCMS_Web.Doctor
                         thyroidComments_txt.Text = dr["thyroidGlandTxt"].ToString();
                         if ((Convert.ToInt32(dr["thyroidGlandRb"].ToString()) == 1))
                         {
+                            thyroidNo_radio.Checked = false;
                             thyroidYes_radio.Checked = true;
                         }
                         else
@@ -198,6 +203,7 @@ namespace PCMS_Web.Doctor
                         clubbingComments_txt.Text = dr["clubbingTxt"].ToString();
                         if ((Convert.ToInt32(dr["clubbingRb"].ToString()) == 1))
                         {
+                            clubbingNo_radio.Checked = false;
                             clubbingYes_radio.Checked = true;
                         }
                         else
@@ -207,6 +213,7 @@ namespace PCMS_Web.Doctor
                         respirationComments_txt.Text = dr["respirationRateTxt"].ToString();
                         if ((Convert.ToInt32(dr["respirationRateRb"].ToString()) == 1))
                         {
+                            respirationNo_radio.Checked = false;
                             respirationYes_radio.Checked = true;
                         }
                         else
@@ -216,6 +223,7 @@ namespace PCMS_Web.Doctor
                         lymphComments_txt.Text = dr["lymphNodeTxt"].ToString();
                         if ((Convert.ToInt32(dr["lymphNodeRb"].ToString()) == 1))
                         {
+                            lymphNo_radio.Checked = true;
                             lymphYes_radio.Checked = true;
                         }
                         else

@@ -373,8 +373,6 @@ namespace PCMS_Web.Doctor
                         depersonalization_radio.Checked = true;
                         depersonalization_radio.Checked = false;
                         derealozation_radio.Checked = false;
-
-
                     }
                     else if (dr["Auditory_redio"].ToString() == "2")
                     {
