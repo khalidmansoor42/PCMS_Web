@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,7 @@ namespace PCMS_Web.Doctor
             {
                 if (Session["PatientId"] != null)
                 {
+                    
                     ReportViewer1.ShowReportBody = false;
                     patient.Text = Session["PatientId"].ToString();
                 }
@@ -26,6 +28,7 @@ namespace PCMS_Web.Doctor
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            this.ReportViewer1.LocalReport.ReportEmbeddedResource = "Reports//prescription.rdlc";
             ReportViewer1.ShowReportBody = true;
             ReportViewer1.DocumentMapCollapsed = true;
             ReportViewer1.LocalReport.Refresh();

@@ -11,9 +11,11 @@ namespace PCMS_Web.Receptionist
     {
         protected void Button1_Click(object sender, EventArgs e)
         {
+            this.ReportViewer1.LocalReport.ReportEmbeddedResource = "Reports//prescription.rdlc";
             ReportViewer1.ShowReportBody = true;
             ReportViewer1.DocumentMapCollapsed = true;
             ReportViewer1.LocalReport.Refresh();
+           
 
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -22,6 +24,7 @@ namespace PCMS_Web.Receptionist
             {
                 if (Session["PatientId"] != null)
                 {
+
                     ReportViewer1.ShowReportBody = false;
                     patient.Text = Session["PatientId"].ToString();
                 }

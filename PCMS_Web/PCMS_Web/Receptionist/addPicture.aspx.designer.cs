@@ -31,15 +31,6 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.TextBox patientId_txt;
         
         /// <summary>
-        /// visitNumber_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox visitNumber_txt;
-        
-        /// <summary>
         /// patientName control.
         /// </summary>
         /// <remarks>

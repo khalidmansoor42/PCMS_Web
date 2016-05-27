@@ -25,6 +25,7 @@ namespace PCMS_Web.General
             SqlConnection con = new SqlConnection(constring);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
+            cmd.CommandTimeout = 120;
             cmd.CommandText = user_query;
 
             con.Open();

@@ -10,7 +10,8 @@
 namespace PCMS_Web.Receptionist {
     
     
-    public partial class WebForm3 {
+    public partial class searchPatients
+    {
         
         /// <summary>
         /// cityDDl control.
