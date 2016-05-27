@@ -284,6 +284,7 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Doctor\prescription.xlsx" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\psycure.pubxml" />
@@ -1119,6 +1120,7 @@
     <Content Include="Receptionist\prescription.aspx" />
     <Content Include="Receptionist\scheduleAppointment.aspx" />
     <Content Include="Receptionist\addPicture.aspx" />
+    <Content Include="Receptionist\WebForm12.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1527,6 +1529,13 @@
     </Compile>
     <Compile Include="Receptionist\addPicture.aspx.designer.cs">
       <DependentUpon>addPicture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\WebForm12.aspx.cs">
+      <DependentUpon>WebForm12.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receptionist\WebForm12.aspx.designer.cs">
+      <DependentUpon>WebForm12.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

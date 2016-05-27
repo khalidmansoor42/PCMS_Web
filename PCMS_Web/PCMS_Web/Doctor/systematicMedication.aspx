@@ -28,7 +28,9 @@
                 // 'transliterateTextarea'.
                 control.makeTransliteratable(['transliterateTextarea']);
 
-
+                // Enable transliteration in the textbox with id
+                // 'transliterateTextarea'.
+                control.makeTransliteratable(['direction_area']);
             }
             google.setOnLoadCallback(onLoad);
         </script>

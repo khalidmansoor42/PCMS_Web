@@ -32,24 +32,18 @@
                                             <div class="col-sm-8">
                                                 <asp:TextBox ID="patientId_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="form-group col-sm-6">
-                                            <label class="col-sm-4 control-label">Visit Number</label>
-
-                                            <div class="col-sm-8">
-                                                <asp:TextBox ID="visitNumber_txt" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
+                                        </div>  
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4 control-label">Patient Name</label>
 
                                             <div class="col-sm-8">
                                                 <asp:TextBox ID="patientName" CssClass="form-control" runat="server" Enabled="false"></asp:TextBox>
                                             </div>
-                                        </div>
+                                        </div>                                      
+                                    </div>
+
+                                    <div class="row">
+                                        
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4 control-label">Age</label>
 

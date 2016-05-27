@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="searchPatients.aspx.cs" Inherits="PCMS_Web.Receptionist.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="searchPatients.aspx.cs" Inherits="PCMS_Web.Receptionist.searchPatients" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
 
@@ -41,6 +41,11 @@
                                 <asp:BoundField DataField="attendant_mob" HeaderText="Attendant Mobile" SortExpression="attendant_mob"></asp:BoundField>
                                 <asp:BoundField DataField="dob" HeaderText="Date Of Birth" SortExpression="dob"></asp:BoundField>
                                 <asp:BoundField DataField="education" HeaderText="Education" SortExpression="education"></asp:BoundField>
+                                <asp:TemplateField HeaderText="Select Patient">
+                                    <ItemTemplate>
+                                   <asp:LinkButton runat="server" ID="lnkView" OnClick="lnkView_Click" >Select Patient</asp:LinkButton>
+                                     </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
 

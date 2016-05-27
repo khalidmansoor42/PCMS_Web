@@ -45,7 +45,7 @@ namespace PCMS_Web.Receptionist
         protected void printInvoice_btn_Click(object sender, EventArgs e)
         {
             Session["reciept"] = receiptNumber_txt.Text;
-            Response.Redirect("../Receptionist/receipt.aspx");
+            Response.Redirect("../Receptionist/PatientInvoice.aspx");
 
         }
 

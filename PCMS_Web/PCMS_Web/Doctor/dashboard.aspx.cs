@@ -45,21 +45,27 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
-            con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                if (dr.HasRows)
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    token = dr["token_no"].ToString();
-                    patient_reg = dr["patient_reg"].ToString();
-                    name = dr["full_name"].ToString();
-                    PatientRegisterToday = "                Token No"+ token.PadRight(21) + "Patient Id"+ patient_reg.PadRight(21) + "Name" + name;
-                    updatenoti(patient_reg,dr["visit_no"].ToString());
+                    if (dr.HasRows)
+                    {
+                        token = dr["token_no"].ToString();
+                        patient_reg = dr["patient_reg"].ToString();
+                        name = dr["full_name"].ToString();
+                        PatientRegisterToday = "                Token No" + token.PadRight(21) + "Patient Id" + patient_reg.PadRight(21) + "Name" + name;
+                        updatenoti(patient_reg, dr["visit_no"].ToString());
+                    }
                 }
             }
-            con.Close();
-            
+            finally
+            {
+                con.Close();
+            }
+
             return PatientRegisterToday;
         }
         public static void updatenoti(string id,string visit)
@@ -70,16 +76,23 @@ namespace PCMS_Web.Doctor
                 String query = "update visit set noti=@noti where patient_reg=@patient_reg and visit_no=@visit ;";
                 SqlCommand SelectCommand = new SqlCommand(query, myConn);
                 SqlDataReader myReader;
-                myConn.Open();
-                SelectCommand.Parameters.Add(new SqlParameter("@patient_reg", id));
-                SelectCommand.Parameters.Add(new SqlParameter("@noti", 3));
-                SelectCommand.Parameters.Add(new SqlParameter("@visit",visit));
-                myReader = SelectCommand.ExecuteReader();
-                myConn.Close();
-            }
+                try
+                {
+                    myConn.Open();
+                    SelectCommand.Parameters.Add(new SqlParameter("@patient_reg", id));
+                    SelectCommand.Parameters.Add(new SqlParameter("@noti", 3));
+                    SelectCommand.Parameters.Add(new SqlParameter("@visit", visit));
+                    myReader = SelectCommand.ExecuteReader();
+                }
+                finally
+                {
+                    myConn.Close();
+                }
+        }           
             catch (Exception)
             {
             }
+            
         }
         [WebMethod(EnableSession = true)]
         public static string ServerSideMethod()
@@ -96,8 +109,8 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
-            
-            con.Open();
+            try {
+                con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -107,7 +120,11 @@ namespace PCMS_Web.Doctor
                    
                 }
             }
-            con.Close();
+            }
+            finally
+            {
+                con.Close();
+            }
             return totalWaitingPatient;
         }
         public static string PatientChecks()
@@ -119,7 +136,8 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
-            con.Open();
+            try {
+                con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -129,7 +147,11 @@ namespace PCMS_Web.Doctor
 
                 }
             }
-            con.Close();
+            }
+            finally
+            {
+                con.Close();
+            }
             return totalPatientChecks;
         }
         public static string PatientRegister()
@@ -141,7 +163,8 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
-            con.Open();
+           try {
+                con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -151,7 +174,11 @@ namespace PCMS_Web.Doctor
 
                 }
             }
-            con.Close();
+            }
+            finally
+            {
+                con.Close();
+            }
             return totalPatientChecks;
         }
         public static string PatientRegisterToday()
@@ -163,6 +190,7 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
+            try { 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -172,8 +200,12 @@ namespace PCMS_Web.Doctor
                     PatientRegisterToday = dr["totalPatient"].ToString();
 
                 }
+                }
             }
-            con.Close();
+            finally
+            {
+                con.Close();
+            }
             return PatientRegisterToday;
         }
 
@@ -195,6 +227,7 @@ namespace PCMS_Web.Doctor
 
             cmd.Connection = con;
             cmd.CommandText = user_query;
+            try { 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -204,7 +237,11 @@ namespace PCMS_Web.Doctor
                 name = dr["full_name"].ToString();
                 PatientRegisterToday = PatientRegisterToday + "+Token#=" + token.PadRight(21) + " ID=" + patient_reg.PadRight(21) + " Name=" + name;
             }
-
+            }
+            finally
+            {
+                con.Close();
+            }
             return PatientRegisterToday;
         }
 
@@ -216,6 +253,8 @@ namespace PCMS_Web.Doctor
         protected void patientTokenGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["PatientId"] = patientTokenGrid.SelectedRow.Cells[2].Text;
+            Response.Redirect("../Doctor/dashboard.aspx");
+
         }
         protected void lnkView_Click(object sender, EventArgs e)
         {
@@ -233,12 +272,17 @@ namespace PCMS_Web.Doctor
                 SelectCommand.Parameters.Add(new SqlParameter("@2", DateTime.Today.ToString("yyyy-MM-dd")));
                 SelectCommand.Parameters.Add(new SqlParameter("@3", token));
 
-                myConn.Open();
+                try {
+                    myConn.Open();
                 myReader = SelectCommand.ExecuteReader();
                 myConn.Close();
                 Session.Remove("PatientId");
+                }
+                finally
+                {
+                    myConn.Close();
+                }
                 Response.Redirect("~/Doctor/dashboard.aspx");
-
             }
             catch (Exception ex)
             {

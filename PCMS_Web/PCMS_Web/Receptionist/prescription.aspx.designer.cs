@@ -67,15 +67,6 @@ namespace PCMS_Web.Receptionist {
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
         
         /// <summary>
-        /// history control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource history;
-        
-        /// <summary>
         /// medication control.
         /// </summary>
         /// <remarks>
@@ -85,12 +76,39 @@ namespace PCMS_Web.Receptionist {
         protected global::System.Web.UI.WebControls.ObjectDataSource medication;
         
         /// <summary>
-        /// ObjectDataSource3 control.
+        /// investigation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource3;
+        protected global::System.Web.UI.WebControls.ObjectDataSource investigation;
+        
+        /// <summary>
+        /// direction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource direction;
+        
+        /// <summary>
+        /// diagnoses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource diagnoses;
+        
+        /// <summary>
+        /// conselling control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource conselling;
     }
 }
