@@ -13,11 +13,11 @@ namespace PCMS_Web.Receptionist
         {
             if (Session["userType"] == null)
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
             else if (Session["userType"].ToString() != "staff")
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
         }
     }

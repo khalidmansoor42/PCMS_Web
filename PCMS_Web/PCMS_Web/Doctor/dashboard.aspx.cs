@@ -19,11 +19,11 @@ namespace PCMS_Web.Doctor
         {
             if (Session["userType"] == null)
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
             else if (Session["userType"].ToString() != "doctor")
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
             else
             {
@@ -204,7 +204,7 @@ namespace PCMS_Web.Doctor
                 name = dr["full_name"].ToString();
                 PatientRegisterToday = PatientRegisterToday + "+Token#=" + token.PadRight(21) + " ID=" + patient_reg.PadRight(21) + " Name=" + name;
             }
-
+            con.Close();
             return PatientRegisterToday;
         }
 
@@ -242,6 +242,7 @@ namespace PCMS_Web.Doctor
             }
             catch (Exception ex)
             {
+
             }
         }
 

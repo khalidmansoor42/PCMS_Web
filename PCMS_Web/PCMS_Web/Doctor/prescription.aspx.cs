@@ -13,7 +13,6 @@ namespace PCMS_Web.Doctor
         {
             if (!IsPostBack)
             {
-                Session["PatientId"] = "561604";
                 if (Session["PatientId"] != null)
                 {
                     ReportViewer1.ShowReportBody = false;
