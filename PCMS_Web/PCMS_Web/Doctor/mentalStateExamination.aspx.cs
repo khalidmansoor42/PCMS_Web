@@ -51,8 +51,8 @@ namespace PCMS_Web.Doctor
                     submit_btn.Visible = false;
                     update.Visible = true;
                     physicalAppearance_txt.Text = dr["Physical_Appearance"].ToString();
-                    dress_txt.Text = dr["Dress"].ToString();
-                    posture_txt.Text = dr["Posture"].ToString();
+                    dress_txt.SelectedItem.Text = dr["Dress"].ToString();
+                    posture_txt.SelectedItem.Text = dr["Posture"].ToString();
                     rapport_txt.Text = dr["Rapport"].ToString();
                     eyeContact_txt.Text = dr["Eye_Contact"].ToString();
                     injury_txt.Text = dr["Injury"].ToString();
@@ -92,8 +92,8 @@ namespace PCMS_Web.Doctor
                     movements_dd.Text = dr["Movements"].ToString();
                     speech_dd.SelectedItem.Text = dr["Speech"].ToString();
                     tone_txt.Text = dr["Tone"].ToString();
-                    rate_txt.Text = dr["Rate"].ToString();
-                    rhythm_txt.Text = dr["Rhythm"].ToString();
+                    //rate_txt.Text = dr["Rate"].ToString();
+                    //rhythm_txt.Text = dr["Rhythm"].ToString();
                     volume_dd.Text = dr["Volume"].ToString();
                     sampleTalk_area.Value = dr["Sample_of_talk"].ToString();
                     subjective_txt.Text = dr["mood_Subjective"].ToString();
@@ -394,9 +394,9 @@ namespace PCMS_Web.Doctor
                     hallucinations_dd.SelectedItem.Text = dr["Auditory"].ToString();
                     illusions_area.Value = dr["Illusions"].ToString();
                     consciouness_dd.SelectedItem.Text = dr["Consciousness"].ToString();
-                    time_txt.Text = dr["Orientation_time"].ToString();
-                    place_txt.Text = dr["Orientation_duraton"].ToString();
-                    person_txt.Text = dr["Orientation_person"].ToString();
+                    //time_txt.Text = dr["Orientation_time"].ToString();
+                    //place_txt.Text = dr["Orientation_duraton"].ToString();
+                    //person_txt.Text = dr["Orientation_person"].ToString();
 
                     serialSevenTest_txt.Text = dr["Serial_Seven_Test"].ToString();
                     serialThreeTest_txt.Text = dr["Serial_Three_Test"].ToString();
@@ -405,7 +405,7 @@ namespace PCMS_Web.Doctor
                     iq_txt.Text = dr["IQ"].ToString();
                     memory_dd.SelectedItem.Text = dr["Memory"].ToString();
                     judgement_dd.SelectedItem.Text = dr["Judgement"].ToString();
-                    generalKnowledge_area.Value = dr["General_Knowledge"].ToString();
+                    //generalKnowledge_area.Value = dr["General_Knowledge"].ToString();
 
                     concreteThinking_area.Value = dr["Concrete_thinking"].ToString();
                     abstractThinking_area.Value = dr["Abstrac_thinking"].ToString();
@@ -490,9 +490,9 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@Movements", movements_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Speech", speech_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Tone", tone_txt.Text);
-                cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
-                cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
-                cmd.Parameters.AddWithValue("@Volume", volume_dd.Text);
+                //cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
+                //cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
+                //cmd.Parameters.AddWithValue("@Volume", volume_dd.Text);
                 cmd.Parameters.AddWithValue("@Sample_of_talk", sampleTalk_area.Value);
                 cmd.Parameters.AddWithValue("@mood_Subjective", subjective_txt.Text);
                 cmd.Parameters.AddWithValue("@mood_Objective", objective_dd.SelectedItem.Text);
@@ -782,9 +782,9 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@Auditory", hallucinations_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Illusions", illusions_area.Value);
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
 
                 cmd.Parameters.AddWithValue("@Serial_Seven_Test", serialSevenTest_txt.Text);
                 cmd.Parameters.AddWithValue("@Serial_Three_Test", serialThreeTest_txt.Text);
@@ -793,7 +793,7 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@IQ", iq_txt.Text);
                 cmd.Parameters.AddWithValue("@Memory", memory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Judgement", judgement_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
+                //cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
 
                 cmd.Parameters.AddWithValue("@Concrete_thinking", concreteThinking_area.Value);
                 cmd.Parameters.AddWithValue("@Abstrac_thinking", abstractThinking_area.Value);
@@ -865,9 +865,9 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@Psychomotor_activity", psychomotorActivity_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Movements", movements_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Speech", speech_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Tone", tone_txt.Text);
-                cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
-                cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
+                //cmd.Parameters.AddWithValue("@Tone", tone_txt.Text);
+                //cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
+                //cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
                 cmd.Parameters.AddWithValue("@Volume", volume_dd.Text);
                 cmd.Parameters.AddWithValue("@Sample_of_talk", sampleTalk_area.Value);
                 cmd.Parameters.AddWithValue("@mood_Subjective", subjective_txt.Text);
@@ -1158,9 +1158,9 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@Auditory", hallucinations_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Illusions", illusions_area.Value);
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
+                //cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
 
                 cmd.Parameters.AddWithValue("@Serial_Seven_Test", serialSevenTest_txt.Text);
                 cmd.Parameters.AddWithValue("@Serial_Three_Test", serialThreeTest_txt.Text);
@@ -1169,7 +1169,7 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@IQ", iq_txt.Text);
                 cmd.Parameters.AddWithValue("@Memory", memory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Judgement", judgement_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
+                //cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
 
                 cmd.Parameters.AddWithValue("@Concrete_thinking", concreteThinking_area.Value);
                 cmd.Parameters.AddWithValue("@Abstrac_thinking", abstractThinking_area.Value);

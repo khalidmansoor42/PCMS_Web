@@ -82,7 +82,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox physicalAppearance_txt;
+        protected global::System.Web.UI.WebControls.DropDownList physicalAppearance_txt;
         
         /// <summary>
         /// dress_txt control.
@@ -91,7 +91,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dress_txt;
+        protected global::System.Web.UI.WebControls.DropDownList dress_txt;
         
         /// <summary>
         /// posture_txt control.
@@ -100,7 +100,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox posture_txt;
+        protected global::System.Web.UI.WebControls.DropDownList posture_txt;
         
         /// <summary>
         /// rapport_txt control.
@@ -109,7 +109,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rapport_txt;
+        protected global::System.Web.UI.WebControls.DropDownList rapport_txt;
         
         /// <summary>
         /// eyeContact_txt control.
@@ -118,7 +118,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox eyeContact_txt;
+        protected global::System.Web.UI.WebControls.DropDownList eyeContact_txt;
         
         /// <summary>
         /// injury_txt control.
@@ -208,25 +208,25 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tone_txt;
+        protected global::System.Web.UI.WebControls.DropDownList tone_txt;
         
         /// <summary>
-        /// rate_txt control.
+        /// relevance_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rate_txt;
+        protected global::System.Web.UI.WebControls.TextBox relevance_txt;
         
         /// <summary>
-        /// rhythm_txt control.
+        /// coherence_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rhythm_txt;
+        protected global::System.Web.UI.WebControls.TextBox coherence_txt;
         
         /// <summary>
         /// volume_dd control.
@@ -652,31 +652,31 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList consciouness_dd;
         
         /// <summary>
-        /// time_txt control.
+        /// Orientation_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox time_txt;
+        protected global::System.Web.UI.WebControls.DropDownList Orientation_dd;
         
         /// <summary>
-        /// place_txt control.
+        /// sevenTestRado1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox place_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton sevenTestRado1;
         
         /// <summary>
-        /// person_txt control.
+        /// sevenTestRado2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox person_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton sevenTestRado2;
         
         /// <summary>
         /// serialSevenTest_txt control.
@@ -686,6 +686,24 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox serialSevenTest_txt;
+        
+        /// <summary>
+        /// threeTestRado1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton threeTestRado1;
+        
+        /// <summary>
+        /// threeTestRado2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton threeTestRado2;
         
         /// <summary>
         /// serialThreeTest_txt control.
@@ -712,7 +730,7 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox iq_txt;
+        protected global::System.Web.UI.WebControls.DropDownList iq_txt;
         
         /// <summary>
         /// memory_dd control.
@@ -739,7 +757,25 @@ namespace PCMS_Web.Doctor {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea generalKnowledge_area;
+        protected global::System.Web.UI.WebControls.DropDownList generalKnowledge_area;
+        
+        /// <summary>
+        /// ConcretePresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ConcretePresent;
+        
+        /// <summary>
+        /// ConcreteNoPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton ConcreteNoPresent;
         
         /// <summary>
         /// concreteThinking_area control.
