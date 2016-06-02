@@ -19,11 +19,11 @@ namespace PCMS_Web.Doctor
         {
             if (Session["userType"] == null)
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
             else if (Session["userType"].ToString() != "doctor")
             {
-                Response.Redirect("../General/destroySession.aspx");
+                Response.Redirect("../General/login.aspx");
             }
             else
             {
@@ -47,25 +47,25 @@ namespace PCMS_Web.Doctor
             cmd.CommandText = user_query;
             try
             {
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr.HasRows)
                 {
-                    if (dr.HasRows)
-                    {
-                        token = dr["token_no"].ToString();
-                        patient_reg = dr["patient_reg"].ToString();
-                        name = dr["full_name"].ToString();
+                    token = dr["token_no"].ToString();
+                    patient_reg = dr["patient_reg"].ToString();
+                    name = dr["full_name"].ToString();
                         PatientRegisterToday = "                Token No" + token.PadRight(21) + "Patient Id" + patient_reg.PadRight(21) + "Name" + name;
                         updatenoti(patient_reg, dr["visit_no"].ToString());
-                    }
                 }
+            }
             }
             finally
             {
-                con.Close();
+            con.Close();
             }
-
+            
             return PatientRegisterToday;
         }
         public static void updatenoti(string id,string visit)
@@ -78,16 +78,16 @@ namespace PCMS_Web.Doctor
                 SqlDataReader myReader;
                 try
                 {
-                    myConn.Open();
-                    SelectCommand.Parameters.Add(new SqlParameter("@patient_reg", id));
-                    SelectCommand.Parameters.Add(new SqlParameter("@noti", 3));
+                myConn.Open();
+                SelectCommand.Parameters.Add(new SqlParameter("@patient_reg", id));
+                SelectCommand.Parameters.Add(new SqlParameter("@noti", 3));
                     SelectCommand.Parameters.Add(new SqlParameter("@visit", visit));
-                    myReader = SelectCommand.ExecuteReader();
+                myReader = SelectCommand.ExecuteReader();
                 }
                 finally
                 {
-                    myConn.Close();
-                }
+                myConn.Close();
+            }
         }           
             catch (Exception)
             {
@@ -110,7 +110,7 @@ namespace PCMS_Web.Doctor
             cmd.Connection = con;
             cmd.CommandText = user_query;
             try {
-                con.Open();
+            con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -123,7 +123,7 @@ namespace PCMS_Web.Doctor
             }
             finally
             {
-                con.Close();
+            con.Close();
             }
             return totalWaitingPatient;
         }
@@ -137,7 +137,7 @@ namespace PCMS_Web.Doctor
             cmd.Connection = con;
             cmd.CommandText = user_query;
             try {
-                con.Open();
+            con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -150,7 +150,7 @@ namespace PCMS_Web.Doctor
             }
             finally
             {
-                con.Close();
+            con.Close();
             }
             return totalPatientChecks;
         }
@@ -164,7 +164,7 @@ namespace PCMS_Web.Doctor
             cmd.Connection = con;
             cmd.CommandText = user_query;
            try {
-                con.Open();
+            con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -177,7 +177,7 @@ namespace PCMS_Web.Doctor
             }
             finally
             {
-                con.Close();
+            con.Close();
             }
             return totalPatientChecks;
         }
@@ -200,11 +200,11 @@ namespace PCMS_Web.Doctor
                     PatientRegisterToday = dr["totalPatient"].ToString();
 
                 }
-                }
+            }
             }
             finally
             {
-                con.Close();
+            con.Close();
             }
             return PatientRegisterToday;
         }
@@ -273,7 +273,7 @@ namespace PCMS_Web.Doctor
                 SelectCommand.Parameters.Add(new SqlParameter("@3", token));
 
                 try {
-                    myConn.Open();
+                myConn.Open();
                 myReader = SelectCommand.ExecuteReader();
                 myConn.Close();
                 Session.Remove("PatientId");
@@ -286,6 +286,7 @@ namespace PCMS_Web.Doctor
             }
             catch (Exception ex)
             {
+
             }
         }
 

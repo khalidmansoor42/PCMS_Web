@@ -552,32 +552,33 @@
     </script>
       <script type ="text/javascript">
           $(document).ready(function () {
-              setInterval(function () {
-                  var obj = {};
 
-                // $.toaster({ priority: 'success', title: 'Title', message: 'Your message here' });
-                  //$.toaster({ priority: 'info', title: 'Title', message: 'Your message here' });
-                  //$.toaster({ priority: 'warning', title: 'Title', message: 'Your message here' });
-                  //$.toaster({ priority: 'danger', title: 'Title', message: 'Your message here' });
+              //setInterval(function () {
+              //    var obj = {};
 
-                  $.ajax({
-                      type: "POST",
-                      url: "dashboard.aspx/patientList",
-                      data: JSON.stringify(obj),
-                      contentType: "application/json; charset=utf-8",
-                      dataType: "json",
-                      success: function (r) {
-                          var msg = r.d;
-                          var res = msg.split("+");
-                          $("#noti").empty();
-                          $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[1] + "</a>");
-                          $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[2] + "</a>");
+              //  // $.toaster({ priority: 'success', title: 'Title', message: 'Your message here' });
+              //    //$.toaster({ priority: 'info', title: 'Title', message: 'Your message here' });
+              //    //$.toaster({ priority: 'warning', title: 'Title', message: 'Your message here' });
+              //    //$.toaster({ priority: 'danger', title: 'Title', message: 'Your message here' });
 
-                      }
-                  })
+              //    $.ajax({
+              //        type: "POST",
+              //        url: "dashboard.aspx/patientList",
+              //        data: JSON.stringify(obj),
+              //        contentType: "application/json; charset=utf-8",
+              //        dataType: "json",
+              //        success: function (r) {
+              //            var msg = r.d;
+              //            var res = msg.split("+");
+              //            $("#noti").empty();
+              //            $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[1] + "</a>");
+              //            $("#noti").append("<a href='#'><i class='fa fa-users text-aqua'></i>" + res[2] + "</a>");
 
-                  return false;
-              }, 5000);
+              //        }
+              //    })
+
+              //    return false;
+              //}, 5000);
 
               setInterval(function () {
                   var obj = {};
@@ -617,7 +618,7 @@
                           }
                   })
                   return false;
-              }, 5000);
+              }, 15000);
               function play_beep() {
                   var snd = new Audio("../beep/Electronic_Chime-KevanGC-495939803.wav");
                   snd.play();
@@ -644,7 +645,7 @@
                       }
                   })
                   return false;
-              }, 5000);           
+              }, 25000);           
          });
      </script>
 </body>
