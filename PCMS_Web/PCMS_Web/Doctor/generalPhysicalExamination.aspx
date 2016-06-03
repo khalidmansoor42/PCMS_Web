@@ -53,9 +53,48 @@
                 var textBox7 = document.getElementById("<%=lymphComments_txt.ClientID %>");
                textBox7.disabled = !radio8.checked;
                textBox7.focus();
+                
+               var radio9 = document.getElementById("<%=yesDehydration_radio.ClientID %>");
+            var textBox10 = document.getElementById("<%=dehydrationComments_txt.ClientID %>");
+            textBox10.disabled = !radio9.checked;
+            textBox10.focus();
+
+        }
+
+            function pigmentation()
+            {
+                if (document.getElementById("<%= yesPigmentation_radio.ClientID %>").checked) {
+                    var repigmenDiv = document.getElementById("repigmentation_div").style.display = 'block';
+                }
+                else {
+                    var repigmenDiv = document.getElementById("repigmentation_div").style.display = 'none';
+                }
+            }
+
+            function swelling()
+            {
+                if (document.getElementById("<%= yesSwelling_radio.ClientID %>").checked) {
+                    var repigmenDiv = document.getElementById("jvp_div").style.display = 'block';
+                }
+                else {
+                    var repigmenDiv = document.getElementById("jvp_div").style.display = 'none';
+                }
+            }
 
 
-           }
+            window.onload = function () {
+                if (document.getElementById('<%=noDehydration_radio.ClientID %>').checked) {
+                    var lblObj = document.getElementById("<%=dehydrationComments_txt.ClientID %>").disabled = true;
+                }
+
+                if (document.getElementById('<%=yesPigmentation_radio.ClientID %>').checked) {
+                    var repigmenDiv = document.getElementById("repigmentation_div").style.display = 'block';
+                }
+
+                if (document.getElementById('<%=yesSwelling_radio.ClientID %>').checked) {
+                    var repigmenDiv = document.getElementById("jvp_div").style.display = 'block';
+                }
+            }
         </script>
    </head>
     
@@ -138,13 +177,42 @@
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3 control-label">Height</label>
                             <div class="col-sm-9">
-                                <asp:TextBox ID="heightComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                                <asp:DropDownList ID="height_dd" runat="server" CssClass="form-control">
+                                    <asp:ListItem>Shorter than 5'</asp:ListItem>
+                                    <asp:ListItem>5'1 in</asp:ListItem>
+                                    <asp:ListItem>5'2 in</asp:ListItem>
+                                    <asp:ListItem>5'3 in</asp:ListItem>
+                                    <asp:ListItem>5'5 in</asp:ListItem>
+                                    <asp:ListItem>5'6 in</asp:ListItem>
+                                    <asp:ListItem>5'7 in</asp:ListItem>
+                                    <asp:ListItem>5'8 in</asp:ListItem>
+                                    <asp:ListItem>5'9 in</asp:ListItem>
+                                    <asp:ListItem>5'10 in</asp:ListItem>
+                                    <asp:ListItem>5'11 in</asp:ListItem>
+                                    <asp:ListItem>5'12 in</asp:ListItem>
+                                    <asp:ListItem>6'</asp:ListItem>
+                                    <asp:ListItem>taller than 6'</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3 control-label">Weight</label>
                             <div class="col-sm-9">
-                                <asp:TextBox ID="weightComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                                <asp:DropDownList ID="weight_dd" runat="server" CssClass="form-control">
+                                    <asp:ListItem>Less than 30 kg</asp:ListItem>
+                                    <asp:ListItem>35-40 kg</asp:ListItem>
+                                    <asp:ListItem>40-45 kg</asp:ListItem>
+                                    <asp:ListItem>45-50 kg</asp:ListItem>
+                                    <asp:ListItem>50-55 kg</asp:ListItem>
+                                    <asp:ListItem>55-60 kg</asp:ListItem>
+                                    <asp:ListItem>60-65 kg</asp:ListItem>
+                                    <asp:ListItem>65-70 kg</asp:ListItem>
+                                    <asp:ListItem>75-80 kg</asp:ListItem>
+                                    <asp:ListItem>80-85 kg</asp:ListItem>
+                                    <asp:ListItem>85-90 kg</asp:ListItem>
+                                    <asp:ListItem>90-95 kg</asp:ListItem>
+                                    <asp:ListItem>Greater than 100 kg</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                     </div>
@@ -153,51 +221,161 @@
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3 control-label">Pulse</label>
                             <div class="col-sm-9">
-                                <asp:TextBox ID="pulseComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                                <asp:DropDownList ID="pulse_dd" runat="server" CssClass="form-control">
+                                    <asp:ListItem>Less than 40</asp:ListItem>
+                                    <asp:ListItem>40</asp:ListItem>
+                                    <asp:ListItem>41</asp:ListItem>
+                                    <asp:ListItem>42</asp:ListItem>
+                                    <asp:ListItem>43</asp:ListItem>
+                                    <asp:ListItem>44</asp:ListItem>
+                                    <asp:ListItem>45</asp:ListItem>
+                                    <asp:ListItem>46</asp:ListItem>
+                                    <asp:ListItem>47</asp:ListItem>
+                                    <asp:ListItem>48</asp:ListItem>
+                                    <asp:ListItem>49</asp:ListItem>
+                                    <asp:ListItem>50</asp:ListItem>
+                                    <asp:ListItem>51</asp:ListItem>
+                                    <asp:ListItem>52</asp:ListItem>
+                                    <asp:ListItem>53</asp:ListItem>
+                                    <asp:ListItem>54</asp:ListItem>
+                                    <asp:ListItem>55</asp:ListItem>
+                                    <asp:ListItem>56</asp:ListItem>
+                                    <asp:ListItem>57</asp:ListItem>
+                                    <asp:ListItem>58</asp:ListItem>
+                                    <asp:ListItem>59</asp:ListItem>
+                                    <asp:ListItem>60</asp:ListItem>
+                                    <asp:ListItem>61</asp:ListItem>
+                                    <asp:ListItem>62</asp:ListItem>
+                                    <asp:ListItem>63</asp:ListItem>
+                                    <asp:ListItem>64</asp:ListItem>
+                                    <asp:ListItem>65</asp:ListItem>
+                                    <asp:ListItem>66</asp:ListItem>
+                                    <asp:ListItem>67</asp:ListItem>
+                                    <asp:ListItem>68</asp:ListItem>
+                                    <asp:ListItem>69</asp:ListItem>
+                                    <asp:ListItem>70</asp:ListItem>
+                                    <asp:ListItem>71</asp:ListItem>
+                                    <asp:ListItem>72</asp:ListItem>
+                                    <asp:ListItem>73</asp:ListItem>
+                                    <asp:ListItem>74</asp:ListItem>
+                                    <asp:ListItem>75</asp:ListItem>
+                                    <asp:ListItem>76</asp:ListItem>
+                                    <asp:ListItem>77</asp:ListItem>
+                                    <asp:ListItem>78</asp:ListItem>
+                                    <asp:ListItem>79</asp:ListItem>
+                                    <asp:ListItem>80</asp:ListItem>
+                                    <asp:ListItem>81</asp:ListItem>
+                                    <asp:ListItem>82</asp:ListItem>
+                                    <asp:ListItem>83</asp:ListItem>
+                                    <asp:ListItem>84</asp:ListItem>
+                                    <asp:ListItem>85</asp:ListItem>
+                                    <asp:ListItem>86</asp:ListItem>
+                                    <asp:ListItem>87</asp:ListItem>
+                                    <asp:ListItem>88</asp:ListItem>
+                                    <asp:ListItem>89</asp:ListItem>
+                                    <asp:ListItem>91</asp:ListItem>
+                                    <asp:ListItem>92</asp:ListItem>
+                                    <asp:ListItem>93</asp:ListItem>
+                                    <asp:ListItem>94</asp:ListItem>
+                                    <asp:ListItem>95</asp:ListItem>
+                                    <asp:ListItem>96</asp:ListItem>
+                                    <asp:ListItem>97</asp:ListItem>
+                                    <asp:ListItem>98</asp:ListItem>
+                                    <asp:ListItem>99</asp:ListItem>
+                                    <asp:ListItem>100</asp:ListItem>
+                                    <asp:ListItem>Greater than 100</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="form-group col-sm-6">
-                            <label class="col-sm-3 control-label">Skin Eruption</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="skinEruption_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
-                            </div>
-                        </div>
+                        
                     </div>
                     <hr />
                     <h4>Blood Pressure</h4>
                     <br />
                     <div class="row">
-                        <div class="form-group col-sm-4">
-                            <label class="col-sm-4 control-label">Lying</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox ID="lyingComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
-                            </div>
+                        <div class="form-group col-sm-2">
+                            <label class="col-sm-3 control-label">Lying</label>
                         </div>
-                        <div class="form-group col-sm-4">
-                            <label class="col-sm-4 control-label">Sitting</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox ID="sittingComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                        <div class="col-sm-10">
+                            <label class="col-sm-2 control-label">Systolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="lyingSystolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
                             </div>
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label class="col-sm-4 control-label">Standing</label>
-                            <div class="col-sm-8">
-                                <asp:TextBox ID="standingComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                            <label class="col-sm-2 control-label">Diastolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="lyingDiastolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
                             </div>
                         </div>
                     </div>
                     <br />
-
                     <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label class="col-sm-3 control-label">Temperature</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="temperatureComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                        <div class="form-group col-sm-2">
+                            <label class="col-sm-3 control-label">Sitting</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <label class="col-sm-2 control-label">Systolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="sittingSystolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
+                            </div>
+                            <label class="col-sm-2 control-label">Diastolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="sittingDiastolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                        <br />
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label class="col-sm-3 control-label">Standing</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <label class="col-sm-2 control-label">Systolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="standingSystolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
+                            </div>
+                            <label class="col-sm-2 control-label">Diastolic</label>
+                            <div class="col-sm-4">
+                                <asp:TextBox ID="standingDiastolic_txt" runat="server" CssClass="form-control" placeholder="Readings"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                        <br />
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="col-sm-3 control-label">Temperature</label>
+                                <div class="col-sm-9">
+                                    <asp:TextBox ID="temperatureComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    <div class="row">
+                        <div class="form-group col-sm-6">    
+                            <label class="col-sm-3 control-label">Skin Eruption</label>
+                            <div class="col-sm-3">
+                                <asp:DropDownList ID="skinEruption_dd" runat="server" CssClass="form-control">
+                                    <asp:ListItem>None</asp:ListItem>
+                                    <asp:ListItem>Regular</asp:ListItem>
+                                    <asp:ListItem>Irregular</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-sm-6">
+                                <asp:TextBox ID="skinEruption_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3 control-label">Dehydration</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" name="inlineRadioOptionsF" id="yesDehydration_radio" value="option1" onclick="Radio_Click()">
+                                    Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptionsF" id="noDehydration_radio" value="option2" onclick="Radio_Click()">
+                                    No
+                                </label>
+                            </div>
+                            <div class="col-sm-6">
                                 <asp:TextBox ID="dehydrationComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
                             </div>
                         </div>
@@ -350,19 +528,65 @@
                     <div class="row">
                         <div class="form-group col-sm-8">
                             <label class="col-sm-2 control-label">JVP</label>
-                            <div class="col-sm-10">
-                                <asp:TextBox ID="jvpComments_txt" runat="server" CssClass="form-control" placeholder="Comments"></asp:TextBox>
+                            <div class="col-sm-4">
+                                <asp:DropDownList ID="jvp1_dd" runat="server" CssClass="form-control">
+                                    <asp:ListItem>Not Raised</asp:ListItem>
+                                    <asp:ListItem>Raised</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="form-group col-sm-4">
-                            <div class="col-sm-12">
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label">Swelling</label>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" name="inlineRadioOptionsD" id="yesSwelling_radio" value="option1" onclick="swelling()">
+                                    Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptionsD" id="noSwelling_radio" value="option2" onclick="swelling()">
+                                    No
+                                </label>
+                            </div>
+                            <div class="col-sm-3" id="jvp_div" style="display:none">
                                 <asp:DropDownList ID="jvp_dd" runat="server" CssClass="form-control">
                                     <asp:ListItem>Neuro Fibromas</asp:ListItem>
-                                    <asp:ListItem>Pigmentation</asp:ListItem>
-                                    <asp:ListItem>Depigmentation</asp:ListItem>
+                                    <asp:ListItem>Aseess</asp:ListItem>
+                                    <asp:ListItem>Lipoma</asp:ListItem>
                                     <asp:ListItem>Lumps</asp:ListItem>
-                                    <asp:ListItem>Swellings</asp:ListItem>
+                                    <asp:ListItem>Any other</asp:ListItem>
                                 </asp:DropDownList>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                        <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-4 control-label">Pigmentation</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" name="inlineRadioOptionsB" id="yesPigmentation_radio" value="option1" onclick="pigmentation()">
+                                    Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptionsB" id="noPigmentation_radio" value="option2" onclick="pigmentation()">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                            <div class="form-group col-sm-6" id="repigmentation_div" style="display:none">
+                            <label class="col-sm-4 control-label">Repigmentation</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" name="inlineRadioOptionsC" id="yesRepigmentation_radio" value="option1" onclick="pigmentation()">
+                                    Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptionsC" id="noRepigmentation_radio" value="option2" onclick="pigmentation()">
+                                    No
+                                </label>
                             </div>
                         </div>
                     </div>

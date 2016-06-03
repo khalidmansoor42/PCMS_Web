@@ -54,42 +54,145 @@ namespace PCMS_Web.Doctor
                 try
                 {
                     SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand("SELECT meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,nervousSystem ,urogenitalSystem FROM systematicExamination where id='" + id + "' and visit_no='"+ maxvisit + "'", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM systematicExamination where id='" + id + "' and visit_no='"+ maxvisit + "'", con);
                     cmd.Connection = con;
                     SqlDataReader dr;
                     con.Open();
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        meningialIrritationComments_txt.Text = dr["meningialIrritation"].ToString();
-                        cranialNervesComment_txt.Text = dr["carnivalNervers"].ToString();
+                        signsOfMeningial_dd.SelectedValue = dr["meningialIrritation"].ToString();
+                        if ((Convert.ToInt32(dr["cranialNervesRadio"].ToString()) == 1))
+                        {
+                            nocranialNerves_radio.Checked = false;
+                            yescranialNerves_radio.Checked = true;
+                        }
+                        else
+                        {
+                            nocranialNerves_radio.Checked = true;
+                        }
                         sensorySystem_area.InnerText = dr["sensorySystem"].ToString();
-                        motorSystem_area.InnerText = dr["motorSystem"].ToString();
+                        if ((Convert.ToInt32(dr["motorSystemRadio"].ToString()) == 1))
+                        {
+                            noMotorSystem_radio.Checked = false;
+                            yesMotorSystem_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noMotorSystem_radio.Checked = true;
+                        }
+                        TextBox1.Text = dr["carnivalNervers"].ToString();
+                        Textarea2.InnerText = dr["motorSystem"].ToString();
                         superficialReflexesComments_txt.Text = dr["superficialReflexes"].ToString();
-                        deepReflexComments_txt.Text = dr["deepReflexes"].ToString();
+                        TextBox3.Text = dr["deepReflexes"].ToString();
                         cerebellarFunctions_area.InnerText = dr["cerebellarFunctions"].ToString();
-                        fundoscopy_area.InnerText = dr["fundoscopy"].ToString();
+                        Textarea3.InnerText = dr["fundoscopy"].ToString();
                         cardiovascularSystem_area.InnerText = dr["cardioVascularSystem"].ToString();
                         respiratorySystem_area.InnerText = dr["respiratorySystem"].ToString();
                         gastrointestinalSystem_area.InnerText = dr["gastroIntestinalSystem"].ToString();
-                        nervousSystem_area.InnerText = dr["nervousSystem"].ToString();
                         urogenitalSystem_area.InnerText = dr["urogenitalSystem"].ToString();
-
+                        if ((Convert.ToInt32(dr["sensorySystemRadio"].ToString()) == 1))
+                        {
+                            nosensorySystem_radio.Checked = false;
+                            yessensorySystem_radio.Checked = true;
+                        }
+                        else
+                        {
+                            nosensorySystem_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["motorSystemRadio"].ToString()) == 1))
+                        {
+                            noMotorSystem_radio.Checked = false;
+                            yesMotorSystem_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noMotorSystem_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["superficialRadio"].ToString()) == 1))
+                        {
+                            noSuperficial_radio.Checked = false;
+                            yesSuperficial_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noSuperficial_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["deepReflexRadio"].ToString()) == 1))
+                        {
+                            noDeepReflexes_radio.Checked = false;
+                            yesDeepReflexes_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noDeepReflexes_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["cerebellarRadio"].ToString()) == 1))
+                        {
+                            noCerebellar_radio.Checked = false;
+                            yesCerebellar_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noCerebellar_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["fundoscopyRadio"].ToString()) == 1))
+                        {
+                            noFundoscopy_radio.Checked = false;
+                            yesFundoscopy_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noFundoscopy_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["cardiovascularRadio"].ToString()) == 1))
+                        {
+                            noCardiovascular_radio.Checked = false;
+                            yesCardiovascular_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noCardiovascular_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["respiratoryRadio"].ToString()) == 1))
+                        {
+                            noRespiratory_radio.Checked = false;
+                            yesRespiratory_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noRespiratory_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["gastrointestinalRadio"].ToString()) == 1))
+                        {
+                            noGastrointes_radio.Checked = false;
+                            yesGastrointes_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noGastrointes_radio.Checked = true;
+                        }
+                        if ((Convert.ToInt32(dr["urogenitalRadio"].ToString()) == 1))
+                        {
+                            noUrogenital_radio.Checked = false;
+                            yesUrogenital_radio.Checked = true;
+                        }
+                        else
+                        {
+                            noUrogenital_radio.Checked = true;
+                        }
                     }
                     else
                     {
-                        meningialIrritationComments_txt.Text = "";
-                        cranialNervesComment_txt.Text = "";
                         sensorySystem_area.InnerText = "";
-                        motorSystem_area.InnerText = "";
+                        Textarea2.InnerText = "";
                         superficialReflexesComments_txt.Text = "";
-                        deepReflexComments_txt.Text = "";
+                        TextBox3.Text = "";
                         cerebellarFunctions_area.InnerText = "";
-                        fundoscopy_area.InnerText = "";
+                        Textarea3.InnerText = "";
                         cardiovascularSystem_area.InnerText = "";
                         respiratorySystem_area.InnerText = "";
                         gastrointestinalSystem_area.InnerText = "";
-                        nervousSystem_area.InnerText = "";
                         urogenitalSystem_area.InnerText = "";
                     }
 
@@ -109,21 +212,76 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("Update systematicExamination Set meningialIrritation= @meningialIrritation ,carnivalNervers= @carnivalNervers,sensorySystem=@sensorySystem,motorSystem=@motorSystem  ,superficialReflexes=@superficialReflexes  ,deepReflexes=@deepReflexes  ,cerebellarFunctions=@cerebellarFunctions  ,fundoscopy=@fundoscopy  ,cardioVascularSystem=@cardioVascularSystem ,respiratorySystem=@respiratorySystem  ,gastroIntestinalSystem=@gastroIntestinalSystem  ,nervousSystem=@nervousSystem  ,urogenitalSystem =@urogenitalSystem where id='" + id + "' and visit_no='"+visitNumber_txt.Text+"'", con);
+                SqlCommand cmd = new SqlCommand("Update systematicExamination Set meningialIrritation= @meningialIrritation ,carnivalNervers= @carnivalNervers,sensorySystem=@sensorySystem,motorSystem=@motorSystem  ,superficialReflexes=@superficialReflexes  ,deepReflexes=@deepReflexes  ,cerebellarFunctions=@cerebellarFunctions  ,fundoscopy=@fundoscopy  ,cardioVascularSystem=@cardioVascularSystem ,respiratorySystem=@respiratorySystem  ,gastroIntestinalSystem=@gastroIntestinalSystem ,urogenitalSystem =@urogenitalSystem, cranialNervesRadio=@cranialNervesRadio, sensorySystemRadio=@sensorySystemRadio, motorSystemRadio=@motorSystemRadio, superficialRadio=@superficialRadio, deepReflexRadio=@deepReflexRadio, cerebellarRadio = @cerebellarRadio, fundoscopyRadio=@fundoscopyRadio, cardiovascularRadio=@cardiovascularRadio, respiratoryRadio=@respiratoryRadio, gastrointestinalRadio=@gastrointestinalRadio, urogenitalRadio=@urogenitalRadio where id='" + id + "' and visit_no='" + visitNumber_txt.Text + "'", con);
 
-                cmd.Parameters.AddWithValue("@meningialIrritation", meningialIrritationComments_txt.Text);
-                cmd.Parameters.AddWithValue("@carnivalNervers", cranialNervesComment_txt.Text);
+                cmd.Parameters.AddWithValue("@meningialIrritation", signsOfMeningial_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@carnivalNervers", TextBox1.Text);
                 cmd.Parameters.AddWithValue("@sensorySystem", sensorySystem_area.InnerText);
-                cmd.Parameters.AddWithValue("@motorSystem", motorSystem_area.InnerText);
+                cmd.Parameters.AddWithValue("@motorSystem", Textarea2.InnerText);
                 cmd.Parameters.AddWithValue("@superficialReflexes", superficialReflexesComments_txt.Text);
-                cmd.Parameters.AddWithValue("@deepReflexes", deepReflexComments_txt.Text);
+                cmd.Parameters.AddWithValue("@deepReflexes", TextBox3.Text);
                 cmd.Parameters.AddWithValue("@cerebellarFunctions", cerebellarFunctions_area.InnerText);
-                cmd.Parameters.AddWithValue("@fundoscopy", fundoscopy_area.InnerText);
+                cmd.Parameters.AddWithValue("@fundoscopy", Textarea3.InnerText);
                 cmd.Parameters.AddWithValue("@cardioVascularSystem", cardiovascularSystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@respiratorySystem", respiratorySystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@gastroIntestinalSystem", gastrointestinalSystem_area.InnerText);
-                cmd.Parameters.AddWithValue("@nervousSystem", nervousSystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@urogenitalSystem", urogenitalSystem_area.InnerText);
+
+                if (yescranialNerves_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cranialNervesRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cranialNervesRadio", 2);
+
+                if (yessensorySystem_radio.Checked)
+                    cmd.Parameters.AddWithValue("@sensorySystemRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@sensorySystemRadio", 2);
+
+                if (yesMotorSystem_radio.Checked)
+                    cmd.Parameters.AddWithValue("@motorSystemRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@motorSystemRadio", 2);
+
+                if (yesSuperficial_radio.Checked)
+                    cmd.Parameters.AddWithValue("@superficialRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@superficialRadio", 2);
+
+                if (yesDeepReflexes_radio.Checked)
+                    cmd.Parameters.AddWithValue("@deepReflexRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@deepReflexRadio", 2);
+
+                if (yesCerebellar_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cerebellarRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cerebellarRadio", 2);
+
+                if (yesFundoscopy_radio.Checked)
+                    cmd.Parameters.AddWithValue("@fundoscopyRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@fundoscopyRadio", 2);
+
+                if (yesCardiovascular_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cardiovascularRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cardiovascularRadio", 2);
+
+                if (yesRespiratory_radio.Checked)
+                    cmd.Parameters.AddWithValue("@respiratoryRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@respiratoryRadio", 2);
+
+                if (yesGastrointes_radio.Checked)
+                    cmd.Parameters.AddWithValue("@gastrointestinalRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@gastrointestinalRadio", 2);
+
+                if (yesUrogenital_radio.Checked)
+                    cmd.Parameters.AddWithValue("@urogenitalRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@urogenitalRadio", 2);
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -144,22 +302,78 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into systematicExamination(id,visit_no, meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,nervousSystem ,urogenitalSystem ) values(@id,@visit_no, @meningialIrritation,@carnivalNervers,@sensorySystem,@motorSystem ,@superficialReflexes ,@deepReflexes ,@cerebellarFunctions ,@fundoscopy ,@cardioVascularSystem ,@respiratorySystem ,@gastroIntestinalSystem ,@nervousSystem ,@urogenitalSystem  )", con);
+                SqlCommand cmd = new SqlCommand("insert into systematicExamination(id,visit_no, meningialIrritation,carnivalNervers,sensorySystem,motorSystem ,superficialReflexes ,deepReflexes ,cerebellarFunctions ,fundoscopy ,cardioVascularSystem ,respiratorySystem ,gastroIntestinalSystem ,urogenitalSystem, cranialNervesRadio, sensorySystemRadio, motorSystemRadio, superficialRadio, deepReflexRadio, cerebellarRadio, fundoscopyRadio, cardiovascularRadio, respiratoryRadio, gastrointestinalRadio, urogenitalRadio) values(@id,@visit_no, @meningialIrritation,@carnivalNervers,@sensorySystem,@motorSystem ,@superficialReflexes ,@deepReflexes ,@cerebellarFunctions ,@fundoscopy ,@cardioVascularSystem ,@respiratorySystem ,@gastroIntestinalSystem ,@urogenitalSystem, @cranialNervesRadio, @sensorySystemRadio, @motorSystemRadio, @superficialRadio, @deepReflexRadio, @cerebellarRadio, @fundoscopyRadio, @cardiovascularRadio, @respiratoryRadio, @gastrointestinalRadio, @urogenitalRadio  )", con);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@visit_no", visitNumber_txt.Text);
-                cmd.Parameters.AddWithValue("@meningialIrritation", meningialIrritationComments_txt.Text);
-                cmd.Parameters.AddWithValue("@carnivalNervers", cranialNervesComment_txt.Text);
+                cmd.Parameters.AddWithValue("@meningialIrritation", signsOfMeningial_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@carnivalNervers", TextBox1.Text);
                 cmd.Parameters.AddWithValue("@sensorySystem", sensorySystem_area.InnerText);
-                cmd.Parameters.AddWithValue("@motorSystem", motorSystem_area.InnerText);
+                cmd.Parameters.AddWithValue("@motorSystem", Textarea2.InnerText);
                 cmd.Parameters.AddWithValue("@superficialReflexes", superficialReflexesComments_txt.Text);
-                cmd.Parameters.AddWithValue("@deepReflexes", deepReflexComments_txt.Text);
+                cmd.Parameters.AddWithValue("@deepReflexes", TextBox3.Text);
                 cmd.Parameters.AddWithValue("@cerebellarFunctions", cerebellarFunctions_area.InnerText);
-                cmd.Parameters.AddWithValue("@fundoscopy", fundoscopy_area.InnerText);
+                cmd.Parameters.AddWithValue("@fundoscopy", Textarea3.InnerText);
                 cmd.Parameters.AddWithValue("@cardioVascularSystem", cardiovascularSystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@respiratorySystem", respiratorySystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@gastroIntestinalSystem", gastrointestinalSystem_area.InnerText);
-                cmd.Parameters.AddWithValue("@nervousSystem", nervousSystem_area.InnerText);
                 cmd.Parameters.AddWithValue("@urogenitalSystem", urogenitalSystem_area.InnerText);
+
+                if(yescranialNerves_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cranialNervesRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cranialNervesRadio", 2);
+
+                if (yessensorySystem_radio.Checked)
+                    cmd.Parameters.AddWithValue("@sensorySystemRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@sensorySystemRadio", 2);
+
+                if (yesMotorSystem_radio.Checked)
+                    cmd.Parameters.AddWithValue("@motorSystemRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@motorSystemRadio", 2);
+
+                if (yesSuperficial_radio.Checked)
+                    cmd.Parameters.AddWithValue("@superficialRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@superficialRadio", 2);
+
+                if (yesDeepReflexes_radio.Checked)
+                    cmd.Parameters.AddWithValue("@deepReflexRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@deepReflexRadio", 2);
+
+                if (yesCerebellar_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cerebellarRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cerebellarRadio", 2);
+
+                if (yesFundoscopy_radio.Checked)
+                    cmd.Parameters.AddWithValue("@fundoscopyRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@fundoscopyRadio", 2);
+
+                if (yesCardiovascular_radio.Checked)
+                    cmd.Parameters.AddWithValue("@cardiovascularRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@cardiovascularRadio", 2);
+
+                if (yesRespiratory_radio.Checked)
+                    cmd.Parameters.AddWithValue("@respiratoryRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@respiratoryRadio", 2);
+
+                if (yesGastrointes_radio.Checked)
+                    cmd.Parameters.AddWithValue("@gastrointestinalRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@gastrointestinalRadio", 2);
+
+                if (yesUrogenital_radio.Checked)
+                    cmd.Parameters.AddWithValue("@urogenitalRadio", 1);
+                else
+                    cmd.Parameters.AddWithValue("@urogenitalRadio", 2);
+
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();

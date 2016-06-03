@@ -76,78 +76,6 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox ageTxt;
         
         /// <summary>
-        /// assessment_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton assessment_radio;
-        
-        /// <summary>
-        /// treatment_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton treatment_radio;
-        
-        /// <summary>
-        /// urgent_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton urgent_radio;
-        
-        /// <summary>
-        /// emergency_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton emergency_radio;
-        
-        /// <summary>
-        /// care_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton care_radio;
-        
-        /// <summary>
-        /// judicial_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton judicial_radio;
-        
-        /// <summary>
-        /// nonJudicial_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nonJudicial_radio;
-        
-        /// <summary>
-        /// reception_radio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton reception_radio;
-        
-        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -184,6 +112,24 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea historyOfPresentIllness_area;
         
         /// <summary>
+        /// treatmentHistory_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList treatmentHistory_dd;
+        
+        /// <summary>
+        /// MedicineDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource MedicineDataSource;
+        
+        /// <summary>
         /// CurrentDrugTreatment_area control.
         /// </summary>
         /// <remarks>
@@ -193,6 +139,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea CurrentDrugTreatment_area;
         
         /// <summary>
+        /// pastMedicalHistory_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList pastMedicalHistory_dd;
+        
+        /// <summary>
         /// pastMedicalHistory_area control.
         /// </summary>
         /// <remarks>
@@ -200,6 +155,15 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea pastMedicalHistory_area;
+        
+        /// <summary>
+        /// pastPsychiatricHistory_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList pastPsychiatricHistory_dd;
         
         /// <summary>
         /// pastPsychiatricHistory_area control.
@@ -229,6 +193,24 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio2;
         
         /// <summary>
+        /// Radio3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio3;
+        
+        /// <summary>
+        /// Radio4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton Radio4;
+        
+        /// <summary>
         /// courseOfIllness_area control.
         /// </summary>
         /// <remarks>
@@ -238,13 +220,49 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea courseOfIllness_area;
         
         /// <summary>
-        /// previousAdmission_area control.
+        /// yesPreviousAdmission_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea previousAdmission_area;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesPreviousAdmission_radio;
+        
+        /// <summary>
+        /// noPreviousAdmission_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noPreviousAdmission_radio;
+        
+        /// <summary>
+        /// noOfAdmissions_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList noOfAdmissions_dd;
+        
+        /// <summary>
+        /// drugs_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drugs_dd;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// drugs_area control.
@@ -274,6 +292,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea duration_area;
         
         /// <summary>
+        /// responseToTreatment_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList responseToTreatment_dd;
+        
+        /// <summary>
         /// responseToTreatment_area control.
         /// </summary>
         /// <remarks>
@@ -281,6 +308,24 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea responseToTreatment_area;
+        
+        /// <summary>
+        /// drugReaction_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drugReaction_dd;
+        
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
         /// drugReaction_area control.
@@ -292,6 +337,24 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea drugReaction_area;
         
         /// <summary>
+        /// yesTreatmentByFaithHealer_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesTreatmentByFaithHealer_radio;
+        
+        /// <summary>
+        /// noTreatmentByFaithHealer_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noTreatmentByFaithHealer_radio;
+        
+        /// <summary>
         /// treatmentByFaithHealer_area control.
         /// </summary>
         /// <remarks>
@@ -299,6 +362,42 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea treatmentByFaithHealer_area;
+        
+        /// <summary>
+        /// yesForensicHistory_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesForensicHistory_radio;
+        
+        /// <summary>
+        /// noForensicHistory_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noForensicHistory_radio;
+        
+        /// <summary>
+        /// yesPoliceCase_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesPoliceCase_radio;
+        
+        /// <summary>
+        /// noPoliceCase_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noPoliceCase_radio;
         
         /// <summary>
         /// forensicHistory_area control.
@@ -310,31 +409,31 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea forensicHistory_area;
         
         /// <summary>
-        /// prenatal_txt control.
+        /// prenatal_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prenatal_txt;
+        protected global::System.Web.UI.WebControls.DropDownList prenatal_dd;
         
         /// <summary>
-        /// perinatal_txt control.
+        /// perinatal_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox perinatal_txt;
+        protected global::System.Web.UI.WebControls.DropDownList perinatal_dd;
         
         /// <summary>
-        /// postnatal_txt control.
+        /// postnatal_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox postnatal_txt;
+        protected global::System.Web.UI.WebControls.DropDownList postnatal_dd;
         
         /// <summary>
         /// normal_radio control.
@@ -355,13 +454,22 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton delayed_radio;
         
         /// <summary>
-        /// childhood_area control.
+        /// childhood_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea childhood_area;
+        protected global::System.Web.UI.WebControls.DropDownList childhood_dd;
+        
+        /// <summary>
+        /// startOfSchooling_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList startOfSchooling_dd;
         
         /// <summary>
         /// startOfSchooling_area control.
@@ -400,6 +508,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton belowAverage_radio;
         
         /// <summary>
+        /// workOccupation_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList workOccupation_dd;
+        
+        /// <summary>
         /// workOccupationRecord_area control.
         /// </summary>
         /// <remarks>
@@ -409,13 +526,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea workOccupationRecord_area;
         
         /// <summary>
-        /// monthlyIncome_txt control.
+        /// monthlyIncome_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox monthlyIncome_txt;
+        protected global::System.Web.UI.WebControls.DropDownList monthlyIncome_dd;
         
         /// <summary>
         /// pschosexualHistory_area control.
@@ -427,22 +544,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea pschosexualHistory_area;
         
         /// <summary>
-        /// menstrualHistory_area control.
+        /// menstrualHistory_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea menstrualHistory_area;
-        
-        /// <summary>
-        /// menopause_area control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea menopause_area;
+        protected global::System.Web.UI.WebControls.DropDownList menstrualHistory_dd;
         
         /// <summary>
         /// maritalStatus_dd control.
@@ -472,49 +580,49 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox numberOfChildren_txt;
         
         /// <summary>
-        /// relationshipOfSpouse_txt control.
+        /// relationshipWithSpouse_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea relationshipOfSpouse_txt;
+        protected global::System.Web.UI.WebControls.DropDownList relationshipWithSpouse_dd;
         
         /// <summary>
-        /// hobbies_area control.
+        /// hobbies_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea hobbies_area;
+        protected global::System.Web.UI.WebControls.DropDownList hobbies_dd;
         
         /// <summary>
-        /// characteristic_area control.
+        /// characteristic_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea characteristic_area;
+        protected global::System.Web.UI.WebControls.DropDownList characteristic_dd;
         
         /// <summary>
-        /// behaviour_area control.
+        /// behaviour_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea behaviour_area;
+        protected global::System.Web.UI.WebControls.DropDownList behaviour_dd;
         
         /// <summary>
-        /// attitude_area control.
+        /// attitude_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea attitude_area;
+        protected global::System.Web.UI.WebControls.DropDownList attitude_dd;
         
         /// <summary>
         /// relations_area control.
@@ -580,31 +688,31 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList familyHistory_dd;
         
         /// <summary>
-        /// father_area control.
+        /// father_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea father_area;
+        protected global::System.Web.UI.WebControls.DropDownList father_dd;
         
         /// <summary>
-        /// mother_area control.
+        /// mother_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea mother_area;
+        protected global::System.Web.UI.WebControls.DropDownList mother_dd;
         
         /// <summary>
-        /// siblings_area control.
+        /// siblings_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea siblings_area;
+        protected global::System.Web.UI.WebControls.DropDownList siblings_dd;
         
         /// <summary>
         /// TypeOfFamilyHistory_dd control.
@@ -625,22 +733,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList historyOfSubstanceAbuse_dd;
         
         /// <summary>
-        /// type_txt control.
+        /// duration_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox type_txt;
-        
-        /// <summary>
-        /// duration_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox duration_txt;
+        protected global::System.Web.UI.WebControls.DropDownList duration_dd;
         
         /// <summary>
         /// amount_area control.
@@ -652,13 +751,40 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea amount_area;
         
         /// <summary>
-        /// modeOfAbuse_area control.
+        /// modeOfAbuse_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea modeOfAbuse_area;
+        protected global::System.Web.UI.WebControls.DropDownList modeOfAbuse_dd;
+        
+        /// <summary>
+        /// yesAdmissionForDetoxification_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesAdmissionForDetoxification_radio;
+        
+        /// <summary>
+        /// noAdmissionForDetoxification_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noAdmissionForDetoxification_radio;
+        
+        /// <summary>
+        /// numberOfadmissionsDetox_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList numberOfadmissionsDetox_dd;
         
         /// <summary>
         /// detoxification_area control.

@@ -103,31 +103,103 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.Label error;
         
         /// <summary>
-        /// heightComments_txt control.
+        /// height_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox heightComments_txt;
+        protected global::System.Web.UI.WebControls.DropDownList height_dd;
         
         /// <summary>
-        /// weightComments_txt control.
+        /// weight_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox weightComments_txt;
+        protected global::System.Web.UI.WebControls.DropDownList weight_dd;
         
         /// <summary>
-        /// pulseComments_txt control.
+        /// pulse_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pulseComments_txt;
+        protected global::System.Web.UI.WebControls.DropDownList pulse_dd;
+        
+        /// <summary>
+        /// lyingSystolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lyingSystolic_txt;
+        
+        /// <summary>
+        /// lyingDiastolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lyingDiastolic_txt;
+        
+        /// <summary>
+        /// sittingSystolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sittingSystolic_txt;
+        
+        /// <summary>
+        /// sittingDiastolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox sittingDiastolic_txt;
+        
+        /// <summary>
+        /// standingSystolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox standingSystolic_txt;
+        
+        /// <summary>
+        /// standingDiastolic_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox standingDiastolic_txt;
+        
+        /// <summary>
+        /// temperatureComments_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox temperatureComments_txt;
+        
+        /// <summary>
+        /// skinEruption_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList skinEruption_dd;
         
         /// <summary>
         /// skinEruption_txt control.
@@ -139,40 +211,22 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox skinEruption_txt;
         
         /// <summary>
-        /// lyingComments_txt control.
+        /// yesDehydration_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lyingComments_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesDehydration_radio;
         
         /// <summary>
-        /// sittingComments_txt control.
+        /// noDehydration_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sittingComments_txt;
-        
-        /// <summary>
-        /// standingComments_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox standingComments_txt;
-        
-        /// <summary>
-        /// temperatureComments_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox temperatureComments_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noDehydration_radio;
         
         /// <summary>
         /// dehydrationComments_txt control.
@@ -400,13 +454,31 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox lymphComments_txt;
         
         /// <summary>
-        /// jvpComments_txt control.
+        /// jvp1_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jvpComments_txt;
+        protected global::System.Web.UI.WebControls.DropDownList jvp1_dd;
+        
+        /// <summary>
+        /// yesSwelling_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesSwelling_radio;
+        
+        /// <summary>
+        /// noSwelling_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noSwelling_radio;
         
         /// <summary>
         /// jvp_dd control.
@@ -416,6 +488,42 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList jvp_dd;
+        
+        /// <summary>
+        /// yesPigmentation_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesPigmentation_radio;
+        
+        /// <summary>
+        /// noPigmentation_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noPigmentation_radio;
+        
+        /// <summary>
+        /// yesRepigmentation_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesRepigmentation_radio;
+        
+        /// <summary>
+        /// noRepigmentation_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noRepigmentation_radio;
         
         /// <summary>
         /// update_btn control.

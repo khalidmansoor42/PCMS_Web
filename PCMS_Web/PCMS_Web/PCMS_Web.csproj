@@ -227,6 +227,7 @@
     <Content Include="Doctor\mentalStateExamination.aspx" />
     <Content Include="Doctor\psychometricEvaluation.aspx" />
     <Content Include="Doctor\counselling.aspx" />
+    <Content Include="Doctor\admission.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -1404,6 +1405,13 @@
     </Compile>
     <Compile Include="Doctor\counselling.aspx.designer.cs">
       <DependentUpon>counselling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\admission.aspx.cs">
+      <DependentUpon>admission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\admission.aspx.designer.cs">
+      <DependentUpon>admission.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />

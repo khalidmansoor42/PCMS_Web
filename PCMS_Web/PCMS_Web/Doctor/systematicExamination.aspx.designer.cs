@@ -76,22 +76,58 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox ageTxt;
         
         /// <summary>
-        /// meningialIrritationComments_txt control.
+        /// signsOfMeningial_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox meningialIrritationComments_txt;
+        protected global::System.Web.UI.WebControls.DropDownList signsOfMeningial_dd;
         
         /// <summary>
-        /// cranialNervesComment_txt control.
+        /// yescranialNerves_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cranialNervesComment_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yescranialNerves_radio;
+        
+        /// <summary>
+        /// nocranialNerves_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nocranialNerves_radio;
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// yessensorySystem_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yessensorySystem_radio;
+        
+        /// <summary>
+        /// nosensorySystem_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nosensorySystem_radio;
         
         /// <summary>
         /// sensorySystem_area control.
@@ -103,13 +139,49 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea sensorySystem_area;
         
         /// <summary>
-        /// motorSystem_area control.
+        /// yesMotorSystem_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea motorSystem_area;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesMotorSystem_radio;
+        
+        /// <summary>
+        /// noMotorSystem_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noMotorSystem_radio;
+        
+        /// <summary>
+        /// Textarea2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea2;
+        
+        /// <summary>
+        /// yesSuperficial_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesSuperficial_radio;
+        
+        /// <summary>
+        /// noSuperficial_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noSuperficial_radio;
         
         /// <summary>
         /// superficialReflexesComments_txt control.
@@ -121,13 +193,49 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.TextBox superficialReflexesComments_txt;
         
         /// <summary>
-        /// deepReflexComments_txt control.
+        /// yesDeepReflexes_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox deepReflexComments_txt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesDeepReflexes_radio;
+        
+        /// <summary>
+        /// noDeepReflexes_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noDeepReflexes_radio;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        
+        /// <summary>
+        /// yesCerebellar_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesCerebellar_radio;
+        
+        /// <summary>
+        /// noCerebellar_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noCerebellar_radio;
         
         /// <summary>
         /// cerebellarFunctions_area control.
@@ -139,13 +247,49 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea cerebellarFunctions_area;
         
         /// <summary>
-        /// fundoscopy_area control.
+        /// yesFundoscopy_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea fundoscopy_area;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesFundoscopy_radio;
+        
+        /// <summary>
+        /// noFundoscopy_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noFundoscopy_radio;
+        
+        /// <summary>
+        /// Textarea3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea3;
+        
+        /// <summary>
+        /// yesCardiovascular_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesCardiovascular_radio;
+        
+        /// <summary>
+        /// noCardiovascular_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noCardiovascular_radio;
         
         /// <summary>
         /// cardiovascularSystem_area control.
@@ -157,6 +301,24 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea cardiovascularSystem_area;
         
         /// <summary>
+        /// yesRespiratory_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesRespiratory_radio;
+        
+        /// <summary>
+        /// noRespiratory_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noRespiratory_radio;
+        
+        /// <summary>
         /// respiratorySystem_area control.
         /// </summary>
         /// <remarks>
@@ -164,6 +326,24 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea respiratorySystem_area;
+        
+        /// <summary>
+        /// yesGastrointes_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesGastrointes_radio;
+        
+        /// <summary>
+        /// noGastrointes_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noGastrointes_radio;
         
         /// <summary>
         /// gastrointestinalSystem_area control.
@@ -175,13 +355,22 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea gastrointestinalSystem_area;
         
         /// <summary>
-        /// nervousSystem_area control.
+        /// yesUrogenital_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea nervousSystem_area;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesUrogenital_radio;
+        
+        /// <summary>
+        /// noUrogenital_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noUrogenital_radio;
         
         /// <summary>
         /// urogenitalSystem_area control.

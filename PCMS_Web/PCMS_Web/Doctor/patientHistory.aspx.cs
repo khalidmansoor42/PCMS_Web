@@ -36,7 +36,7 @@ namespace PCMS_Web.Doctor
                 {
                     SetInitialRow();
                     GetHistory();
-                    admissionHistory();
+                    //admissionHistory();
                     illnessHistory();
                     drugs();
                     personalInfo();
@@ -46,94 +46,94 @@ namespace PCMS_Web.Doctor
             }
         }
 
-        public void admissionHistory()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT admissionType,patientClassification from admissionHistory where patient_reg='" + id + "'", con);
-                cmd.Connection = con;
-                SqlDataReader dr;
-                con.Open();
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    saveBtn.Visible = false;
-                    updateBtn.Visible = true;
-                    if ((Convert.ToInt32(dr["admissionType"].ToString()) == 1))
-                    {
-                        treatment_radio.Checked = false;
-                        assessment_radio.Checked = true;
-                    }
-                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 2))
-                    {
-                        treatment_radio.Checked = true;
-                    }
-                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 3))
-                    {
-                        treatment_radio.Checked = false;
-                        urgent_radio.Checked = true;
-                    }
-                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 4))
-                    {
-                        treatment_radio.Checked = false;
-                        emergency_radio.Checked = true;
-                    }
-                    else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 5))
-                    {
-                        treatment_radio.Checked = false;
-                        care_radio.Checked = true;
-                    }
-                    else
-                    {
-                        treatment_radio.Checked = true;
-                    }
+        //public void admissionHistory()
+        //{
+        //    try
+        //    {
+        //        SqlConnection con = new SqlConnection(constring);
+        //        SqlCommand cmd = new SqlCommand("SELECT admissionType,patientClassification from admissionHistory where patient_reg='" + id + "'", con);
+        //        cmd.Connection = con;
+        //        SqlDataReader dr;
+        //        con.Open();
+        //        dr = cmd.ExecuteReader();
+        //        if (dr.Read())
+        //        {
+        //            saveBtn.Visible = false;
+        //            updateBtn.Visible = true;
+        //            if ((Convert.ToInt32(dr["admissionType"].ToString()) == 1))
+        //            {
+        //                treatment_radio.Checked = false;
+        //                assessment_radio.Checked = true;
+        //            }
+        //            else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 2))
+        //            {
+        //                treatment_radio.Checked = true;
+        //            }
+        //            else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 3))
+        //            {
+        //                treatment_radio.Checked = false;
+        //                urgent_radio.Checked = true;
+        //            }
+        //            else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 4))
+        //            {
+        //                treatment_radio.Checked = false;
+        //                emergency_radio.Checked = true;
+        //            }
+        //            else if ((Convert.ToInt32(dr["admissionType"].ToString()) == 5))
+        //            {
+        //                treatment_radio.Checked = false;
+        //                care_radio.Checked = true;
+        //            }
+        //            else
+        //            {
+        //                treatment_radio.Checked = true;
+        //            }
 
-                    if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 1))
-                    {
-                        reception_radio.Checked = false;
-                        judicial_radio.Checked = true;
+        //            if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 1))
+        //            {
+        //                reception_radio.Checked = false;
+        //                judicial_radio.Checked = true;
 
-                    }
+        //            }
 
-                    else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 2))
-                    {
-                        reception_radio.Checked = false;
-                        nonJudicial_radio.Checked = true;
-                    }
+        //            else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 2))
+        //            {
+        //                reception_radio.Checked = false;
+        //                nonJudicial_radio.Checked = true;
+        //            }
 
-                    else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 3))
-                    {
-                        reception_radio.Checked = true;
-                    }
-                    else
-                    {
-                        reception_radio.Checked = true;
-                    }
+        //            else if ((Convert.ToInt32(dr["patientClassification"].ToString()) == 3))
+        //            {
+        //                reception_radio.Checked = true;
+        //            }
+        //            else
+        //            {
+        //                reception_radio.Checked = true;
+        //            }
 
-                }
-                else
-                {
-                    updateBtn.Visible = false;
-                    saveBtn.Visible = true;
-                }
+        //        }
+        //        else
+        //        {
+        //            updateBtn.Visible = false;
+        //            saveBtn.Visible = true;
+        //        }
 
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                alert_fail.Visible = true;
-                error.Text = "Error! " + ex.ToString();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-            }
-        }
+        //        con.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        alert_fail.Visible = true;
+        //        error.Text = "Error! " + ex.ToString();
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //    }
+        //}
 
         public void illnessHistory()
         {
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT illHistoryText,currentTreatmentText,pastMedHistoryText,pastPsychHistoryText,cureRb,cureText,previousText from illnessHistory where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from illnessHistory where patient_reg='" + id + "'", con);
                 cmd.Connection = con;
                 SqlDataReader dr;
                 con.Open();
@@ -147,14 +147,36 @@ namespace PCMS_Web.Doctor
                     pastMedicalHistory_area.InnerText = dr["pastMedHistoryText"].ToString();
                     pastPsychiatricHistory_area.InnerText = dr["pastPsychHistoryText"].ToString();
                     courseOfIllness_area.InnerText = dr["cureText"].ToString();
-                    previousAdmission_area.InnerText = dr["previousText"].ToString();
+                    noOfAdmissions_dd.SelectedValue = dr["previousText"].ToString();
+                    //treatmentHistory_dd.SelectedValue = dr["treatmentHistoryDd"].ToString();
+                    //pastMedicalHistory_dd.SelectedItem.Text = dr["pastMedicalHistoryDd"].ToString();
+                    //pastPsychiatricHistory_dd.SelectedItem.Text = dr["pastPsychiatricHistoryDd"].ToString();
+                    //cureRb radios
                     if ((Convert.ToInt32(dr["cureRb"].ToString()) == 1))
                     {
                         Radio2.Checked = true;
                     }
+                    else if ((Convert.ToInt32(dr["cureRb"].ToString()) == 2))
+                    {
+                        Radio3.Checked = true;
+                    }
+                    else if ((Convert.ToInt32(dr["cureRb"].ToString()) == 3))
+                    {
+                        Radio4.Checked = true;
+                    }
                     else
                     {
                         Radio1.Checked = true;
+                    }
+                    //previous admission radios
+                    if ((Convert.ToInt32(dr["previousAdmissions"].ToString()) == 1))
+                    {
+                        noPreviousAdmission_radio.Checked = false;
+                        yesPreviousAdmission_radio.Checked = true;
+                    }
+                    else
+                    {
+                        noPreviousAdmission_radio.Checked = true;
                     }
                 }
                 else
@@ -177,7 +199,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT drugsText,dosageText,durationText,reponseText,reactionText,faithTreatmentText,forensicHistoryText from drugHistory where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from drugHistory where patient_reg='" + id + "'", con);
                 cmd.Connection = con;
                 SqlDataReader dr;
                 con.Open();
@@ -193,6 +215,32 @@ namespace PCMS_Web.Doctor
                     drugReaction_area.InnerText = dr["reactionText"].ToString();
                     treatmentByFaithHealer_area.InnerText = dr["faithTreatmentText"].ToString();
                     forensicHistory_area.InnerText = dr["forensicHistoryText"].ToString();
+                    if ((Convert.ToInt32(dr["faithTreatmentRadio"].ToString()) == 1))
+                    {
+                        yesTreatmentByFaithHealer_radio.Checked = true;
+                    }
+                    else
+                    {
+                        noTreatmentByFaithHealer_radio.Checked = true;
+                    }
+
+                    if ((Convert.ToInt32(dr["forensicHistoryRadio"].ToString()) == 1))
+                    {
+                        yesForensicHistory_radio.Checked = true;
+                    }
+                    else
+                    {
+                        noForensicHistory_radio.Checked = true;
+                    }
+
+                    if ((Convert.ToInt32(dr["policeCaseRadio"].ToString()) == 1))
+                    {
+                         yesPoliceCase_radio.Checked = true;
+                    }
+                    else
+                    {
+                        noPoliceCase_radio.Checked = true;
+                    }
                 }
                 else
                 {
@@ -215,7 +263,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT prenatalText,perinatalText,postnatalText,milestoneRb,childhoodText,schoolingText,educationRb,occupationText,incomeText,psychoSexualhistoryText,menstrualHistoryText,menoPauseText,maritalStatusDD,genderDD,childrenText,spouseRelationshipText,hobbiesText,characteristicText,behaviorText,attitudeText,relationText,achievementsText,religiousText,aptitudesText,otherText FROM personalDetails where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM personalDetails where patient_reg='" + id + "'", con);
                 cmd.Connection = con;
                 SqlDataReader dr;
                 con.Open();
@@ -224,26 +272,27 @@ namespace PCMS_Web.Doctor
                 {
                     saveBtn.Visible = false;
                     updateBtn.Visible = true;
-                    prenatal_txt.Text = dr["prenatalText"].ToString();
-                    perinatal_txt.Text = dr["perinatalText"].ToString();
-                    postnatal_txt.Text = dr["postnatalText"].ToString();
-                    childhood_area.InnerText = dr["childhoodText"].ToString();
+                    prenatal_dd.SelectedValue = dr["prenatalText"].ToString();
+                    perinatal_dd.SelectedValue = dr["perinatalText"].ToString();
+                    postnatal_dd.SelectedValue  = dr["postnatalText"].ToString();
+                    childhood_dd.SelectedValue  = dr["childhoodText"].ToString();
+                    startOfSchooling_dd.SelectedValue  = dr["startOfSchooling"].ToString();
                     startOfSchooling_area.InnerText = dr["schoolingText"].ToString();
                     workOccupationRecord_area.InnerText = dr["occupationText"].ToString();
-                    monthlyIncome_txt.Text = dr["incomeText"].ToString();
+                    workOccupation_dd.SelectedValue  = dr["occupation"].ToString();
+                    monthlyIncome_dd.SelectedValue  = dr["incomeText"].ToString();
 
                     pschosexualHistory_area.InnerText = dr["psychoSexualhistoryText"].ToString();
-                    menstrualHistory_area.InnerText = dr["menstrualHistoryText"].ToString();
-                    menopause_area.InnerText = dr["menoPauseText"].ToString();
-                    maritalStatus_dd.SelectedItem.Text = dr["maritalStatusDD"].ToString();
-                    gender_dd.SelectedItem.Text = dr["genderDD"].ToString();
+                    menstrualHistory_dd.SelectedValue  = dr["menstrualHistoryText"].ToString();
+                    maritalStatus_dd.SelectedValue  = dr["maritalStatusDD"].ToString();
+                    gender_dd.SelectedValue  = dr["genderDD"].ToString();
                     numberOfChildren_txt.Text = dr["childrenText"].ToString();
-                    relationshipOfSpouse_txt.InnerText = dr["spouseRelationshipText"].ToString();
+                    relationshipWithSpouse_dd.SelectedValue  = dr["spouseRelationshipText"].ToString();
 
-                    hobbies_area.InnerText = dr["hobbiesText"].ToString();
-                    characteristic_area.InnerText = dr["characteristicText"].ToString();
-                    behaviour_area.InnerText = dr["behaviorText"].ToString();
-                    attitude_area.InnerText = dr["attitudeText"].ToString();
+                    hobbies_dd.SelectedValue  = dr["hobbiesText"].ToString();
+                    characteristic_dd.SelectedValue  = dr["characteristicText"].ToString();
+                    behaviour_dd.SelectedValue  = dr["behaviorText"].ToString();
+                    attitude_dd.SelectedValue  = dr["attitudeText"].ToString();
                     relations_area.InnerText = dr["relationText"].ToString();
                     achievements_area.InnerText = dr["achievementsText"].ToString();
                     religousMoralValues_area.InnerText = dr["religiousText"].ToString();
@@ -301,7 +350,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("SELECT temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText from familyHistory where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText,admissionToxificationRadio, noOfDetoxAdmissionsDd from familyHistory where patient_reg='" + id + "'", con);
                 cmd.Connection = con;
                 SqlDataReader dr;
                 con.Open();
@@ -310,19 +359,29 @@ namespace PCMS_Web.Doctor
                 {
                     saveBtn.Visible = false;
                     updateBtn.Visible = true;
-                    temperament_dd.SelectedItem.Text = dr["temperamentDD"].ToString();
-                    familyHistory_dd.SelectedItem.Text = dr["familyPsychIllDD"].ToString();
-                    father_area.InnerText = dr["fatherText"].ToString();
-                    mother_area.InnerText = dr["motherText"].ToString();
-                    siblings_area.InnerText = dr["siblingsText"].ToString();
-                    TypeOfFamilyHistory_dd.SelectedItem.Text = dr["illnessTypeDD"].ToString();
-                    historyOfSubstanceAbuse_dd.SelectedItem.Text = dr["abuseHistoryDD"].ToString();
+                    temperament_dd.SelectedValue  = dr["temperamentDD"].ToString();
+                    familyHistory_dd.SelectedValue  = dr["familyPsychIllDD"].ToString();
+                    father_dd.SelectedValue  = dr["fatherText"].ToString();
+                    mother_dd.SelectedValue  = dr["motherText"].ToString();
+                    siblings_dd.SelectedValue  = dr["siblingsText"].ToString();
+                    TypeOfFamilyHistory_dd.SelectedValue  = dr["illnessTypeDD"].ToString();
+                    historyOfSubstanceAbuse_dd.SelectedValue  = dr["abuseHistoryDD"].ToString();
 
-                    type_txt.Text = dr["typeText"].ToString();
-                    duration_txt.Text = dr["durationText"].ToString();
+                    historyOfSubstanceAbuse_dd.SelectedValue  = dr["typeText"].ToString();
+                    duration_dd.SelectedValue  = dr["durationText"].ToString();
                     amount_area.InnerText = dr["amountText"].ToString();
-                    modeOfAbuse_area.InnerText = dr["abuseModeText"].ToString();
+                    modeOfAbuse_dd.SelectedValue  = dr["abuseModeText"].ToString();
                     detoxification_area.InnerText = dr["detoxificationText"].ToString();
+                    numberOfadmissionsDetox_dd.SelectedValue = dr["noOfDetoxAdmissionsDd"].ToString();
+                    if ((Convert.ToInt32(dr["admissionToxificationRadio"].ToString()) == 1))
+                    {
+                        yesAdmissionForDetoxification_radio.Checked = true;
+                        noAdmissionForDetoxification_radio.Checked = false;
+                    }
+                    else
+                    {
+                        noAdmissionForDetoxification_radio.Checked = true;
+                    }
                 }
                 else
                 {
@@ -533,7 +592,7 @@ namespace PCMS_Web.Doctor
                 for (int z = 0; z < ds.Tables[0].Rows.Count; z++)
                 {
                     DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
-                    ddl.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
+                    ddl.SelectedValue = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
 
                     TextBox box2 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
                     date = Convert.ToString(ds.Tables[0].Rows[z]["diagnose_date"]);
@@ -775,7 +834,7 @@ namespace PCMS_Web.Doctor
         {
             try
             {
-                updateAdmissionHistory();
+                //updateAdmissionHistory();
                 updateIllnessHistory();
                 updateDrugs();
                 updatePersonalInfo();
@@ -793,7 +852,7 @@ namespace PCMS_Web.Doctor
         {
             try
             {
-                insertAdmissionHistory();
+                //insertAdmissionHistory();
                 insertIllnessHistory();
                 insertDrugs();
                 insertPersonalInfo();
@@ -807,98 +866,116 @@ namespace PCMS_Web.Doctor
             }
         }
 
-        public void insertAdmissionHistory()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into admissionHistory (patient_reg,admissionType,patientClassification) values(@id,@type,@classification)", con);
+        //public void insertAdmissionHistory()
+        //{
+        //    try
+        //    {
+        //        SqlConnection con = new SqlConnection(constring);
+        //        SqlCommand cmd = new SqlCommand("insert into admissionHistory (patient_reg,admissionType,patientClassification) values(@id,@type,@classification)", con);
 
-                cmd.Parameters.AddWithValue("@id", id);
-                if (assessment_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 1);
-                }
+        //        cmd.Parameters.AddWithValue("@id", id);
+        //        if (assessment_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 1);
+        //        }
 
-                else if (treatment_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 2);
-                }
-                else if (urgent_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 3);
-                }
-                else if (emergency_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 4);
-                }
-                else if (care_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 5);
-                }
-                else
-                {
-                }
-                if (judicial_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 1);
-                }
+        //        else if (treatment_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 2);
+        //        }
+        //        else if (urgent_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 3);
+        //        }
+        //        else if (emergency_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 4);
+        //        }
+        //        else if (care_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 5);
+        //        }
+        //        else
+        //        {
+        //        }
+        //        if (judicial_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 1);
+        //        }
 
-                else if (nonJudicial_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 2);
-                }
-                else if (reception_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 3);
-                }
-                else
-                {
-                    alert_fail.Visible = true;
-                    error.Text = "Error! ";
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-                }
+        //        else if (nonJudicial_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 2);
+        //        }
+        //        else if (reception_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 3);
+        //        }
+        //        else
+        //        {
+        //            alert_fail.Visible = true;
+        //            error.Text = "Error! ";
+        //            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //        }
 
-                cmd.Connection = con;
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+        //        cmd.Connection = con;
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
 
-                alert_success.Visible = true;
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-            }
-            catch (Exception ex)
-            {
-                alert_fail.Visible = true;
-                error.Text = "Error! " + ex.ToString();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-            }
-        }
+        //        alert_success.Visible = true;
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        alert_fail.Visible = true;
+        //        error.Text = "Error! " + ex.ToString();
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //    }
+        //}
         public void insertIllnessHistory()
         {
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into illnessHistory (patient_reg,illHistoryText,currentTreatmentText,pastMedHistoryText,pastPsychHistoryText,cureRb,cureText,previousText) values(@id,@illHistoryText,@currentTreatmentText,@pastMedHistoryText,@pastPsychHistoryText,@cureRb,@cureText,@previousText)", con);
+                SqlCommand cmd = new SqlCommand("insert into illnessHistory (patient_reg,illHistoryText,currentTreatmentText,pastMedHistoryText,pastPsychHistoryText,cureRb,cureText,previousText,previousAdmissions,treatmentHistoryDd,pastMedicalHistoryDd,pastPsychiatricHistoryDd) values(@id,@illHistoryText,@currentTreatmentText,@pastMedHistoryText,@pastPsychHistoryText,@cureRb,@cureText,@previousText,@previousAdmissions,@treatmentHistoryDd,@pastMedicalHistoryDd,@pastPsychiatricHistoryDd)", con);
 
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@illHistoryText", historyOfPresentIllness_area.InnerText);
                 cmd.Parameters.AddWithValue("@currentTreatmentText", CurrentDrugTreatment_area.InnerText);
                 cmd.Parameters.AddWithValue("@pastMedHistoryText", pastMedicalHistory_area.InnerText);
-
                 cmd.Parameters.AddWithValue("@pastPsychHistoryText", pastPsychiatricHistory_area.InnerText);
                 if (Radio1.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@cureRb", 0);
                 }
-
-                else
+                else if (Radio2.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@cureRb", 1);
                 }
+                else if (Radio3.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 2);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 3);
+                }
+                //previous admission radios
+                if (yesPreviousAdmission_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@previousAdmissions", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@previousAdmissions", 2);
+                }
 
                 cmd.Parameters.AddWithValue("@cureText", courseOfIllness_area.InnerText);
-                cmd.Parameters.AddWithValue("@previousText", previousAdmission_area.InnerText);
+                cmd.Parameters.AddWithValue("@previousText", noOfAdmissions_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@treatmentHistoryDd", treatmentHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@pastMedicalHistoryDd", pastMedicalHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@pastPsychiatricHistoryDd", pastPsychiatricHistory_dd.SelectedItem.Text);
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -919,7 +996,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into drugHistory (patient_reg,drugsText,dosageText,durationText,reponseText,reactionText,faithTreatmentText,forensicHistoryText) values(@id,@drugsText,@dosageText,@durationText,@reponseText,@reactionText,@faithTreatmentText,@forensicHistoryText)", con);
+                SqlCommand cmd = new SqlCommand("insert into drugHistory (patient_reg,drugsText,dosageText,durationText,reponseText,reactionText,faithTreatmentText,forensicHistoryText,faithTreatmentRadio,forensicHistoryRadio,policeCaseRadio) values(@id,@drugsText,@dosageText,@durationText,@reponseText,@reactionText,@faithTreatmentText,@forensicHistoryText,@treatmentFaithRadio,@forensicHistoryRadio,@policeCaseRadio)", con);
 
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@drugsText", drugs_area.InnerText);
@@ -930,6 +1007,34 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@reactionText", drugReaction_area.InnerText);
                 cmd.Parameters.AddWithValue("@faithTreatmentText", treatmentByFaithHealer_area.InnerText);
                 cmd.Parameters.AddWithValue("@forensicHistoryText", forensicHistory_area.InnerText);
+
+                if (yesTreatmentByFaithHealer_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@treatmentFaithRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@treatmentFaithRadio", 2);
+                }
+
+                if (yesForensicHistory_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@forensicHistoryRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@forensicHistoryRadio", 2);
+                }
+
+                if (yesPoliceCase_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@policeCaseRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@policeCaseRadio", 2);
+                }
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -950,12 +1055,12 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into personalDetails (patient_reg,prenatalText,perinatalText,postnatalText,milestoneRb,childhoodText,schoolingText,educationRb,occupationText,incomeText,psychoSexualhistoryText,menstrualHistoryText,menoPauseText,maritalStatusDD,genderDD,childrenText,spouseRelationshipText,hobbiesText,characteristicText,behaviorText,attitudeText,relationText,achievementsText,religiousText,aptitudesText,otherText) values(@id,@prenatalText,@perinatalText,@postnatalText,@milestoneRb,@childhoodText,@schoolingText,@educationRb,@occupationText,@incomeText,@psychoSexualhistoryText,@menstrualHistoryText,@menoPauseText,@maritalStatusDD,@genderDD,@childrenText,@spouseRelationshipText,@hobbiesText,@characteristicText,@behaviorText,@attitudeText,@relationText,@achievementsText,@religiousText,@aptitudesText,@otherText)", con);
+                SqlCommand cmd = new SqlCommand("insert into personalDetails (patient_reg,prenatalText,perinatalText,postnatalText,milestoneRb,childhoodText,schoolingText,educationRb,occupationText,incomeText,psychoSexualhistoryText,menstrualHistoryText,maritalStatusDD,genderDD,childrenText,spouseRelationshipText,hobbiesText,characteristicText,behaviorText,attitudeText,relationText,achievementsText,religiousText,aptitudesText,otherText,startOfSchooling,occupation) values(@id,@prenatalText,@perinatalText,@postnatalText,@milestoneRb,@childhoodText,@schoolingText,@educationRb,@occupationText,@incomeText,@psychoSexualhistoryText,@menstrualHistoryText,@maritalStatusDD,@genderDD,@childrenText,@spouseRelationshipText,@hobbiesText,@characteristicText,@behaviorText,@attitudeText,@relationText,@achievementsText,@religiousText,@aptitudesText,@otherText,@startOfSchooling,@occupation)", con);
 
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@prenatalText", prenatal_txt.Text);
-                cmd.Parameters.AddWithValue("@perinatalText", perinatal_txt.Text);
-                cmd.Parameters.AddWithValue("@postnatalText", postnatal_txt.Text);
+                cmd.Parameters.AddWithValue("@prenatalText", prenatal_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@perinatalText", perinatal_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@postnatalText", postnatal_dd.SelectedItem.Text);
                 if (normal_radio.Checked)
                 {
                     cmd.Parameters.AddWithValue("@milestoneRb", 0);
@@ -968,7 +1073,7 @@ namespace PCMS_Web.Doctor
                 { }
 
 
-                cmd.Parameters.AddWithValue("@childhoodText", childhood_area.InnerText);
+                cmd.Parameters.AddWithValue("@childhoodText", childhood_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
                 if (good_radio.Checked == true)
                 {
@@ -988,26 +1093,28 @@ namespace PCMS_Web.Doctor
                 { }
                 cmd.Parameters.AddWithValue("@occupationText", workOccupationRecord_area.InnerText);
 
-                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_txt.Text);
+                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@psychoSexualhistoryText", pschosexualHistory_area.InnerText);
-                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_area.InnerText);
-                cmd.Parameters.AddWithValue("@menoPauseText", menopause_area.InnerText);
+                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@maritalStatusDD", maritalStatus_dd.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("@genderDD", gender_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@childrenText", numberOfChildren_txt.Text);
-                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipOfSpouse_txt.InnerText);
-                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_area.InnerText);
+                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipWithSpouse_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@characteristicText", characteristic_area.InnerText);
-                cmd.Parameters.AddWithValue("@behaviorText", behaviour_area.InnerText);
-                cmd.Parameters.AddWithValue("@attitudeText", attitude_area.InnerText);
+                cmd.Parameters.AddWithValue("@characteristicText", characteristic_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@behaviorText", behaviour_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@attitudeText", attitude_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@relationText", relations_area.InnerText);
 
                 cmd.Parameters.AddWithValue("@achievementsText", achievements_area.InnerText);
                 cmd.Parameters.AddWithValue("@religiousText", religousMoralValues_area.InnerText);
                 cmd.Parameters.AddWithValue("@aptitudesText", Aptitudes_area.InnerText);
                 cmd.Parameters.AddWithValue("@otherText", others_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@startOfSchooling", startOfSchooling_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@occupation", workOccupation_dd.SelectedItem.Text);
 
                 cmd.Connection = con;
                 con.Open();
@@ -1030,23 +1137,34 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into familyHistory (patient_reg,temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText) values(@id,@temperamentDD,@familyPsychIllDD,@fatherText,@motherText,@siblingsText,@illnessTypeDD,@abuseHistoryDD,@typeText,@durationText,@amountText,@abuseModeText,@detoxificationText)", con);
+                SqlCommand cmd = new SqlCommand("insert into familyHistory (patient_reg,temperamentDD,familyPsychIllDD,fatherText,motherText,siblingsText,illnessTypeDD,abuseHistoryDD,typeText,durationText,amountText,abuseModeText,detoxificationText,admissionToxificationRadio, noOfDetoxAdmissionsDd) values(@id,@temperamentDD,@familyPsychIllDD,@fatherText,@motherText,@siblingsText,@illnessTypeDD,@abuseHistoryDD,@typeText,@durationText,@amountText,@abuseModeText,@detoxificationText,@admissionToxificationRadio, @noOfDetoxAdmissionsDd)", con);
 
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@temperamentDD", temperament_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@familyPsychIllDD", familyHistory_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@fatherText", father_area.InnerText);
+                cmd.Parameters.AddWithValue("@fatherText", father_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@motherText", mother_area.InnerText);
-                cmd.Parameters.AddWithValue("@siblingsText", siblings_area.InnerText);
+                cmd.Parameters.AddWithValue("@motherText", mother_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@siblingsText", siblings_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@illnessTypeDD", TypeOfFamilyHistory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@abuseHistoryDD", historyOfSubstanceAbuse_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@typeText", type_txt.Text);
-                cmd.Parameters.AddWithValue("@durationText", duration_txt.Text);
+                cmd.Parameters.AddWithValue("@typeText", historyOfSubstanceAbuse_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@durationText", duration_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@amountText", amount_area.InnerText);
-                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_area.InnerText);
+                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@detoxificationText", detoxification_area.InnerText);
+                cmd.Parameters.AddWithValue("@noOfDetoxAdmissionsDd", numberOfadmissionsDetox_dd.SelectedItem.Text);
+
+                if (yesAdmissionForDetoxification_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@admissionToxificationRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@admissionToxificationRadio", 2);
+                }
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -1065,79 +1183,79 @@ namespace PCMS_Web.Doctor
 
 
 
-        public void updateAdmissionHistory()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update admissionHistory set admissionType=@type,patientClassification=@classification where patient_reg='" + id + "'", con);
+        //public void updateAdmissionHistory()
+        //{
+        //    try
+        //    {
+        //        SqlConnection con = new SqlConnection(constring);
+        //        SqlCommand cmd = new SqlCommand("update admissionHistory set admissionType=@type,patientClassification=@classification where patient_reg='" + id + "'", con);
 
 
-                if (assessment_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 1);
-                }
+        //        if (assessment_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 1);
+        //        }
 
-                else if (treatment_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 2);
-                }
-                else if (urgent_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 3);
-                }
-                else if (emergency_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 4);
-                }
-                else if (care_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@type", 5);
-                }
-                else
-                {
-                }
-                if (judicial_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 1);
-                }
+        //        else if (treatment_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 2);
+        //        }
+        //        else if (urgent_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 3);
+        //        }
+        //        else if (emergency_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 4);
+        //        }
+        //        else if (care_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@type", 5);
+        //        }
+        //        else
+        //        {
+        //        }
+        //        if (judicial_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 1);
+        //        }
 
-                else if (nonJudicial_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 2);
-                }
-                else if (reception_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@classification", 3);
-                }
-                else
-                {
-                    alert_fail.Visible = true;
-                    error.Text = "Error! ";
-                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-                }
+        //        else if (nonJudicial_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 2);
+        //        }
+        //        else if (reception_radio.Checked == true)
+        //        {
+        //            cmd.Parameters.AddWithValue("@classification", 3);
+        //        }
+        //        else
+        //        {
+        //            alert_fail.Visible = true;
+        //            error.Text = "Error! ";
+        //            ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //        }
 
-                cmd.Connection = con;
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
+        //        cmd.Connection = con;
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
 
-                alert_success.Visible = true;
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-            }
-            catch (Exception ex)
-            {
-                alert_fail.Visible = true;
-                error.Text = "Error! " + ex.ToString();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
-            }
-        }
+        //        alert_success.Visible = true;
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        alert_fail.Visible = true;
+        //        error.Text = "Error! " + ex.ToString();
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+        //    }
+        //}
         public void updateIllnessHistory()
         {
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update illnessHistory set illHistoryText=@illHistoryText,currentTreatmentText=@currentTreatmentText,pastMedHistoryText=@pastMedHistoryText,pastPsychHistoryText=@pastPsychHistoryText,cureRb=@cureRb,cureText=@cureText,previousText=@previousText where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("update illnessHistory set illHistoryText=@illHistoryText,currentTreatmentText=@currentTreatmentText,pastMedHistoryText=@pastMedHistoryText,pastPsychHistoryText=@pastPsychHistoryText,cureRb=@cureRb,cureText=@cureText,previousText=@previousText,previousAdmissions=@previousAdmissions,treatmentHistoryDd=@treatmentHistoryDd, pastMedicalHistoryDd=@pastMedicalHistoryDd,pastPsychiatricHistoryDd=@pastPsychiatricHistoryDd where patient_reg='" + id + "'", con);
 
 
                 cmd.Parameters.AddWithValue("@illHistoryText", historyOfPresentIllness_area.InnerText);
@@ -1149,14 +1267,33 @@ namespace PCMS_Web.Doctor
                 {
                     cmd.Parameters.AddWithValue("@cureRb", 0);
                 }
-
-                else
+                else if (Radio2.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@cureRb", 1);
                 }
+                else if (Radio3.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 2);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@cureRb", 3);
+                }
+                //previous admissions radio
+                if (yesPreviousAdmission_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@previousAdmissions", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@previousAdmissions", 2);
+                }
 
                 cmd.Parameters.AddWithValue("@cureText", courseOfIllness_area.InnerText);
-                cmd.Parameters.AddWithValue("@previousText", previousAdmission_area.InnerText);
+                cmd.Parameters.AddWithValue("@previousText", noOfAdmissions_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@treatmentHistoryDd", treatmentHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@pastMedicalHistoryDd", pastMedicalHistory_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@pastPsychiatricHistoryDd", pastPsychiatricHistory_dd.SelectedItem.Text);
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -1177,7 +1314,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update drugHistory set drugsText=@drugsText,dosageText=@dosageText,durationText=@durationText,reponseText=@reponseText,reactionText=@reactionText,faithTreatmentText= @faithTreatmentText,forensicHistoryText=@forensicHistoryText where patient_reg=@id", con);
+                SqlCommand cmd = new SqlCommand("update drugHistory set drugsText=@drugsText,dosageText=@dosageText,durationText=@durationText,reponseText=@reponseText,reactionText=@reactionText,faithTreatmentText= @faithTreatmentText,forensicHistoryText=@forensicHistoryText,faithTreatmentRadio=@faithTreatmentRadio,forensicHistoryRadio=@forensicHistoryRadio,policeCaseRadio=@policeCaseRadio where patient_reg=@id", con);
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -1189,6 +1326,33 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@reactionText", drugReaction_area.InnerText);
                 cmd.Parameters.AddWithValue("@faithTreatmentText", treatmentByFaithHealer_area.InnerText);
                 cmd.Parameters.AddWithValue("@forensicHistoryText", forensicHistory_area.InnerText);
+                if (yesTreatmentByFaithHealer_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@faithTreatmentRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@faithTreatmentRadio", 2);
+                }
+
+                if (yesForensicHistory_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@forensicHistoryRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@forensicHistoryRadio", 2);
+                }
+
+                if (yesPoliceCase_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@policeCaseRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@policeCaseRadio", 2);
+                }
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -1209,12 +1373,12 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update personalDetails set prenatalText= @prenatalText,perinatalText=@perinatalText,postnatalText=@postnatalText,milestoneRb=@milestoneRb,childhoodText=@childhoodText,schoolingText=@schoolingText,educationRb=@educationRb,occupationText=@occupationText,incomeText=@incomeText,psychoSexualhistoryText=@psychoSexualhistoryText,menstrualHistoryText=@menstrualHistoryText,menoPauseText=@menoPauseText,maritalStatusDD=@maritalStatusDD,genderDD=@genderDD,childrenText=@childrenText,spouseRelationshipText=@spouseRelationshipText,hobbiesText=@hobbiesText,characteristicText=@characteristicText,behaviorText=@behaviorText,attitudeText=@attitudeText,relationText=@relationText,achievementsText=@achievementsText,religiousText=@religiousText,aptitudesText=@aptitudesText,otherText=@otherText where patient_reg='" + id + "'", con);
+                SqlCommand cmd = new SqlCommand("update personalDetails set prenatalText= @prenatalText,perinatalText=@perinatalText,postnatalText=@postnatalText,milestoneRb=@milestoneRb,childhoodText=@childhoodText,schoolingText=@schoolingText,educationRb=@educationRb,occupationText=@occupationText,incomeText=@incomeText,psychoSexualhistoryText=@psychoSexualhistoryText,menstrualHistoryText=@menstrualHistoryText,maritalStatusDD=@maritalStatusDD,genderDD=@genderDD,childrenText=@childrenText,spouseRelationshipText=@spouseRelationshipText,hobbiesText=@hobbiesText,characteristicText=@characteristicText,behaviorText=@behaviorText,attitudeText=@attitudeText,relationText=@relationText,achievementsText=@achievementsText,religiousText=@religiousText,aptitudesText=@aptitudesText,otherText=@otherText,startOfSchooling=@startOfSchooling,occupation=@occupation where patient_reg='" + id + "'", con);
 
 
-                cmd.Parameters.AddWithValue("@prenatalText", prenatal_txt.Text);
-                cmd.Parameters.AddWithValue("@perinatalText", perinatal_txt.Text);
-                cmd.Parameters.AddWithValue("@postnatalText", postnatal_txt.Text);
+                cmd.Parameters.AddWithValue("@prenatalText", prenatal_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@perinatalText", perinatal_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@postnatalText", postnatal_dd.SelectedItem.Text);
                 if (normal_radio.Checked)
                 {
                     cmd.Parameters.AddWithValue("@milestoneRb", 0);
@@ -1227,7 +1391,7 @@ namespace PCMS_Web.Doctor
                 { }
 
 
-                cmd.Parameters.AddWithValue("@childhoodText", childhood_area.InnerText);
+                cmd.Parameters.AddWithValue("@childhoodText", childhood_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
                 if (good_radio.Checked == true)
                 {
@@ -1247,26 +1411,28 @@ namespace PCMS_Web.Doctor
                 { }
                 cmd.Parameters.AddWithValue("@occupationText", workOccupationRecord_area.InnerText);
 
-                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_txt.Text);
+                cmd.Parameters.AddWithValue("@incomeText", monthlyIncome_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@psychoSexualhistoryText", pschosexualHistory_area.InnerText);
-                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_area.InnerText);
-                cmd.Parameters.AddWithValue("@menoPauseText", menopause_area.InnerText);
+                cmd.Parameters.AddWithValue("@menstrualHistoryText", menstrualHistory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@maritalStatusDD", maritalStatus_dd.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("@genderDD", gender_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@childrenText", numberOfChildren_txt.Text);
-                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipOfSpouse_txt.InnerText);
-                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_area.InnerText);
+                cmd.Parameters.AddWithValue("@spouseRelationshipText", relationshipWithSpouse_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@hobbiesText", hobbies_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@characteristicText", characteristic_area.InnerText);
-                cmd.Parameters.AddWithValue("@behaviorText", behaviour_area.InnerText);
-                cmd.Parameters.AddWithValue("@attitudeText", attitude_area.InnerText);
+                cmd.Parameters.AddWithValue("@characteristicText", characteristic_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@behaviorText", behaviour_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@attitudeText", attitude_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@relationText", relations_area.InnerText);
 
                 cmd.Parameters.AddWithValue("@achievementsText", achievements_area.InnerText);
                 cmd.Parameters.AddWithValue("@religiousText", religousMoralValues_area.InnerText);
                 cmd.Parameters.AddWithValue("@aptitudesText", Aptitudes_area.InnerText);
                 cmd.Parameters.AddWithValue("@otherText", others_area.InnerText);
+
+                cmd.Parameters.AddWithValue("@startOfSchooling", startOfSchooling_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@occupation", workOccupation_dd.SelectedItem.Text);
 
                 cmd.Connection = con;
                 con.Open();
@@ -1289,23 +1455,34 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update familyHistory set temperamentDD=@temperamentDD,familyPsychIllDD=@familyPsychIllDD,fatherText=@fatherText,motherText=@motherText,siblingsText=@siblingsText,illnessTypeDD=@illnessTypeDD,abuseHistoryDD=@abuseHistoryDD,typeText=@typeText,durationText=@durationText,amountText=@amountText,abuseModeText=@abuseModeText,detoxificationText=@detoxificationText where patient_reg='" + id +"'", con);
+                SqlCommand cmd = new SqlCommand("update familyHistory set temperamentDD=@temperamentDD,familyPsychIllDD=@familyPsychIllDD,fatherText=@fatherText,motherText=@motherText,siblingsText=@siblingsText,illnessTypeDD=@illnessTypeDD,abuseHistoryDD=@abuseHistoryDD,typeText=@typeText,durationText=@durationText,amountText=@amountText,abuseModeText=@abuseModeText,detoxificationText=@detoxificationText,admissionToxificationRadio=@admissionToxificationRadio, noOfDetoxAdmissionsDd=@noOfDetoxAdmissionsDd where patient_reg='" + id + "'", con);
 
 
                 cmd.Parameters.AddWithValue("@temperamentDD", temperament_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@familyPsychIllDD", familyHistory_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@fatherText", father_area.InnerText);
+                cmd.Parameters.AddWithValue("@fatherText", father_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@motherText", mother_area.InnerText);
-                cmd.Parameters.AddWithValue("@siblingsText", siblings_area.InnerText);
+                cmd.Parameters.AddWithValue("@motherText", mother_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@siblingsText", siblings_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@illnessTypeDD", TypeOfFamilyHistory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@abuseHistoryDD", historyOfSubstanceAbuse_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@typeText", type_txt.Text);
-                cmd.Parameters.AddWithValue("@durationText", duration_txt.Text);
+                cmd.Parameters.AddWithValue("@typeText", historyOfSubstanceAbuse_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@durationText", duration_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@amountText", amount_area.InnerText);
-                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_area.InnerText);
+                cmd.Parameters.AddWithValue("@abuseModeText", modeOfAbuse_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@detoxificationText", detoxification_area.InnerText);
+                cmd.Parameters.AddWithValue("@noOfDetoxAdmissionsDd", numberOfadmissionsDetox_dd.SelectedItem.Text);
+                
+                if (yesAdmissionForDetoxification_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@admissionToxificationRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@admissionToxificationRadio", 2);
+                }
+
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();

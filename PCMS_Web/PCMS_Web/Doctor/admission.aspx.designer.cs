@@ -10,150 +10,159 @@
 namespace PCMS_Web.Doctor {
     
     
-    public partial class WebForm1 {
+    public partial class WebForm22 {
         
         /// <summary>
-        /// history_btn control.
+        /// alert_success control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink history_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_success;
         
         /// <summary>
-        /// mentalStateExamination_btn control.
+        /// alert_fail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink mentalStateExamination_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alert_fail;
         
         /// <summary>
-        /// generalPhysicalExamination_btn control.
+        /// error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink generalPhysicalExamination_btn;
+        protected global::System.Web.UI.WebControls.Label error;
         
         /// <summary>
-        /// systematicExamination_btn control.
+        /// patientId_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink systematicExamination_btn;
+        protected global::System.Web.UI.WebControls.TextBox patientId_txt;
         
         /// <summary>
-        /// psychometricEvaluation_btn control.
+        /// visitNumber_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink psychometricEvaluation_btn;
+        protected global::System.Web.UI.WebControls.TextBox visitNumber_txt;
         
         /// <summary>
-        /// Investigation_btn control.
+        /// patientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Investigation_btn;
+        protected global::System.Web.UI.WebControls.TextBox patientName;
         
         /// <summary>
-        /// diagnosis_btn control.
+        /// ageTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink diagnosis_btn;
+        protected global::System.Web.UI.WebControls.TextBox ageTxt;
         
         /// <summary>
-        /// medication_btn control.
+        /// assessment_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink medication_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton assessment_radio;
         
         /// <summary>
-        /// counselling_btn control.
+        /// treatment_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink counselling_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton treatment_radio;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// urgent_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton urgent_radio;
         
         /// <summary>
-        /// formuation_btn control.
+        /// emergency_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink formuation_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton emergency_radio;
         
         /// <summary>
-        /// addPicture_btn control.
+        /// care_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink addPicture_btn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton care_radio;
         
         /// <summary>
-        /// dateToday control.
+        /// judicial_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateToday;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton judicial_radio;
         
         /// <summary>
-        /// employeeId control.
+        /// nonJudicial_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox employeeId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nonJudicial_radio;
         
         /// <summary>
-        /// patientTokenGrid control.
+        /// reception_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView patientTokenGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton reception_radio;
         
         /// <summary>
-        /// PatientTokenDataSource control.
+        /// updateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource PatientTokenDataSource;
+        protected global::System.Web.UI.WebControls.Button updateBtn;
+        
+        /// <summary>
+        /// saveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveBtn;
     }
 }

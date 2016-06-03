@@ -69,74 +69,16 @@
 
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Admission</a></li>
-                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Complaints</a></li>
+                                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Complaints</a></li>
                                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Illness History</a></li>
-                                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Drugs</a></li>
+                                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Detail of past treatment</a></li>
                                 <li role="presentation"><a href="#personalInfo" aria-controls="personalInfo" role="tab" data-toggle="tab">Personal Info</a></li>
                                 <li role="presentation"><a href="#personality" aria-controls="personality" role="tab" data-toggle="tab">Family</a></li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                    <div class="row">
-                                        <br />
-                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Type of Admission</h4>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <div class="col-sm-12">
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions3" id="assessment_radio" value="option1">
-                                                    Assessment
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions3" id="treatment_radio" value="option2">
-                                                    Treatment
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions3" id="urgent_radio" value="option3">
-                                                    Urgent
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions3" id="emergency_radio" value="option4">
-                                                    Emergency Holding
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions3" id="care_radio" value="option5">
-                                                    Care & treatment on informal / voluntary basis
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Patient classification</h4>
-                                    </div>
-                                    <br />
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <div class="col-sm-12">
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="judicial_radio" value="option1">
-                                                    Judicial Proceeding
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="nonJudicial_radio" value="option2">
-                                                    Non Judicial
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions1" id="reception_radio" value="option3">
-                                                    Reception Order
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End tab 1-->
-                                <div role="tabpanel" class="tab-pane fade" id="profile">
+                                <div role="tabpanel" class="tab-pane fade in active" id="profile">
                                     <div class="row">
                                         <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Presenting Complaints</h4>
                                         <br />
@@ -222,8 +164,16 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Current drug treatment</label>
-                                            <div class="col-sm-7">
+                                            <label class="col-sm-3 col-sm-offset-1">Treatment history</label>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="treatmentHistory_dd" name="treatmentHistory_dd" runat="server" CssClass="form-control" DataSourceID="MedicineDataSource" DataTextField="med_name" DataValueField="med_id">
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource runat="server" ID="MedicineDataSource" ConnectionString='<%$ ConnectionStrings:PCMS_ConnectionString %>' SelectCommand="SELECT * FROM [medicine]"></asp:SqlDataSource>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a onclick="addTreatmentHist()"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                            <div class="col-sm-4">
                                                 <textarea id="CurrentDrugTreatment_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -233,7 +183,23 @@
                                         <div class="form-group col-sm-12">
                                             <br />
                                             <label class="col-sm-3 col-sm-offset-1">Past medical history</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="pastMedicalHistory_dd" name="pastMedicalHistory_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Hyperthymic</asp:ListItem>
+                                                    <asp:ListItem>Hypothyroid</asp:ListItem>
+                                                    <asp:ListItem>Hypertension</asp:ListItem>
+                                                    <asp:ListItem>Diabetes</asp:ListItem>
+                                                    <asp:ListItem>Heart Disease</asp:ListItem>
+                                                    <asp:ListItem>Renal Disease</asp:ListItem>
+                                                    <asp:ListItem>Liver Disorder</asp:ListItem>
+                                                    <asp:ListItem>CVA</asp:ListItem>
+                                                    <asp:ListItem>Other Illness</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a onclick="addPastMedHist()"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                            <div class="col-sm-4">
                                                 <textarea id="pastMedicalHistory_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -243,7 +209,24 @@
                                         <div class="form-group col-sm-12">
                                             <br />
                                             <label class="col-sm-3 col-sm-offset-1">Past psychiatric history</label>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="pastPsychiatricHistory_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>None</asp:ListItem>
+                                                    <asp:ListItem>Schizophrenic</asp:ListItem>
+                                                    <asp:ListItem>Bipolar Disorder</asp:ListItem>
+                                                    <asp:ListItem>Obsessive Compulsive Disorder</asp:ListItem>
+                                                    <asp:ListItem>Depression</asp:ListItem>
+                                                    <asp:ListItem>Generalized Anxiety Disorder</asp:ListItem>
+                                                    <asp:ListItem>Personality Disorder</asp:ListItem>
+                                                    <asp:ListItem>Epilepsy</asp:ListItem>
+                                                    <asp:ListItem>Mental Disorder</asp:ListItem>
+                                                    <asp:ListItem>Others</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a onclick="addpastPsycHistory()"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                            <div class="col-sm-4">
                                                 <textarea id="pastPsychiatricHistory_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -254,14 +237,22 @@
                                         <div class="form-group col-sm-12">
                                             <br />
                                             <label class="col-sm-3 col-sm-offset-1">Course of illness</label>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                                 <label class="radio-inline">
-                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions2" id="Radio1" value="option1">
+                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions1" id="Radio1" value="option1">
                                                     Continuous
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions2" id="Radio2" value="option2">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="Radio2" value="option2">
                                                     Intermittent
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="Radio3" value="option3">
+                                                    Relaxed
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="Radio4" value="option4">
+                                                    Remission
                                                 </label>
                                             </div>
                                             <div class="col-sm-7">
@@ -275,8 +266,30 @@
                                         <div class="form-group col-sm-12">
                                             <br />
                                             <label class="col-sm-3 col-sm-offset-1">Previous admission / hospitalization</label>
-                                            <div class="col-sm-7">
-                                                <textarea id="previousAdmission_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
+                                            <div class="col-sm-3">
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="showAdmissionArea()" name="inlineRadioOptions2" id="yesPreviousAdmission_radio" value="option1">
+                                                    Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" checked onclick="hideAdmissionArea()" name="inlineRadioOptions2" id="noPreviousAdmission_radio" value="option2">
+                                                    No
+                                                </label>
+                                            </div>
+                                            <label class="col-sm-2" id="numberOfAdmissions_lbl" hidden>Number of admissions</label>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="noOfAdmissions_dd" runat="server" CssClass="form-control" style="display: none">
+                                                    <asp:ListItem>1</asp:ListItem>
+                                                    <asp:ListItem>2</asp:ListItem>
+                                                    <asp:ListItem>3</asp:ListItem>
+                                                    <asp:ListItem>4</asp:ListItem>
+                                                    <asp:ListItem>5</asp:ListItem>
+                                                    <asp:ListItem>6</asp:ListItem>
+                                                    <asp:ListItem>7</asp:ListItem>
+                                                    <asp:ListItem>8</asp:ListItem>
+                                                    <asp:ListItem>9</asp:ListItem>
+                                                    <asp:ListItem>10</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -285,14 +298,19 @@
                                 <!--End tab 3-->
                                 <div role="tabpanel" class="tab-pane fade" id="settings">
                                     <div class="row">
-                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Detail of past treatment</h4>
-                                    </div>
-                                    <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Drugs</label>
-                                            <div class="col-sm-7">
-                                                <textarea id="drugs_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
+                                            <label class="col-sm-2">Drugs</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="drugs_dd" runat="server" CssClass="form-control" DataSourceID="MedicineDataSource" DataTextField="med_name" DataValueField="med_id">
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:PCMS_ConnectionString %>' SelectCommand="SELECT * FROM [medicine]"></asp:SqlDataSource>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a onclick="addDrugs()"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <textarea id="drugs_area" cols="20" rows="3" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -317,7 +335,14 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Response to treatment</label>
+                                            <label class="col-sm-2">Response to treatment</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="responseToTreatment_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Improvement</asp:ListItem>
+                                                    <asp:ListItem>Partial Improvement</asp:ListItem>
+                                                    <asp:ListItem>No Improvement</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
                                             <div class="col-sm-7">
                                                 <textarea id="responseToTreatment_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
@@ -328,8 +353,16 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Drug Reaction</label>
-                                            <div class="col-sm-7">
+                                            <label class="col-sm-2">Drug Reaction</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="drugReaction_dd" runat="server" CssClass="form-control" DataSourceID="MedicineDataSource" DataTextField="med_name" DataValueField="med_id">
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:PCMS_ConnectionString %>' SelectCommand="SELECT * FROM [medicine]"></asp:SqlDataSource>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <a onclick="addDrugReaction()"><i class="fa fa-plus"></i> Add</a>
+                                            </div>
+                                            <div class="col-sm-6">
                                                 <textarea id="drugReaction_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -339,9 +372,19 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Treatment by faith healer</label>
-                                            <div class="col-sm-7">
-                                                <textarea id="treatmentByFaithHealer_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
+                                            <label class="col-sm-3">Treatment by faith healer</label>
+                                            <div class="col-sm-3">
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" checked onclick="showTreatmentFaithHealerArea()" name="inlineRadioOptions3" id="yesTreatmentByFaithHealer_radio" value="option1">
+                                                    Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="hideTreatmentFaithHealerArea()" name="inlineRadioOptions3" id="noTreatmentByFaithHealer_radio" value="option2">
+                                                    No
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <textarea id="treatmentByFaithHealer_area" cols="20" rows="4" class="form-control" runat="server" style="display:none"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -350,8 +393,29 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-                                            <label class="col-sm-3 col-sm-offset-1">Forensic history</label>
-                                            <div class="col-sm-7">
+                                            <label class="col-sm-3">Forensic history</label>
+                                            <div class="col-sm-2">
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions4" id="yesForensicHistory_radio" value="option1">
+                                                    Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="noForensicHistory_radio" value="option2">
+                                                    No
+                                                </label>
+                                            </div>
+                                            <label class="col-sm-2">Police Case</label>
+                                            <div class="col-sm-2">
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions5" id="yesPoliceCase_radio" value="option1">
+                                                    Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions5" id="noPoliceCase_radio" value="option2">
+                                                    No
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-3">
                                                 <textarea id="forensicHistory_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -362,26 +426,42 @@
                                 <div role="tabpanel" class="tab-pane fade" id="personalInfo">
                                     <div class="row">
                                         <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Personal History</h4>
-                                        <br />
                                     </div>
                                     <div class="row">
+                                        <br />
                                         <label class="col-sm-3">Birth History</label>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label class="col-sm-2">Prenatal</label>
-                                            <div class="col-sm-2">
-                                                <asp:TextBox ID="prenatal_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <label class="col-sm-1">Prenatal</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="prenatal_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Mother Illness</asp:ListItem>
+                                                    <asp:ListItem>History Of Drug Intake</asp:ListItem>
+                                                    <asp:ListItem>Physical Trauma</asp:ListItem>
+                                                    <asp:ListItem>Psychological Trauma</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
 
-                                            <label class="col-sm-2">Perinatal</label>
-                                            <div class="col-sm-2">
-                                                <asp:TextBox ID="perinatal_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <label class="col-sm-1">Perinatal</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="perinatal_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Trauma</asp:ListItem>
+                                                    <asp:ListItem>Asphyxia</asp:ListItem>
+                                                    <asp:ListItem>Illness</asp:ListItem>
+                                                    <asp:ListItem>Fits</asp:ListItem>
+                                                    <asp:ListItem>Premature Delivery</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
 
-                                            <label class="col-sm-2">Postnatal</label>
-                                            <div class="col-sm-2">
-                                                <asp:TextBox ID="postnatal_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <label class="col-sm-1">Postnatal</label>
+                                            <div class="col-sm-3">
+                                                <asp:DropDownList ID="postnatal_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Trauma</asp:ListItem>
+                                                    <asp:ListItem>Asphyxia</asp:ListItem>
+                                                    <asp:ListItem>Illness</asp:ListItem>
+                                                    <asp:ListItem>Fits</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -392,11 +472,11 @@
 
                                             <div class="col-sm-4">
                                                 <label class="radio-inline">
-                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions5" id="normal_radio" value="option1">
+                                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions6" id="normal_radio" value="option1">
                                                     Normal
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions5" id="delayed_radio" value="option2">
+                                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions6" id="delayed_radio" value="option2">
                                                     Delayed
                                                 </label>
                                             </div>
@@ -408,13 +488,24 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label class="col-sm-2">Childhood</label>
-                                            <div class="col-sm-4">
-                                                <textarea id="childhood_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="childhood_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Trauma</asp:ListItem>
+                                                    <asp:ListItem>Asphyxia</asp:ListItem>
+                                                    <asp:ListItem>Illness</asp:ListItem>
+                                                    <asp:ListItem>Fits</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
 
                                             <label class="col-sm-2">Start of schooling</label>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="startOfSchooling_dd" runat="server" CssClass="form-control" onchange="startOfSchoolingDd()">
+                                                    <asp:ListItem>In time</asp:ListItem>
+                                                    <asp:ListItem>Delayed</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
                                             <div class="col-sm-4">
-                                                <textarea id="startOfSchooling_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <textarea id="startOfSchooling_area" cols="20" rows="2" class="form-control" runat="server" style="display:none"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -445,13 +536,25 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label class="col-sm-2">Work/Occupation record</label>
-                                            <div class="col-sm-4">
-                                                <textarea id="workOccupationRecord_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="workOccupation_dd" runat="server" CssClass="form-control" onchange="occupationArea()">
+                                                    <asp:ListItem>Satisfactory</asp:ListItem>
+                                                    <asp:ListItem>Unsatisfactory</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <textarea id="workOccupationRecord_area" cols="20" rows="2" class="form-control" runat="server" style="display:none"></textarea>
                                             </div>
 
                                             <label class="col-sm-2">Monthly Income</label>
                                             <div class="col-sm-4">
-                                                <asp:TextBox ID="monthlyIncome_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                                <asp:DropDownList ID="monthlyIncome_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Poor</asp:ListItem>
+                                                    <asp:ListItem>Middle Class</asp:ListItem>
+                                                    <asp:ListItem>Lower Middle Class</asp:ListItem>
+                                                    <asp:ListItem>Upper Middle Class</asp:ListItem>
+                                                    <asp:ListItem>Middle Class</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -461,21 +564,20 @@
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Psychosexual history</label>
                                             <div class="col-sm-8">
-                                                <textarea id="pschosexualHistory_area" cols="20" rows="5" class="form-control" runat="server"></textarea>
+                                                <textarea id="pschosexualHistory_area" cols="20" rows="3" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <div class="row">
                                                 <label class="col-sm-4">Menstrual history</label>
                                                 <div class="col-sm-7">
-                                                    <textarea id="menstrualHistory_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <br />
-                                                <label class="col-sm-4">Menopause</label>
-                                                <div class="col-sm-7">
-                                                    <textarea id="menopause_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                    <asp:DropDownList ID="menstrualHistory_dd" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Dysmenorrhea</asp:ListItem>
+                                                        <asp:ListItem>Amenorrhea</asp:ListItem>
+                                                        <asp:ListItem>Menorrhagia</asp:ListItem>
+                                                        <asp:ListItem>Menopause</asp:ListItem>
+                                                        <asp:ListItem>Middle Class</asp:ListItem>
+                                                </asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
@@ -486,7 +588,7 @@
                                         <div class="form-group col-sm-12">
                                             <label class="col-sm-2">Marital status</label>
 
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-4">
                                                 <asp:DropDownList ID="maritalStatus_dd" runat="server" CssClass="form-control">
                                                     <asp:ListItem>Single</asp:ListItem>
                                                     <asp:ListItem>Married</asp:ListItem>
@@ -494,8 +596,8 @@
                                                     <asp:ListItem>Widow</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
-
-                                            <div class="col-sm-3">
+                                            <label class="col-sm-2">Gender</label>
+                                            <div class="col-sm-4">
                                                 <asp:DropDownList ID="gender_dd" runat="server" CssClass="form-control">
                                                     <asp:ListItem>Male</asp:ListItem>
                                                     <asp:ListItem>Female</asp:ListItem>
@@ -515,27 +617,67 @@
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Relationship with spouse</label>
                                             <div class="col-sm-8">
-                                                <textarea id="relationshipOfSpouse_txt" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="relationshipWithSpouse_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Good</asp:ListItem>
+                                                    <asp:ListItem>Fair</asp:ListItem>
+                                                    <asp:ListItem>Bad</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
+                                    <hr />
                                     <div class="row">
                                         <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Premorbid Personality</h4>
-                                        <br />
                                     </div>
 
                                     <div class="row">
+                                        <br />
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Hobbies/Interests</label>
                                             <div class="col-sm-8">
-                                                <textarea id="hobbies_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="hobbies_dd" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Reading</asp:ListItem>
+                                                        <asp:ListItem>Watching TV</asp:ListItem>
+                                                        <asp:ListItem>Going to Movies</asp:ListItem>
+                                                        <asp:ListItem>Fishing</asp:ListItem>
+                                                        <asp:ListItem>Computer</asp:ListItem>
+                                                        <asp:ListItem>Gardening</asp:ListItem>
+                                                        <asp:ListItem>Exercise</asp:ListItem>
+                                                        <asp:ListItem>Listening to Music</asp:ListItem>
+                                                        <asp:ListItem>Traveling</asp:ListItem>
+                                                        <asp:ListItem>Sleeping</asp:ListItem>
+                                                        <asp:ListItem>Watching Sports</asp:ListItem>
+                                                        <asp:ListItem>Cooking</asp:ListItem>
+                                                        <asp:ListItem>Hiking</asp:ListItem>
+                                                        <asp:ListItem>Swimming</asp:ListItem>
+                                                        <asp:ListItem>Bicycling</asp:ListItem>
+                                                        <asp:ListItem>Camping</asp:ListItem>
+                                                        <asp:ListItem>Socializing</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Characteristic</label>
                                             <div class="col-sm-8">
-                                                <textarea id="characteristic_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="characteristic_dd" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Achiever</asp:ListItem>
+                                                        <asp:ListItem>Active</asp:ListItem>
+                                                        <asp:ListItem>Ambitious</asp:ListItem>
+                                                        <asp:ListItem>Balanced</asp:ListItem>
+                                                        <asp:ListItem>Communicative</asp:ListItem>
+                                                        <asp:ListItem>Compassionate</asp:ListItem>
+                                                        <asp:ListItem>Competitive</asp:ListItem>
+                                                        <asp:ListItem>Emotional</asp:ListItem>
+                                                        <asp:ListItem>Fast</asp:ListItem>
+                                                        <asp:ListItem>Forgiving</asp:ListItem>
+                                                        <asp:ListItem>Generous</asp:ListItem>
+                                                        <asp:ListItem>Patient</asp:ListItem>
+                                                        <asp:ListItem>Open Minded</asp:ListItem>
+                                                        <asp:ListItem>Pleasant</asp:ListItem>
+                                                        <asp:ListItem>Political</asp:ListItem>
+                                                        <asp:ListItem>Sensitive</asp:ListItem>
+                                                        <asp:ListItem>Sporty</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -545,13 +687,61 @@
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Behaviour</label>
                                             <div class="col-sm-8">
-                                                <textarea id="behaviour_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="behaviour_dd" runat="server" CssClass="form-control">
+                                                        <asp:ListItem>Achiever</asp:ListItem>
+                                                        <asp:ListItem>Active</asp:ListItem>
+                                                        <asp:ListItem>Ambitious</asp:ListItem>
+                                                        <asp:ListItem>Balanced</asp:ListItem>
+                                                        <asp:ListItem>Communicative</asp:ListItem>
+                                                        <asp:ListItem>Compassionate</asp:ListItem>
+                                                        <asp:ListItem>Competitive</asp:ListItem>
+                                                        <asp:ListItem>Emotional</asp:ListItem>
+                                                        <asp:ListItem>Fast</asp:ListItem>
+                                                        <asp:ListItem>Forgiving</asp:ListItem>
+                                                        <asp:ListItem>Generous</asp:ListItem>
+                                                        <asp:ListItem>Patient</asp:ListItem>
+                                                        <asp:ListItem>Open Minded</asp:ListItem>
+                                                        <asp:ListItem>Pleasant</asp:ListItem>
+                                                        <asp:ListItem>Political</asp:ListItem>
+                                                        <asp:ListItem>Sensitive</asp:ListItem>
+                                                        <asp:ListItem>Sporty</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label class="col-sm-4">Attitude</label>
                                             <div class="col-sm-8">
-                                                <textarea id="attitude_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="attitude_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Affectionate</asp:ListItem>
+                                                    <asp:ListItem>Acceptance</asp:ListItem>
+                                                    <asp:ListItem>Aspiring</asp:ListItem>
+                                                    <asp:ListItem>Arrogant</asp:ListItem>
+                                                    <asp:ListItem>Affected</asp:ListItem>
+                                                    <asp:ListItem>Ambitious</asp:ListItem>
+                                                    <asp:ListItem>Motivated</asp:ListItem>
+                                                    <asp:ListItem>Caring</asp:ListItem>
+                                                    <asp:ListItem>Cruel</asp:ListItem>
+                                                    <asp:ListItem>Cheerless</asp:ListItem>
+                                                    <asp:ListItem>Cheerful</asp:ListItem>
+                                                    <asp:ListItem>Dishonest</asp:ListItem>
+                                                    <asp:ListItem>Dependent</asp:ListItem>
+                                                    <asp:ListItem>Emotional</asp:ListItem>
+                                                    <asp:ListItem>Envious</asp:ListItem>
+                                                    <asp:ListItem>Cooperative</asp:ListItem>
+                                                    <asp:ListItem>Courageous</asp:ListItem>
+                                                    <asp:ListItem>Determined</asp:ListItem>
+                                                    <asp:ListItem>Honest</asp:ListItem>
+                                                    <asp:ListItem>Hard working</asp:ListItem>
+                                                    <asp:ListItem>Reliable</asp:ListItem>
+                                                    <asp:ListItem>Responsible</asp:ListItem>
+                                                    <asp:ListItem>Self-confident</asp:ListItem>
+                                                    <asp:ListItem>Sincere</asp:ListItem>
+                                                    <asp:ListItem>Trusting</asp:ListItem>
+                                                    <asp:ListItem>Rude</asp:ListItem>
+                                                    <asp:ListItem>Selfish</asp:ListItem>
+                                                    <asp:ListItem>Self-centered</asp:ListItem>
+                                                    <asp:ListItem>Work-oriented</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -597,12 +787,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
+                                    <hr />
 
-                                </div>
-                                <!--End tab 5-->
-
-                                <div role="tabpanel" class="tab-pane fade" id="personality">
                                     <div class="row">
                                         <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Temperament</h4>
                                         <br />
@@ -610,8 +796,8 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
-
-                                            <div class="col-sm-3">
+                                            <label class="col-sm-2">Temperament</label>
+                                            <div class="col-sm-4">
                                                 <asp:DropDownList ID="temperament_dd" runat="server" CssClass="form-control">
                                                     <asp:ListItem>Euthymic</asp:ListItem>
                                                     <asp:ListItem>Irritable</asp:ListItem>
@@ -622,8 +808,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <br />
 
+                                </div>
+                                <!--End tab 5-->
+
+                                <div role="tabpanel" class="tab-pane fade" id="personality">
+                                   
                                     <div class="row">
                                         <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Family history of psychiatric illness</h4>
                                         <br />
@@ -632,8 +822,9 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <br />
+                                            <label class="col-sm-2">Psychiatric illness</label>
                                             <div class="col-sm-3">
-                                                <asp:DropDownList ID="familyHistory_dd" runat="server" CssClass="form-control">
+                                                <asp:DropDownList ID="familyHistory_dd" runat="server" CssClass="form-control" onchange="fatherSiblingMotherArea()">
                                                     <asp:ListItem>No</asp:ListItem>
                                                     <asp:ListItem>Yes</asp:ListItem>
                                                 </asp:DropDownList>
@@ -644,38 +835,26 @@
 
                                     <div class="row">
                                         <div class="form-group col-sm-6">
-                                            <label class="col-sm-4">Father</label>
+                                            <label class="col-sm-4" id="father_lbl" style="display:none">Father</label>
                                             <div class="col-sm-8">
-                                                <textarea id="father_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="father_dd" runat="server" CssClass="form-control" style="display:none">
+                                                    <asp:ListItem>None</asp:ListItem>
+                                                    <asp:ListItem>Schizophrenic</asp:ListItem>
+                                                    <asp:ListItem>Bipolar</asp:ListItem>
+                                                    <asp:ListItem>OCD</asp:ListItem>
+                                                    <asp:ListItem>Depression</asp:ListItem>
+                                                    <asp:ListItem>GAD</asp:ListItem>
+                                                    <asp:ListItem>PD</asp:ListItem>
+                                                    <asp:ListItem>Epilepsy</asp:ListItem>
+                                                    <asp:ListItem>M.R.</asp:ListItem>
+                                                    <asp:ListItem>Others</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label class="col-sm-4">Mother</label>
+                                            <label class="col-sm-4" id="mother_lbl" style="display:none">Mother</label>
                                             <div class="col-sm-8">
-                                                <textarea id="mother_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <label class="col-sm-2">Siblings</label>
-                                            <div class="col-sm-10">
-                                                <textarea id="siblings_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br />
-
-                                    <div class="row">
-                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Type Of Family History</h4>
-                                        <br />
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <div class="col-sm-4">
-                                                <asp:DropDownList ID="TypeOfFamilyHistory_dd" runat="server" CssClass="form-control">
+                                                <asp:DropDownList ID="mother_dd" runat="server" CssClass="form-control" style="display:none">
                                                     <asp:ListItem>None</asp:ListItem>
                                                     <asp:ListItem>Schizophrenic</asp:ListItem>
                                                     <asp:ListItem>Bipolar</asp:ListItem>
@@ -693,11 +872,58 @@
                                     <br />
 
                                     <div class="row">
-                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">History Of Substance Abuse</h4>
-                                        <br />
+                                        <div class="form-group col-sm-12">
+                                            <label class="col-sm-2" id="siblings_lbl" style="display:none">Siblings</label>
+                                            <div class="col-sm-4">
+                                                <asp:DropDownList ID="siblings_dd" runat="server" CssClass="form-control" style="display:none">
+                                                    <asp:ListItem>None</asp:ListItem>
+                                                    <asp:ListItem>Schizophrenic</asp:ListItem>
+                                                    <asp:ListItem>Bipolar</asp:ListItem>
+                                                    <asp:ListItem>OCD</asp:ListItem>
+                                                    <asp:ListItem>Depression</asp:ListItem>
+                                                    <asp:ListItem>GAD</asp:ListItem>
+                                                    <asp:ListItem>PD</asp:ListItem>
+                                                    <asp:ListItem>Epilepsy</asp:ListItem>
+                                                    <asp:ListItem>M.R.</asp:ListItem>
+                                                    <asp:ListItem>Others</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Family History</h4>
                                     </div>
                                     <div class="row">
+                                        <br />
                                         <div class="form-group col-sm-12">
+                                            <label class="col-sm-2">History</label>
+                                            <div class="col-sm-4">
+                                                <asp:DropDownList ID="TypeOfFamilyHistory_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>None</asp:ListItem>
+                                                    <asp:ListItem>Schizophrenic</asp:ListItem>
+                                                    <asp:ListItem>Bipolar</asp:ListItem>
+                                                    <asp:ListItem>OCD</asp:ListItem>
+                                                    <asp:ListItem>Depression</asp:ListItem>
+                                                    <asp:ListItem>GAD</asp:ListItem>
+                                                    <asp:ListItem>PD</asp:ListItem>
+                                                    <asp:ListItem>Epilepsy</asp:ListItem>
+                                                    <asp:ListItem>M.R.</asp:ListItem>
+                                                    <asp:ListItem>Others</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">History Of Substance Abuse</h4>
+                                    </div>
+                                    <div class="row">
+                                        <br />
+                                        <div class="form-group col-sm-12">
+                                            <label class="col-sm-2">Substance</label>
                                             <div class="col-sm-4">
                                                 <asp:DropDownList ID="historyOfSubstanceAbuse_dd" runat="server" CssClass="form-control">
                                                     <asp:ListItem>None</asp:ListItem>
@@ -710,19 +936,18 @@
                                                     <asp:ListItem>Others</asp:ListItem>
                                                 </asp:DropDownList>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <br />
-
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <label class="col-sm-2">Type</label>
-                                            <div class="col-sm-4">
-                                                <asp:TextBox ID="type_txt" CssClass="form-control" runat="server"></asp:TextBox>
-                                            </div>
                                             <label class="col-sm-2">Duration</label>
                                             <div class="col-sm-4">
-                                                <asp:TextBox ID="duration_txt" CssClass="form-control" runat="server"></asp:TextBox>
+                                                <asp:DropDownList ID="duration_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>3 months</asp:ListItem>
+                                                    <asp:ListItem>6 months</asp:ListItem>
+                                                    <asp:ListItem>1 year</asp:ListItem>
+                                                    <asp:ListItem>2 years</asp:ListItem>
+                                                    <asp:ListItem>3 years</asp:ListItem>
+                                                    <asp:ListItem>4 years</asp:ListItem>
+                                                    <asp:ListItem>More than 5 years</asp:ListItem>
+                                                    <asp:ListItem>More than 10 years</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -736,7 +961,12 @@
                                             </div>
                                             <label class="col-sm-2">Mode of abuse</label>
                                             <div class="col-sm-4">
-                                                <textarea id="modeOfAbuse_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
+                                                <asp:DropDownList ID="modeOfAbuse_dd" runat="server" CssClass="form-control">
+                                                    <asp:ListItem>Sniffing</asp:ListItem>
+                                                    <asp:ListItem>Drinking</asp:ListItem>
+                                                    <asp:ListItem>Injection</asp:ListItem>
+                                                    <asp:ListItem>Tablet</asp:ListItem>
+                                                </asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
@@ -745,7 +975,32 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label class="col-sm-3">Any admission for detoxification</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-2">
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" onclick="changeAdmissionDetox()" name="inlineRadioOptions8" id="yesAdmissionForDetoxification_radio" value="option1">
+                                                    Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input runat="server" type="radio" checked onclick="changeAdmissionDetox()" name="inlineRadioOptions8" id="noAdmissionForDetoxification_radio" value="option2">
+                                                    No
+                                                </label>
+                                            </div>
+                                            <label id="noOfAdmissionsDetox" class="col-sm-2" style="display:none">Number of admissions</label>
+                                            <div class="col-sm-2">
+                                                <asp:DropDownList ID="numberOfadmissionsDetox_dd" runat="server" CssClass="form-control" style="display: none">
+                                                    <asp:ListItem>1</asp:ListItem>
+                                                    <asp:ListItem>2</asp:ListItem>
+                                                    <asp:ListItem>3</asp:ListItem>
+                                                    <asp:ListItem>4</asp:ListItem>
+                                                    <asp:ListItem>5</asp:ListItem>
+                                                    <asp:ListItem>6</asp:ListItem>
+                                                    <asp:ListItem>7</asp:ListItem>
+                                                    <asp:ListItem>8</asp:ListItem>
+                                                    <asp:ListItem>9</asp:ListItem>
+                                                    <asp:ListItem>10</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-3">
                                                 <textarea id="detoxification_area" cols="20" rows="2" class="form-control" runat="server"></textarea>
                                             </div>
                                         </div>
@@ -783,5 +1038,262 @@
             e.preventDefault()
             $(this).tab('show')
         })
+
+        function addPastMedHist()
+        {
+            var ddlObj = document.getElementById("<%=pastMedicalHistory_dd.ClientID %>");
+            var selectedText = ddlObj.options[ddlObj.selectedIndex].innerHTML;
+            var selectedValue = ddlObj.value;
+
+            var textArea = document.getElementById("<%=pastMedicalHistory_area.ClientID %>");
+            var str = textArea.value;
+            var pos = str.search(selectedValue);
+            if(pos == -1)
+            {
+                if (textArea.value == "") {
+                    textArea.value = textArea.value + selectedValue;
+                }
+                else {
+                    textArea.value = textArea.value + ", " + selectedValue;
+                }
+            }
+        }
+
+        function addTreatmentHist()
+        {
+            var ddlObj = document.getElementById("<%=treatmentHistory_dd.ClientID %>");
+            var selectedText = ddlObj.options[ddlObj.selectedIndex].innerHTML;
+            var selectedValue = ddlObj.value;
+
+            var textArea = document.getElementById("<%=CurrentDrugTreatment_area.ClientID %>");
+            var str = textArea.value;
+            var pos = str.search(selectedText);
+            if (pos == -1) {
+                if (textArea.value == "")
+                {
+                    textArea.value = textArea.value + selectedText;
+                }
+                else
+                {
+                    textArea.value = textArea.value + ", " + selectedText;
+                }
+            }
+        }
+
+        function addpastPsycHistory() {
+            var ddlObj = document.getElementById("<%=pastPsychiatricHistory_dd.ClientID %>");
+            var selectedText = ddlObj.options[ddlObj.selectedIndex].innerHTML;
+            var selectedValue = ddlObj.value;
+
+            var textArea = document.getElementById("<%=pastPsychiatricHistory_area.ClientID %>");
+            var str = textArea.value;
+            var pos = str.search(selectedValue);
+            if (pos == -1) {
+                if (textArea.value == "") {
+                    textArea.value = textArea.value + selectedValue;
+                }
+                else {
+                    textArea.value = textArea.value + ", " + selectedValue;
+                }
+            }
+        }
+
+        function showAdmissionArea()
+        {
+            var ddlObj = document.getElementById("<%=yesPreviousAdmission_radio.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if(selectedValue == "option1")
+            {
+                var lblObj = document.getElementById("numberOfAdmissions_lbl").style.display = 'block';
+                var ddObj = document.getElementById("<%=noOfAdmissions_dd.ClientID %>").style.display = 'block';
+            }
+        }
+
+        function hideAdmissionArea() {
+            var ddlObj = document.getElementById("<%=noPreviousAdmission_radio.ClientID %>");
+            var selectedValue = ddlObj.value;
+
+            if (selectedValue == "option2") {
+                var lblObj = document.getElementById("numberOfAdmissions_lbl").style.display = 'none';
+                var ddObj = document.getElementById("<%=noOfAdmissions_dd.ClientID %>").style.display = 'none';
+            }
+        }
+
+        function startOfSchoolingDd()
+        {
+            var ddlObj = document.getElementById("<%=startOfSchooling_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "In time")
+            {
+                hideStartOfSchoolingArea();
+            }
+            else
+            {
+                showStartOfSchoolingArea();
+            }
+        }
+
+        function occupationArea()
+        {
+            var ddlObj = document.getElementById("<%=workOccupation_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "Satisfactory") {
+                hideWorkOccupationArea();
+            }
+            else {
+                showWorkOccupationArea();
+            }
+        }
+
+        function hideWorkOccupationArea() {
+            var ddlObj = document.getElementById("<%=workOccupation_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "Satisfactory") {
+                var areaObj = document.getElementById("<%=workOccupationRecord_area.ClientID %>").style.display = 'none';
+            }
+        }
+
+        function showWorkOccupationArea() {
+            var ddlObj = document.getElementById("<%=workOccupation_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "Unsatisfactory") {
+                var areaObj = document.getElementById("<%=workOccupationRecord_area.ClientID %>").style.display = 'block';
+            }
+        }
+
+
+        function showStartOfSchoolingArea() {
+            var ddlObj = document.getElementById("<%=startOfSchooling_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "Delayed") {
+                var areaObj = document.getElementById("<%=startOfSchooling_area.ClientID %>").style.display = 'block';
+            }
+        }
+
+        function hideStartOfSchoolingArea() {
+            var ddlObj = document.getElementById("<%=startOfSchooling_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "In time") {
+                var areaObj = document.getElementById("<%=startOfSchooling_area.ClientID %>").style.display = 'none';
+            }
+        }
+
+        function addDrugs()
+        {
+            var ddlObj = document.getElementById("<%=drugs_dd.ClientID %>");
+            var selectedText = ddlObj.options[ddlObj.selectedIndex].innerHTML;
+            var selectedValue = ddlObj.value;
+
+            var textArea = document.getElementById("<%=drugs_area.ClientID %>");
+            var str = textArea.value;
+            var pos = str.search(selectedText);
+            if (pos == -1) {
+                if (textArea.value == "") {
+                    textArea.value = textArea.value + selectedText;
+                }
+                else {
+                    textArea.value = textArea.value + ", " + selectedText;
+                }
+            }
+        }
+
+        function addDrugReaction() {
+            var ddlObj = document.getElementById("<%=drugReaction_dd.ClientID %>");
+            var selectedText = ddlObj.options[ddlObj.selectedIndex].innerHTML;
+            var selectedValue = ddlObj.value;
+
+            var textArea = document.getElementById("<%=drugReaction_area.ClientID %>");
+            var str = textArea.value;
+            var pos = str.search(selectedText);
+            if (pos == -1) {
+                if (textArea.value == "") {
+                    textArea.value = textArea.value + selectedText;
+                }
+                else {
+                    textArea.value = textArea.value + ", " + selectedText;
+                }
+            }
+        }
+
+        function showTreatmentFaithHealerArea() {
+            var ddlObj = document.getElementById("<%=yesTreatmentByFaithHealer_radio.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "option1") {
+                var ddObj = document.getElementById("<%=treatmentByFaithHealer_area.ClientID %>").style.display = 'block';
+            }
+        }
+
+        function hideTreatmentFaithHealerArea() {
+            var ddlObj = document.getElementById("<%=noTreatmentByFaithHealer_radio.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "option2") {
+                var ddObj = document.getElementById("<%=treatmentByFaithHealer_area.ClientID %>").style.display = 'none';
+            }
+        }
+
+        function fatherSiblingMotherArea() {
+            var ddlObj = document.getElementById("<%=familyHistory_dd.ClientID %>");
+            var selectedValue = ddlObj.value;
+            if (selectedValue == "No") {
+                hideFatherMotherSibArea();
+            }
+            else {
+                showFatherMotherSibArea();
+            }
+        }
+
+        function showFatherMotherSibArea() {
+            var fatherLbl = document.getElementById("father_lbl").style.display = 'block';
+            var motherLbl = document.getElementById("mother_lbl").style.display = 'block';
+            var siblingsLbl = document.getElementById("siblings_lbl").style.display = 'block';
+            var fatherDd = document.getElementById("<%=father_dd.ClientID %>").style.display = 'block';
+            var motherDd = document.getElementById("<%=mother_dd.ClientID %>").style.display = 'block';
+            var siblingsDd = document.getElementById("<%=siblings_dd.ClientID %>").style.display = 'block';
+        }
+
+        function hideFatherMotherSibArea() {
+            var fatherLbl = document.getElementById("father_lbl").style.display = 'none';
+            var motherLbl = document.getElementById("mother_lbl").style.display = 'none';
+            var siblingsLbl = document.getElementById("siblings_lbl").style.display = 'none';
+            var fatherDd = document.getElementById("<%=father_dd.ClientID %>").style.display = 'none';
+            var motherDd = document.getElementById("<%=mother_dd.ClientID %>").style.display = 'none';
+            var siblingsDd = document.getElementById("<%=siblings_dd.ClientID %>").style.display = 'none';
+        }
+
+        function changeAdmissionDetox()
+        {
+            if (document.getElementById('<%=yesAdmissionForDetoxification_radio.ClientID %>').checked) {
+                var lblObj = document.getElementById("noOfAdmissionsDetox").style.display = 'block';
+                var ddObj = document.getElementById("<%=numberOfadmissionsDetox_dd.ClientID %>").style.display = 'block';
+            }
+            else{
+                var lblObj = document.getElementById("noOfAdmissionsDetox").style.display = 'none';
+                var ddObj = document.getElementById("<%=numberOfadmissionsDetox_dd.ClientID %>").style.display = 'none';
+            }
+        }
+
+        window.onload = function () {
+            if (document.getElementById('<%=yesPreviousAdmission_radio.ClientID %>').checked) {
+                var lblObj = document.getElementById("numberOfAdmissions_lbl").style.display = 'block';
+                var ddObj = document.getElementById("<%=noOfAdmissions_dd.ClientID %>").style.display = 'block';
+            }
+            if (document.getElementById('<%=yesTreatmentByFaithHealer_radio.ClientID %>').checked) {
+                var ddObj = document.getElementById("<%=treatmentByFaithHealer_area.ClientID %>").style.display = 'block';
+            }
+            if (document.getElementById('<%=yesAdmissionForDetoxification_radio.ClientID %>').checked) {
+                var ddObj = document.getElementById("<%=detoxification_area.ClientID %>").style.display = 'block';
+                var ddObj1 = document.getElementById("<%=numberOfadmissionsDetox_dd.ClientID %>").style.display = 'block'; 
+                var lblObj = document.getElementById("noOfAdmissionsDetox").style.display = 'block';
+            }
+            if (document.getElementById('<%=startOfSchooling_dd.ClientID %>').value == "Delayed") {
+                var areaObj = document.getElementById("<%=startOfSchooling_area.ClientID %>").style.display = 'block';
+            }
+            if (document.getElementById('<%=workOccupation_dd.ClientID %>').value == "Unsatisfactory") {
+                var areaObj = document.getElementById("<%=workOccupationRecord_area.ClientID %>").style.display = 'block';
+            }
+            if (document.getElementById('<%=familyHistory_dd.ClientID %>').value == "Yes") {
+                showFatherMotherSibArea();
+            }
+        };
     </script>
 </asp:Content>
