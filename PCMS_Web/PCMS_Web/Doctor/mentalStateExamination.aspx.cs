@@ -51,11 +51,10 @@ namespace PCMS_Web.Doctor
                     submit_btn.Visible = false;
                     update.Visible = true;
                     physicalAppearance_txt.Text = dr["Physical_Appearance"].ToString();
-                    dress_txt.Text = dr["Dress"].ToString();
-                    posture_txt.Text = dr["Posture"].ToString();
+                    dress_txt.SelectedItem.Text = dr["Dress"].ToString();
+                    posture_txt.SelectedItem.Text = dr["Posture"].ToString();
                     rapport_txt.Text = dr["Rapport"].ToString();
                     eyeContact_txt.Text = dr["Eye_Contact"].ToString();
-                    injury_txt.Text = dr["Injury"].ToString();
                     if (dr["Cooperative"].ToString() == "1")
                     {
                         cooperative_radio.Checked = true;
@@ -88,16 +87,30 @@ namespace PCMS_Web.Doctor
                     }
 
 
-                    psychomotorActivity_dd.SelectedItem.Text = dr["Psychomotor_activity"].ToString();
-                    movements_dd.Text = dr["Movements"].ToString();
-                    speech_dd.SelectedItem.Text = dr["Speech"].ToString();
+                    psychomotorActivity_dd.SelectedValue = dr["Psychomotor_activity"].ToString();
+                    movements_dd.SelectedValue = dr["Movements"].ToString();
+
+                    if (dr["Movements"].ToString() == "Abnormal")
+                    {
+                        involuntary_dd.SelectedValue = dr["Involuntary"].ToString();
+                        voluntary_dd.SelectedValue = dr["Voluntary"].ToString();
+
+                    }
+                    else
+                    {
+                        involuntary_dd.SelectedValue = "None";
+                        voluntary_dd.SelectedValue = "None";
+                    }
+                    speech_dd.SelectedValue = dr["Speech"].ToString();
                     tone_txt.Text = dr["Tone"].ToString();
-                    rate_txt.Text = dr["Rate"].ToString();
-                    rhythm_txt.Text = dr["Rhythm"].ToString();
-                    volume_dd.Text = dr["Volume"].ToString();
+                    relevance_txt.Text = dr["Relevance"].ToString();
+                    coherence_txt.Text = dr["Coherence"].ToString();
+                    volume_dd.SelectedValue = dr["Volume"].ToString();
+                    relevant_dd.SelectedValue = dr["Volume2"].ToString();
+
                     sampleTalk_area.Value = dr["Sample_of_talk"].ToString();
-                    subjective_txt.Text = dr["mood_Subjective"].ToString();
-                    objective_dd.SelectedItem.Text = dr["mood_Objective"].ToString();
+                    subjective_dd.SelectedValue = dr["mood_Subjective"].ToString();
+                    objective_dd.SelectedValue = dr["mood_Objective"].ToString();
 
                     if (dr["Stream_of_thoughts_Poverty"].ToString() == "1")
                     {
@@ -115,7 +128,7 @@ namespace PCMS_Web.Doctor
                     }
                     else
                     {
-                        pressureOfThought_cb.Checked = true;
+                        pressureOfThought_cb.Checked = false;
                     }
 
                     if (dr["Stream_of_thoughts_Thought"].ToString() == "1")
@@ -194,7 +207,7 @@ namespace PCMS_Web.Doctor
                     }
                     else
                     {
-                        tangentiality.Checked = true;
+                        tangentiality.Checked = false;
                     }
                     if (dr["Circumstanciality"].ToString() == "1")
                     {
@@ -267,8 +280,8 @@ namespace PCMS_Web.Doctor
                         worthlessness_cb.Checked = false;
                     }
 
-                     delusions_dd.SelectedItem.Text = dr["Delusions1"].ToString();
-                     delusions2_dd.SelectedItem.Text = dr["Delusions2"].ToString();
+                     delusions_dd.SelectedItem.Text = dr["DelusionsType"].ToString();
+                     delusions2_dd.SelectedItem.Text = dr["DelusionsContent"].ToString();
 
                     if (dr["Delusions_of_reference"].ToString() == "1")
                     {
@@ -357,6 +370,7 @@ namespace PCMS_Web.Doctor
                     obsessiveCompulsivePhenomena_area.Value = dr["Obsessive_Compulsive_Phenomena"].ToString();
                     phobias_area.Value = dr["PHOBIAS"].ToString();
                     disordersOfPerception_area.Value = dr["Disorders_Of_Perception"].ToString();
+
                     if (dr["Depersonalization"].ToString() == "1")
                     {
                         depersonalization_radio.Checked = true;
@@ -368,44 +382,96 @@ namespace PCMS_Web.Doctor
                         derealozation_radio.Checked = true;
                     }
 
-                    if (dr["Auditory_redio"].ToString() == "1")
+                    hallucinations_dd.SelectedValue = dr["hallucinations"].ToString();
+                    if (dr["hallucinations"].ToString() == "Auditory")
                     {
-                        depersonalization_radio.Checked = true;
-                        depersonalization_radio.Checked = false;
-                        derealozation_radio.Checked = false;
-                    }
-                    else if (dr["Auditory_redio"].ToString() == "2")
-                    {
-                        depersonalization_radio.Checked = true;
-                        depersonalization_radio.Checked = false;
-                        derealozation_radio.Checked = false;
 
-
-                    }
-                    else if (dr["Auditory_redio"].ToString() == "3")
-                    {
-                        derealozation_radio.Checked = true;
-                        depersonalization_radio.Checked = false;
-                        depersonalization_radio.Checked = false;
-
-
+                        if (dr["Auditory_redio"].ToString()=="1")
+                        {
+                            secondPerson_radio.Checked = true;
+                       }
+                        else if (dr["Auditory_redio"].ToString() == "2")
+                        {
+                            thirdPerson_radio.Checked = true;
+                        }
+                        else if (dr["Auditory_redio"].ToString() == "3")
+                        {
+                            runningCommentary_radio.Checked = true;
+                        }
                     }
 
-                    hallucinations_dd.SelectedItem.Text = dr["Auditory"].ToString();
-                    illusions_area.Value = dr["Illusions"].ToString();
-                    consciouness_dd.SelectedItem.Text = dr["Consciousness"].ToString();
-                    time_txt.Text = dr["Orientation_time"].ToString();
-                    place_txt.Text = dr["Orientation_duraton"].ToString();
-                    person_txt.Text = dr["Orientation_person"].ToString();
+                    //if (dr["Auditory_redio"].ToString() == "1")
+                    //{
+                    //    depersonalization_radio.Checked = true;
+                    //    depersonalization_radio.Checked = false;
+                    //    derealozation_radio.Checked = false;
+                    //}
+                    //else if (dr["Auditory_redio"].ToString() == "2")
+                    //{
+                    //    depersonalization_radio.Checked = true;
+                    //    depersonalization_radio.Checked = false;
+                    //    derealozation_radio.Checked = false;
 
-                    serialSevenTest_txt.Text = dr["Serial_Seven_Test"].ToString();
-                    serialThreeTest_txt.Text = dr["Serial_Three_Test"].ToString();
-                    intelligence_dd.SelectedItem.Text = dr["Intelligence"].ToString();
 
-                    iq_txt.Text = dr["IQ"].ToString();
-                    memory_dd.SelectedItem.Text = dr["Memory"].ToString();
-                    judgement_dd.SelectedItem.Text = dr["Judgement"].ToString();
-                    generalKnowledge_area.Value = dr["General_Knowledge"].ToString();
+                    //}
+                    //else if (dr["Auditory_redio"].ToString() == "3")
+                    //{
+                    //    derealozation_radio.Checked = true;
+                    //    depersonalization_radio.Checked = false;
+                    //    depersonalization_radio.Checked = false;
+
+
+                    //}
+                    if (dr["Illusions"].ToString() == "1")
+                    {
+                        yesIllusions_radio.Checked = true;
+                        illusions_area.Value = dr["IllusionsText"].ToString();
+                    }
+                    else
+                    {
+                        noIllusions_radio.Checked = true;
+                        illusions_area.Value = ""; ;
+                    }
+
+
+                    hallucinations_dd.SelectedItem.Text = dr["hallucinations"].ToString();
+                    consciouness_dd.SelectedValue = dr["Consciousness"].ToString();
+                    Orientation_dd.SelectedValue = dr["Orientation"].ToString();
+
+                    if (dr["Serial_Seven"].ToString() == "1")
+                    {
+                        sevenTestRado1.Checked = true;
+                        sevenTestRado2.Checked = false;
+
+                        serialSevenTest_txt.Text = dr["Serial_Seven_Text"].ToString();
+                    }
+                    else
+                    {
+                        sevenTestRado2.Checked = true;
+                        sevenTestRado1.Checked = false;
+
+                        serialSevenTest_txt.Text = "";
+                    }
+                    if (dr["Serial_Three"].ToString() == "1")
+                    {
+                        threeTestRado1.Checked = true;
+                        threeTestRado2.Checked = false;
+
+                        serialThreeTest_txt.Text = dr["Serial_Three_Text"].ToString();
+                    }
+                    else
+                    {
+                        threeTestRado1.Checked = false;
+                        threeTestRado2.Checked = true;
+                        serialThreeTest_txt.Text = "";
+                    }
+
+                    intelligence_dd.SelectedValue = dr["Intelligence"].ToString();
+
+                    iq_txt.SelectedValue = dr["IQ"].ToString();
+                    memory_dd.SelectedValue = dr["Memory"].ToString();
+                    judgement_dd.SelectedValue = dr["Judgement"].ToString();
+                    generalKnowledge_dd.SelectedValue = dr["General_Knowledge"].ToString();
 
                     concreteThinking_area.Value = dr["Concrete_thinking"].ToString();
                     abstractThinking_area.Value = dr["Abstrac_thinking"].ToString();
@@ -430,37 +496,18 @@ namespace PCMS_Web.Doctor
         protected void submit_btn_Click(object sender, EventArgs e)
         {
 
-
-        string query= "INSERT INTO mentalStateExamination(patient_id,Physical_Appearance,Dress,Posture,Rapport,Eye_Contact,Injury,Cooperative,Communicative" +
-           ",Psychomotor_activity,Movements,Speech,Tone,Rate,Rhythm,Volume,Sample_of_talk,mood_Subjective,mood_Objective,Stream_of_thoughts_Poverty,Stream_of_thoughts_Pressure" +
-           ",Stream_of_thoughts_Thought,Flight_of_Ideas,Clang_association,Loosening_of_association,Knights_move,Derailment,Word_salad,Taking_past_the_point,Tangentiality,Circumstanciality,Preservation,Neologism" +
-           ",Suicidal_Ideatio,Homicidal_Ideation,Hopelessness,Helplessness,Worthlessness,Delusions1,Delusions2,Delusions_of_reference" +
-           ",Grandiose_guilt,Nihilistic,Hypochondriacal,Religious,Sexual,Delusion_of_control,Thought_insertion,Withdrawal,Thought_broadcasting,Obsessive_Compulsive_Phenomena" +
-           ",PHOBIAS,Disorders_Of_Perception,Depersonalization,Auditory_redio,Auditory,Illusions,Consciousness,Orientation_time,Orientation_duraton" +
-           ",Orientation_person,Serial_Seven_Test,Serial_Three_Test,Intelligence,IQ,Memory,Judgement,General_Knowledge,Concrete_thinking" +
-           ",Abstrac_thinking,Insight)" +
-           "VALUES('"+id+"', @Physical_Appearance,@Dress,@Posture,@Rapport,@Eye_Contact,@Injury,@Cooperative,@Communicative" +
-           ",@Psychomotor_activity,@Movements,@Speech,@Tone,@Rate,@Rhythm,@Volume,@Sample_of_talk,@mood_Subjective,@mood_Objective,@Stream_of_thoughts_Poverty,@Stream_of_thoughts_Pressure" +
-           ",@Stream_of_thoughts_Thought,@Flight_of_Ideas,@Clang_association,@Loosening_of_association,@Knights_move,@Derailment,@Word_salad,@Taking_past_the_point,@Tangentiality,@Circumstanciality,@Preservation,@Neologism" +
-           ",@Suicidal_Ideatio,@Homicidal_Ideation,@Hopelessness,@Helplessness,@Worthlessness,@Delusions1,@Delusions2,@Delusions_of_reference" +
-           ",@Grandiose_guilt,@Nihilistic,@Hypochondriacal,@Religious,@Sexual,@Delusion_of_control,@Thought_insertion,@Withdrawal,@Thought_broadcasting,@Obsessive_Compulsive_Phenomena" +
-           ",@PHOBIAS,@Disorders_Of_Perception,@Depersonalization,@Auditory_redio,@Auditory,@Illusions,@Consciousness,@Orientation_time,@Orientation_duraton" +
-           ",@Orientation_person,@Serial_Seven_Test,@Serial_Three_Test,@Intelligence,@IQ,@Memory,@Judgement,@General_Knowledge,@Concrete_thinking" +
-           ",@Abstrac_thinking,@Insight)";
-
-
-
-
+        string query= "INSERT INTO doctor.dbo.mentalStateExamination(Physical_Appearance, Dress, Posture, Rapport, Eye_Contact, Cooperative, Communicative, Psychomotor_activity, Movements, Involuntary, Voluntary, Speech, Tone, Relevance, Coherence , Volume, volume2, Sample_of_talk, mood_Subjective, mood_Objective, Stream_of_thoughts_Poverty, Stream_of_thoughts_Pressure, Stream_of_thoughts_Thought, Flight_of_Ideas, Clang_association, Loosening_of_association, Knights_move, Derailment, Word_salad, Taking_past_the_point, Tangentiality, Circumstanciality , Preservation, Neologism, Suicidal_Ideatio, Homicidal_Ideation , Hopelessness, Helplessness, Worthlessness, DelusionsType , DelusionsContent, Delusions_of_reference, Grandiose_guilt, Nihilistic, Hypochondriacal, Religious, Sexual, Delusion_of_control, Thought_insertion, Withdrawal, Thought_broadcasting, Obsessive_Compulsive_Phenomena, PHOBIAS, Disorders_Of_Perception, Depersonalization, hallucinations, Auditory_redio, Illusions, IllusionsText, Consciousness, Orientation, Serial_Seven, Serial_Three, Serial_Seven_Text, Serial_Three_Text, Intelligence, IQ, Memory , Judgement, General_Knowledge, Concrete_thinking, Concrete_thinking_Text, Abstrac_thinking, Insight, patient_id)VALUES (@Physical_Appearance, @Dress, @Posture, @Rapport, @Eye_Contact, @Cooperative, @Communicative, @Psychomotor_activity, @Movements, @Involuntary, @Voluntary, @Speech, @Tone, @Relevance, @Coherence, @Volume, @volume2, @Sample_of_talk, @mood_Subjective, @mood_Objective, @Stream_of_thoughts_Poverty, @Stream_of_thoughts_Pressure, @Stream_of_thoughts_Thought, @Flight_of_Ideas, @Clang_association, @Loosening_of_association, @Knights_move, @Derailment, @Word_salad, @Taking_past_the_point, @Tangentiality, @Circumstanciality, @Preservation, @Neologism, @Suicidal_Ideatio, @Homicidal_Ideation, @Hopelessness, @Helplessness, @Worthlessness, @DelusionsType, @DelusionsContent, @Delusions_of_reference, @Grandiose_guilt, @Nihilistic, @Hypochondriacal, @Religious, @Sexual, @Delusion_of_control, @Thought_insertion, @Withdrawal, @Thought_broadcasting, @Obsessive_Compulsive_Phenomena, @PHOBIAS, @Disorders_Of_Perception, @Depersonalization, @hallucinations, @Auditory_redio, @Illusions, @IllusionsText, @Consciousness, @Orientation, @Serial_Seven, @Serial_Three, @Serial_Seven_Text, @Serial_Three_Text, @Intelligence, @IQ, @Memory, @Judgement, @General_Knowledge, @Concrete_thinking, @Concrete_thinking_Text, @Abstrac_thinking, @Insight, @patient_id)";
             try
             {
                 SqlConnection con = new SqlConnection(constring);
                 SqlCommand cmd = new SqlCommand(query, con);
+                
+                cmd.Parameters.AddWithValue("@patient_id", id);
                 cmd.Parameters.AddWithValue("@Physical_Appearance", physicalAppearance_txt.Text);
                 cmd.Parameters.AddWithValue("@Dress", dress_txt.Text);
                 cmd.Parameters.AddWithValue("@Posture", posture_txt.Text);
                 cmd.Parameters.AddWithValue("@Rapport", rapport_txt.Text);
                 cmd.Parameters.AddWithValue("@Eye_Contact", eyeContact_txt.Text);
-                cmd.Parameters.AddWithValue("@Injury", injury_txt.Text);
                 if (cooperative_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Cooperative", 1);
@@ -488,13 +535,26 @@ namespace PCMS_Web.Doctor
 
                 cmd.Parameters.AddWithValue("@Psychomotor_activity", psychomotorActivity_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Movements", movements_dd.SelectedItem.Text);
+                if (movements_dd.SelectedItem.Text == "Abnormal")
+                {
+                    cmd.Parameters.AddWithValue("@Involuntary", involuntary_dd.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("@Voluntary", voluntary_dd.SelectedItem.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Involuntary","None");
+                    cmd.Parameters.AddWithValue("@Voluntary","None");
+                }
                 cmd.Parameters.AddWithValue("@Speech", speech_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Tone", tone_txt.Text);
-                cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
-                cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
-                cmd.Parameters.AddWithValue("@Volume", volume_dd.Text);
+                cmd.Parameters.AddWithValue("@Relevance", relevance_txt.Text);
+                cmd.Parameters.AddWithValue("@Coherence", coherence_txt.Text);
+                cmd.Parameters.AddWithValue("@Volume", volume_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@Volume2", relevant_dd.SelectedItem.Text);
+
                 cmd.Parameters.AddWithValue("@Sample_of_talk", sampleTalk_area.Value);
-                cmd.Parameters.AddWithValue("@mood_Subjective", subjective_txt.Text);
+                cmd.Parameters.AddWithValue("@mood_Subjective", subjective_dd.Text);
                 cmd.Parameters.AddWithValue("@mood_Objective", objective_dd.SelectedItem.Text);
 
                 if (povertyOfThought_cb.Checked == true)
@@ -665,8 +725,8 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Worthlessness", 0);
                 }
 
-                cmd.Parameters.AddWithValue("@Delusions1", delusions_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Delusions2", delusions2_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@DelusionsType", delusions_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@DelusionsContent", delusions2_dd.SelectedItem.Text);
 
                 if (delusionsOfReference_cb.Checked == true)
                 {
@@ -766,40 +826,86 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Depersonalization", 0);
                 }
 
-                if (secondPerson_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 1);
-                }
-                else if (thirdPerson_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 2);
-                }
-                else if (runningCommentary_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 3);
-                }
+                cmd.Parameters.AddWithValue("@hallucinations", hallucinations_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Auditory", hallucinations_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Illusions", illusions_area.Value);
+                if (hallucinations_dd.SelectedItem.Text == "Auditory")
+                {
+
+                    if (secondPerson_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 1);
+                    }
+                    else if (thirdPerson_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 2);
+                    }
+                    else if (runningCommentary_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 3);
+                    }
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Auditory_redio", 0);
+                }
+                if (yesIllusions_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Illusions", 1);
+                    cmd.Parameters.AddWithValue("@IllusionsText", "");
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Illusions", 0);
+                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
+                }
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
+                cmd.Parameters.AddWithValue("@Orientation", Orientation_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Serial_Seven_Test", serialSevenTest_txt.Text);
-                cmd.Parameters.AddWithValue("@Serial_Three_Test", serialThreeTest_txt.Text);
+                if (sevenTestRado1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Seven", 1);
+                    cmd.Parameters.AddWithValue("@Serial_Seven_Text", serialSevenTest_txt.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Seven", 0);
+                    cmd.Parameters.AddWithValue("@Serial_Seven_Text","");
+                }
+                if (threeTestRado1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Three", 1);
+                    cmd.Parameters.AddWithValue("@Serial_Three_Text", serialThreeTest_txt.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Three", 0);
+                    cmd.Parameters.AddWithValue("@Serial_Three_Text", "");
+                }
+
                 cmd.Parameters.AddWithValue("@Intelligence", intelligence_dd.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("@IQ", iq_txt.Text);
                 cmd.Parameters.AddWithValue("@Memory", memory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Judgement", judgement_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
+                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Concrete_thinking", concreteThinking_area.Value);
+
+                if (ConcretePresent.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Concrete_thinking", 1);
+                    cmd.Parameters.AddWithValue("@Concrete_thinking_Text", concreteThinking_area.Value);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Concrete_thinking", 0);
+                    cmd.Parameters.AddWithValue("@Concrete_thinking_Text", "");
+                }
                 cmd.Parameters.AddWithValue("@Abstrac_thinking", abstractThinking_area.Value);
                 cmd.Parameters.AddWithValue("@Insight", insight_area.Value);
-
-
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -819,24 +925,19 @@ namespace PCMS_Web.Doctor
         {
 
 
-            string query = "update mentalStateExamination set Physical_Appearance=@Physical_Appearance,Dress=@Dress,Posture=@Posture,Rapport=@Rapport,Eye_Contact=@Eye_Contact,Injury=@Injury,Cooperative=@Cooperative,Communicative=@Communicative" +
-               ",Psychomotor_activity=@Psychomotor_activity,Movements=@Movements,Speech=@Speech,Tone=@Tone,Rate=@Rate,Rhythm=@Rhythm,Volume=@Volume,Sample_of_talk=@Sample_of_talk,mood_Subjective=@mood_Subjective,mood_Objective=@mood_Objective,Stream_of_thoughts_Poverty=@Stream_of_thoughts_Poverty,Stream_of_thoughts_Pressure=@Stream_of_thoughts_Pressure" +
-               ",Stream_of_thoughts_Thought=@Stream_of_thoughts_Thought,Flight_of_Ideas=@Flight_of_Ideas,Clang_association=@Clang_association,Loosening_of_association=@Loosening_of_association,Knights_move=@Knights_move,Derailment=@Derailment,Word_salad=@Word_salad,Taking_past_the_point=@Taking_past_the_point,Tangentiality=@Tangentiality,Circumstanciality=@Circumstanciality,Preservation=@Preservation,Neologism=@Neologism" +
-               ",Suicidal_Ideatio=@Suicidal_Ideatio,Homicidal_Ideation=@Homicidal_Ideation,Hopelessness=@Hopelessness,Helplessness=@Helplessness,Worthlessness=@Worthlessness,Delusions1=@Delusions1,Delusions2=@Delusions2,Delusions_of_reference=@Delusions_of_reference" +
-               ",Grandiose_guilt=@Grandiose_guilt,Nihilistic=@Nihilistic,Hypochondriacal=@Hypochondriacal,Religious=@Religious,Sexual=@Sexual,Delusion_of_control=@Delusion_of_control,Thought_insertion=@Thought_insertion,Withdrawal=@Withdrawal,Thought_broadcasting=@Thought_broadcasting,Obsessive_Compulsive_Phenomena=@Obsessive_Compulsive_Phenomena" +
-               ",PHOBIAS=@PHOBIAS,Disorders_Of_Perception=@Disorders_Of_Perception,Depersonalization=@Depersonalization,Auditory_redio=@Auditory_redio,Auditory=@Auditory,Illusions=@Illusions,Consciousness=@Consciousness,Orientation_time=@Orientation_time,Orientation_duraton=@Orientation_duraton" +
-               ",Orientation_person=@Orientation_person,Serial_Seven_Test=@Serial_Seven_Test,Serial_Three_Test=@Serial_Three_Test,Intelligence=@Intelligence,IQ=@IQ,Memory=@Memory,Judgement=@Judgement,General_Knowledge=@General_Knowledge,Concrete_thinking=@Concrete_thinking" +
-               ",Abstrac_thinking=@Abstrac_thinking,Insight=@Insight where patient_id='" + id + "'";
+            string query = "Update mentalStateExamination set Physical_Appearance = @Physical_Appearance, Dress = @Dress,  Posture = @Posture, Rapport = @Rapport, Eye_Contact = @Eye_Contact, Cooperative = @Cooperative, Communicative = @Communicative, Psychomotor_activity =@Psychomotor_activity,Movements = @Movements,Involuntary =@Involuntary,Voluntary = @Voluntary,Speech = @Speech,Tone = @Tone,Relevance = @Relevance ,Coherence = @Coherence,Volume = @Volume ,volume2 = @volume2 ,Sample_of_talk = @Sample_of_talk ,mood_Subjective = @mood_Subjective ,mood_Objective = @mood_Objective ,Stream_of_thoughts_Poverty = @Stream_of_thoughts_Poverty ,Stream_of_thoughts_Pressure = @Stream_of_thoughts_Pressure ,Stream_of_thoughts_Thought = @Stream_of_thoughts_Thought ,Flight_of_Ideas = @Flight_of_Ideas ,Clang_association = @Clang_association ,Loosening_of_association = @Loosening_of_association ,Knights_move = @Knights_move ,Derailment = @Derailment ,Word_salad = @Word_salad ,Taking_past_the_point = @Taking_past_the_point ,Tangentiality = @Tangentiality ,Circumstanciality = @Circumstanciality,Preservation = @Preservation,Neologism = @Neologism ,Suicidal_Ideatio =@Suicidal_Ideatio ,Homicidal_Ideation = @Homicidal_Ideation,Hopelessness = @Hopelessness ,Helplessness = @Helplessness ,Worthlessness =@Worthlessness ,DelusionsType = @DelusionsType,DelusionsContent = @DelusionsContent ,Delusions_of_reference = @Delusions_of_reference ,Grandiose_guilt = @Grandiose_guilt ,Nihilistic = @Nihilistic ,Hypochondriacal = @Hypochondriacal ,Religious = @Religious ,Sexual = @Sexual ,Delusion_of_control = @Delusion_of_control ,Thought_insertion = @Thought_insertion ,Withdrawal = @Withdrawal ,Thought_broadcasting = @Thought_broadcasting ,Obsessive_Compulsive_Phenomena =@Obsessive_Compulsive_Phenomena ,PHOBIAS = @PHOBIAS ,Disorders_Of_Perception =@Disorders_Of_Perception ,Depersonalization = @Depersonalization ,hallucinations = @hallucinations ,Auditory_redio = @Auditory_redio ,Illusions = @Illusions ,IllusionsText = @IllusionsText ,Consciousness =@Consciousness ,Orientation = @Orientation ,Serial_Seven = @Serial_Seven ,Serial_Three = @Serial_Three ,Serial_Seven_Text = @Serial_Seven_Text,Serial_Three_Text = @Serial_Three_Text ,Intelligence = @Intelligence ,IQ = @IQ ,Memory = @Memory ,Judgement = @Judgement ,General_Knowledge = @General_Knowledge ,Concrete_thinking = @Concrete_thinking ,Concrete_thinking_Text =@Concrete_thinking_Text ,Abstrac_thinking = @Abstrac_thinking ,Insight = @Insight  where patient_id ='561604'";
+
             try
             {
                 SqlConnection con = new SqlConnection(constring);
                 SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@patient_id", id);
                 cmd.Parameters.AddWithValue("@Physical_Appearance", physicalAppearance_txt.Text);
                 cmd.Parameters.AddWithValue("@Dress", dress_txt.Text);
                 cmd.Parameters.AddWithValue("@Posture", posture_txt.Text);
                 cmd.Parameters.AddWithValue("@Rapport", rapport_txt.Text);
                 cmd.Parameters.AddWithValue("@Eye_Contact", eyeContact_txt.Text);
-                cmd.Parameters.AddWithValue("@Injury", injury_txt.Text);
                 if (cooperative_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Cooperative", 1);
@@ -864,13 +965,26 @@ namespace PCMS_Web.Doctor
 
                 cmd.Parameters.AddWithValue("@Psychomotor_activity", psychomotorActivity_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Movements", movements_dd.SelectedItem.Text);
+                if (movements_dd.SelectedItem.Text == "Abnormal")
+                {
+                    cmd.Parameters.AddWithValue("@Involuntary", involuntary_dd.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("@Voluntary", voluntary_dd.SelectedItem.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Involuntary", "None");
+                    cmd.Parameters.AddWithValue("@Voluntary", "None");
+                }
                 cmd.Parameters.AddWithValue("@Speech", speech_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Tone", tone_txt.Text);
-                cmd.Parameters.AddWithValue("@Rate", rate_txt.Text);
-                cmd.Parameters.AddWithValue("@Rhythm", rhythm_txt.Text);
-                cmd.Parameters.AddWithValue("@Volume", volume_dd.Text);
+                cmd.Parameters.AddWithValue("@Relevance", relevance_txt.Text);
+                cmd.Parameters.AddWithValue("@Coherence", coherence_txt.Text);
+                cmd.Parameters.AddWithValue("@Volume", volume_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@Volume2", relevant_dd.SelectedItem.Text);
+
                 cmd.Parameters.AddWithValue("@Sample_of_talk", sampleTalk_area.Value);
-                cmd.Parameters.AddWithValue("@mood_Subjective", subjective_txt.Text);
+                cmd.Parameters.AddWithValue("@mood_Subjective", subjective_dd.Text);
                 cmd.Parameters.AddWithValue("@mood_Objective", objective_dd.SelectedItem.Text);
 
                 if (povertyOfThought_cb.Checked == true)
@@ -1041,8 +1155,8 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Worthlessness", 0);
                 }
 
-                cmd.Parameters.AddWithValue("@Delusions1", delusions_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Delusions2", delusions2_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@DelusionsType", delusions_dd.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("@DelusionsContent", delusions2_dd.SelectedItem.Text);
 
                 if (delusionsOfReference_cb.Checked == true)
                 {
@@ -1142,40 +1256,86 @@ namespace PCMS_Web.Doctor
                     cmd.Parameters.AddWithValue("@Depersonalization", 0);
                 }
 
-                if (secondPerson_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 1);
-                }
-                else if (thirdPerson_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 2);
-                }
-                else if (runningCommentary_radio.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("@Auditory_redio", 3);
-                }
+                cmd.Parameters.AddWithValue("@hallucinations", hallucinations_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Auditory", hallucinations_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Illusions", illusions_area.Value);
+                if (hallucinations_dd.SelectedItem.Text == "Auditory")
+                {
+
+                    if (secondPerson_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 1);
+                    }
+                    else if (thirdPerson_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 2);
+                    }
+                    else if (runningCommentary_radio.Checked == true)
+                    {
+                        cmd.Parameters.AddWithValue("@Auditory_redio", 3);
+                    }
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Auditory_redio", 0);
+                }
+                if (yesIllusions_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Illusions", 1);
+                    cmd.Parameters.AddWithValue("@IllusionsText", "");
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Illusions", 0);
+                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
+                }
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@Orientation_time", time_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_duraton", place_txt.Text);
-                cmd.Parameters.AddWithValue("@Orientation_person", person_txt.Text);
+                cmd.Parameters.AddWithValue("@Orientation", Orientation_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Serial_Seven_Test", serialSevenTest_txt.Text);
-                cmd.Parameters.AddWithValue("@Serial_Three_Test", serialThreeTest_txt.Text);
+                if (sevenTestRado1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Seven", 1);
+                    cmd.Parameters.AddWithValue("@Serial_Seven_Text", serialSevenTest_txt.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Seven", 0);
+                    cmd.Parameters.AddWithValue("@Serial_Seven_Text", "");
+                }
+                if (threeTestRado1.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Three", 1);
+                    cmd.Parameters.AddWithValue("@Serial_Three_Text", serialThreeTest_txt.Text);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Serial_Three", 0);
+                    cmd.Parameters.AddWithValue("@Serial_Three_Text", "");
+                }
+
                 cmd.Parameters.AddWithValue("@Intelligence", intelligence_dd.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("@IQ", iq_txt.Text);
                 cmd.Parameters.AddWithValue("@Memory", memory_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Judgement", judgement_dd.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_area.Value);
+                cmd.Parameters.AddWithValue("@General_Knowledge", generalKnowledge_dd.SelectedItem.Text);
 
-                cmd.Parameters.AddWithValue("@Concrete_thinking", concreteThinking_area.Value);
+
+                if (ConcretePresent.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@Concrete_thinking", 1);
+                    cmd.Parameters.AddWithValue("@Concrete_thinking_Text", concreteThinking_area.Value);
+
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Concrete_thinking", 0);
+                    cmd.Parameters.AddWithValue("@Concrete_thinking_Text", "");
+                }
                 cmd.Parameters.AddWithValue("@Abstrac_thinking", abstractThinking_area.Value);
                 cmd.Parameters.AddWithValue("@Insight", insight_area.Value);
-
-
                 cmd.Connection = con;
                 con.Open();
                 cmd.ExecuteNonQuery();
