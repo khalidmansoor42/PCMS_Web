@@ -121,15 +121,6 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList eyeContact_txt;
         
         /// <summary>
-        /// injury_txt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox injury_txt;
-        
-        /// <summary>
         /// cooperative_radio control.
         /// </summary>
         /// <remarks>
@@ -191,6 +182,24 @@ namespace PCMS_Web.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList movements_dd;
+        
+        /// <summary>
+        /// involuntary_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList involuntary_dd;
+        
+        /// <summary>
+        /// voluntary_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList voluntary_dd;
         
         /// <summary>
         /// speech_dd control.
@@ -256,13 +265,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea sampleTalk_area;
         
         /// <summary>
-        /// subjective_txt control.
+        /// subjective_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox subjective_txt;
+        protected global::System.Web.UI.WebControls.DropDownList subjective_dd;
         
         /// <summary>
         /// objective_dd control.
@@ -598,6 +607,15 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton derealozation_radio;
         
         /// <summary>
+        /// hallucinations_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList hallucinations_dd;
+        
+        /// <summary>
         /// secondPerson_radio control.
         /// </summary>
         /// <remarks>
@@ -625,13 +643,22 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton runningCommentary_radio;
         
         /// <summary>
-        /// hallucinations_dd control.
+        /// yesIllusions_radio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList hallucinations_dd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yesIllusions_radio;
+        
+        /// <summary>
+        /// noIllusions_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton noIllusions_radio;
         
         /// <summary>
         /// illusions_area control.
@@ -751,13 +778,13 @@ namespace PCMS_Web.Doctor {
         protected global::System.Web.UI.WebControls.DropDownList judgement_dd;
         
         /// <summary>
-        /// generalKnowledge_area control.
+        /// generalKnowledge_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList generalKnowledge_area;
+        protected global::System.Web.UI.WebControls.DropDownList generalKnowledge_dd;
         
         /// <summary>
         /// ConcretePresent control.

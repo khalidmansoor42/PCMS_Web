@@ -77,7 +77,7 @@
                             <div class="col-sm-9">
 <%--                                <asp:TextBox ID="physicalAppearance_txt" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="physicalAppearance_txt" runat="server" CssClass="form-control">
-                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Healthy</asp:ListItem>
                                     <asp:ListItem>Un Healthy</asp:ListItem>
                                 </asp:DropDownList>
@@ -88,7 +88,7 @@
                             <div class="col-sm-9">
 <%--                                <asp:TextBox ID="dress_txt" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="dress_txt" runat="server" CssClass="form-control">
-                                    <asp:ListItem></asp:ListItem>
+                                    <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Improper</asp:ListItem>
                                     <asp:ListItem>Proper</asp:ListItem>
                                 </asp:DropDownList>
@@ -102,7 +102,7 @@
                             <div class="col-sm-9">
 <%--                                <asp:TextBox ID="posture_txt" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="posture_txt" runat="server" CssClass="form-control">
-                                     <asp:ListItem></asp:ListItem>
+                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Maintained</asp:ListItem>
                                     <asp:ListItem>Not Maintained</asp:ListItem>
                                 </asp:DropDownList>
@@ -113,7 +113,7 @@
                             <div class="col-sm-9">
 <%--                                <asp:TextBox ID="rapport_txt" runat="server" CssClass="form-control"></asp:TextBox> --%>
                                 <asp:DropDownList ID="rapport_txt" runat="server" CssClass="form-control">
-                                     <asp:ListItem> </asp:ListItem>
+                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Developed</asp:ListItem>
                                     <asp:ListItem>Not Developed</asp:ListItem>
                                 </asp:DropDownList>
@@ -127,22 +127,18 @@
                             <div class="col-sm-9">
 <%--                                <asp:TextBox ID="eyeContact_txt" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="eyeContact_txt" runat="server" CssClass="form-control">
-                                     <asp:ListItem> </asp:ListItem>
+                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Maintained</asp:ListItem>
                                     <asp:ListItem>Not Maintained</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="form-group col-sm-6">
-                            <label class="col-sm-3 control-label">Injury</label>
-                            <div class="col-sm-9">
-                                <asp:TextBox ID="injury_txt" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>
-                        </div>
                     </div><br />
 
                     <div class="row">
-                        <div class="form-group col-sm-5 col-sm-offset-1">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-4">Cooperation</label>
+                            <div class="col-sm-8">
                             <label class="radio-inline">
                                 <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions1" id="cooperative_radio" value="option1">
                                 Cooperative
@@ -151,20 +147,24 @@
                                 <input runat="server" type="radio" onclick="" name="inlineRadioOptions1" id="uncooperative_radio" value="option2">
                                 Un-cooperative
                             </label>
+                                </div>
                         </div>
                         <div class="form-group col-sm-6">
-                            <label class="radio-inline">
-                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions2" id="communicative_radio" value="option1">
-                                Communicative
-                            </label>
-                            <label class="radio-inline">
-                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions2" id="nonCommunicative_radio" value="option2">
-                                Non Communicative
-                            </label>
-                            <label class="radio-inline">
-                                <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions2" id="mute_radio" value="option3">
-                                Mute
-                            </label>
+                            <label class="col-sm-4">Communication</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions2" id="communicative_radio" value="option1">
+                                    Communicative
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio" onclick="" name="inlineRadioOptions2" id="nonCommunicative_radio" value="option2">
+                                    Non Communicative
+                                </label>
+                                <label class="radio-inline">
+                                    <input runat="server" type="radio"  onclick="" name="inlineRadioOptions2" id="mute_radio" value="option3">
+                                    Mute
+                                </label>
+                                </div>
                         </div>
                     </div><br />
 
@@ -181,13 +181,41 @@
                                 </asp:DropDownList>    
                             </div>
                         </div>
+                    </div>
+                        <br />
+                        <div class="row">
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3 control-label">Movements</label>
                             <div class="col-sm-9">
-                                <asp:DropDownList ID="movements_dd" CssClass="form-control" runat="server">
-                                    <asp:ListItem></asp:ListItem>
+                                <asp:DropDownList ID="movements_dd" CssClass="form-control" runat="server" onchange="movementArea()">
+                                    <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Normal</asp:ListItem>
                                     <asp:ListItem>Abnormal</asp:ListItem>
+                                </asp:DropDownList>    
+                            </div>
+                        </div>
+                    </div>
+                        <br />
+                        <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label" id="involuntary_lbl" style="display:none">Involuntary</label>
+                            <div class="col-sm-9">
+                                <asp:DropDownList ID="involuntary_dd" CssClass="form-control" style="display:none" runat="server">
+                                    <asp:ListItem>None</asp:ListItem>
+                                    <asp:ListItem>Tremors</asp:ListItem>
+                                    <asp:ListItem>Dyskinesia</asp:ListItem>
+                                    <asp:ListItem>Dystonia</asp:ListItem>
+                                    <asp:ListItem>Other</asp:ListItem>
+                                </asp:DropDownList>    
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-3 control-label" id="voluntary_lbl" style="display:none">Voluntary</label>
+                            <div class="col-sm-9">
+                                <asp:DropDownList ID="voluntary_dd" CssClass="form-control" runat="server" style="display:none">
+                                    <asp:ListItem>None</asp:ListItem>
+                                    <asp:ListItem>Restlessness</asp:ListItem>
+                                    <asp:ListItem>Hyperactivity</asp:ListItem>
                                 </asp:DropDownList>    
                             </div>
                         </div>
@@ -214,7 +242,7 @@
                             <div class="col-sm-9">
 <%--                                 <asp:TextBox ID="tone_txt" runat="server" CssClass="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="tone_txt" runat="server" CssClass="form-control">
-                                     <asp:ListItem> </asp:ListItem>
+                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Increased</asp:ListItem>
                                     <asp:ListItem>Decreased</asp:ListItem>
                                 </asp:DropDownList>
@@ -278,7 +306,18 @@
                         <div class="form-group col-sm-6">
                             <label class="col-sm-3">Subjective</label>
                             <div class="col-sm-9">
-                                <asp:TextBox ID="subjective_txt" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:DropDownList ID="subjective_dd" CssClass="form-control" runat="server">
+                                    <asp:ListItem>None</asp:ListItem>
+                                    <asp:ListItem>Anxious</asp:ListItem>
+                                    <asp:ListItem>Low</asp:ListItem>
+                                    <asp:ListItem>Irritable</asp:ListItem>
+                                    <asp:ListItem>Elated</asp:ListItem>
+                                    <asp:ListItem>Labile</asp:ListItem>
+                                    <asp:ListItem>Euthymic</asp:ListItem>
+                                    <asp:ListItem>Blunt</asp:ListItem>
+                                    <asp:ListItem>Inappropriate</asp:ListItem>
+                                    <asp:ListItem>Flat</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="form-group col-sm-6">
@@ -427,11 +466,15 @@
                             </div>
                         </div>
                     </div>
-
+                        <hr />
+                    <div class="row">
+                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Content of thoughts</h4>
+                        <br />
+                    </div>
+                        
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <label class="col-sm-2">Content of thoughts</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 col-sm-offset-2">
                                 <label class="checkbox-inline">
                                     <input type="checkbox" id="hopelessness_cb" value="option1" runat="server">
                                     Hopelessness
@@ -447,15 +490,12 @@
                             </div>
                         </div>
                     </div>
-
-                        <hr />
-                    <div class="row">
-                        <h4 class="col-sm-4 control-label" style="display: block; text-align: left;">Delusions</h4>
-                        <br />
-                    </div>
+                    
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <div class="col-sm-4 col-sm-offset-1">
+                            <label class="col-sm-2">Delusions</label>
+                            <label class="col-sm-1">Type</label>
+                            <div class="col-sm-4">
                                 <asp:DropDownList ID="delusions_dd" CssClass="form-control" runat="server">
                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Primary delusions</asp:ListItem>
@@ -463,7 +503,8 @@
                                     <asp:ListItem>Shared delusions</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-sm-4 col-sm-offset-1">
+                            <label class="col-sm-1">Content</label>
+                            <div class="col-sm-4">
                                 <asp:DropDownList ID="delusions2_dd" CssClass="form-control" runat="server">
                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Persecution</asp:ListItem>
@@ -579,10 +620,25 @@
 
                     <div class="row">
                         <br />
-                        <div class="form-group col-sm-2">
-                            <label class="control-label" style="margin-left:15px">Auditory</label>
+                        <div class="form-group col-sm-6">
+                        <label class="col-sm-5" >Types of hallucinations</label>
+                        <div class="col-sm-7">
+                            <asp:DropDownList ID="hallucinations_dd" CssClass="form-control" runat="server" onchange="hallucinations()">
+                                <asp:ListItem>None</asp:ListItem>
+                                <asp:ListItem>Auditory</asp:ListItem>
+                                <asp:ListItem>Visual</asp:ListItem>
+                                <asp:ListItem>Olfactory</asp:ListItem>
+                                <asp:ListItem>Tactile</asp:ListItem>
+                                <asp:ListItem>Gustatory</asp:ListItem>
+                                <asp:ListItem>Kinesthetic</asp:ListItem>
+                            </asp:DropDownList>    
                         </div>
-                        <div class="col-sm-6">
+                            </div>
+
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-2" style="margin-left:15px; display:none" id="auditory_lbl">Auditory</label>
+                        
+                        <div class="col-sm-9" id="auditory_div" style="display:none">
                             <label class="radio-inline">
                                 <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions4" id="secondPerson_radio" value="option1">
                                 2nd Person
@@ -596,22 +652,23 @@
                                 Running Commentary
                             </label>
                         </div>
-                        <div class="col-sm-3">
-                            <asp:DropDownList ID="hallucinations_dd" CssClass="form-control" runat="server">
-                                <asp:ListItem>None</asp:ListItem>
-                                <asp:ListItem>Visual</asp:ListItem>
-                                <asp:ListItem>Olfactory</asp:ListItem>
-                                <asp:ListItem>Tactile</asp:ListItem>
-                                <asp:ListItem>Gustatory</asp:ListItem>
-                                <asp:ListItem>Kinesthetic</asp:ListItem>
-                            </asp:DropDownList>    
-                        </div>
+                            </div>
                     </div>
 
                     <div class="form-group col-sm-12">
                         <br />
                         <label class="col-sm-2">Illusions</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions4" id="yesIllusions_radio" value="option1">
+                                Yes
+                            </label>
+                            <label class="radio-inline">
+                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="noIllusions_radio" checked value="option2">
+                                No
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
                             <textarea id="illusions_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
                         </div>
                     </div>
@@ -636,14 +693,14 @@
                             </div>
                             <div class="form-group col-sm-7">
                                 <label class="col-sm-3 control-label">Orientation</label>
+                                <div class="col-sm-5">
                                 <asp:DropDownList ID="Orientation_dd" CssClass="form-control" runat="server">
                                         <asp:ListItem>None</asp:ListItem>
                                         <asp:ListItem>Well Oriented</asp:ListItem>
                                         <asp:ListItem>Partially Oriented</asp:ListItem>
-                                         <asp:ListItem>Dis Oriented</asp:ListItem>  
-                                         <asp:ListItem>Dis Oriented</asp:ListItem>                                        
-                                      
+                                         <asp:ListItem>Disoriented</asp:ListItem>  
                                     </asp:DropDownList>  
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -658,11 +715,11 @@
                                 </div>
                                 <div class="col-sm-3">
                                         <label class="radio-inline">
-                                          <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions4" id="sevenTestRado1" value="option1">
+                                          <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions44" id="sevenTestRado1" value="option1">
                                           Able to perform
                                      </label>
                                      <label class="radio-inline">
-                                         <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="sevenTestRado2" value="option2">
+                                         <input runat="server" type="radio" onclick="" name="inlineRadioOptions44" id="sevenTestRado2" checked value="option2">
                                          Unable to perform
                                     </label>
                                 </div>
@@ -678,11 +735,11 @@
                                 </div>
                                 <div class="col-sm-3">
                                         <label class="radio-inline">
-                                          <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions4" id="threeTestRado1" value="option1">
+                                          <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions45" id="threeTestRado1" value="option1">
                                           Able to perform
                                      </label>
                                      <label class="radio-inline">
-                                         <input runat="server" type="radio" onclick="" name="inlineRadioOptions4" id="threeTestRado2" value="option2">
+                                         <input runat="server" type="radio" onclick="" checked name="inlineRadioOptions45" id="threeTestRado2" value="option2">
                                          Unable to perform
                                     </label>
                                 </div>
@@ -769,7 +826,7 @@
                                 </div>
                                 <div class="col-sm-9">
 <%--                                    <textarea id="generalKnowledge_area" cols="20" rows="4" class="form-control" runat="server"></textarea>--%>
-                                <asp:DropDownList ID="generalKnowledge_area" CssClass="form-control" runat="server">
+                                <asp:DropDownList ID="generalKnowledge_dd" CssClass="form-control" runat="server">
                                         <asp:ListItem>None</asp:ListItem>
                                         <asp:ListItem>Above Avg</asp:ListItem>
                                         <asp:ListItem>Below Avg</asp:ListItem>
@@ -836,5 +893,73 @@
                 </div>
             </div>
         </div>
-            
+            <script type="text/javascript">
+                function showMovementsArea()
+                {
+                    var involLbl = document.getElementById("involuntary_lbl").style.display = 'block';
+                    var volLbl = document.getElementById("voluntary_lbl").style.display = 'block';
+                    var invDd = document.getElementById("<%= involuntary_dd.ClientID %>").style.display = 'block';
+                    var volDd = document.getElementById("<%= voluntary_dd.ClientID %>").style.display = 'block';
+                }
+                function hideMovementsArea() {
+                    var involLbl = document.getElementById("involuntary_lbl").style.display = 'none';
+                    var volLbl = document.getElementById("voluntary_lbl").style.display = 'none';
+                    var invDd = document.getElementById("<%= involuntary_dd.ClientID %>").style.display = 'none';
+                    var volDd = document.getElementById("<%= voluntary_dd.ClientID %>").style.display = 'none';
+                }
+                function movementArea()
+                {
+                    var movDd = document.getElementById("<%= movements_dd.ClientID %>");
+                    var selectedValue = movDd.value;
+                    if(selectedValue == "Abnormal")
+                    {
+                        showMovementsArea();
+                    }
+                    else
+                    {
+                        hideMovementsArea();
+                    }
+                }
+                function hallucinations()
+                {
+                    var halDd = document.getElementById("<%= hallucinations_dd.ClientID %>");
+                    var selectedValue = halDd.value;
+                    if(selectedValue == "Auditory")
+                    {
+                        showAuditoryCb();
+                    }
+                    else
+                    {
+                        hideAuditoryCb();
+                    }
+                }
+
+                function showAuditoryCb()
+                {
+                    var involLbl = document.getElementById("auditory_lbl").style.display = 'block';
+                    var auditoryDiv = document.getElementById("auditory_div").style.display = 'block';
+                }
+
+                function hideAuditoryCb() {
+                    var involLbl = document.getElementById("auditory_lbl").style.display = 'none';
+                    var auditoryDiv = document.getElementById("auditory_div").style.display = 'none';
+                }
+
+                window.onload = function ()
+                {
+                    var movDd = document.getElementById("<%= movements_dd.ClientID %>");
+                    var selectedValue = movDd.value;
+                    if(selectedValue == "Abnormal")
+                    {
+                        showMovementsArea();
+                    }
+
+                    var halDd = document.getElementById("<%= hallucinations_dd.ClientID %>");
+                    var selectedValue = halDd.value;
+                    if(selectedValue == "Auditory")
+                    {
+                        showAuditoryCb();
+                    }
+                }
+            </script>
 </asp:Content>
