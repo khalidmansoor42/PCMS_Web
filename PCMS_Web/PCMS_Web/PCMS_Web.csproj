@@ -228,6 +228,7 @@
     <Content Include="Doctor\psychometricEvaluation.aspx" />
     <Content Include="Doctor\counselling.aspx" />
     <Content Include="Doctor\admission.aspx" />
+    <Content Include="Doctor\WebForm23.aspx" />
     <Content Include="General\destroySession.aspx" />
     <Content Include="General\forgotPass.aspx" />
     <Content Include="js\Images\muaz.jpg" />
@@ -272,6 +273,17 @@
     <Content Include="obj\Debug\RdlCompile.compiled" />
     <Content Include="AppData\visitReportDataSet.xsc">
       <DependentUpon>visitReportDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="AppData\formulationDataset.xsc">
+      <DependentUpon>formulationDataset.xsd</DependentUpon>
+    </Content>
+    <None Include="AppData\formulationDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>formulationDataset.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="AppData\formulationDataset.xss">
+      <DependentUpon>formulationDataset.xsd</DependentUpon>
     </Content>
     <None Include="AppData\visitReportDataSet.xsd">
       <SubType>Designer</SubType>
@@ -1247,6 +1259,11 @@
     <Compile Include="Admin\addCounsellingTherapy.aspx.designer.cs">
       <DependentUpon>addCounsellingTherapy.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppData\formulationDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>formulationDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AppData\visitReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1413,6 +1430,13 @@
     <Compile Include="Doctor\admission.aspx.designer.cs">
       <DependentUpon>admission.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\WebForm23.aspx.cs">
+      <DependentUpon>WebForm23.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\WebForm23.aspx.designer.cs">
+      <DependentUpon>WebForm23.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FindAge.cs" />
     <Compile Include="FindVisit.cs" />
     <Compile Include="findvisitnumber.cs" />
@@ -1552,6 +1576,7 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\FormulationReport.rdlc" />
     <EmbeddedResource Include="Reports\fullVisitReport.rdlc" />
     <EmbeddedResource Include="Reports\percription1.rdlc" />
     <EmbeddedResource Include="Reports\prescription.rdlc" />
