@@ -592,7 +592,7 @@ namespace PCMS_Web.Doctor
                 for (int z = 0; z < ds.Tables[0].Rows.Count; z++)
                 {
                     DropDownList ddl = (DropDownList)Gridview1.Rows[z].Cells[1].FindControl("DropDownList1");
-                    ddl.SelectedValue = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
+                    ddl.SelectedItem.Text = Convert.ToString(ds.Tables[0].Rows[z]["Disease"]);
 
                     TextBox box2 = (TextBox)Gridview1.Rows[z].Cells[2].FindControl("TextBox2");
                     date = Convert.ToString(ds.Tables[0].Rows[z]["diagnose_date"]);

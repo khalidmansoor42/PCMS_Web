@@ -39,33 +39,40 @@ namespace PCMS_Web.Doctor
             string name = "";
             string patient_reg = "";
             string token = "";
-            string employeeid = System.Web.HttpContext.Current.Session["userId"].ToString();
-            string user_query = "select r.token_no,v.visit_no, p.full_name,v.patient_reg from visit v inner join patient_registeration p on v.patient_reg=p.patient_reg inner join receipt r on v.patient_reg=r.patient_reg and v.visit_date=r.Date where v.noti='1' and v.visit_date='" + DateTime.Today.ToString("yyyy-MM-dd") + "' and v.employee_id='" + employeeid + "'";
-            SqlConnection con = new SqlConnection(constring);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = user_query;
-            try
+            if (System.Web.HttpContext.Current.Session["userId"].ToString() != null || System.Web.HttpContext.Current.Session["userId"].ToString() != "")
             {
-                con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                string employeeid = System.Web.HttpContext.Current.Session["userId"].ToString();
+                string user_query = "select r.token_no,v.visit_no, p.full_name,v.patient_reg from visit v inner join patient_registeration p on v.patient_reg=p.patient_reg inner join receipt r on v.patient_reg=r.patient_reg and v.visit_date=r.Date where v.noti='1' and v.visit_date='" + DateTime.Today.ToString("yyyy-MM-dd") + "' and v.employee_id='" + employeeid + "'";
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = user_query;
+                try
                 {
-                    if (dr.HasRows)
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
                     {
-                        token = dr["token_no"].ToString();
-                        patient_reg = dr["patient_reg"].ToString();
-                        name = dr["full_name"].ToString();
-                        PatientRegisterToday = "                Token No" + token.PadRight(21) + "Patient Id" + patient_reg.PadRight(21) + "Name" + name;
-                        updatenoti(patient_reg, dr["visit_no"].ToString());
+                        if (dr.HasRows)
+                        {
+                            token = dr["token_no"].ToString();
+                            patient_reg = dr["patient_reg"].ToString();
+                            name = dr["full_name"].ToString();
+                            PatientRegisterToday = "                Token No" + token.PadRight(21) + "Patient Id" + patient_reg.PadRight(21) + "Name" + name;
+                            updatenoti(patient_reg, dr["visit_no"].ToString());
+                        }
                     }
                 }
-            }
-            finally
-            {
-                con.Close();
-            }
+                finally
+                {
+                    con.Close();
+                }
 
+            }
+            else 
+            {
+                return PatientRegisterToday = null;
+            }
             return PatientRegisterToday;
         }
         public static void updatenoti(string id,string visit)

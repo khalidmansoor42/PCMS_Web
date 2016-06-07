@@ -46,12 +46,36 @@ namespace PCMS_Web.Doctor
 
                     SetInitialRow();
                     GetHistory();
+                    getDirectionSummary();
                     directions_txt.Enabled = false;
                     DropDownList2.Enabled = false;
 
                 }
             }
 
+        }
+
+        public void getDirectionSummary()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(constring);
+                SqlCommand cmd0 = new SqlCommand("select direction_summary from systematicMedication where patient_reg='" + id + "' and visit_no ='" + Session["visit_no"] + "'", con);
+                SqlDataReader dr;
+                con.Open();
+                dr = cmd0.ExecuteReader();
+                if (dr.Read())
+                {
+                    directionArea_copy.InnerText = dr["direction_summary"].ToString();
+                }
+                con.Close();
+            }
+            catch (Exception ex) 
+            {
+                alert_fail.Visible = true;
+                error.Text = "Error! " + ex.ToString();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "HideLabel();", true);
+            }
         }
 
         public void GetHistory()
@@ -69,7 +93,6 @@ namespace PCMS_Web.Doctor
                     {
                         visit_no = Convert.ToInt32(dr["visit_no"].ToString());
                     }
-
                     tempVisit = dr["visit_no"].ToString();
                     Session["visit_no"] = tempVisit;
                 }
@@ -350,9 +373,10 @@ namespace PCMS_Web.Doctor
                     if (ddlvalue > 0)
                     {
                         SqlConnection con = new SqlConnection(constring);
-                        SqlCommand cmd = new SqlCommand("update visit set durationDDl=@duarationDDL , durationTxt=@durationTxt where patient_reg='" + id + "' and visit_no='" + visit_no + "'", con);
+                        SqlCommand cmd = new SqlCommand("update visit set durationDDl=@duarationDDL , durationTxt=@durationTxt, direction_summary=@direction_summary where patient_reg='" + id + "' and visit_no='" + visit_no + "'", con);
                         cmd.Parameters.AddWithValue("@duarationDDL", DropDownList2.SelectedItem.Text);
                         cmd.Parameters.AddWithValue("@durationTxt", directions_txt.Text);
+                        cmd.Parameters.AddWithValue("@direction_summary", directionArea_copy.InnerText);
                         cmd.Connection = con;
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -447,7 +471,7 @@ namespace PCMS_Web.Doctor
                         cmd.Parameters.AddWithValue("@night", tb3.Text);
                         cmd.Parameters.AddWithValue("@directions", text);
                         cmd.Parameters.AddWithValue("@durations", ddl3.SelectedItem.ToString());
-                        cmd.Parameters.AddWithValue("@direction_summary", "NULL");
+                        cmd.Parameters.AddWithValue("@direction_summary", directionArea_copy.Value);
 
                         con.Open();
                         bool success = Convert.ToBoolean(cmd.ExecuteScalar());

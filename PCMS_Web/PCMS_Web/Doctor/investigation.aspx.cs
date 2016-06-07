@@ -57,7 +57,7 @@ namespace PCMS_Web.Doctor
                 {
                     patientId_txt.Text = id;
                     SqlConnection con = new SqlConnection(constring);
-                    SqlCommand cmd = new SqlCommand("SELECT visit_no ,completeBloodExamination ,completeUrineExamination ,liverFunctionTest ,ecg ,bloodSugarRb ,bloodSugarArea ,thyroidFuctionTest ,radiography ,ulgranSonography ,ctScan ,otherComments FROM investigation where id='" + id + "' and visit_no='"+ maxvisit + "'"  , con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM investigation where id='" + id + "' and visit_no='"+ maxvisit + "'"  , con);
                     cmd.Connection = con;
                     SqlDataReader dr;
                     con.Open();
@@ -86,6 +86,51 @@ namespace PCMS_Web.Doctor
                         ulgrasonographyComments_area.InnerText = dr["ulgranSonography"].ToString();
                         ctScanComments_area.InnerText = dr["ctScan"].ToString();
                         otherComments_area.InnerText = dr["otherComments"].ToString();
+
+                        if (Convert.ToInt32(dr["completeBloodRadio"]) == 1)
+                            yesCompleteBloodExamination_radio.Checked = true;
+                        else
+                            noCompleteBloodExamination_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["completeUrineRadio"]) == 1)
+                            yesCompleteUrineExamination_radio.Checked = true;
+                        else
+                            noCompleteUrineExamination_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["liverFunctionRadio"]) == 1)
+                            yesLiverFunction_radio.Checked = true;
+                        else
+                            noLiverFuntion_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["ecgRadio"]) == 1)
+                            yesECG_radio.Checked = true;
+                        else
+                            noECG_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["bloodSugarRadio"]) == 1)
+                            yesBloodSugar_radio.Checked = true;
+                        else
+                            noBloodSugar_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["thyroidFunctionRadio"]) == 1)
+                            yesThyroid_radio.Checked = true;
+                        else
+                            noThyroid_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["radiographyRadio"]) == 1)
+                            yesRadiography_radio.Checked = true;
+                        else
+                            noRadiography_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["ulgraRadio"]) == 1)
+                            yesUlgra_radio.Checked = true;
+                        else
+                            noUlgra_radio.Checked = true;
+
+                        if (Convert.ToInt32(dr["ctScanRadio"]) == 1)
+                            yesCT_radio.Checked = true;
+                        else
+                            noCT_radio.Checked = true;
 
                     }
                     else
@@ -118,7 +163,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("insert into investigation ( id,visit_no ,completeBloodExamination ,completeUrineExamination ,liverFunctionTest ,ecg ,bloodSugarRb ,bloodSugarArea ,thyroidFuctionTest ,radiography ,ulgranSonography ,ctScan ,otherComments) values(@id,@visit_no ,@completeBloodExamination ,@completeUrineExamination ,@liverFunctionTest ,@ecg ,@bloodSugarRb ,@bloodSugarArea ,@thyroidFuctionTest ,@radiography ,@ulgranSonography ,@ctScan ,@otherComments)", con);
+                SqlCommand cmd = new SqlCommand("insert into investigation ( id,visit_no ,completeBloodExamination ,completeUrineExamination ,liverFunctionTest ,ecg ,bloodSugarRb ,bloodSugarArea ,thyroidFuctionTest ,radiography ,ulgranSonography ,ctScan ,otherComments, completeBloodRadio, completeUrineRadio, liverFunctionRadio, ecgRadio, bloodSugarRadio, thyroidFunctionRadio, radiographyRadio, ulgraRadio, ctScanRadio) values(@id,@visit_no ,@completeBloodExamination ,@completeUrineExamination ,@liverFunctionTest ,@ecg ,@bloodSugarRb ,@bloodSugarArea ,@thyroidFuctionTest ,@radiography ,@ulgranSonography ,@ctScan ,@otherComments,@completeBloodRadio, @completeUrineRadio, @liverFunctionRadio, @ecgRadio, @bloodSugarRadio, @thyroidFunctionRadio, @radiographyRadio, @ulgraRadio, @ctScanRadio)", con);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@visit_no", visitNumber_txt.Text);
                 cmd.Parameters.AddWithValue("@completeBloodExamination", completeBloodExaminationComments_area.InnerText);
@@ -139,6 +184,80 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@ulgranSonography", ulgrasonographyComments_area.InnerText);
                 cmd.Parameters.AddWithValue("@ctScan", ctScanComments_area.InnerText);
                 cmd.Parameters.AddWithValue("@otherComments", otherComments_area.InnerText);
+
+                if (yesCompleteBloodExamination_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@completeBloodRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@completeBloodRadio", 2);
+                }
+                if (yesCompleteUrineExamination_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@completeUrineRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@completeUrineRadio", 2);
+                }
+                if (yesLiverFunction_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@liverFunctionRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@liverFunctionRadio", 2);
+                }
+                if (yesECG_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ecgRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ecgRadio", 2);
+                }
+                if (yesBloodSugar_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@bloodSugarRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@bloodSugarRadio", 2);
+                }
+                if (yesThyroid_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@thyroidFunctionRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@thyroidFunctionRadio", 2);
+                }
+                if (yesRadiography_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@radiographyRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@radiographyRadio", 2);
+                }
+                if (yesUlgra_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ulgraRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ulgraRadio", 2);
+                }
+                if (yesCT_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ctScanRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ctScanRadio", 2);
+                }
+
 
                 cmd.Connection = con;
                 con.Open();
@@ -162,7 +281,7 @@ namespace PCMS_Web.Doctor
             try
             {
                 SqlConnection con = new SqlConnection(constring);
-                SqlCommand cmd = new SqlCommand("update  investigation set completeBloodExamination=@completeBloodExamination, completeUrineExamination=@completeUrineExamination, liverFunctionTest=@liverFunctionTest, ecg=@ecg, bloodSugarRb=@bloodSugarRb, bloodSugarArea=@bloodSugarArea, thyroidFuctionTest=@thyroidFuctionTest, radiography=@radiography, ulgranSonography=@ulgranSonography, ctScan=@ctScan, otherComments=@otherComments where id='" + id + "' and visit_no=@visit_no ", con);
+                SqlCommand cmd = new SqlCommand("update  investigation set completeBloodExamination=@completeBloodExamination, completeUrineExamination=@completeUrineExamination, liverFunctionTest=@liverFunctionTest, ecg=@ecg, bloodSugarRb=@bloodSugarRb, bloodSugarArea=@bloodSugarArea, thyroidFuctionTest=@thyroidFuctionTest, radiography=@radiography, ulgranSonography=@ulgranSonography, ctScan=@ctScan, otherComments=@otherComments, completeBloodRadio=@completeBloodRadio, completeUrineRadio=@completeUrineRadio, liverFunctionRadio=@liverFunctionRadio, ecgRadio=@ecgRadio, bloodSugarRadio=@bloodSugarRadio, thyroidFunctionRadio=@thyroidFunctionRadio, radiographyRadio=@radiographyRadio, ulgraRadio=@ulgraRadio, ctScanRadio=@ctScanRadio where id='" + id + "' and visit_no=@visit_no ", con);
                 cmd.Parameters.AddWithValue("@visit_no", visitNumber_txt.Text);
                 cmd.Parameters.AddWithValue("@completeBloodExamination", completeBloodExaminationComments_area.InnerText);
                 cmd.Parameters.AddWithValue("@completeUrineExamination", completeUrineExaminationComments_area.InnerText);
@@ -182,6 +301,80 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@ulgranSonography", ulgrasonographyComments_area.InnerText);
                 cmd.Parameters.AddWithValue("@ctScan", ctScanComments_area.InnerText);
                 cmd.Parameters.AddWithValue("@otherComments", otherComments_area.InnerText);
+
+                if (yesCompleteBloodExamination_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@completeBloodRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@completeBloodRadio", 2);
+                }
+                if (yesCompleteUrineExamination_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@completeUrineRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@completeUrineRadio", 2);
+                }
+                if (yesLiverFunction_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@liverFunctionRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@liverFunctionRadio", 2);
+                }
+                if (yesECG_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ecgRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ecgRadio", 2);
+                }
+                if (yesBloodSugar_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@bloodSugarRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@bloodSugarRadio", 2);
+                }
+                if (yesThyroid_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@thyroidFunctionRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@thyroidFunctionRadio", 2);
+                }
+                if (yesRadiography_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@radiographyRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@radiographyRadio", 2);
+                }
+                if (yesUlgra_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ulgraRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ulgraRadio", 2);
+                }
+                if (yesCT_radio.Checked == true)
+                {
+                    cmd.Parameters.AddWithValue("@ctScanRadio", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ctScanRadio", 2);
+                }
+
 
                 cmd.Connection = con;
                 con.Open();

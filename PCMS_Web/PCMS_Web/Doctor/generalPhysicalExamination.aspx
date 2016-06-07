@@ -13,53 +13,100 @@
             }, seconds * 1000);
         };
 
-        function Radio_Click() {
-            var radio1 = document.getElementById("<%=oedemaYes_radio.ClientID %>");
-               var textBox = document.getElementById("<%=oedemaComments_txt.ClientID %>");
-               textBox.disabled = !radio1.checked;
-               textBox.focus();
-
-               var radio2 = document.getElementById("<%=pallorYes_radio.ClientID %>");
+            function OedemaBtn()
+            { 
+                var radio1 = document.getElementById("<%=oedemaYes_radio.ClientID %>");
+                if (document.getElementById("<%=oedemaNo_radio.ClientID %>"))
+                {
+                    document.getElementById("<%=oedemaComments_txt.ClientID %>").value = "";
+                }
+                var textBox = document.getElementById("<%=oedemaComments_txt.ClientID %>");
+                textBox.disabled = !radio1.checked;
+                textBox.focus();
+            }
+            function PallorBtn(){
+                var radio2 = document.getElementById("<%=pallorYes_radio.ClientID %>");
+                if (document.getElementById("<%=pallorNo_radio.ClientID %>")) {
+                    document.getElementById("<%=pallorComment_txt.ClientID %>").value = "";
+                }
                 var textBox1 = document.getElementById("<%=pallorComment_txt.ClientID %>");
-               textBox1.disabled = !radio2.checked;
-               textBox1.focus();
+                textBox1.disabled = !radio2.checked;
+                textBox1.focus();
+            }
 
-               var radio3 = document.getElementById("<%=jaundiceYes_radio.ClientID %>");
+            function JaundiceBtn()
+            {
+                var radio3 = document.getElementById("<%=jaundiceYes_radio.ClientID %>");
+                if (document.getElementById("<%=jaundiceNo_radio.ClientID %>")) {
+                    document.getElementById("<%=jaundiceComment_txt.ClientID %>").value = "";
+                }
                 var textBox2 = document.getElementById("<%=jaundiceComment_txt.ClientID %>");
-               textBox2.disabled = !radio3.checked;
-               textBox2.focus();
+                textBox2.disabled = !radio3.checked;
+                textBox2.focus();
+            }
 
-               var radio4 = document.getElementById("<%=kylonychiaYes_radio.ClientID %>");
+            function KylonychiaBtn() {
+                var radio4 = document.getElementById("<%=kylonychiaYes_radio.ClientID %>");
+                if (document.getElementById("<%=kylonchiaNo_radio.ClientID %>")) {
+                    document.getElementById("<%=kylonchiaComments_txt.ClientID %>").value = "";
+                }
                 var textBox3 = document.getElementById("<%=kylonchiaComments_txt.ClientID %>");
-               textBox3.disabled = !radio4.checked;
-               textBox3.focus();
+                textBox3.disabled = !radio4.checked;
+                textBox3.focus();
+            }
 
-               var radio5 = document.getElementById("<%=thyroidYes_radio.ClientID %>");
-                var textBox4 = document.getElementById("<%=thyroidComments_txt.ClientID %>");
-               textBox4.disabled = !radio5.checked;
-               textBox4.focus();
+            function ThyroidBtn() {
+            var radio5 = document.getElementById("<%=thyroidYes_radio.ClientID %>");
+            if (document.getElementById("<%=thyroidNo_radio.ClientID %>")) {
+                document.getElementById("<%=thyroidComments_txt.ClientID %>").value = "";
+                }
+            var textBox4 = document.getElementById("<%=thyroidComments_txt.ClientID %>");
+                textBox4.disabled = !radio5.checked;
+                textBox4.focus();
+            }
 
-               var radio6 = document.getElementById("<%=clubbingYes_radio.ClientID %>");
-                var textBox5 = document.getElementById("<%=clubbingComments_txt.ClientID %>");
-               textBox5.disabled = !radio6.checked;
-               textBox5.focus();
+            function ClubbingBtn()
+            {
+                var radio6 = document.getElementById("<%=clubbingYes_radio.ClientID %>");
+                if (document.getElementById("<%=clubbingNo_radio.ClientID %>")) {
+                    document.getElementById("<%=clubbingComments_txt.ClientID %>").value = "";
+            }
+            var textBox5 = document.getElementById("<%=clubbingComments_txt.ClientID %>");
+                textBox5.disabled = !radio6.checked;
+                textBox5.focus();
+            }
 
-               var radio7 = document.getElementById("<%=respirationYes_radio.ClientID %>");
-                var textBox6 = document.getElementById("<%=respirationComments_txt.ClientID %>");
-               textBox6.disabled = !radio7.checked;
-               textBox6.focus();
+            function RepirationBtn() {
+                var radio7 = document.getElementById("<%=respirationYes_radio.ClientID %>");
+                if (document.getElementById("<%=respirationNo_radio.ClientID %>")) {
+                    document.getElementById("<%=respirationComments_txt.ClientID %>").value = "";
+            }
+            var textBox6 = document.getElementById("<%=respirationComments_txt.ClientID %>");
+                textBox6.disabled = !radio7.checked;
+                textBox6.focus();
+            }
 
-               var radio8 = document.getElementById("<%=lymphYes_radio.ClientID %>");
-                var textBox7 = document.getElementById("<%=lymphComments_txt.ClientID %>");
-               textBox7.disabled = !radio8.checked;
-               textBox7.focus();
-                
-               var radio9 = document.getElementById("<%=yesDehydration_radio.ClientID %>");
+            function LymphBtn() {
+                var radio8 = document.getElementById("<%=lymphYes_radio.ClientID %>");
+                if (document.getElementById("<%=lymphNo_radio.ClientID %>")) {
+                    document.getElementById("<%=lymphComments_txt.ClientID %>").value = "";
+            }
+            var textBox7 = document.getElementById("<%=lymphComments_txt.ClientID %>");
+                textBox7.disabled = !radio8.checked;
+                textBox7.focus();
+            }
+
+            function DehydrationBtn()
+            {
+                var radio9 = document.getElementById("<%=yesDehydration_radio.ClientID %>");
+                if (document.getElementById("<%=noDehydration_radio.ClientID %>")) {
+                    document.getElementById("<%=dehydrationComments_txt.ClientID %>").value = "";
+            }
             var textBox10 = document.getElementById("<%=dehydrationComments_txt.ClientID %>");
-            textBox10.disabled = !radio9.checked;
-            textBox10.focus();
+                textBox10.disabled = !radio9.checked;
+                textBox10.focus();
+            }
 
-        }
 
             function pigmentation()
             {
@@ -367,11 +414,11 @@
                             <label class="col-sm-3 control-label">Dehydration</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptionsF" id="yesDehydration_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptionsF" id="yesDehydration_radio" value="option1" onclick="DehydrationBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptionsF" id="noDehydration_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptionsF" id="noDehydration_radio" value="option2" onclick="DehydrationBtn()">
                                     No
                                 </label>
                             </div>
@@ -387,11 +434,11 @@
                             <label class="col-sm-3 control-label">Pallor</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions" id="pallorYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions" id="pallorYes_radio" value="option1" onclick="PallorBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions" id="pallorNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions" id="pallorNo_radio" value="option2" onclick="PallorBtn()">
                                     No
                                 </label>
                             </div>
@@ -403,11 +450,11 @@
                             <label class="col-sm-3 control-label">Jaundice</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions1" id="jaundiceYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions1" id="jaundiceYes_radio" value="option1" onclick="JaundiceBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions1" id="jaundiceNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions1" id="jaundiceNo_radio" value="option2" onclick="JaundiceBtn()">
                                     No
                                 </label>
                             </div>
@@ -422,11 +469,11 @@
                             <label class="col-sm-3 control-label">Oedema</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions9" id="oedemaYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions9" id="oedemaYes_radio" value="option1" onclick="OedemaBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions9" id="oedemaNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions9" id="oedemaNo_radio" value="option2" onclick="OedemaBtn()">
                                     No
                                 </label>
                             </div>
@@ -438,11 +485,11 @@
                             <label class="col-sm-3 control-label">Kylonychia</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions10" id="kylonychiaYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions10" id="kylonychiaYes_radio" value="option1" onclick="KylonychiaBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions10" id="kylonchiaNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions10" id="kylonchiaNo_radio" value="option2" onclick="KylonychiaBtn()">
                                     No
                                 </label>
                             </div>
@@ -458,11 +505,11 @@
                             <label class="col-sm-3 control-label">Thyroid Gland</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions2" id="thyroidYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions2" id="thyroidYes_radio" value="option1" onclick="ThyroidBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions2" id="thyroidNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions2" id="thyroidNo_radio" value="option2" onclick="ThyroidBtn()">
                                     No
                                 </label>
                             </div>
@@ -474,11 +521,11 @@
                             <label class="col-sm-3 control-label">Clubbing</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions3" id="clubbingYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions3" id="clubbingYes_radio" value="option1" onclick="ClubbingBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions3" id="clubbingNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions3" id="clubbingNo_radio" value="option2" onclick="ClubbingBtn()">
                                     No
                                 </label>
                             </div>
@@ -494,11 +541,11 @@
                             <label class="col-sm-3 control-label">Respiration Rate</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions6" id="respirationYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions6" id="respirationYes_radio" value="option1" onclick="RepirationBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions6" id="respirationNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions6" id="respirationNo_radio" value="option2" onclick="RepirationBtn()">
                                     No
                                 </label>
                             </div>
@@ -510,11 +557,11 @@
                             <label class="col-sm-3 control-label">Lymph Node</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" name="inlineRadioOptions7" id="lymphYes_radio" value="option1" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" name="inlineRadioOptions7" id="lymphYes_radio" value="option1" onclick="LymphBtn()">
                                     Yes
                                 </label>
                                 <label class="radio-inline">
-                                    <input runat="server" type="radio" checked name="inlineRadioOptions7" id="lymphNo_radio" value="option2" onclick="Radio_Click()">
+                                    <input runat="server" type="radio" checked name="inlineRadioOptions7" id="lymphNo_radio" value="option2" onclick="LymphBtn()">
                                     No
                                 </label>
                             </div>

@@ -430,7 +430,7 @@ namespace PCMS_Web.Doctor
                     else
                     {
                         noIllusions_radio.Checked = true;
-                        illusions_area.Value = ""; ;
+                        illusions_area.Value = dr["IllusionsText"].ToString();
                     }
 
 
@@ -851,7 +851,7 @@ namespace PCMS_Web.Doctor
                 if (yesIllusions_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Illusions", 1);
-                    cmd.Parameters.AddWithValue("@IllusionsText", "");
+                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
 
                 }
                 else
@@ -1281,7 +1281,7 @@ namespace PCMS_Web.Doctor
                 if (yesIllusions_radio.Checked == true)
                 {
                     cmd.Parameters.AddWithValue("@Illusions", 1);
-                    cmd.Parameters.AddWithValue("@IllusionsText", "");
+                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
 
                 }
                 else

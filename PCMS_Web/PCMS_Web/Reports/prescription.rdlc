@@ -3,7 +3,7 @@
   <Body>
     <ReportItems>
       <Line Name="Line1">
-        <Top>1.37723in</Top>
+        <Top>1.575in</Top>
         <Height>0in</Height>
         <Width>8.27in</Width>
         <Style>
@@ -556,8 +556,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>medication</DataSetName>
-        <Top>2.17653in</Top>
-        <Left>0.61582in</Left>
+        <Top>2.42653in</Top>
+        <Left>0.59082in</Left>
         <Height>0.5in</Height>
         <Width>7.14035in</Width>
         <ZIndex>1</ZIndex>
@@ -819,10 +819,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>PatientDaignoses</DataSetName>
-        <Top>1.47167in</Top>
-        <Left>0.61582in</Left>
+        <Top>1.72167in</Top>
+        <Left>0.59082in</Left>
         <Height>0.5in</Height>
-        <Width>7.14036in</Width>
+        <Width>7.14034in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1580,10 +1580,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>investingation</DataSetName>
-        <Top>3.30083in</Top>
-        <Left>0.61582in</Left>
+        <Top>3.55083in</Top>
+        <Left>0.59082in</Left>
         <Height>1.64583in</Height>
-        <Width>7.14036in</Width>
+        <Width>7.14037in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1723,8 +1723,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>direction</DataSetName>
-        <Top>6.69181in</Top>
-        <Left>2.36555in</Left>
+        <Top>6.94181in</Top>
+        <Left>2.34055in</Left>
         <Height>0.25in</Height>
         <Width>3.79167in</Width>
         <ZIndex>4</ZIndex>
@@ -1970,10 +1970,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>counselling</DataSetName>
-        <Top>5.57583in</Top>
-        <Left>0.61582in</Left>
+        <Top>5.82583in</Top>
+        <Left>0.59082in</Left>
         <Height>0.5in</Height>
-        <Width>7.14036in</Width>
+        <Width>7.14033in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -2000,8 +2000,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Top>2.85708in</Top>
-        <Left>0.63125in</Left>
+        <Top>3.10708in</Top>
+        <Left>0.60625in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>6</ZIndex>
@@ -2034,8 +2034,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>5.11958in</Top>
-        <Left>0.61582in</Left>
+        <Top>5.36958in</Top>
+        <Left>0.59082in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>7</ZIndex>
@@ -2068,8 +2068,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>6.2325in</Top>
-        <Left>0.63125in</Left>
+        <Top>6.4825in</Top>
+        <Left>0.60625in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>8</ZIndex>
@@ -2084,10 +2084,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>11.69in</Height>
+    <Height>10.508in</Height>
     <Style />
   </Body>
-  <Width>8.38417in</Width>
+  <Width>8.27in</Width>
   <Page>
     <PageHeight>11.69in</PageHeight>
     <PageWidth>8.27in</PageWidth>

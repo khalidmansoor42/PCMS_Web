@@ -285,7 +285,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Doctor\prescription.xlsx" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\psychcure.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\psycure.pubxml" />

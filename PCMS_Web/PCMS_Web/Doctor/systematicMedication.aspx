@@ -20,19 +20,44 @@
                     transliterationEnabled: true
                 };
 
+                var options1 = {
+                    sourceLanguage:
+                    google.elements.transliteration.LanguageCode.ENGLISH,
+                    destinationLanguage:
+                    [google.elements.transliteration.LanguageCode.URDU],
+                    shortcutKey: 'ctrl+e',
+                    transliterationEnabled: true
+                };
+
                 // Create an instance on TransliterationControl with the required
                 // options.
                 var control = new google.elements.transliteration.TransliterationControl(options);
-
+                var control1 = new google.elements.transliteration.TransliterationControl(options);
                 // Enable transliteration in the textbox with id
                 // 'transliterateTextarea'.
                 control.makeTransliteratable(['transliterateTextarea']);
-
+                control.makeTransliteratable(['direction_area']);
                 // Enable transliteration in the textbox with id
                 // 'transliterateTextarea'.
-                control.makeTransliteratable(['direction_area']);
+                
             }
             google.setOnLoadCallback(onLoad);
+
+            function copyContents()
+            {
+                var originalArea = document.getElementById("direction_area").value;
+                var labelValue = document.getElementById("<%= directionArea_copy.ClientID %>");
+                labelValue.value = originalArea;
+                return true;
+            }
+
+            window.onLoad = function ()
+            {
+                var originalArea = document.getElementById("direction_area");
+                var labelValue = document.getElementById("<%= directionArea_copy.ClientID %>");
+                originalArea.value = labelValue.value;
+            }
+
         </script>
         <script type="text/javascript">
             function HideLabel() {
@@ -50,15 +75,15 @@
         <script type = "text/javascript">
             function Radio_Click() {
                 var radio1 = document.getElementById("<%=directions_check.ClientID %>");
-               var textBox = document.getElementById("<%=directions_txt.ClientID %>");
-               textBox.disabled = !radio1.checked;
-               textBox.focus();
+                var textBox = document.getElementById("<%=directions_txt.ClientID %>");
+                textBox.disabled = !radio1.checked;
+                textBox.focus();
 
-               var checkBox1 = document.getElementById("<%=directions_check.ClientID %>");
+                var checkBox1 = document.getElementById("<%=directions_check.ClientID %>");
                 var dropDown = document.getElementById("<%=DropDownList2.ClientID %>");
-               dropDown.disabled = !checkBox1.checked;
-               dropDown.focus();
-           }
+                dropDown.disabled = !checkBox1.checked;
+                dropDown.focus();
+            }
 </script>
 
     </head>
@@ -71,7 +96,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form runat="server">
+                <form runat="server" id="form1">
                     <div class="alert alert-success alert-dismissible" role="alert" runat="server" visible="false" id="alert_success">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <p>Problem Added Successfully!</p>
@@ -191,8 +216,6 @@
 
                                         <ItemTemplate>
                                             <textarea id="transliterateTextarea" name="temp" style="width: 150px"></textarea>
-
-
                                         </ItemTemplate>
 
                                         <ControlStyle Width="150px"></ControlStyle>
@@ -277,15 +300,16 @@
                     
                         <div class="form-group col-sm-6">
                             <div class="col-sm-10">
-                                <textarea id="direction_area" cols="20" rows="4" class="form-control" runat="server"></textarea>
+                                <textarea id="direction_area" class="form-control"></textarea>
                             </div>
+                            <textarea id="directionArea_copy" class="form-control" runat="server" style="display:none"></textarea>
                             <label class="col-sm-2">ہدایات</label>
                         </div>
                     </div>
                         <br /><br /><br />
 
                         <div class="pull-right">
-                            <asp:Button ID="Submit_btn" runat="server" Text="Save" Style="margin-left: 2px" type="submit" class="btn btn-primary" OnClick="add_Problem" />
+                            <asp:Button ID="Submit_btn" runat="server" Text="Save" Style="margin-left: 2px" type="submit" class="btn btn-primary" OnClientClick="return copyContents()" OnClick="add_Problem" />
                         </div>
                     </div>
                     </form>
