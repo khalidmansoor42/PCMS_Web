@@ -35,6 +35,7 @@ namespace PCMS_Web.Receptionist
         {
             fullName_txt.Text = GridView1.SelectedRow.Cells[2].Text;
             patientId_txt.Text= GridView1.SelectedRow.Cells[1].Text;
+            Session["PatientId"] = GridView1.SelectedRow.Cells[1].Text;
         }
 
         protected void printReceipt_btn_Click(object sender, EventArgs e)
