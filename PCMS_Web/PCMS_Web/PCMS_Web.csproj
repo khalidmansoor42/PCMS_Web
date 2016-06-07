@@ -224,7 +224,6 @@
     <Content Include="Doctor\diagnoses.aspx" />
     <Content Include="Doctor\visitReport.aspx" />
     <Content Include="Doctor\patientHistory.aspx" />
-    <Content Include="Doctor\mentalStateExamination.aspx" />
     <Content Include="Doctor\psychometricEvaluation.aspx" />
     <Content Include="Doctor\counselling.aspx" />
     <Content Include="Doctor\admission.aspx" />
@@ -1401,13 +1400,6 @@
     </Compile>
     <Compile Include="Doctor\patientHistory.aspx.designer.cs">
       <DependentUpon>patientHistory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Doctor\mentalStateExamination.aspx.cs">
-      <DependentUpon>mentalStateExamination.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Doctor\mentalStateExamination.aspx.designer.cs">
-      <DependentUpon>mentalStateExamination.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\psychometricEvaluation.aspx.cs">
       <DependentUpon>psychometricEvaluation.aspx</DependentUpon>
