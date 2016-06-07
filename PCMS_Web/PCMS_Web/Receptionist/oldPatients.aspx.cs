@@ -51,7 +51,7 @@ namespace PCMS_Web.Receptionist
                         try
                         {
                             SqlConnection myConn = new SqlConnection(constring);
-                            String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name,noti)values(@patient_reg, @date, @visit, @Refdoc, @userName,@noti);  insert into receipt (token_no,patient_reg,employee_id,total,Date,visit_no,receiptdate )values (@token, @patient_reg, @Refdoc, @fee, @date, @visit, @date)  ;";
+                            String query = "insert into visit(patient_reg,visit_date,visit_no,employee_id,user_name,noti)values(@patient_reg, @date, @visit, @Refdoc, @userName,@noti);  insert into receipt (token_no,patient_reg,employee_id,total,Date,visit_no,receiptdate )values (@token, @patient_reg, @Refdoc, @fee, @date, @visit, @date);INSERT INTO Formulation (id,medication,investigation,counselling,direction,visit_no)VALUES(@patient_reg,'1','1','1','1',@visit)  ;";
                             SqlCommand SelectCommand = new SqlCommand(query, myConn);
                             SqlDataReader myReader;
                             myConn.Open();
