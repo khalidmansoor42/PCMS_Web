@@ -88,14 +88,14 @@ namespace PCMS_Web.Doctor
                 myConn.Open();
                 SelectCommand.Parameters.Add(new SqlParameter("@patient_reg", id));
                 SelectCommand.Parameters.Add(new SqlParameter("@noti", 3));
-                    SelectCommand.Parameters.Add(new SqlParameter("@visit", visit));
+                SelectCommand.Parameters.Add(new SqlParameter("@visit", visit));
                 myReader = SelectCommand.ExecuteReader();
                 }
                 finally
                 {
-                myConn.Close();
-            }
-        }           
+                  myConn.Close();
+                }
+            }           
             catch (Exception)
             {
             }
@@ -171,7 +171,7 @@ namespace PCMS_Web.Doctor
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = user_query;
-           try {
+            try {
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -216,7 +216,6 @@ namespace PCMS_Web.Doctor
             }
             return PatientRegisterToday;
         }
-
         [System.Web.Services.WebMethod]
         public static string patientList()
         {

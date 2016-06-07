@@ -425,6 +425,7 @@ namespace PCMS_Web.Doctor
                     if (dr["Illusions"].ToString() == "1")
                     {
                         yesIllusions_radio.Checked = true;
+                        noIllusions_radio.Checked = false;
                         illusions_area.Value = dr["IllusionsText"].ToString();
                     }
                     else
@@ -857,7 +858,7 @@ namespace PCMS_Web.Doctor
                 else
                 {
                     cmd.Parameters.AddWithValue("@Illusions", 0);
-                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
+                    cmd.Parameters.AddWithValue("@IllusionsText","");
                 }
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Orientation", Orientation_dd.SelectedItem.Text);
@@ -925,7 +926,7 @@ namespace PCMS_Web.Doctor
         {
 
 
-            string query = "Update mentalStateExamination set Physical_Appearance = @Physical_Appearance, Dress = @Dress,  Posture = @Posture, Rapport = @Rapport, Eye_Contact = @Eye_Contact, Cooperative = @Cooperative, Communicative = @Communicative, Psychomotor_activity =@Psychomotor_activity,Movements = @Movements,Involuntary =@Involuntary,Voluntary = @Voluntary,Speech = @Speech,Tone = @Tone,Relevance = @Relevance ,Coherence = @Coherence,Volume = @Volume ,volume2 = @volume2 ,Sample_of_talk = @Sample_of_talk ,mood_Subjective = @mood_Subjective ,mood_Objective = @mood_Objective ,Stream_of_thoughts_Poverty = @Stream_of_thoughts_Poverty ,Stream_of_thoughts_Pressure = @Stream_of_thoughts_Pressure ,Stream_of_thoughts_Thought = @Stream_of_thoughts_Thought ,Flight_of_Ideas = @Flight_of_Ideas ,Clang_association = @Clang_association ,Loosening_of_association = @Loosening_of_association ,Knights_move = @Knights_move ,Derailment = @Derailment ,Word_salad = @Word_salad ,Taking_past_the_point = @Taking_past_the_point ,Tangentiality = @Tangentiality ,Circumstanciality = @Circumstanciality,Preservation = @Preservation,Neologism = @Neologism ,Suicidal_Ideatio =@Suicidal_Ideatio ,Homicidal_Ideation = @Homicidal_Ideation,Hopelessness = @Hopelessness ,Helplessness = @Helplessness ,Worthlessness =@Worthlessness ,DelusionsType = @DelusionsType,DelusionsContent = @DelusionsContent ,Delusions_of_reference = @Delusions_of_reference ,Grandiose_guilt = @Grandiose_guilt ,Nihilistic = @Nihilistic ,Hypochondriacal = @Hypochondriacal ,Religious = @Religious ,Sexual = @Sexual ,Delusion_of_control = @Delusion_of_control ,Thought_insertion = @Thought_insertion ,Withdrawal = @Withdrawal ,Thought_broadcasting = @Thought_broadcasting ,Obsessive_Compulsive_Phenomena =@Obsessive_Compulsive_Phenomena ,PHOBIAS = @PHOBIAS ,Disorders_Of_Perception =@Disorders_Of_Perception ,Depersonalization = @Depersonalization ,hallucinations = @hallucinations ,Auditory_redio = @Auditory_redio ,Illusions = @Illusions ,IllusionsText = @IllusionsText ,Consciousness =@Consciousness ,Orientation = @Orientation ,Serial_Seven = @Serial_Seven ,Serial_Three = @Serial_Three ,Serial_Seven_Text = @Serial_Seven_Text,Serial_Three_Text = @Serial_Three_Text ,Intelligence = @Intelligence ,IQ = @IQ ,Memory = @Memory ,Judgement = @Judgement ,General_Knowledge = @General_Knowledge ,Concrete_thinking = @Concrete_thinking ,Concrete_thinking_Text =@Concrete_thinking_Text ,Abstrac_thinking = @Abstrac_thinking ,Insight = @Insight  where patient_id ='561604'";
+            string query = "Update mentalStateExamination set Physical_Appearance=@Physical_Appearance,Dress=@Dress,Posture=@Posture, Rapport=@Rapport, Eye_Contact=@Eye_Contact,Cooperative=@Cooperative,Communicative=@Communicative,Psychomotor_activity =@Psychomotor_activity,Movements = @Movements,Involuntary =@Involuntary,Voluntary = @Voluntary,Speech = @Speech,Tone = @Tone,Relevance = @Relevance ,Coherence = @Coherence,Volume = @Volume ,volume2 = @volume2 ,Sample_of_talk = @Sample_of_talk ,mood_Subjective = @mood_Subjective ,mood_Objective = @mood_Objective ,Stream_of_thoughts_Poverty = @Stream_of_thoughts_Poverty ,Stream_of_thoughts_Pressure = @Stream_of_thoughts_Pressure ,Stream_of_thoughts_Thought = @Stream_of_thoughts_Thought ,Flight_of_Ideas = @Flight_of_Ideas ,Clang_association = @Clang_association ,Loosening_of_association = @Loosening_of_association ,Knights_move = @Knights_move ,Derailment = @Derailment ,Word_salad = @Word_salad ,Taking_past_the_point = @Taking_past_the_point ,Tangentiality = @Tangentiality ,Circumstanciality = @Circumstanciality,Preservation = @Preservation,Neologism = @Neologism ,Suicidal_Ideatio =@Suicidal_Ideatio ,Homicidal_Ideation = @Homicidal_Ideation,Hopelessness = @Hopelessness ,Helplessness = @Helplessness ,Worthlessness =@Worthlessness ,DelusionsType = @DelusionsType,DelusionsContent = @DelusionsContent ,Delusions_of_reference = @Delusions_of_reference ,Grandiose_guilt = @Grandiose_guilt ,Nihilistic = @Nihilistic ,Hypochondriacal = @Hypochondriacal ,Religious = @Religious ,Sexual = @Sexual ,Delusion_of_control = @Delusion_of_control ,Thought_insertion = @Thought_insertion ,Withdrawal = @Withdrawal ,Thought_broadcasting = @Thought_broadcasting ,Obsessive_Compulsive_Phenomena =@Obsessive_Compulsive_Phenomena ,PHOBIAS = @PHOBIAS ,Disorders_Of_Perception =@Disorders_Of_Perception ,Depersonalization = @Depersonalization ,hallucinations = @hallucinations ,Auditory_redio = @Auditory_redio ,Illusions = @Illusions ,IllusionsText = @IllusionsText ,Consciousness =@Consciousness ,Orientation = @Orientation ,Serial_Seven = @Serial_Seven ,Serial_Three = @Serial_Three ,Serial_Seven_Text = @Serial_Seven_Text,Serial_Three_Text = @Serial_Three_Text ,Intelligence = @Intelligence ,IQ = @IQ ,Memory = @Memory ,Judgement = @Judgement ,General_Knowledge = @General_Knowledge ,Concrete_thinking = @Concrete_thinking ,Concrete_thinking_Text =@Concrete_thinking_Text ,Abstrac_thinking = @Abstrac_thinking ,Insight = @Insight  where patient_id =@patient_id";
 
             try
             {
@@ -1287,7 +1288,7 @@ namespace PCMS_Web.Doctor
                 else
                 {
                     cmd.Parameters.AddWithValue("@Illusions", 0);
-                    cmd.Parameters.AddWithValue("@IllusionsText", illusions_area.Value);
+                    cmd.Parameters.AddWithValue("@IllusionsText","");
                 }
                 cmd.Parameters.AddWithValue("@Consciousness", consciouness_dd.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@Orientation", Orientation_dd.SelectedItem.Text);

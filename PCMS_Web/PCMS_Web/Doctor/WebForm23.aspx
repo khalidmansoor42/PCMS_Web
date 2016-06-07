@@ -1,28 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="formulation.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm9" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="WebForm23.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm23" %>
+
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <head>
-    <script type="text/javascript">
-        
-    </script>
-</head>
-    
-    <form runat="server">  
-      <div class="alert alert-success alert-dismissible" role="alert" runat="server" visible="false" id="alert_success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <p>Added Successfully!</p>
-      </div>
-      <div class="alert alert-danger alert-dismissible" role="alert" runat="server" visible="false" id="alert_fail">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <asp:Label runat="server" ID="error"></asp:Label>
-      </div>  
+    <form runat="server" class="form-inline">
         <div class="col-sm-12">
-            <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Formulation</h3>
-                </div>
-                <div class="box-body">
-                   <div class="col-sm-12">
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Prescription Report</h3>
@@ -34,7 +15,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label class="col-sm-3 control-label">Visit Number:</label>
-                        <asp:DropDownList Enabled="false" ID="DropDownList1" class="col-sm-4 form-control" runat="server" DataSourceID="visitDetail" DataTextField="visit_no" DataValueField="visit_no"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownList1" class="col-sm-4 form-control" runat="server" DataSourceID="visitDetail" DataTextField="visit_no" DataValueField="visit_no"></asp:DropDownList>
                         <asp:ObjectDataSource ID="visitDetail" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PCMS_Web.AppData.visitReportDataSetTableAdapters.visitTableAdapter">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="patient" PropertyName="Text" Name="Param1" Type="Int32"></asp:ControlParameter>
@@ -354,32 +335,5 @@
                     </div>
                 </div>
             </div>
-                </div>    
-                 <br/><br /><br />
-                
-                <div class="row">
-                        <label class="col-sm-2 col-sm-offset-2 control-label">Management Plans</label>
-                        <div class="col-sm-8">
-                            <label class="checkbox-inline">
-                                <asp:CheckBox ID="medication_cb" runat="server" /> Medication
-                            </label>
-                            <label class="checkbox-inline">
-                              <asp:CheckBox ID="investigation_cb" runat="server" /> Investigation
-                            </label>
-                            <label class="checkbox-inline">
-                              <asp:CheckBox ID="counseliing_cb" runat="server" /> Counselling
-                            </label>
-                            <label class="checkbox-inline">
-                              <asp:CheckBox ID="direction_cb" runat="server" /> Direction
-                            </label>
-                        </div>
-                    </div>
-                <div class="box-footer">
-                    <asp:Button ID="submit_btn" runat="server" Text="Save" CssClass="btn btn-info pull-right" OnClick="addFormulation"/>
-                    <asp:Button ID="update" runat="server" Text="Update" CssClass="btn btn-info pull-right" OnClick="update_Click" />
-
-                </div>
-            </div>
-        </div>
-    </form>
+          </form>
 </asp:Content>

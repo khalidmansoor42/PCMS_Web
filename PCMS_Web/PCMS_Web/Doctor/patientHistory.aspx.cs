@@ -947,19 +947,19 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@pastPsychHistoryText", pastPsychiatricHistory_area.InnerText);
                 if (Radio1.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 0);
+                    cmd.Parameters.AddWithValue("@cureRb", 1);
                 }
                 else if (Radio2.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 1);
+                    cmd.Parameters.AddWithValue("@cureRb", 2);
                 }
                 else if (Radio3.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 2);
+                    cmd.Parameters.AddWithValue("@cureRb", 3);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 3);
+                    cmd.Parameters.AddWithValue("@cureRb", 4);
                 }
                 //previous admission radios
                 if (yesPreviousAdmission_radio.Checked == true)
@@ -1063,11 +1063,11 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@postnatalText", postnatal_dd.SelectedItem.Text);
                 if (normal_radio.Checked)
                 {
-                    cmd.Parameters.AddWithValue("@milestoneRb", 0);
+                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
                 }
                 else if (delayed_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
+                    cmd.Parameters.AddWithValue("@milestoneRb", 2);
                 }
                 else
                 { }
@@ -1077,17 +1077,17 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
                 if (good_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 0);
+                    cmd.Parameters.AddWithValue("@educationRb", 1);
                 }
 
                 else if (average_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 1);
+                    cmd.Parameters.AddWithValue("@educationRb", 2);
                 }
 
                 else if (belowAverage_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 2);
+                    cmd.Parameters.AddWithValue("@educationRb", 3);
                 }
                 else
                 { }
@@ -1265,19 +1265,19 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@pastPsychHistoryText", pastPsychiatricHistory_area.InnerText);
                 if (Radio1.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 0);
+                    cmd.Parameters.AddWithValue("@cureRb", 1);
                 }
                 else if (Radio2.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 1);
+                    cmd.Parameters.AddWithValue("@cureRb", 2);
                 }
                 else if (Radio3.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 2);
+                    cmd.Parameters.AddWithValue("@cureRb", 3);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("@cureRb", 3);
+                    cmd.Parameters.AddWithValue("@cureRb", 4);
                 }
                 //previous admissions radio
                 if (yesPreviousAdmission_radio.Checked == true)
@@ -1381,11 +1381,11 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@postnatalText", postnatal_dd.SelectedItem.Text);
                 if (normal_radio.Checked)
                 {
-                    cmd.Parameters.AddWithValue("@milestoneRb", 0);
+                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
                 }
                 else if (delayed_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@milestoneRb", 1);
+                    cmd.Parameters.AddWithValue("@milestoneRb", 2);
                 }
                 else
                 { }
@@ -1395,17 +1395,17 @@ namespace PCMS_Web.Doctor
                 cmd.Parameters.AddWithValue("@schoolingText", startOfSchooling_area.InnerText);
                 if (good_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 0);
+                    cmd.Parameters.AddWithValue("@educationRb", 1);
                 }
 
                 else if (average_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 1);
+                    cmd.Parameters.AddWithValue("@educationRb", 2);
                 }
 
                 else if (belowAverage_radio.Checked == true)
                 {
-                    cmd.Parameters.AddWithValue("@educationRb", 2);
+                    cmd.Parameters.AddWithValue("@educationRb", 3);
                 }
                 else
                 { }
