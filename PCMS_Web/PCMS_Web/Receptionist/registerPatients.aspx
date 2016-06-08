@@ -10,7 +10,6 @@
             <!-- form start -->
             <form class="form-horizontal" runat="server">
               <div class="box-body">
-
                 <div class="row">
                     <h4 class="col-sm-4 control-label" style="display:block; text-align:left;">Personal Details</h4>
                 </div>
@@ -19,12 +18,12 @@
                     <div class="form-group col-sm-6">
                       <label class="col-sm-4 control-label">Patient ID</label>
                       <div class="col-sm-8">
-                        <asp:TextBox  ID="patientId_txt" ReadOnly  CssClass="form-control" runat="server" ></asp:TextBox>
+                        <asp:TextBox  ID="patientId_txt" ReadOnly="true"  CssClass="form-control" runat="server" ></asp:TextBox>
                       </div>
                     </div> 
-                    <div class="form-group col-sm-6">
+                    <%--<div class="form-group col-sm-6">
                    <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="true" CssClass="btn btn-primary"/>
-                    </div>
+                    </div>--%>
                       </div>                  
                 </div>
                   <br />
@@ -210,36 +209,6 @@
                 </div>
           </div>
         </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#dateOfBorth").val('02/22/2014 00:00:00');
-        });
-        
-        function calculate_DOB()
-        {
-            var obj = {};
-            obj.age = $.trim($("[id*=TextBox1]").val());
-            $.ajax({
-                    type: "POST",
-                    url: "registerPatients.aspx/ServerSideMethod",
-                    data: JSON.stringify(obj),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (r) {
-                        var msg = r.d;
-                       
-                        document.getElementById("date").value = msg
-                        alert(msg);
-                        //document.getElementById('dateOfBorth').value = r.d;;
-
-
-                         }
-
-                })
-                return false;
-        }
-    </script>
 
 </asp:Content>
