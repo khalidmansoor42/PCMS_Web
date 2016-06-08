@@ -431,9 +431,7 @@ namespace PCMS_Web.Doctor
                     else
                     {
                         noIllusions_radio.Checked = true;
-                        yesIllusions_radio.Checked = false;
-
-                        illusions_area.Value = ""; ;
+                        illusions_area.Value = dr["IllusionsText"].ToString();
                     }
 
 

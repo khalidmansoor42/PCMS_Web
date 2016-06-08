@@ -229,7 +229,7 @@
                     <div class="row">
                         <br />
                         <div class="form-group col-sm-6">
-                            <div class="col-sm-7 col-sm-offset-3">
+                            <div class="col-sm-9 col-sm-offset-3">
                                 <asp:DropDownList ID="speech_dd" CssClass="form-control" runat="server">
                                     <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Spontaneous</asp:ListItem>
@@ -278,7 +278,8 @@
                             </div>
                         </div>
                         <div class="form-group col-sm-6">
-                            <div class="col-sm-7 col-sm-offset-3">
+                            <label class="col-sm-3">Speech Relevance</label>
+                            <div class="col-sm-7">
                             <asp:DropDownList ID="relevant_dd" CssClass="form-control" runat="server">
                                 <asp:ListItem>None</asp:ListItem>
                                     <asp:ListItem>Relevant</asp:ListItem>
@@ -660,11 +661,11 @@
                         <label class="col-sm-2">Illusions</label>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input runat="server" type="radio"  onclick="" name="inlineRadio3" id="yesIllusions_radio" value="option1">
+                                <input runat="server" type="radio" checked onclick="" name="inlineRadioOptions50" id="yesIllusions_radio" value="option1">
                                 Yes
                             </label>
                             <label class="radio-inline">
-                                <input runat="server" type="radio" checked onclick="" name="inlineRadio3" id="noIllusions_radio"  value="option2">
+                                <input runat="server" type="radio" onclick="" name="inlineRadioOptions50" id="noIllusions_radio" checked value="option2">
                                 No
                             </label>
                         </div>
