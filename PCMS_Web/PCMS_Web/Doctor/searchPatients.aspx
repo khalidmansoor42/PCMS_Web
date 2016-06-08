@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Doctor/doctorMaster.Master" AutoEventWireup="true" CodeBehind="searchPatients.aspx.cs" Inherits="PCMS_Web.Doctor.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-        
+        <div class="row">
             <div class="col-sm-12">
             <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Update Patient Record</h3>
             </div>
-
+                <form runat="server">
+                    <div class="box-body">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-6">
                     <asp:TextBox ID="searchPatient_txt" runat="server" CssClass="form-control" placeholder="Enter Patient Name Here"></asp:TextBox>
@@ -104,7 +104,9 @@
                 
             </div>
                 <br/><br/>
+                        </div>
+                </form>
             </div>
         </div>
-    </form>
+            </div>
 </asp:Content>

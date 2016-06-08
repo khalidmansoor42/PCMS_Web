@@ -23,7 +23,7 @@
                       </div>
                     </div> 
                     <div class="form-group col-sm-6">
-                   <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="true" CssClass="btn btn-primary"/>
+                    
                     </div>
                       </div>                  
                 </div>
@@ -200,10 +200,7 @@
 
               <!-- /.box-body -->
               <div class="box-footer">
-                  <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="btn btn-info pull-right" style="margin-left:5px"/>
                   <asp:Button ID="saveBtn" runat="server" Text="Save" CssClass="btn btn-primary pull-right" style="margin-left:5px" OnClick="saveBtn_Click"/>
-                  <asp:Button ID="clearBtn" runat="server" Text="Clear" CssClass="btn btn-danger pull-right" style="margin-left:5px"/>
-                  <asp:Button ID="searchBtn" runat="server" Text="Search" CssClass="btn btn-default pull-right" style="margin-left:5px"/>
               </div>
               <!-- /.box-footer -->
             </form>

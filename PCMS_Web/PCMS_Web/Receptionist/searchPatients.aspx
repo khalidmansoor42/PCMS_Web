@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Receptionist/receptionMaster.Master" AutoEventWireup="true" CodeBehind="searchPatients.aspx.cs" Inherits="PCMS_Web.Receptionist.searchPatients" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-
-        <div class="col-sm-12">
+    <div class="row">   
+     <div class="col-sm-12">
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Update Patient Record</h3>
                 </div>
-
+                <form runat="server">
+                    <div class="box-body">
                 <div class="row">
                     <div class="col-sm-4">
                         <asp:DropDownList ID="cityDDl" runat="server" CssClass="form-control" AppendDataBoundItems="true" DataSourceID="CityDataSource" DataTextField="city_name" DataValueField="city_name">
@@ -167,7 +167,9 @@
                 </div>
                 <br />
                 <br />
+                        </div>
+                    </form>
             </div>
         </div>
-    </form>
+        </div>
 </asp:Content>

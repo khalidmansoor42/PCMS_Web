@@ -302,6 +302,9 @@
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="Web.iisProfile.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1129,9 +1132,7 @@
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="Receptionist\PatientInvoice.aspx" />
     <Content Include="Receptionist\prescription.aspx" />
-    <Content Include="Receptionist\scheduleAppointment.aspx" />
     <Content Include="Receptionist\addPicture.aspx" />
-    <Content Include="Receptionist\WebForm12.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1539,26 +1540,12 @@
     <Compile Include="Receptionist\prescription.aspx.designer.cs">
       <DependentUpon>prescription.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\scheduleAppointment.aspx.cs">
-      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\scheduleAppointment.aspx.designer.cs">
-      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Receptionist\addPicture.aspx.cs">
       <DependentUpon>addPicture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Receptionist\addPicture.aspx.designer.cs">
       <DependentUpon>addPicture.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\WebForm12.aspx.cs">
-      <DependentUpon>WebForm12.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\WebForm12.aspx.designer.cs">
-      <DependentUpon>WebForm12.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
