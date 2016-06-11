@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
@@ -18,12 +17,16 @@ namespace PCMS_Web.Receptionist
         protected void Page_Load(object sender, EventArgs e)
         {
             //// creates a number between 1 and 12
-            int month = rnd.Next(1, 100);
-            patientId_txt.Text = Convert.ToString(month) + DateTime.Today.ToString("yyMM");
+            if(!Page.IsPostBack)
+            {
+                int month = rnd.Next(1, 100);
+                patientId_txt.Text = Convert.ToString(month)+DateTime.Today.ToString("yyMM");
+            }
         }
+
         protected void saveBtn_Click(object sender, EventArgs e)
         {
-            string ageYear = ageCal.SelectedValue;
+            string ageYear = ageCal.SelectedItem.Text;
             string dob = "";
             string age = TextBox1.Text;
 
@@ -43,6 +46,7 @@ namespace PCMS_Web.Receptionist
                 words[1] = dateofbirth;
                 dob = words[0] + "-" + words[1] + "-" + words[2];
             }
+
             try
             {
                 string constring = ConfigurationManager.ConnectionStrings["PCMS_ConnectionString"].ConnectionString;
@@ -64,7 +68,7 @@ namespace PCMS_Web.Receptionist
                 else
                 {
                     SelectCommand1.Parameters.Add(new SqlParameter("@gender", Convert.ToInt32(0)));
-                }
+                };
                 SelectCommand1.Parameters.Add(new SqlParameter("@address", TextArea1.Value));
                 SelectCommand1.Parameters.Add(new SqlParameter("@cityid", Convert.ToInt32(city_dd.SelectedValue)));
                 SelectCommand1.Parameters.Add(new SqlParameter("@mobile", mobileNumber.Text));
@@ -74,10 +78,11 @@ namespace PCMS_Web.Receptionist
                 SelectCommand1.Parameters.Add(new SqlParameter("@attmob", attMobile.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@DOB", dob));
                 SelectCommand1.Parameters.Add(new SqlParameter("@referDoctorID", Convert.ToInt32(1)));
-                SelectCommand1.Parameters.Add(new SqlParameter("@MaritalStatus", maritalStatus_dd.SelectedValue));
-                SelectCommand1.Parameters.Add(new SqlParameter("@education", patientEducation_dd.SelectedValue));
+                SelectCommand1.Parameters.Add(new SqlParameter("@MaritalStatus", maritalStatus_dd.SelectedItem.Text));
+                SelectCommand1.Parameters.Add(new SqlParameter("@education", patientEducation_dd.SelectedItem.Text));
                 SelectCommand1.Parameters.Add(new SqlParameter("@regDate", DateTime.Now.ToString("yyyy-MM-dd")));
                 SelectCommand1.Parameters.Add(new SqlParameter("@occupation_id", Convert.ToInt32(occupationStatus_dd.SelectedValue)));
+                //SelectCommand1.Parameters.Add(new SqlParameter("@path",path));
                 if (reliableRadio.Checked == true)
                 {
                     SelectCommand1.Parameters.Add(new SqlParameter("@source", Convert.ToInt32(1)));
@@ -88,13 +93,14 @@ namespace PCMS_Web.Receptionist
                 }
                 myReader1 = SelectCommand1.ExecuteReader();
                 con.Close();
-                Response.Redirect("assignDoctor.aspx?id="+patientId_txt.Text, false);
-               
+                string url = "assignDoctor.aspx?id=" + patientId_txt.Text;
+                Response.Redirect(url,false);
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex + "')</script>");
             }
+
         }        
         }
 }

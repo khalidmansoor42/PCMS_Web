@@ -302,6 +302,9 @@
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="Web.iisProfile.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1129,7 +1132,6 @@
     <Content Include="Receptionist\myProfile.aspx" />
     <Content Include="Receptionist\PatientInvoice.aspx" />
     <Content Include="Receptionist\prescription.aspx" />
-    <Content Include="Receptionist\scheduleAppointment.aspx" />
     <Content Include="Receptionist\addPicture.aspx" />
     <Content Include="starter.html" />
     <Content Include="Web.config">
@@ -1537,13 +1539,6 @@
     </Compile>
     <Compile Include="Receptionist\prescription.aspx.designer.cs">
       <DependentUpon>prescription.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Receptionist\scheduleAppointment.aspx.cs">
-      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Receptionist\scheduleAppointment.aspx.designer.cs">
-      <DependentUpon>scheduleAppointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Receptionist\addPicture.aspx.cs">
       <DependentUpon>addPicture.aspx</DependentUpon>
